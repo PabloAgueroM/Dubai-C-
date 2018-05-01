@@ -1,0 +1,17 @@
+E:\ProyectoLP2\Clases\bin\Debug\Clases.exe.config
+E:\ProyectoLP2\Clases\bin\Debug\Clases.exe
+E:\ProyectoLP2\Clases\bin\Debug\Clases.pdb
+E:\ProyectoLP2\Clases\obj\Debug\Clases.exe
+E:\ProyectoLP2\Clases\obj\Debug\Clases.pdb
+C:\Users\alulab14\Desktop\ProyectoLP2\Clases\bin\Debug\Clases.exe.config
+C:\Users\alulab14\Desktop\ProyectoLP2\Clases\bin\Debug\Clases.exe
+C:\Users\alulab14\Desktop\ProyectoLP2\Clases\bin\Debug\Clases.pdb
+C:\Users\alulab14\Desktop\ProyectoLP2\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+C:\Users\alulab14\Desktop\ProyectoLP2\Clases\obj\Debug\Clases.exe
+C:\Users\alulab14\Desktop\ProyectoLP2\Clases\obj\Debug\Clases.pdb
+C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\bin\Debug\Clases.exe.config
+C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\bin\Debug\Clases.exe
+C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\bin\Debug\Clases.pdb
+C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\obj\Debug\Clases.exe
+C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\obj\Debug\Clases.pdb

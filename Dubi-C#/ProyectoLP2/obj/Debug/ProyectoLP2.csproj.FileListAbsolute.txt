@@ -1,0 +1,14 @@
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\ProyectoLP2.exe.config
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\ProyectoLP2.exe
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\ProyectoLP2.pdb
+E:\ProyectoLP2\ProyectoLP2\obj\Debug\ProyectoLP2.csprojResolveAssemblyReference.cache
+E:\ProyectoLP2\ProyectoLP2\obj\Debug\ProyectoLP2.Properties.Resources.resources
+E:\ProyectoLP2\ProyectoLP2\obj\Debug\ProyectoLP2.csproj.GenerateResource.Cache
+E:\ProyectoLP2\ProyectoLP2\obj\Debug\ProyectoLP2.exe
+E:\ProyectoLP2\ProyectoLP2\obj\Debug\ProyectoLP2.pdb
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\Vista.exe
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\Clases.exe
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\Vista.pdb
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\Vista.exe.config
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\Clases.pdb
+E:\ProyectoLP2\ProyectoLP2\bin\Debug\Clases.exe.config
