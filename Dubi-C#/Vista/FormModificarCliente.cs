@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using Clases;
 namespace Vista
 {
-    public partial class Form4 : Form
+    public partial class FormModificarCliente : Form
     {
         private BindingList<Cliente> listaClientes = new BindingList<Cliente>();
-        public Form4(BindingList<Cliente> listaCliente)
+        public FormModificarCliente(BindingList<Cliente> listaCliente)
         {
             InitializeComponent();
             this.listaClientes = listaCliente;
@@ -21,7 +21,7 @@ namespace Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form5 listadoClientes = new Form5(listaClientes);
+            FormBuscarCliente listadoClientes = new FormBuscarCliente(listaClientes);
             if (listadoClientes.ShowDialog() == DialogResult.OK) {
 
             }

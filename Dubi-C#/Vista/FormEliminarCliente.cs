@@ -7,24 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Clases;
 namespace Vista
 {
-    public partial class Form7 : Form
+    public partial class FormEliminarCliente : Form
     {
-        public Form7()
+        public FormEliminarCliente(BindingList<Cliente> listaCliente)
         {
             InitializeComponent();
+            dataGridView1.DataSource = listaCliente;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dispose();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Dispose();
+            FormEliminarCliente2 verificacion = new FormEliminarCliente2();
+            verificacion.ShowDialog();
         }
     }
 }

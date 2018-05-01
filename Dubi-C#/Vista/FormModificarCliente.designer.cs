@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Form4
+    partial class FormModificarCliente
     {
         /// <summary>
         /// Required designer variable.

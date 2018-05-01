@@ -10,18 +10,22 @@ using System.Windows.Forms;
 using Clases;
 namespace Vista
 {
-    public partial class Form6 : Form
+    public partial class FormBuscarCliente : Form
     {
-        public Form6(BindingList<Cliente> listaCliente)
+        public FormBuscarCliente()
         {
             InitializeComponent();
-            dataGridView1.DataSource = listaCliente;
+        }
+
+        public FormBuscarCliente(BindingList<Cliente> listaClientes)
+        {
+            InitializeComponent();
+            dataGridView1.DataSource = listaClientes;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form7 verificacion = new Form7();
-            verificacion.ShowDialog();
+
         }
     }
 }

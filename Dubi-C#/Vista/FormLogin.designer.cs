@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class LoginForm
+    partial class FormLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,16 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.zxczxcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zxczxczToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zxczxcToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.zcxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zxczxczxcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zxczxcxzczxcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -45,71 +36,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zxczxcToolStripMenuItem,
-            this.zxczxczToolStripMenuItem,
-            this.zxczxcToolStripMenuItem1,
-            this.zcxToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(112, 92);
-            // 
-            // zxczxcToolStripMenuItem
-            // 
-            this.zxczxcToolStripMenuItem.Name = "zxczxcToolStripMenuItem";
-            this.zxczxcToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.zxczxcToolStripMenuItem.Text = "zxczxc";
-            // 
-            // zxczxczToolStripMenuItem
-            // 
-            this.zxczxczToolStripMenuItem.Name = "zxczxczToolStripMenuItem";
-            this.zxczxczToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.zxczxczToolStripMenuItem.Text = "zxczxcz";
-            // 
-            // zxczxcToolStripMenuItem1
-            // 
-            this.zxczxcToolStripMenuItem1.Name = "zxczxcToolStripMenuItem1";
-            this.zxczxcToolStripMenuItem1.Size = new System.Drawing.Size(111, 22);
-            this.zxczxcToolStripMenuItem1.Text = "zxczxc";
-            // 
-            // zcxToolStripMenuItem
-            // 
-            this.zcxToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zxczxczxcToolStripMenuItem});
-            this.zcxToolStripMenuItem.Name = "zcxToolStripMenuItem";
-            this.zcxToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
-            this.zcxToolStripMenuItem.Text = "zcx";
-            // 
-            // zxczxczxcToolStripMenuItem
-            // 
-            this.zxczxczxcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zxczxcxzczxcToolStripMenuItem});
-            this.zxczxczxcToolStripMenuItem.Name = "zxczxczxcToolStripMenuItem";
-            this.zxczxczxcToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.zxczxczxcToolStripMenuItem.Text = "zxczxczxc";
-            // 
-            // zxczxcxzczxcToolStripMenuItem
-            // 
-            this.zxczxcxzczxcToolStripMenuItem.Name = "zxczxcxzczxcToolStripMenuItem";
-            this.zxczxcxzczxcToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.zxczxcxzczxcToolStripMenuItem.Text = "zxczxcxzczxc";
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(212, 135);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 32);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 3;
             this.button1.Text = "Entrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -119,7 +54,7 @@
             this.textBox1.Location = new System.Drawing.Point(272, 51);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(137, 20);
-            this.textBox1.TabIndex = 3; 
+            this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
@@ -127,7 +62,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(137, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBox2.TabIndex = 2;
             // 
             // label1
             // 
@@ -169,7 +104,7 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // LoginForm
+            // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -181,9 +116,8 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Name = "LoginForm";
-            this.Text = "Form1";
-            this.contextMenuStrip2.ResumeLayout(false);
+            this.Name = "FormLogin";
+            this.Text = "Iniciar Sesion";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -191,15 +125,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem zxczxcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zxczxczToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zxczxcToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem zcxToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zxczxczxcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zxczxcxzczxcToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

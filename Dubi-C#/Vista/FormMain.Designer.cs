@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class MainForm
+    partial class FormMain
     {
         /// <summary>
         /// Variable del diseñador necesaria.

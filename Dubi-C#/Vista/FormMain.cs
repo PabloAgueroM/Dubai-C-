@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class MainForm : Form
+    public partial class FormMain : Form
     {
-        public MainForm()
+        public FormMain()
         {
             InitializeComponent();
         }
@@ -13,6 +13,7 @@ namespace Vista
         private void button8_Click(object sender, EventArgs e)
         {
             Owner.Show();
+            Owner.Refresh();
             Dispose();
         }
 

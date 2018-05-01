@@ -31,13 +31,13 @@ namespace Vista
         private void button2_Click(object sender, EventArgs e)
         {
 
-            Form4 modificar = new Form4(listaClientes);            
+            FormModificarCliente modificar = new FormModificarCliente(listaClientes);            
             modificar.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form6 eliminar = new Form6(listaClientes);
+            FormEliminarCliente eliminar = new FormEliminarCliente(listaClientes);
             eliminar.ShowDialog();
         }
     }

@@ -18,19 +18,19 @@ namespace ProyectoLP2
         static void Main()
         {
             
-            Conexion conexion = Conexion.Instance();
-            conexion.DatabaseName = "inf282g5";
-            if (conexion.IsConnect())
-            {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new LoginForm());
-            }
-            else{ MessageBox.Show("Error en la conexion a la base de datos"); }
+            //Conexion conexion = Conexion.Instance();
+            //conexion.DatabaseName = "inf282g5";
+            //if (conexion.IsConnect())
+            //{
+            //    Application.EnableVisualStyles();
+            //    Application.SetCompatibleTextRenderingDefault(false);
+            //    Application.Run(new LoginForm());
+            //}
+            //else{ MessageBox.Show("Error en la conexion a la base de datos"); }
 
             
 
-            conexion.Close();
+            //conexion.Close();
         }
     }
 }

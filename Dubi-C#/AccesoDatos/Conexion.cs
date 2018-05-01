@@ -13,13 +13,6 @@ namespace AccesoDatos
         {
         }
 
-        private string databaseName = string.Empty;
-        public string DatabaseName
-        {
-            get { return databaseName; }
-            set { databaseName = value; }
-        }
-
         public string Password { get; set; }
         private MySqlConnection connection = null;
         public MySqlConnection Connection
@@ -27,21 +20,19 @@ namespace AccesoDatos
             get { return connection; }
         }
 
-        private static Conexion _instance = null;
-        public static Conexion Instance()
-        {
-            if (_instance == null)
-                _instance = new Conexion();
-            return _instance;
-        }
+        //private static Conexion _instance = null;
+        //public static Conexion Instance()
+        //{
+        //    if (_instance == null)
+        //        _instance = new Conexion();
+        //    return _instance;
+        //}
 
-        public bool IsConnect()
+        public bool IsConnected()
         {
             if (Connection == null)
             {
-                if (String.IsNullOrEmpty(databaseName))
-                    return false;
-                string connstring = string.Format("Server=200.16.7.96; database={0}; Username=inf282g5; password=KHjN45; SSLmode = none", databaseName);
+                string connstring = "Server=200.16.7.96; database=inf282g5; Username=inf282g5; password=KHjN45; SSLmode = none";
                 connection = new MySqlConnection(connstring);
                 connection.Open();
             }

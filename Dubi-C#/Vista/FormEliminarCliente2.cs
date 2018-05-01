@@ -7,25 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Clases;
+
 namespace Vista
 {
-    public partial class Form5 : Form
+    public partial class FormEliminarCliente2 : Form
     {
-        public Form5()
+        public FormEliminarCliente2()
         {
             InitializeComponent();
-        }
-
-        public Form5(BindingList<Cliente> listaClientes)
-        {
-            InitializeComponent();
-            dataGridView1.DataSource = listaClientes;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Dispose();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

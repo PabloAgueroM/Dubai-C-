@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Form5
+    partial class FormBuscarCliente
     {
         /// <summary>
         /// Required designer variable.

@@ -15,3 +15,9 @@ C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\bin\Debug\Clases.pdb
 C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
 C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\obj\Debug\Clases.exe
 C:\Users\alulab14\Desktop\ProyectoLP2\ProyectoLP2\Clases\obj\Debug\Clases.pdb
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe.config
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
