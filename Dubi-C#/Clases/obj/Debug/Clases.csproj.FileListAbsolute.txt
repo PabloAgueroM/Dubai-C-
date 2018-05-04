@@ -27,3 +27,9 @@ C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
 C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
 C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
 C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
+T:\asdasd\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe.config
+T:\asdasd\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe
+T:\asdasd\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
+T:\asdasd\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+T:\asdasd\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
+T:\asdasd\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb

@@ -36,10 +36,10 @@
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(311, 124);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 60);
+            this.button3.Size = new System.Drawing.Size(123, 78);
             this.button3.TabIndex = 7;
             this.button3.Text = "Eliminar Pedido";
             this.button3.UseVisualStyleBackColor = true;
@@ -47,10 +47,10 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(176, 124);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(167, 126);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 60);
+            this.button2.Size = new System.Drawing.Size(123, 78);
             this.button2.TabIndex = 6;
             this.button2.Text = "Modificar Pedido";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,10 +58,10 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(42, 124);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(29, 124);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 60);
+            this.button1.Size = new System.Drawing.Size(123, 78);
             this.button1.TabIndex = 5;
             this.button1.Text = "Insertar Pedido";
             this.button1.UseVisualStyleBackColor = true;

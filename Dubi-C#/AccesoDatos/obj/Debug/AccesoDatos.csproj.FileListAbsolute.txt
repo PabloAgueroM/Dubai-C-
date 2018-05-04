@@ -50,3 +50,11 @@ C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe.config
 C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
 C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
 C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.dll
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.pdb
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.pdb
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe.config
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
+T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb
