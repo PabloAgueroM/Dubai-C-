@@ -17,18 +17,7 @@ namespace Vista
         public FormAdminUsuario()
         {
             InitializeComponent();
-
-            Usuario u1 = new Usuario(1, "Martin Arnulfo", "Caro", "Hijar", new DateTime(1998,11,20,0,0,0), "12345", "Vendedor");
-            Usuario u2 = new Usuario(2, "Bruno", "Diaz", "Bruuu", DateTime.Now, "12345", "Gerente");
-            Usuario u3 = new Usuario(3, "Arian", "Fajardo", "xd", DateTime.Now, "12345", "Administrador de ventas");
-            Usuario u4 = new Usuario(4, "Patricio", "Avila", "Patomomo", DateTime.Now, "12345", "Administrador de produccion");
-            Usuario u5 = new Usuario(5, "Bruno", "Espesex", "rip Paucar", DateTime.Now, "12345", "Vendedor");
-
-            usuarios.Add(u1);
-            usuarios.Add(u2);
-            usuarios.Add(u3);
-            usuarios.Add(u4);
-            usuarios.Add(u5);
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

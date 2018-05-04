@@ -18,7 +18,7 @@ namespace AccesoDatos
             if (conexion.IsConnected())
             {
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = String.Format("SELECT * FROM USUARIOS WHERE ID_USUARIO = \"{0}\" AND CONTRASENHA = \"{1}\"", user,password);
+                comando.CommandText = String.Format("SELECT * FROM USUARIO WHERE ID_USUARIO = \"{0}\" AND CONTRASENHA = \"{1}\"", user,password);
                 comando.Connection = conexion.Connection;
                 try{
                     int mysqlint = int.Parse(comando.ExecuteScalar().ToString());

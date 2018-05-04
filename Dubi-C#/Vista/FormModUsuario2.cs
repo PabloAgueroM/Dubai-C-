@@ -25,7 +25,7 @@ namespace Vista
             textBox4.Text = usuarioSeleccionado.Password;
             textBox5.Text = usuarioSeleccionado.Password;
             dateTimePicker1.Value = usuarioSeleccionado.FechaNac;
-            comboBox4.Text = usuarioSeleccionado.Tipo;
+            comboBox4.Text = usuarioSeleccionado.TipoUsuario.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace Vista
             usuario.ApMat = textBox3.Text;
             usuario.Password = textBox4.Text;
             usuario.FechaNac = dateTimePicker1.Value;
-            usuario.Tipo = comboBox4.Text;
+            usuario.TipoUsuario = Int32.Parse(comboBox4.Text);
 
             if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrEmpty(textBox4.Text)
                 || String.IsNullOrEmpty(textBox5.Text))

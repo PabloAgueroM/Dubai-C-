@@ -6,33 +6,25 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public class Usuario
+    public class Usuario : Persona
     {
-        private int id;
-        private String nombre;
-        private String apPat;
-        private String apMat;
-        private DateTime fechaNac;
+        private int idUsuario;
+        private int tipoUsuario;
         private String password;
-        private String tipo;
+        private int estadoU;
 
-        public Usuario(int id, string nombre, string apPat, string apMat, DateTime fechaNac, string password, string tipo)
+        public Usuario(int id, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac, int estadoP, int idUsuario, int tipoUsuario, string password, int estadoU) : base(id, dni, nombre, apPat, apMat, sexo, fechaNac, estadoP)
+
         {
-            this.Id = id;
-            this.Nombre = nombre;
-            this.ApPat = apPat;
-            this.ApMat = apMat;
-            this.FechaNac = fechaNac;
-            this.Password = password;
-            this.Tipo = tipo;
+            this.idUsuario = idUsuario;
+            this.tipoUsuario = tipoUsuario;
+            this.password = password;
+            this.estadoU = estadoU;
         }
 
-        public int Id { get => id; set => id = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string ApPat { get => apPat; set => apPat = value; }
-        public string ApMat { get => apMat; set => apMat = value; }
-        public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
+        public int IdUsuario { get => idUsuario; set => idUsuario = value; }
+        public int TipoUsuario { get => tipoUsuario; set => tipoUsuario = value; }
         public string Password { get => password; set => password = value; }
-        public string Tipo { get => tipo; set => tipo = value; }
+        public int EstadoU { get => estadoU; set => estadoU = value; }
     }
 }

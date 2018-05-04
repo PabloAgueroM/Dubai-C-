@@ -42,3 +42,11 @@ C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\AccesoDatos\obj\D
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csproj.CopyComplete
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.pdb
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe.config
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\temp\lp2\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb

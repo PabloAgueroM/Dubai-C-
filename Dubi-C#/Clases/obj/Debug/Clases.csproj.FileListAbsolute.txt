@@ -21,3 +21,9 @@ C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\bin\Debug\
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
+C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe.config
+C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe
+C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
+C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
+C:\temp\lp2\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
