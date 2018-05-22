@@ -12,6 +12,7 @@ namespace Vista
 {
     public partial class FormEliminarCliente : Form
     {
+
         public FormEliminarCliente(BindingList<Persona> listaCliente)
         {
             InitializeComponent();
@@ -20,8 +21,11 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormEliminarCliente2 verificacion = new FormEliminarCliente2();
-            verificacion.ShowDialog();
+            DialogResult res = MessageBox.Show("¿Seguro que desea eliminar el cliente?", "", MessageBoxButtons.YesNo);
+            if(res == DialogResult.Yes)
+            {
+
+            }
         }
     }
 }

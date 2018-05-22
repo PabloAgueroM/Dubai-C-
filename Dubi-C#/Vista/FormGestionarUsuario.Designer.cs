@@ -99,6 +99,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "FormGestionarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar usuario";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
