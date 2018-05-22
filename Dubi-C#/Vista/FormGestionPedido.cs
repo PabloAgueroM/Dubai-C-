@@ -17,11 +17,7 @@ namespace Vista
         {
             InitializeComponent();
             //Cambiar formato de fecha
-            Pedido p1 = new Pedido("01","1234","4321","001","01/01/2018",new DateTime(2018,11,11),200.0f,122.3f,122.22f,true);
-            Pedido p2 = new Pedido("00151238", "4561235", "985159", "953213000", "05/12/2017", new DateTime(2018, 09, 15), 6.89f, 9.65f, 10.56f, true);
-
-            pedidos.Add(p1);
-            pedidos.Add(p2);
+            
 
         }
 

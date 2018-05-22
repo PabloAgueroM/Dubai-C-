@@ -8,18 +8,26 @@ namespace Clases
 {
     public class DetallePedido
     {
-        private string producto;
+        private string idProducto;
+        private string idPedido;
+        private string idDetalle;
         private int cantidad;
         private float subtotal;
         public DetallePedido() { }
-        public DetallePedido(string producto, int cantidad, float subtotal) {
-            this.Producto = producto;
+
+        public DetallePedido(string idProducto, string idPedido, string idDetalle, int cantidad, float subtotal)
+        {
+            this.idProducto = idProducto;
+            this.idPedido = idPedido;
+            this.idDetalle = idDetalle;
             this.cantidad = cantidad;
-            this.Subtotal = subtotal;
+            this.subtotal = subtotal;
         }
 
-        public float Subtotal { get => subtotal; set => subtotal = value; }
+        public string IdProducto { get => idProducto; set => idProducto = value; }
+        public string IdPedido { get => idPedido; set => idPedido = value; }
+        public string IdDetalle { get => idDetalle; set => idDetalle = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }
-        public string Producto { get => producto; set => producto = value; }
+        public float Subtotal { get => subtotal; set => subtotal = value; }
     }
 }

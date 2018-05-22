@@ -47,7 +47,7 @@ namespace Vista
             {
                 Pedido.Cuenta = Convert.ToSingle(textBox2.Text);
                 Pedido.FechaEntrega = dateTimePicker1.Value;
-                Pedido.IDCliente = textBox1.Text;
+                Pedido.IdCliente = textBox1.Text;
                 Pedido.Saldo = Convert.ToSingle(textBox4.Text);
 
                 this.DialogResult = DialogResult.OK;

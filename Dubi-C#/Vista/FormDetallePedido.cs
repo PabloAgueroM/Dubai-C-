@@ -41,7 +41,7 @@ namespace Vista
             else {
                 
                 detalle.Cantidad = Int32.Parse(textBox2.Text);
-                detalle.Producto = textBox1.Text;
+                detalle.IdProducto = textBox1.Text;
                 detalle.Subtotal = detalle.Cantidad * precioUnitario;
                 this.DialogResult = DialogResult.OK;
                 Dispose();

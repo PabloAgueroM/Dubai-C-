@@ -9,47 +9,41 @@ namespace Clases
     public class Pedido
     {
 
-        private string _IDPedido;
-        private string _IDCliente;
-        private string _IDUsuario;
-        private string _IDOrdenProduccion;
-        private string _FechaRegistro;
-        private DateTime _FechaEntrega;
-        private float _ImporteTotal;
-        private float _Saldo;
-        private float _Cuenta;
-        private bool _IGV;
+        private string idPedido;
+        private string idCliente;
+        private string idUsuario;
+        private string idOrdenProduccion;
+        private DateTime fechaEntrega;
+        private float importeTotal;
+        private float saldo;
+        private float cuenta;
+        private bool igv;
 
-        public string IDPedido { get { return _IDPedido; } set { _IDPedido = value; } }
-        public string IDCliente { get { return _IDCliente; } set { _IDCliente = value; } }
-        public string IDUsuario { get { return _IDUsuario; } set { _IDUsuario = value; } }
-        public string IDOrdenProduccion { get { return _IDOrdenProduccion; } set { _IDOrdenProduccion = value; } }
-        public string FechaRegistro { get { return _FechaRegistro; } set { _FechaRegistro = value; } }
-        public DateTime FechaEntrega { get { return _FechaEntrega; } set { _FechaEntrega = value; } }
-        public float ImporteTotal { get { return _ImporteTotal; } set { _ImporteTotal = value; } }
-        public float Saldo { get { return _Saldo; } set { _Saldo = value; } }
-        public float Cuenta { get { return _Cuenta; } set { _Cuenta = value; } }
-        public bool IGV { get { return _IGV; } set { _IGV = value; } }
 
-        public Pedido()
+        public Pedido() { }
+        public Pedido(string idPedido, string idCliente, string idUsuario, string idOrdenProduccion, DateTime fechaEntrega, float importeTotal, float saldo, float cuenta, bool igv)
         {
-
+            this.idPedido = idPedido;
+            this.idCliente = idCliente;
+            this.idUsuario = idUsuario;
+            this.idOrdenProduccion = idOrdenProduccion;
+            this.fechaEntrega = fechaEntrega;
+            this.importeTotal = importeTotal;
+            this.saldo = saldo;
+            this.cuenta = cuenta;
+            this.igv = igv;
         }
 
-        public Pedido(string _IDPedido, string _IDCliente, string _IDUsuario, string _IDOrdenProduccion, string _FechaRegistro,
-                        DateTime _FechaEntrega, float _ImporteTotal, float _Saldo, float _Cuenta, bool _IGV)
-        {
-            this._IDPedido = _IDPedido;
-            this._IDCliente = _IDCliente;
-            this._IDUsuario = _IDUsuario;
-            this._IDOrdenProduccion = _IDOrdenProduccion;
-            this._FechaRegistro = _FechaRegistro;
-            this._FechaEntrega = _FechaEntrega;
-            this._ImporteTotal = _ImporteTotal;
-            this._Saldo = _Saldo;
-            this._Cuenta = _Cuenta;
-            this._IGV = _IGV;
-        }
+        public string IdPedido { get => idPedido; set => idPedido = value; }
+        public string IdCliente { get => idCliente; set => idCliente = value; }
+        public string IdUsuario { get => idUsuario; set => idUsuario = value; }
+        public string IdOrdenProduccion { get => idOrdenProduccion; set => idOrdenProduccion = value; }
+        public DateTime FechaEntrega { get => fechaEntrega; set => fechaEntrega = value; }
+        public float ImporteTotal { get => importeTotal; set => importeTotal = value; }
+        public float Saldo { get => saldo; set => saldo = value; }
+        public float Cuenta { get => cuenta; set => cuenta = value; }
+        public bool Igv { get => igv; set => igv = value; }
+
 
 
         /*

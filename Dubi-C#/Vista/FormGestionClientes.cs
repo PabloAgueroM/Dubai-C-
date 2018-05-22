@@ -16,11 +16,22 @@ namespace Vista
         public FormGestionClientes()
         {
             InitializeComponent();
+            this.panel1.Visible = false;
+            this.panel2.Visible = false;
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            FormRegCliente ingresar = new FormRegCliente();
-            ingresar.ShowDialog();
+            if (comboBox1.Text == "Juridica")
+            {
+                panel2.Visible = true;
+                panel1.Visible = false;
+                comboBox1.Text = "Juridica";
+            }
+            else {
+                panel1.Visible = true;
+                panel2.Visible = false;
+                comboBox1.Text = "Natural";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -35,5 +46,7 @@ namespace Vista
             FormEliminarCliente eliminar = new FormEliminarCliente(listaClientes);
             eliminar.ShowDialog();
         }
+
+
     }
 }

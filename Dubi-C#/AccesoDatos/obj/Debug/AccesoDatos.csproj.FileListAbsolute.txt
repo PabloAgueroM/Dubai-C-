@@ -58,3 +58,11 @@ T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemb
 T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
 T:\asdasd\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojAssemblyReference.cache
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.pdb
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe.config
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\temp\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb
