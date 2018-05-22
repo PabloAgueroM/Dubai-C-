@@ -103,7 +103,6 @@ C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\bin\Debug\M
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\bin\Debug\AccesoDatos.pdb
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\bin\Debug\Clases.pdb
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\bin\Debug\Clases.exe.config
-C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormGestionVentas.resources
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormGestionClientes.resources
 C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormRegCliente.resources
@@ -204,3 +203,4 @@ T:\asdasd\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.Properties.Resources.resources
 T:\asdasd\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
 T:\asdasd\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.exe
 T:\asdasd\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.pdb
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.csprojAssemblyReference.cache

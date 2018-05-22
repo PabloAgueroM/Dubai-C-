@@ -12,15 +12,10 @@ namespace Vista
 {
     public partial class FormGestionClientes : Form
     {
-        private BindingList<Cliente> listaClientes = new BindingList<Cliente>();
+        private BindingList<Persona> listaClientes = new BindingList<Persona>();
         public FormGestionClientes()
         {
             InitializeComponent();
-
-            Cliente c1 = new Natural("Miguel", "Angel", "Guanira", "asdasd@pucp.pe", "123456");
-            Cliente c2 = new Natural("Bruno", "Dias", "Bruu", "asd@asd.com", "12333333");
-            listaClientes.Add(c1);
-            listaClientes.Add(c2);
         }
         private void button1_Click(object sender, EventArgs e)
         {

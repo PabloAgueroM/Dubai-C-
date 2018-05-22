@@ -6,20 +6,33 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public class Natural : Cliente
+    public class Natural : Persona
     {
-        private string nombre;
-        private string apellidoP;
-        private string apellidoM;
+        protected string dni;
+        protected string nombre;
+        protected string apPat;
+        protected string apMat;
+        protected char sexo;
+        protected DateTime fechaNac;
 
-        public Natural(string _nombres, string _apellidoP, string _apellidoM, string _email, string _telefono) : base(_email, _telefono){
-            this.nombre = _nombres;
-            this.apellidoP  = _apellidoP;
-            this.apellidoM = _apellidoM;
+        public string Dni { get => dni; set => dni = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string ApPat { get => apPat; set => apPat = value; }
+        public string ApMat { get => apMat; set => apMat = value; }
+        public char Sexo { get => sexo; set => sexo = value; }
+        public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
+
+        public Natural() : base() { }
+
+        public Natural(string idPersona, string email, string telefono, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac)
+        : base(idPersona, email, telefono)
+        {
+            this.dni = dni;
+            this.nombre = nombre;
+            this.apPat = apPat;
+            this.apMat = apMat;
+            this.sexo = sexo;
+            this.fechaNac = fechaNac;
         }
-
-        public string getNombre() { return nombre; }
-        public string getapellidoP() { return apellidoP; }
-        public string getapellidoM() { return apellidoM; }
     }
 }

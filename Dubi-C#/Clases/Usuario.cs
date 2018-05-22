@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public class Usuario : Persona
+    public class Usuario : Natural
     {
-        private int idUsuario;
-        private int tipoUsuario;
-        private String password;
-        private int estadoU;
+        protected int idUsuario;
+        protected int tipoUsuario;
+        protected String password;
+        protected int estadoU;
 
-        public Usuario(int id, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac, int estadoP, int idUsuario, int tipoUsuario, string password, int estadoU) : base(id, dni, nombre, apPat, apMat, sexo, fechaNac, estadoP)
-
+        public Usuario(string idPersona, string email, string telefono, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac, int idUsuario, int tipoUsuario, string password, int estadoU)
+        : base(idPersona, email, telefono, dni, nombre, apPat, apMat, sexo, fechaNac)
         {
             this.idUsuario = idUsuario;
             this.tipoUsuario = tipoUsuario;

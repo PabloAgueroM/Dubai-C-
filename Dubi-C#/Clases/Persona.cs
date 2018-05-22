@@ -8,34 +8,21 @@ namespace Clases
 {
     public class Persona
     {
-        public int idPersona;
-        public String dni;
-        public String nombre;
-        public String apPat;
-        public String apMat;
-        public char sexo;
-        public DateTime fechaNac;
-        public int estadoP;
+        protected string idPersona;
+        protected string email;
+        protected string telefono;
 
-        public int IdPersona { get => idPersona; set => idPersona = value; }
-        public string Dni { get => dni; set => dni = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string ApPat { get => apPat; set => apPat = value; }
-        public string ApMat { get => apMat; set => apMat = value; }
-        public char Sexo { get => sexo; set => sexo = value; }
-        public DateTime FechaNac { get => fechaNac; set => fechaNac = value; }
-        public int EstadoP { get => estadoP; set => estadoP = value; }
+        public string IdPersona { get => idPersona; set => idPersona = value; }
+        public string Email { get => email; set => email = value; }
+        public string Telefono { get => telefono; set => telefono = value; }
 
-        public Persona(int id, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac, int estado)
+        public Persona() { }
+
+        public Persona(string idPersona, string email, string telefono)
         {
-            this.idPersona = id;
-            this.dni = dni;
-            this.nombre = nombre;
-            this.apPat = apPat;
-            this.apMat = apMat;
-            this.sexo = sexo;
-            this.fechaNac = fechaNac;
-            this.estadoP = estado;
+            this.idPersona = idPersona;
+            this.email = email;
+            this.telefono = telefono;
         }
     }
 }

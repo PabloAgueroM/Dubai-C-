@@ -12,7 +12,7 @@ namespace Vista
 {
     public partial class FormEliminarCliente : Form
     {
-        public FormEliminarCliente(BindingList<Cliente> listaCliente)
+        public FormEliminarCliente(BindingList<Persona> listaCliente)
         {
             InitializeComponent();
             dataGridView1.DataSource = listaCliente;

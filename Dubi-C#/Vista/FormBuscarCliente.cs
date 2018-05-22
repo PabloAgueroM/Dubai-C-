@@ -17,7 +17,7 @@ namespace Vista
             InitializeComponent();
         }
 
-        public FormBuscarCliente(BindingList<Cliente> listaClientes)
+        public FormBuscarCliente(BindingList<Persona> listaClientes)
         {
             InitializeComponent();
             dataGridView1.DataSource = listaClientes;

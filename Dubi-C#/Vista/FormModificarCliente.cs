@@ -12,8 +12,8 @@ namespace Vista
 {
     public partial class FormModificarCliente : Form
     {
-        private BindingList<Cliente> listaClientes = new BindingList<Cliente>();
-        public FormModificarCliente(BindingList<Cliente> listaCliente)
+        private BindingList<Persona> listaClientes = new BindingList<Persona>();
+        public FormModificarCliente(BindingList<Persona> listaCliente)
         {
             InitializeComponent();
             this.listaClientes = listaCliente;

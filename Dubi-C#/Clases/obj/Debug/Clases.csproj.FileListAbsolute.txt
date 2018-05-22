@@ -33,3 +33,4 @@ T:\asdasd\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
 T:\asdasd\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
 T:\asdasd\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
 T:\asdasd\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
+C:\Users\tomass\Documents\LP2\tarea-academica\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojAssemblyReference.cache

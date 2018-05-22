@@ -25,7 +25,7 @@ namespace AccesoDatos
                     conexion.Close();
                     return 1;
                 }
-                catch(Exception e)
+                catch (Exception)
                 {
                     conexion.Close();
                     return 0;
