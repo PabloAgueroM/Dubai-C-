@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class FormModUsuario
+    partial class FormBuscarUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -52,15 +52,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FormModUsuario
+            // FormBuscarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 311);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "FormModUsuario";
-            this.Text = "Modificar usuario";
+            this.Name = "FormBuscarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Buscar Usuario";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormBuscarUsuario_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

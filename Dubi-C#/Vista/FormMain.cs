@@ -33,6 +33,7 @@ namespace Vista
             gestionPedidos.ShowDialog();
         }
 
+
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Owner.Show();

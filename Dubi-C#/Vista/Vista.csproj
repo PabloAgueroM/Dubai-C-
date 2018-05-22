@@ -136,23 +136,11 @@
     <Compile Include="FormElimUsuario.Designer.cs">
       <DependentUpon>FormElimUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGestionarUsuario.cs">
+    <Compile Include="FormBuscarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGestionarUsuario.Designer.cs">
-      <DependentUpon>FormGestionarUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormModUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormModUsuario.Designer.cs">
-      <DependentUpon>FormModUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormModUsuario2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormModUsuario2.Designer.cs">
-      <DependentUpon>FormModUsuario2.cs</DependentUpon>
+    <Compile Include="FormBuscarUsuario.Designer.cs">
+      <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMostrarUsuarios.cs">
       <SubType>Form</SubType>
@@ -160,11 +148,11 @@
     <Compile Include="FormMostrarUsuarios.Designer.cs">
       <DependentUpon>FormMostrarUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRegUsuario.cs">
+    <Compile Include="FormGestionUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRegUsuario.Designer.cs">
-      <DependentUpon>FormRegUsuario.cs</DependentUpon>
+    <Compile Include="FormGestionUsuario.Designer.cs">
+      <DependentUpon>FormGestionUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -215,9 +203,6 @@
     <EmbeddedResource Include="FormElimUsuario.resx">
       <DependentUpon>FormElimUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGestionarUsuario.resx">
-      <DependentUpon>FormGestionarUsuario.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormGestionPedido.resx">
       <DependentUpon>FormGestionPedido.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,17 +212,14 @@
     <EmbeddedResource Include="FormModificarPedido.resx">
       <DependentUpon>FormModificarPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormModUsuario.resx">
-      <DependentUpon>FormModUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormModUsuario2.resx">
-      <DependentUpon>FormModUsuario2.cs</DependentUpon>
+    <EmbeddedResource Include="FormBuscarUsuario.resx">
+      <DependentUpon>FormBuscarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMostrarUsuarios.resx">
       <DependentUpon>FormMostrarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRegUsuario.resx">
-      <DependentUpon>FormRegUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="FormGestionUsuario.resx">
+      <DependentUpon>FormGestionUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

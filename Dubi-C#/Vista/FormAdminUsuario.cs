@@ -22,7 +22,7 @@ namespace Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Vista.FormGestionarUsuario VentanaGestionarUsuario = new Vista.FormGestionarUsuario(usuarios);
+            FormGestionUsuario VentanaGestionarUsuario = new FormGestionUsuario();
             VentanaGestionarUsuario.ShowDialog();
         }
 

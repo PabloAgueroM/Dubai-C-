@@ -14,14 +14,9 @@ namespace Vista
     public partial class FormElimUsuario : Form
     {
         Usuario usuarioSeleccionado;
-        BindingList<Usuario> usuarios = new BindingList<Usuario>();
-        public FormElimUsuario(BindingList<Usuario> usuarios)
+        public FormElimUsuario()
         {
             InitializeComponent();
-            this.usuarios = usuarios;
-            dataGridView1.DataSource = this.usuarios;
-            dataGridView1.AutoResizeColumns();
-            dataGridView1.AutoResizeRows();
         }
 
         private void button2_Click(object sender, EventArgs e)
