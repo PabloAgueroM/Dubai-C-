@@ -211,7 +211,6 @@ C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormRegCliente.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormModificarCliente.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarCliente.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormEliminarCliente.resources
-C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormEliminarCliente2.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormAdminUsuario.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarProd.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormDetallePedido.resources

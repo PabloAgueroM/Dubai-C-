@@ -81,12 +81,6 @@
     <Compile Include="FormEliminarCliente.designer.cs">
       <DependentUpon>FormEliminarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEliminarCliente2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEliminarCliente2.designer.cs">
-      <DependentUpon>FormEliminarCliente2.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBuscarProd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,9 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEliminarCliente.resx">
       <DependentUpon>FormEliminarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEliminarCliente2.resx">
-      <DependentUpon>FormEliminarCliente2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdminUsuario.resx">
       <DependentUpon>FormAdminUsuario.cs</DependentUpon>
