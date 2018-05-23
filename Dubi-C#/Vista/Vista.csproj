@@ -249,6 +249,10 @@
       <Project>{e9ad5e69-dce5-4e02-a62a-3cd05c92d9fb}</Project>
       <Name>Clases</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LogicaNegocio\LogicaNegocio.csproj">
+      <Project>{48A34937-0F09-4469-823E-A14D8AA80336}</Project>
+      <Name>LogicaNegocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

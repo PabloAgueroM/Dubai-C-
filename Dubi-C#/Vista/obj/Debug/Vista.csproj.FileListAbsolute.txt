@@ -237,3 +237,5 @@ C:\temp\Dubai-C-\Dubi-C#\Vista\bin\Debug\Clases.pdb
 C:\temp\Dubai-C-\Dubi-C#\Vista\bin\Debug\Clases.exe.config
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormGestionUsuario.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarUsuario.resources
+C:\temp\Dubai-C-\Dubi-C#\Vista\bin\Debug\LogicaNegocio.dll
+C:\temp\Dubai-C-\Dubi-C#\Vista\bin\Debug\LogicaNegocio.pdb

@@ -8,7 +8,6 @@ namespace Clases
 {
     public class Juridica : Persona
     {
-        protected string idJuridica;
         protected string razonSocial;
         protected string nombre;
         protected string ruc;
@@ -16,17 +15,15 @@ namespace Clases
 
         public Juridica() : base() { }
 
-        public Juridica(string idPersona, string email, string telefono, string idJuridica, string razonSocial, string nombre, string ruc, DateTime fechaAniversario)
+        public Juridica(string idPersona, string email, string telefono, string razonSocial, string nombre, string ruc, DateTime fechaAniversario)
         : base(idPersona, email, telefono)
         {
-            this.IdJuridica = idJuridica;
             this.RazonSocial = razonSocial;
             this.Nombre = nombre;
             this.Ruc = ruc;
             this.FechaAniversario = fechaAniversario;
         }
-
-        public string IdJuridica { get => idJuridica; set => idJuridica = value; }
+        
         public string RazonSocial { get => razonSocial; set => razonSocial = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Ruc { get => ruc; set => ruc = value; }

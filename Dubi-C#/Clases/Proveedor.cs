@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public class Proveedor
+    public class Proveedor : Juridica
     {
         protected string idProveedor;
         protected Natural representante;
