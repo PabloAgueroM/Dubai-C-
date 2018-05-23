@@ -26,19 +26,9 @@ namespace Vista
             VentanaGestionarUsuario.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            Vista.FormMostrarUsuarios VentanaUsuarios = new Vista.FormMostrarUsuarios(usuarios);
+            FormMostrarUsuarios VentanaUsuarios = new FormMostrarUsuarios();
             VentanaUsuarios.ShowDialog();
         }
 
@@ -49,6 +39,9 @@ namespace Vista
             Dispose();
         }
 
-        
+        private void FormAdminUsuario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Show();
+        }
     }
 }

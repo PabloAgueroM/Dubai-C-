@@ -15,8 +15,8 @@ namespace Clases
 
         public Juridica() : base() { }
 
-        public Juridica(string idPersona, string email, string telefono, string razonSocial, string nombre, string ruc, DateTime fechaAniversario)
-        : base(idPersona, email, telefono)
+        public Juridica(string idPersona, string email, string telefono, string direccion, string razonSocial, string nombre, string ruc, DateTime fechaAniversario)
+        : base(idPersona, email, telefono, direccion)
         {
             this.RazonSocial = razonSocial;
             this.Nombre = nombre;

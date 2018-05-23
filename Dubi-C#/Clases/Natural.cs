@@ -24,8 +24,8 @@ namespace Clases
 
         public Natural() : base() { }
 
-        public Natural(string idPersona, string email, string telefono, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac)
-        : base(idPersona, email, telefono)
+        public Natural(string idPersona, string email, string telefono, string direccion, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac)
+        : base(idPersona, email, telefono, direccion)
         {
             this.dni = dni;
             this.nombre = nombre;
