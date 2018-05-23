@@ -20,14 +20,6 @@ namespace AccesoDatos
             get { return connection; }
         }
 
-        //private static Conexion _instance = null;
-        //public static Conexion Instance()
-        //{
-        //    if (_instance == null)
-        //        _instance = new Conexion();
-        //    return _instance;
-        //}
-
         public bool IsConnected()
         {
             if (Connection == null)

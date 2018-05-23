@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Clases;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace AccesoDatos
 {
