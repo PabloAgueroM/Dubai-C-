@@ -209,8 +209,6 @@ C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormGestionVentas.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormGestionClientes.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormRegCliente.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormModificarCliente.resources
-C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarCliente.resources
-C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormEliminarCliente.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormAdminUsuario.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarProd.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormDetallePedido.resources
@@ -239,3 +237,5 @@ C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormGestionUsuario.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarUsuario.resources
 C:\temp\Dubai-C-\Dubi-C#\Vista\bin\Debug\LogicaNegocio.dll
 C:\temp\Dubai-C-\Dubi-C#\Vista\bin\Debug\LogicaNegocio.pdb
+C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarClienteJuridico.resources
+C:\temp\Dubai-C-\Dubi-C#\Vista\obj\Debug\Vista.FormBuscarClienteNatural.resources

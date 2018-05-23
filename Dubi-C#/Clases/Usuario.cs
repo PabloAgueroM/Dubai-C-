@@ -14,8 +14,8 @@ namespace Clases
         protected int estadoU;
 
         public Usuario() { }
-        public Usuario(string idPersona, string email, string telefono, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac, int idUsuario, int tipoUsuario, string password, int estadoU)
-        : base(idPersona, email, telefono, dni, nombre, apPat, apMat, sexo, fechaNac)
+        public Usuario(string idPersona, string email, string telefono, string dni, string nombre, string apPat, string apMat, char sexo, DateTime fechaNac, int idUsuario, int tipoUsuario, string password, int estadoU,string direccion)
+        : base(idPersona, email, telefono, dni, nombre, apPat, apMat, sexo, fechaNac,direccion)
         {
             this.idUsuario = idUsuario;
             this.tipoUsuario = tipoUsuario;

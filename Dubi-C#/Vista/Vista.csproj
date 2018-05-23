@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormBuscarClienteJuridico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarClienteJuridico.Designer.cs">
+      <DependentUpon>FormBuscarClienteJuridico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,17 +75,11 @@
     <Compile Include="FormModificarCliente.designer.cs">
       <DependentUpon>FormModificarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBuscarCliente.cs">
+    <Compile Include="FormBuscarClienteNatural.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBuscarCliente.designer.cs">
-      <DependentUpon>FormBuscarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormEliminarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormEliminarCliente.designer.cs">
-      <DependentUpon>FormEliminarCliente.cs</DependentUpon>
+    <Compile Include="FormBuscarClienteNatural.designer.cs">
+      <DependentUpon>FormBuscarClienteNatural.cs</DependentUpon>
     </Compile>
     <Compile Include="FormBuscarProd.cs">
       <SubType>Form</SubType>
@@ -161,6 +161,9 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBuscarClienteJuridico.resx">
+      <DependentUpon>FormBuscarClienteJuridico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGestionVentas.resx">
       <DependentUpon>FormGestionVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,11 +176,8 @@
     <EmbeddedResource Include="FormModificarCliente.resx">
       <DependentUpon>FormModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormBuscarCliente.resx">
-      <DependentUpon>FormBuscarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormEliminarCliente.resx">
-      <DependentUpon>FormEliminarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FormBuscarClienteNatural.resx">
+      <DependentUpon>FormBuscarClienteNatural.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdminUsuario.resx">
       <DependentUpon>FormAdminUsuario.cs</DependentUpon>

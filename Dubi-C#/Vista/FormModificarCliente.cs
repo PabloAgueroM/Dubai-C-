@@ -21,7 +21,7 @@ namespace Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormBuscarCliente listadoClientes = new FormBuscarCliente(listaClientes);
+            FormBuscarClienteNatural listadoClientes = new FormBuscarClienteNatural(listaClientes);
             if (listadoClientes.ShowDialog() == DialogResult.OK) {
 
             }

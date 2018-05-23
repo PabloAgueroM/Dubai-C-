@@ -8,24 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clases;
+using LogicaNegocio;
+
 namespace Vista
 {
-    public partial class FormEliminarCliente : Form
+    public partial class FormBuscarClienteNatural : Form
     {
-
-        public FormEliminarCliente(BindingList<Persona> listaCliente)
+        private ClienteBL logicaNegocio;
+        public FormBuscarClienteNatural()
         {
             InitializeComponent();
-            dataGridView1.DataSource = listaCliente;
+            logicaNegocio = new ClienteBL();
+
+        }
+
+        public FormBuscarClienteNatural(BindingList<Persona> listaClientes)
+        {
+            InitializeComponent();
+            dataGridView1.DataSource = listaClientes;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("¿Seguro que desea eliminar el cliente?", "", MessageBoxButtons.YesNo);
-            if(res == DialogResult.Yes)
-            {
 
-            }
         }
     }
 }

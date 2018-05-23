@@ -18,8 +18,13 @@ namespace LogicaNegocio
             accesoDatos = new ClienteDA();
         }
 
-        public int registrarCliente() {
-            return 0;
+        public int registrarClienteNatural(Natural c) {
+            return accesoDatos.registrarClienteNatural(c);
+        }
+
+        public int registrarClienteJuridico(Juridica c)
+        {
+            return accesoDatos.registrarClienteJuridico(c);
         }
 
         public BindingList<Persona> listarClientes() {
