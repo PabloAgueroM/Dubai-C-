@@ -1,5 +1,6 @@
 package Modelo;
 import Modelo.Persona;
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class Proveedor extends PersonaJuridica{
@@ -23,7 +24,7 @@ public class Proveedor extends PersonaJuridica{
     }
 
     public Proveedor(String idPersona, String email, String telefono,
-    String razonSocial, String nombre, String RUC, LocalDateTime fechaAniversario,
+    String razonSocial, String nombre, String RUC, Date fechaAniversario,
     String IDProveedor, PersonaNatural Representante){
         super(idPersona, email, telefono, razonSocial, nombre, RUC, fechaAniversario);
         this.IDProveedor = IDProveedor;

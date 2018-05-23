@@ -18,6 +18,13 @@ public class Persona {
                 
 		//fechaNac=_fechaNac;
 	}
+        public Persona(String _telefono){
+		
+		
+                this.telefono=_telefono;
+                
+		//fechaNac=_fechaNac;
+	}
 	
 	
 	public void setIdPersona (String idPersona){

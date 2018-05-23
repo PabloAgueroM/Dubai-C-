@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -16,9 +17,9 @@ public class PersonaJuridica extends Persona {
     private String razonSocial;
     private String nombre;
     private String RUC;
-    private LocalDateTime fechaAniversario;
+    private Date fechaAniversario;
     
-    public PersonaJuridica(String idPersona, String email, String telefono, String razonSocial, String nombre, String RUC, LocalDateTime fechaAniversario) {
+    public PersonaJuridica(String idPersona, String email, String telefono, String razonSocial, String nombre, String RUC, Date fechaAniversario) {
         super(idPersona, email, telefono);
         this.razonSocial=razonSocial;
         this.nombre = nombre;
@@ -47,11 +48,11 @@ public class PersonaJuridica extends Persona {
     public String getRUC() {
         return this.RUC;
     }
-    public void setFechaAniversario(LocalDateTime fechaAniversario) {
+    public void setFechaAniversario(Date fechaAniversario) {
         this.fechaAniversario = fechaAniversario;
     }
 
-    public LocalDateTime getFechaAniversario() {
+    public Date getFechaAniversario() {
         return this.fechaAniversario;
     }
     

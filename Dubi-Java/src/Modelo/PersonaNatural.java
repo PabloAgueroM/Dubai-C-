@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  *
@@ -18,9 +19,9 @@ public class PersonaNatural extends Persona {
     private String apellidoM;
     private String DNI;
     private char sexo;
-    private LocalDateTime fechaNacimiento;
+    private Date fechaNacimiento;
 
-    public PersonaNatural(String idPersona, String email, String telefono, String nombre, String apellidoP, String apellidoM, String DNI, char sexo, LocalDateTime fechaNacimiento) {
+    public PersonaNatural(String idPersona, String email, String telefono, String nombre, String apellidoP, String apellidoM, String DNI, char sexo, Date fechaNacimiento) {
         super(idPersona, email, telefono);
         this.nombre = nombre;
         this.apellidoP = apellidoP;
@@ -28,6 +29,15 @@ public class PersonaNatural extends Persona {
         this.DNI = DNI;
         this.sexo = sexo;
         this.fechaNacimiento = fechaNacimiento;
+
+    }
+     public PersonaNatural( String telefono, String nombre, String apellidoP, String apellidoM, String DNI) {
+        super(telefono);
+        this.nombre = nombre;
+        this.apellidoP = apellidoP;
+        this.apellidoM = apellidoM;
+        this.DNI = DNI;
+        
 
     }
 
@@ -71,11 +81,11 @@ public class PersonaNatural extends Persona {
         return this.sexo;
     }
 
-    public void setFechaNacimiento(LocalDateTime fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public LocalDateTime getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return this.fechaNacimiento;
     }
 
