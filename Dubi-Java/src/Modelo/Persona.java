@@ -1,49 +1,37 @@
 package Modelo;
+
+/**
+ *
+ * @author Carlos
+ */
 public class Persona {
-	private String nombres;
-	private String apellidoP;
-	private String apellidoM;
-        private String DNI;
-        private String telefono;
-	//private Date fechaNac;
+	private String idPersona;
+	private String email;
+	private String telefono;
 	
-	public Persona(String _nombres,String _apellidoP,String _apellidoM,/*Date _fechaNac,String _email,*/String _DNI,String _telefono){
+	
+	public Persona(String _idPersona,String _email,String _telefono){
 		
-		nombres=_nombres;
-		apellidoP=_apellidoP;
-		apellidoM=_apellidoM;
-                DNI=_DNI;
-                telefono=_telefono;
+		this.idPersona=_idPersona;
+                this.email=_email;
+                this.telefono=_telefono;
                 
 		//fechaNac=_fechaNac;
 	}
 	
-	public void setNombres(String _nombres){
-		nombres=_nombres;
-	}
-	public String getNombres(){
-		return nombres;
-	}
 	
-	public void setApellidoP(String _apellidoP){
-		apellidoP=_apellidoP;
-	}
-	public String getApellidoP(){
-		return apellidoP;
-	}
-	
-	public void setApellidoM(String _apellidoM){
-		apellidoM=_apellidoM;
-	}
-	public String getApellidoM(){
-		return apellidoM;
-	}
-        public void setDNI(String _DNI){
-		apellidoM=_DNI;
-	}
-	public String getDNI(){
-		return DNI;
-	}
+	public void setIdPersona (String idPersona){
+            this.idPersona=idPersona;
+        }
+        public String getIdPersona (){
+            return this.idPersona;
+        }
+        public void setEmail (String email){
+            this.email=email;
+        }
+        public String getEmail (){
+            return this.email;
+        }
         public void setTelefono(String _telefono){
 		telefono=_telefono;
 	}
@@ -51,13 +39,5 @@ public class Persona {
 		return telefono;
 	}
 	
-	/*public void setFechaNac(Date _fechaNac){
-		fechaNac=_fechaNac;
-	}
-	public Date getFechaNac(){
-		return fechaNac;
-	}*/
-//	public void mostrarDatos(){
-//		System.out.println(getID()+" "+ getNombres()+" "+getApellidoP()+" "+getApellidoM()+" "+getEmail()+" "+getTelefono()/*+" "+ getFechaNac()*/);		
-//	}
+	
 }
