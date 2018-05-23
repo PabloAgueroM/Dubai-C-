@@ -18,5 +18,10 @@ namespace LogicaNegocio
         {
             return accesoDatos.registrarUsuario(u);
         }
+
+        public int listarUsuarios()
+        {
+            return 0;
+        }
     }
 }

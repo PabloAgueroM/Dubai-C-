@@ -56,6 +56,8 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(120, 246);
+            this.textBox5.Location = new System.Drawing.Point(120, 272);
             this.textBox5.MaxLength = 20;
             this.textBox5.Name = "textBox5";
             this.textBox5.PasswordChar = '*';
@@ -128,7 +130,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 249);
+            this.label8.Location = new System.Drawing.Point(6, 275);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 13);
             this.label8.TabIndex = 16;
@@ -137,7 +139,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 301);
+            this.label9.Location = new System.Drawing.Point(6, 327);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 13);
             this.label9.TabIndex = 17;
@@ -152,14 +154,14 @@
             "Administrador de ventas",
             "Administrador de produccion",
             "Gerente"});
-            this.comboBox4.Location = new System.Drawing.Point(120, 298);
+            this.comboBox4.Location = new System.Drawing.Point(120, 324);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(193, 21);
             this.comboBox4.TabIndex = 9;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(120, 272);
+            this.textBox4.Location = new System.Drawing.Point(120, 298);
             this.textBox4.MaxLength = 20;
             this.textBox4.Name = "textBox4";
             this.textBox4.PasswordChar = '*';
@@ -169,7 +171,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 275);
+            this.label6.Location = new System.Drawing.Point(6, 301);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 13);
             this.label6.TabIndex = 21;
@@ -300,11 +302,29 @@
             this.label11.TabIndex = 31;
             this.label11.Text = "Sexo";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 249);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Direccion";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(120, 246);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(193, 20);
+            this.textBox9.TabIndex = 32;
+            // 
             // FormGestionUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 332);
+            this.ClientSize = new System.Drawing.Size(331, 359);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label10);
@@ -367,5 +387,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }

@@ -8,17 +8,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicaNegocio;
 
 namespace Vista
 {
     public partial class FormMostrarUsuarios : Form
     {
         BindingList<Usuario> usuarios = new BindingList<Usuario>();
-        public FormMostrarUsuarios(BindingList<Usuario> usuarios)
+        public FormMostrarUsuarios()
         {
             InitializeComponent();
-            this.usuarios = usuarios;
-            dataGridView1.DataSource = this.usuarios;
+
+            UsuarioBL userBL = new UsuarioBL();
+            
+
+            dataGridView1.DataSource = usuarios;
         }
 
         private void button1_Click(object sender, EventArgs e)
