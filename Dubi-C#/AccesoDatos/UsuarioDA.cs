@@ -11,6 +11,25 @@ namespace AccesoDatos
 {
     public class UsuarioDA
     {
+        public void eliminarUsuario(string id)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("UPDATE USUARIO SET ACTIVO = 0  WHERE ID_USUARIO = \"{0}\"", id);
+                comando.Connection = conexion.Connection;
+                try
+                {
+                    comando.ExecuteNonQuery();
+                    conexion.Close();
+                }
+                catch (Exception)
+                {
+                    conexion.Close();
+                }
+            }
+        }
         public int registrarUsuario(Usuario u)
         {
             Conexion con = new Conexion();
@@ -51,6 +70,47 @@ namespace AccesoDatos
                 MySqlCommand comando = new MySqlCommand();
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.CommandText = "LISTAR_USUARIOS";
+                comando.Connection = con.Connection;
+
+                MySqlDataReader reader = comando.ExecuteReader();
+
+                BindingList<Usuario> usuarios = new BindingList<Usuario>();
+
+                while (reader.Read())
+                {
+                    Usuario u = new Usuario();
+                    u.ApMat = reader.GetString("AP_MATERNO");
+                    u.ApPat = reader.GetString("AP_PATERNO");
+                    u.Direccion = reader.GetString("DIRECCION");
+                    u.Dni = reader.GetString("DNI");
+                    u.Email = reader.GetString("EMAIL");
+                    u.EstadoU = reader.GetInt32("ACTIVO");
+                    u.FechaNac = (DateTime)reader.GetMySqlDateTime("FECHA_NACIMIENTO");
+                    u.IdPersona = reader.GetString("ID_PERSONA");
+                    u.IdUsuario = Int32.Parse(reader.GetString("ID_USUARIO"));
+                    u.Nombre = reader.GetString("NOMBRE");
+                    u.Password = reader.GetString("CONTRASENHA");
+                    u.Sexo = reader.GetChar("SEXO");
+                    u.Telefono = reader.GetString("TELEFONO");
+                    u.TipoUsuario = reader.GetInt32("TIPO_USUARIO");
+
+                    usuarios.Add(u);
+                }
+
+                con.Close();
+                return usuarios;
+            }
+            return null;
+        }
+
+        public BindingList<Usuario> listarTodosUsuarios()
+        {
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "LISTAR_TODOS_USUARIOS";
                 comando.Connection = con.Connection;
 
                 MySqlDataReader reader = comando.ExecuteReader();

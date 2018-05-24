@@ -8,15 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicaNegocio;
 
 namespace Vista
 {
     public partial class FormBuscarUsuario : Form
     {
         Usuario usuarioSeleccionado;
+        BindingList<Usuario> usuarios = new BindingList<Usuario>();
         public FormBuscarUsuario()
         {
             InitializeComponent();
+
+            UsuarioBL userBL = new UsuarioBL();
+            usuarios = userBL.listarTodosUsuarios();
+
+            dataGridView1.DataSource = usuarios;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,5 +35,18 @@ namespace Vista
         {
             Owner.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("¿Seguro que desea eliminar este usuario?","Mensaje",MessageBoxButtons.OKCancel);
+            if(res == DialogResult.OK)
+            {
+                Usuario u = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
+                UsuarioBL userBL = new UsuarioBL();
+                userBL.eliminarUsuario((u.IdUsuario).ToString());
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+            }
+        }
+
     }
 }
