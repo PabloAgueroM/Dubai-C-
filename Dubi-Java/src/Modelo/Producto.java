@@ -1,67 +1,41 @@
 package Modelo;
+
 import java.util.*;
 
-public class Producto {
-	private static int count = 10000; 
-	private final int id;
-	private String descripcion;
-	private float precio;
-	private int stock;
-        private Estado estado;
-	private ArrayList<InsumoxProducto> insumos;
-	
-	public Producto(){
-		id=++count;
-                estado=Estado.Activo;
-                insumos=new ArrayList<>();             
-	}
-	public Producto(String _descripcion,float _precio,int _stock){
-		id=++count;
-		descripcion=_descripcion;
-		precio=_precio;
-		stock=_stock;
-                estado=Estado.Activo;
-                insumos=new ArrayList<>(); 
-	}
-	
-	public int getID(){
-		return id;
-	}
-	
-	public void setDescripcion(String _descripcion){
-		descripcion=_descripcion;
-	}
-	public String getDescripcion(){
-		return descripcion;
-	}
-	
-	public void setPrecio(float _precio){
-		precio=_precio;
-	}
-	public float getPrecio(){
-		return precio;
-	}
-	
-	public void setStock(int _stock){
-		stock=_stock;
-	}
-	public int getStock(){
-		return stock;
-	}
-	public void setEstado(char e){
-		if (e=='a') estado=Estado.Activo;
-                else estado=Estado.Inactivo;
-	}
-	public Estado getEstado(){
-		return estado;
-	}
-	public void insertarInsumos(InsumoxProducto ip){
-		insumos.add(ip);		
-	}
-	public ArrayList<InsumoxProducto> getLista(){
-		return insumos;
-	}
-	public void mostrarDatos(){
-		System.out.println(getID()+" "+ getDescripcion()+" "+getPrecio()+" "+getStock());
-	}
+public class Producto extends ProductoGenerico{
+    private Talla talla;
+    private ArrayList<InsumoxProducto> insumos;
+
+    public Producto() {
+        setActivo(1);
+        insumos = new ArrayList<>();
+    }
+    
+    public char getTalla() {
+        if (talla==Talla.S) {
+            return 'S';
+        } else if (talla==Talla.M) {
+            return 'M';
+        } else {
+            return 'L';
+        }
+    }
+    public void setTalla(char talla) {
+        if (talla == 's' || talla == 'S') {
+            this.talla = Talla.S;
+        } else if (talla == 'm' || talla == 'M') {
+            this.talla = Talla.M;
+        } else {
+            this.talla = Talla.L;
+        }
+    }
+    public void insertarInsumos(InsumoxProducto ip) {
+        insumos.add(ip);
+    }
+    public ArrayList<InsumoxProducto> getLista() {
+        return insumos;
+    }
+    public void mostrarDatos() {
+        System.out.println(getId()+ " " + getDescripcion() + " " + getPrecio() + " " + getStockActual());
+    }
 }

@@ -1,0 +1,10 @@
+Java:
+
+Usuario: admin
+Contraseña: 1234
+
+C#:
+
+Usuario: 17
+Contraseña 1711
+

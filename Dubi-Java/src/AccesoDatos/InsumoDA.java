@@ -6,117 +6,76 @@
 package AccesoDatos;
 
 import Modelo.Insumo;
+import Modelo.Proveedor;
+import java.sql.CallableStatement;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Pablo
  */
 public class InsumoDA {
-    public void registrarInsumo(Insumo i){
-        try{
-            //Registrar el Driver
+    public int registrarInsumo(Insumo i, Proveedor p, double precio) throws SQLException{
+        int idInsumo = 0;
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection
-            ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/a20105734", "a20105734", "4KsrLh");      
-            //("jdbc:mysql://quilla.lab.inf.pucp.edu.pe", "inf282g5", "KHjN45");
-            
-            //Empleando - Statement - Opción 2
-            String sql = "INSERT INTO INSUMO (NOMBRE,DESCRIPCION,STOCK,STOCKMIN) VALUES(?,?,?,?);";
-            PreparedStatement sentencia = con.prepareStatement(sql);
-            sentencia.setString(1,i.getNombreInsumo());
-            sentencia.setString(2,i.getDescInsumo());
-            sentencia.setDouble(3,i.getStock());
-            sentencia.setDouble(4,i.getStockMinimo());
-            sentencia.executeUpdate();
-            
-            System.out.println("Registro realizado");
-            con.close();    
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+            Connection con = DriverManager.getConnection      
+                ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
+            CallableStatement cStmt = con.prepareCall("{call REGISTRAR_INSUMO(?,?,?,?,?,?,?,?)}");
+            cStmt.registerOutParameter("_ID_PRODUCTO", java.sql.Types.INTEGER);
+            cStmt.setString("_NOMBRE", i.getNombre());
+            cStmt.setString("_DESCRIPCION", i.getDescripcion());
+            cStmt.setString("_COLOR", i.getColor());
+            cStmt.setDouble("_STOCK_MINIMO", i.getStockMinimo());
+            cStmt.setInt("_ACTIVO", i.isActivo());
+            cStmt.setInt("_ID_PROVEEDOR", 0); //Considerar modificaciones en la tabla e incluir el id de proveedor como int
+            cStmt.setDouble("_PRECIO", precio);
+            cStmt.execute();
+            idInsumo = cStmt.getInt("_ID_PRODUCTO");
+            con.close();     
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InsumoDA.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return idInsumo;
     }
     
-    public void modificarInsumo(Insumo i){
-        try{
-            //Registrar el Driver
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection
-            ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/a20105734", "a20105734", "4KsrLh");      
-            //("jdbc:mysql://quilla.lab.inf.pucp.edu.pe", "inf282g5", "KHjN45");
-            
-            //Empleando - Statement - Opción 2
-            String sql = "UPDATE INSUMO "
-                       + "SET NOMBRE = ?,DESCRIPCION = ?, STOCK = ?,STOCKMIN = ? "
-                       + "WHERE ID_INSUMO = ?;";
-            PreparedStatement sentencia = con.prepareStatement(sql);
-            sentencia.setString(1,i.getNombreInsumo());
-            sentencia.setString(2,i.getDescInsumo());
-            sentencia.setDouble(3,i.getStock());
-            sentencia.setDouble(4,i.getStockMinimo());
-            sentencia.setInt(5, i.getIdInsumo());
-            sentencia.executeUpdate();
-            
-            System.out.println("Registro realizado");
-            con.close();    
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+    public void modificarInsumo(){
+
     }
     
-    public void eliminarInsumo(Insumo i){
-        try{
-            //Registrar el Driver
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection
-            ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/a20105734", "a20105734", "4KsrLh");      
-            //("jdbc:mysql://quilla.lab.inf.pucp.edu.pe", "inf282g5", "KHjN45");
-            
-            //Empleando - Statement - Opción 2
-            String sql = "DELETE FROM INSUMO WHERE ID_INSUMO = ?";
-            PreparedStatement sentencia = con.prepareStatement(sql);
-            sentencia.setInt(1,i.getIdInsumo());
-            sentencia.executeUpdate();
-            
-            System.out.println("Registro realizado");
-            con.close();    
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-     
-    public ArrayList<Insumo> listarInsumos(){
+    public ArrayList<Insumo> listarInsumos() throws SQLException{
         ArrayList<Insumo> lista = new ArrayList<Insumo>();
-        try{
-            //Registrar el Driver
+        
+        try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection
-            ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/a20105734", "a20105734", "4KsrLh");      
-            //("jdbc:mysql://quilla.lab.inf.pucp.edu.pe", "inf282g5", "KHjN45");
-            
-            //Creación del Statement
-            Statement sentencia = con.createStatement();
-            String sql = "SELECT * FROM INSUMO;";
-            ResultSet rs = sentencia.executeQuery(sql);
-            while(rs.next()){
+                    ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
+            CallableStatement cStmt = con.prepareCall("{call LISTAR_INSUMOS()}");
+            ResultSet rs = cStmt.executeQuery();
+            while (rs.next()){
                 Insumo i = new Insumo();
-                i.setIdInsumo(rs.getInt("ID_INSUMO"));
-                i.setNombreInsumo(rs.getString("NOMBRE"));
-                i.setDescInsumo(rs.getString("DESCRIPCION"));
-                i.setStock(rs.getDouble("STOCK"));
-                i.setStockMin(rs.getDouble("STOCKMIN"));
+                i.setIdInsumo(rs.getInt("ID_PRODUCTO"));
+                i.setNombre(rs.getString("NOMBRE"));
+                i.setDescripcion(rs.getString("DESCRIPCION"));
+                i.setColor(rs.getString("COLOR"));
+                i.setStockMinimo(rs.getInt("STOCK_MINIMO"));
+                //Setear Tipo y UMed
                 lista.add(i);
             }
             con.close();
-            
-        }catch(Exception e){
-            
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InsumoDA.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
+
     }
 }

@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+/**
+ *
+ * @author Pablo Aguero
+ */
 package Controlador;
 
 import AccesoDatos.InsumoDA;
 import Modelo.Insumo;
+import Modelo.Proveedor;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Pablo
- */
 public class InsumoBL {
     private InsumoDA accesoDatos;
     
@@ -20,19 +23,11 @@ public class InsumoBL {
         accesoDatos = new InsumoDA();
     }
     
-    public void registrarInsumo(Insumo i){
-        accesoDatos.registrarInsumo(i);
+    public int registrarInsumo(Insumo i,Proveedor p, double precio) throws SQLException{
+        return accesoDatos.registrarInsumo(i,p,precio);
     }
     
-    public void eliminarInsumo(Insumo i){
-        accesoDatos.eliminarInsumo(i);
-    }
-    
-    public void modificarInsumo(Insumo i){
-        accesoDatos.modificarInsumo(i);
-    }
-    
-    public ArrayList<Insumo> listarInsumos(){
+    public ArrayList<Insumo> listarInsumos() throws SQLException{
         return accesoDatos.listarInsumos();
     }
 }

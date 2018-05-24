@@ -1,7 +1,5 @@
 package Modelo;
 
-import Modelo.Insumo;
-
 public class InsumoxProducto {
     private Insumo insumo;
     private float cantidad;
