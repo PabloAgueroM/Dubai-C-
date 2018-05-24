@@ -7,6 +7,7 @@ using Clases;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace AccesoDatos
 {
@@ -97,6 +98,7 @@ namespace AccesoDatos
                     lista.Add(n);
 
                 }
+                con.Close();
             }
             return lista;
         }
@@ -119,8 +121,35 @@ namespace AccesoDatos
                 comando.Parameters.Add("_TELEFONO", MySqlDbType.VarChar).Value = c.Telefono;
                 comando.Parameters.Add("_EMAIL", MySqlDbType.VarChar).Value = c.Email;
                 comando.Parameters.Add("_DIRECCION", MySqlDbType.VarChar).Value = c.Direccion;
-                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.VarChar).Value = c.IdPersona;
+                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Value = c.IdPersona;
+                comando.ExecuteNonQuery();
+                MessageBox.Show("asdasd asd asdasasddas");
+                con.Close();
+            }
+
+        }
+
+
+        public void actualizarClienteJuridico(Juridica c)
+        {
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "REGISTRAR_CLIENTE_JURIDICO";
+                comando.Connection = con.Connection;
+                comando.Parameters.Add("_RAZON", MySqlDbType.VarChar).Value = c.RazonSocial;
+                comando.Parameters.Add("_RUC", MySqlDbType.VarChar).Value = c.Ruc;
+                comando.Parameters.Add("_NOMBRE", MySqlDbType.VarChar).Value = c.Nombre;
+                comando.Parameters.Add("_TELEFONO", MySqlDbType.VarChar).Value = c.Telefono;
+                comando.Parameters.Add("_EMAIL", MySqlDbType.VarChar).Value = c.Email;
+                comando.Parameters.Add("_DIRECCION", MySqlDbType.VarChar).Value = c.Direccion;
+                comando.Parameters.Add("_FECHA_ANIVERSARIO", MySqlDbType.Date).Value = c.FechaAniversario;
+                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Direction = System.Data.ParameterDirection.Output;
+
                 int check = comando.ExecuteNonQuery();
+                con.Close();
             }
         }
 

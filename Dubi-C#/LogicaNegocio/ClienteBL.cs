@@ -39,7 +39,7 @@ namespace LogicaNegocio
 
 
         public void actualizarClienteJuridico(Juridica c) {
-
+            accesoDatos.actualizarClienteJuridico(c);
         }
 
 
