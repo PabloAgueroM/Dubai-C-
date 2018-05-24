@@ -27,17 +27,18 @@ namespace LogicaNegocio
             return accesoDatos.registrarClienteJuridico(c);
         }
 
-        public BindingList<Persona> listarClientes() {
-            BindingList<Persona> lista = new BindingList<Persona>();
+        public BindingList<Natural> listarClientesNaturales() {
+            BindingList<Natural> lista = new BindingList<Natural>();
+            lista = accesoDatos.listarClienteNatural();
             return lista;
         }
 
-        public void modificarCliente() {
-
+        public void actualizarClienteNatural(Natural c) {
+            accesoDatos.actualizarClienteNatural(c);
         }
 
 
-        public void eliminarCliente() {
+        public void actualizarClienteJuridico(Juridica c) {
 
         }
 

@@ -31,19 +31,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
-      <HintPath>..\..\..\..\Users\alulab14.INF.000\Downloads\Driver MYSQL para C#v4.5.2\MySql.Data.dll</HintPath>
+      <HintPath>..\mysql drivers\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data.EntityFramework">
-      <HintPath>..\..\..\..\Users\alulab14.INF.000\Downloads\Driver MYSQL para C#v4.5.2\MySql.Data.EntityFramework.dll</HintPath>
+      <HintPath>..\mysql drivers\MySql.Data.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="MySQL.Data.EntityFrameworkCore">
-      <HintPath>..\..\..\..\Users\alulab14.INF.000\Downloads\Driver MYSQL para C#v4.5.2\MySQL.Data.EntityFrameworkCore.dll</HintPath>
+      <HintPath>..\mysql drivers\MySQL.Data.EntityFrameworkCore.dll</HintPath>
     </Reference>
     <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
-      <HintPath>..\..\..\..\Users\alulab14.INF.000\Downloads\Driver MYSQL para C#v4.5.2\MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
+      <HintPath>..\mysql drivers\MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Web">
-      <HintPath>..\..\..\..\Users\alulab14.INF.000\Downloads\Driver MYSQL para C#v4.5.2\MySql.Web.dll</HintPath>
+      <HintPath>..\mysql drivers\MySql.Web.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

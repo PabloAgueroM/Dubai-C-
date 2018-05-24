@@ -64,12 +64,31 @@ namespace Vista
             if (comboBox1.Text == "Juridica")
             {
                 FormBuscarClienteJuridico buscar = new FormBuscarClienteJuridico();
-                buscar.ShowDialog();
+                if (buscar.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
             }
             else
             {
                 FormBuscarClienteNatural buscar = new FormBuscarClienteNatural();
-                buscar.ShowDialog();
+                if (buscar.ShowDialog() == DialogResult.OK)
+                {
+                    textBox14.Text = buscar.ClienteSeleccionado.IdPersona;
+                    textBox11.Text = buscar.ClienteSeleccionado.Dni;
+                    textBox1.Text = buscar.ClienteSeleccionado.Nombre;
+                    textBox2.Text = buscar.ClienteSeleccionado.ApPat;
+                    textBox3.Text = buscar.ClienteSeleccionado.ApMat;
+                    textBox4.Text = buscar.ClienteSeleccionado.Email;
+                    textBox12.Text = buscar.ClienteSeleccionado.Direccion;
+                    textBox5.Text = buscar.ClienteSeleccionado.Telefono;
+                    dateTimePicker1.Value = buscar.ClienteSeleccionado.FechaNac;
+                    if (buscar.ClienteSeleccionado.Sexo == 'M') radioButton1.Checked = true;
+                    else radioButton2.Checked = true;
+                    this.estadoBotones(2);
+                    panel1.Visible = true;
+                    comboBox1.Text = "Natural";
+                }
             }
         }
 
@@ -104,9 +123,14 @@ namespace Vista
                     textBox11.Text = "";
                     textBox12.Text = "";
                     textBox13.Text = "";
+                    textBox14.Text = "";
+                    textBox14.Enabled = false;
+                    dateTimePicker2.Enabled = false;
                     toolStripButton1.Enabled = true;
                     toolStripButton2.Enabled = false;
                     toolStripButton3.Enabled = false;
+                    toolStripButton4.Enabled = true;
+
                     break;
                 case 1:
                     textBox1.Enabled = true;
@@ -122,9 +146,34 @@ namespace Vista
                     textBox10.Enabled = true;
                     textBox11.Enabled = true;
                     textBox12.Enabled = true;
+                    textBox13.Enabled = true;
+                    textBox14.Enabled = false;
+                    dateTimePicker2.Enabled = true;
                     toolStripButton1.Enabled = false;
                     toolStripButton2.Enabled = true;
                     toolStripButton3.Enabled = true;
+                    toolStripButton4.Enabled = false;
+                    break;
+                case 2:
+                    textBox1.Enabled = true;
+                    textBox2.Enabled = true;
+                    textBox3.Enabled = true;
+                    textBox4.Enabled = true;
+                    textBox5.Enabled = true;
+                    dateTimePicker1.Enabled = true;
+                    textBox6.Enabled = true;
+                    textBox7.Enabled = true;
+                    textBox8.Enabled = true;
+                    textBox9.Enabled = true;
+                    textBox10.Enabled = true;
+                    textBox11.Enabled = true;
+                    textBox12.Enabled = true;
+                    textBox13.Enabled = true;
+                    dateTimePicker2.Enabled = true;
+                    toolStripButton1.Enabled = false;
+                    toolStripButton2.Enabled = true;
+                    toolStripButton3.Enabled = true;
+                    toolStripButton1.Enabled = false;
                     break;
 
             }
@@ -138,38 +187,75 @@ namespace Vista
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "Juridica")
+            if (textBox14.Text == "")
             {
+                if (comboBox1.Text == "Juridica")
+                {
+                    Juridica c = new Juridica();
+                    c.RazonSocial = textBox6.Text;
+                    c.Nombre = textBox7.Text;
+                    c.Ruc = textBox8.Text;
+                    c.Telefono = textBox9.Text;
+                    c.Email = textBox10.Text;
+                    c.Direccion = textBox13.Text;
+                    c.FechaAniversario = dateTimePicker2.Value;
+                    int id = logicaNegocio.registrarClienteJuridico(c);
+                    this.estadoBotones(0);
+                }
+                else
+                {
+                    Natural c = new Natural();
+                    c.Nombre = textBox1.Text;
+                    c.Dni = textBox11.Text;
+                    c.ApPat = textBox2.Text;
+                    c.ApMat = textBox3.Text;
+                    c.Email = textBox4.Text;
+                    c.Telefono = textBox5.Text;
+                    c.FechaNac = dateTimePicker1.Value;
+                    c.Direccion = textBox12.Text;
+                    if (radioButton1.Checked == true) c.Sexo = 'M';
+                    else if (radioButton2.Checked == true) c.Sexo = 'F';
 
-                Juridica c = new Juridica();
-                c.RazonSocial = textBox6.Text;
-                c.Nombre = textBox7.Text;
-                c.Ruc = textBox8.Text;
-                c.Telefono = textBox9.Text;
-                c.Email = textBox10.Text;
-                c.Direccion = textBox13.Text;
-                int id = logicaNegocio.registrarClienteJuridico(c);
-                this.estadoBotones(0);
-            }
-            else
-            {
-                Natural c = new Natural();
-                c.Nombre = textBox1.Text;
-                c.Dni = textBox11.Text;
-                c.ApPat = textBox2.Text;
-                c.ApMat = textBox3.Text;
-                c.Email = textBox4.Text;
-                c.Telefono = textBox5.Text;
-                c.FechaNac = dateTimePicker1.Value;
-                c.Direccion = textBox12.Text;
-                if (radioButton1.Checked == true) c.Sexo = 'M';
-                else if (radioButton2.Checked == true) c.Sexo = 'F';
-                
-                int id = logicaNegocio.registrarClienteNatural(c);
-                this.estadoBotones(0);
+                    int id = logicaNegocio.registrarClienteNatural(c);
+                    this.estadoBotones(0);
+                }
+                MessageBox.Show("Cliente registrado satisfactoriamente");
 
             }
-            MessageBox.Show("Cliente registrado satisfactoriamente");
+            else {
+                if (comboBox1.Text == "Juridica")
+                {
+                    Juridica c = new Juridica();
+                    c.RazonSocial = textBox6.Text;
+                    c.Nombre = textBox7.Text;
+                    c.Ruc = textBox8.Text;
+                    c.Telefono = textBox9.Text;
+                    c.Email = textBox10.Text;
+                    c.Direccion = textBox13.Text;
+                    c.FechaAniversario = dateTimePicker2.Value;
+                    logicaNegocio.actualizarClienteJuridico(c);
+                    this.estadoBotones(0);
+                }
+                else
+                {
+                    Natural c = new Natural();
+                    c.Nombre = textBox1.Text;
+                    c.Dni = textBox11.Text;
+                    c.ApPat = textBox2.Text;
+                    c.ApMat = textBox3.Text;
+                    c.Email = textBox4.Text;
+                    c.Telefono = textBox5.Text;
+                    c.FechaNac = dateTimePicker1.Value;
+                    c.Direccion = textBox12.Text;
+                    if (radioButton1.Checked == true) c.Sexo = 'M';
+                    else if (radioButton2.Checked == true) c.Sexo = 'F';
+
+                    logicaNegocio.actualizarClienteNatural(c);
+                    this.estadoBotones(0);
+                }
+                MessageBox.Show("Cliente actualizado satisfactoriamente");
+            }
+            
 
         }
         

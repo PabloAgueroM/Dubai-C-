@@ -30,12 +30,12 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidoM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,31 +63,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(600, 245);
             this.dataGridView1.TabIndex = 1;
             // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // ApellidoP
-            // 
-            this.ApellidoP.HeaderText = "ApellidoP";
-            this.ApellidoP.Name = "ApellidoP";
-            // 
-            // ApellidoM
-            // 
-            this.ApellidoM.HeaderText = "ApellidoM";
-            this.ApellidoM.Name = "ApellidoM";
-            // 
-            // email
-            // 
-            this.email.HeaderText = "email";
-            this.email.Name = "email";
-            // 
-            // telefono
-            // 
-            this.telefono.HeaderText = "telefono";
-            this.telefono.Name = "telefono";
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(718, 181);
@@ -97,7 +72,37 @@
             this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // FormBuscarCliente
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "Nombre";
+            this.nombre.HeaderText = "nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // ApellidoP
+            // 
+            this.ApellidoP.DataPropertyName = "ApPat";
+            this.ApellidoP.HeaderText = "ApellidoP";
+            this.ApellidoP.Name = "ApellidoP";
+            // 
+            // ApellidoM
+            // 
+            this.ApellidoM.DataPropertyName = "ApMat";
+            this.ApellidoM.HeaderText = "ApellidoM";
+            this.ApellidoM.Name = "ApellidoM";
+            // 
+            // email
+            // 
+            this.email.DataPropertyName = "Email";
+            this.email.HeaderText = "email";
+            this.email.Name = "email";
+            // 
+            // telefono
+            // 
+            this.telefono.DataPropertyName = "Telefono";
+            this.telefono.HeaderText = "telefono";
+            this.telefono.Name = "telefono";
+            // 
+            // FormBuscarClienteNatural
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +110,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Name = "FormBuscarCliente";
+            this.Name = "FormBuscarClienteNatural";
             this.Text = "Buscar Cliente";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -116,11 +121,11 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoP;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidoM;
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
-        private System.Windows.Forms.Button button2;
     }
 }

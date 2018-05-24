@@ -50,6 +50,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,8 +71,8 @@
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -77,8 +81,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.textBox12);
+            this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.textBox11);
+            this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
@@ -95,7 +101,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(29, 64);
+            this.panel1.Location = new System.Drawing.Point(22, 111);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(483, 299);
             this.panel1.TabIndex = 4;
@@ -261,8 +267,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.dateTimePicker2);
             this.panel2.Controls.Add(this.textBox13);
-            this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.textBox10);
             this.panel2.Controls.Add(this.textBox9);
             this.panel2.Controls.Add(this.label12);
@@ -273,10 +279,42 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Location = new System.Drawing.Point(26, 110);
+            this.panel2.Location = new System.Drawing.Point(25, 111);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(483, 196);
+            this.panel2.Size = new System.Drawing.Size(483, 229);
             this.panel2.TabIndex = 5;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(145, 174);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 40;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(20, 173);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(110, 13);
+            this.label17.TabIndex = 41;
+            this.label17.Text = "Fecha de Aniversario:";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(145, 148);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(297, 20);
+            this.textBox13.TabIndex = 39;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(20, 144);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(55, 13);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Direccion:";
             // 
             // textBox10
             // 
@@ -429,32 +467,34 @@
             this.toolStripButton4.Text = "Buscar";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
-            // label16
+            // label18
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 151);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(55, 13);
-            this.label16.TabIndex = 38;
-            this.label16.Text = "Direccion:";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(44, 77);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(21, 13);
+            this.label18.TabIndex = 31;
+            this.label18.Text = "ID:";
             // 
-            // textBox13
+            // textBox14
             // 
-            this.textBox13.Location = new System.Drawing.Point(145, 148);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(297, 20);
-            this.textBox13.TabIndex = 39;
+            this.textBox14.Location = new System.Drawing.Point(174, 74);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(297, 20);
+            this.textBox14.TabIndex = 32;
             // 
             // FormGestionClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 375);
+            this.ClientSize = new System.Drawing.Size(567, 429);
+            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Name = "FormGestionClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Clientes";
@@ -510,5 +550,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox14;
     }
 }
