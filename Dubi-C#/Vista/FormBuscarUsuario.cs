@@ -14,13 +14,17 @@ namespace Vista
 {
     public partial class FormBuscarUsuario : Form
     {
-        Usuario usuarioSeleccionado;
-        BindingList<Usuario> usuarios = new BindingList<Usuario>();
+        private Usuario usuarioSeleccionado;
+        private BindingList<Usuario> usuarios = new BindingList<Usuario>();
+
+        public Usuario UsuarioSeleccionado { get => usuarioSeleccionado; set => usuarioSeleccionado = value; }
+
         public FormBuscarUsuario()
         {
             InitializeComponent();
 
             UsuarioBL userBL = new UsuarioBL();
+            usuarioSeleccionado = new Usuario();
             usuarios = userBL.listarTodosUsuarios();
 
             dataGridView1.DataSource = usuarios;
@@ -28,7 +32,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            usuarioSeleccionado = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
+            UsuarioSeleccionado = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
         }
 
         private void FormBuscarUsuario_FormClosed(object sender, FormClosedEventArgs e)

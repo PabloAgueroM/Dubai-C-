@@ -33,5 +33,10 @@ namespace LogicaNegocio
         {
             accesoDatos.eliminarUsuario(id);
         }
+
+        public int modificarUsuario(Usuario user)
+        {
+            return accesoDatos.modificarUsuario(user);
+        }
     }
 }

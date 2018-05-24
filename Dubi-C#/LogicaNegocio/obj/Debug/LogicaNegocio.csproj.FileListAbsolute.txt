@@ -35,3 +35,16 @@ C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\LogicaNegocio\ob
 C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CopyComplete
 C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\MySql.Data.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.pdb
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe.config
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csprojAssemblyReference.cache
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CopyComplete
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
