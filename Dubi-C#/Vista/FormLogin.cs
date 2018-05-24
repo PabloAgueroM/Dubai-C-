@@ -14,6 +14,7 @@ namespace Vista
 {
     public partial class FormLogin : Form
     {
+        private string idActual;
         public FormLogin()
         {
             InitializeComponent();
@@ -35,7 +36,8 @@ namespace Vista
                 if (resultado == 1)
                 {
                     Hide();
-                    FormMain menu = new FormMain();
+                    idActual = textBox1.Text;
+                    FormMain menu = new FormMain(idActual);
                     menu.Show();
                     menu.Owner = this;
                     FormCollection fc = Application.OpenForms;
@@ -44,6 +46,11 @@ namespace Vista
                 else if(resultado == -1) MessageBox.Show("Error en la conexion con la base de datos");
                 
             }
+        }
+
+        public string userActual()
+        {
+            return textBox1.Text;
         }
     }
 }

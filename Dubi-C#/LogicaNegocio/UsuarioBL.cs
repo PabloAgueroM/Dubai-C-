@@ -24,5 +24,14 @@ namespace LogicaNegocio
         {
             return accesoDatos.listarUsuarios();
         }
+        public BindingList<Usuario> listarTodosUsuarios()
+        {
+            return accesoDatos.listarTodosUsuarios();
+        }
+
+        public void eliminarUsuario(string id)
+        {
+            accesoDatos.eliminarUsuario(id);
+        }
     }
 }

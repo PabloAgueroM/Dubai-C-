@@ -12,16 +12,59 @@ namespace AccesoDatos
     {
         public LoginDA() { }
 
+        public void inicioSesion(string user)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("UPDATE USUARIO SET ENLINEA = 1  WHERE ID_USUARIO = \"{0}\"", user);
+                comando.Connection = conexion.Connection;
+                try
+                {
+                    comando.ExecuteNonQuery();
+                    conexion.Close();
+                }
+                catch (Exception)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public void cerrarSesion(string user)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("UPDATE USUARIO SET ENLINEA = 0  WHERE ID_USUARIO = \"{0}\"", user);
+                comando.Connection = conexion.Connection;
+                try
+                {
+                    comando.ExecuteNonQuery();
+                    conexion.Close();
+                }
+                catch (Exception)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
         public int ValidarUsuario(string user, string password)
         {
             Conexion conexion = new Conexion();
             if (conexion.IsConnected())
             {
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = String.Format("SELECT * FROM USUARIO WHERE ID_USUARIO = \"{0}\" AND CONTRASENHA = \"{1}\"", user,password);
+                comando.CommandText = String.Format("SELECT * FROM USUARIO WHERE ID_USUARIO = \"{0}\" AND CONTRASENHA = \"{1}\"", user, password);
                 comando.Connection = conexion.Connection;
                 try{
                     int mysqlint = int.Parse(comando.ExecuteScalar().ToString());
+
+                    inicioSesion(user);
+
                     conexion.Close();
                     return 1;
                 }

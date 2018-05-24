@@ -1,19 +1,28 @@
-﻿using System;
+﻿using AccesoDatos;
+using System;
 using System.Windows.Forms;
 
 namespace Vista
 {
     public partial class FormMain : Form
     {
-        public FormMain()
+        private string idActual;
+        public FormMain(string id)
         {
             InitializeComponent();
+            idActual = id;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            Owner.Show();
-            Owner.Refresh();
+
+            LoginDA cerrar = new LoginDA();
+
+            string userID = idActual;
+
+            cerrar.cerrarSesion(userID);
+
+            Owner.Show();      
             Dispose();
         }
 
