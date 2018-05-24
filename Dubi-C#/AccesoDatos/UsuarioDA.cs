@@ -53,10 +53,33 @@ namespace AccesoDatos
                 comando.CommandText = "LISTAR_USUARIOS";
                 comando.Connection = con.Connection;
 
-                //MySqlDataReader reader = comando. 
+                MySqlDataReader reader = comando.ExecuteReader();
 
-                int check = comando.ExecuteNonQuery();
+                BindingList<Usuario> usuarios = new BindingList<Usuario>();
+
+                while (reader.Read())
+                {
+                    Usuario u = new Usuario();
+                    u.ApMat = reader.GetString("AP_MATERNO");
+                    u.ApPat = reader.GetString("AP_PATERNO");
+                    u.Direccion = reader.GetString("DIRECCION");
+                    u.Dni = reader.GetString("DNI");
+                    u.Email = reader.GetString("EMAIL");
+                    u.EstadoU = reader.GetInt32("ACTIVO");
+                    u.FechaNac = (DateTime)reader.GetMySqlDateTime("FECHA_NACIMIENTO");
+                    u.IdPersona = reader.GetString("ID_PERSONA");
+                    u.IdUsuario = Int32.Parse(reader.GetString("ID_USUARIO"));
+                    u.Nombre = reader.GetString("NOMBRE");
+                    u.Password = reader.GetString("CONTRASENHA");
+                    u.Sexo = reader.GetChar("SEXO");
+                    u.Telefono = reader.GetString("TELEFONO");
+                    u.TipoUsuario = reader.GetInt32("TIPO_USUARIO");
+
+                    usuarios.Add(u);
+                }
+
                 con.Close();
+                return usuarios;
             }
             return null;
         }
