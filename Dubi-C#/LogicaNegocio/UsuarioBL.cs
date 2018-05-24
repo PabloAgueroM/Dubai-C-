@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AccesoDatos;
 using Clases;
+using System.ComponentModel;
 
 namespace LogicaNegocio
 {
@@ -19,9 +20,9 @@ namespace LogicaNegocio
             return accesoDatos.registrarUsuario(u);
         }
 
-        public int listarUsuarios()
+        public BindingList<Usuario> listarUsuarios()
         {
-            return 0;
+            return accesoDatos.listarUsuarios();
         }
     }
 }

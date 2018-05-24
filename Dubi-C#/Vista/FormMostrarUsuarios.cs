@@ -20,7 +20,7 @@ namespace Vista
             InitializeComponent();
 
             UsuarioBL userBL = new UsuarioBL();
-            
+            usuarios = userBL.listarUsuarios();
 
             dataGridView1.DataSource = usuarios;
         }

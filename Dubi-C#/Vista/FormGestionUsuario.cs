@@ -101,9 +101,8 @@ namespace Vista
             string inTelf = textBox8.Text;
             string inDireccion = textBox9.Text;
 
-            Usuario newUser = new Usuario("1", inEmail, inTelf, inDireccion, inDNI, inNombres, inApPat, inApMat,
-            inSexo, inFecha, 1, index, inPassword, 1);
-
+            Usuario newUser = new Usuario("1", inEmail, inTelf, inDNI, inNombres, inApPat, inApMat, inSexo, inFecha, 1, index, inPassword, 1, inDireccion);
+           
             UsuarioBL userBL = new UsuarioBL();
             int id = userBL.registrarUsuario(newUser);
 
@@ -136,6 +135,5 @@ namespace Vista
             form.Owner = this;
             form.ShowDialog();
         }
-
     }
 }

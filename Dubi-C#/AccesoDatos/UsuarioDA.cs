@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Clases;
+using System.ComponentModel;
 
 namespace AccesoDatos
 {
@@ -40,6 +41,24 @@ namespace AccesoDatos
                 return 0;
             }
             return -1;
+        }
+
+        public BindingList<Usuario> listarUsuarios()
+        {
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "LISTAR_USUARIOS";
+                comando.Connection = con.Connection;
+
+
+
+                int check = comando.ExecuteNonQuery();
+                con.Close();
+            }
+            return null;
         }
     }
 }
