@@ -1,7 +1,7 @@
 package Modelo;
 import Modelo.Persona;
 import java.sql.Date;
-import java.time.LocalDateTime;
+
 
 public class Proveedor extends PersonaJuridica{
     private String IDProveedor; 
@@ -22,7 +22,9 @@ public class Proveedor extends PersonaJuridica{
     public void setRepresentante(PersonaNatural Representante) {
         this.Representante = Representante;
     }
-
+    public Proveedor(){
+        super();
+    }
     public Proveedor(String idPersona, String email, String telefono,
     String razonSocial, String nombre, String RUC, Date fechaAniversario,
     String IDProveedor, PersonaNatural Representante){
@@ -30,5 +32,5 @@ public class Proveedor extends PersonaJuridica{
         this.IDProveedor = IDProveedor;
         this.Representante = Representante;
     }
-	
+    
 }

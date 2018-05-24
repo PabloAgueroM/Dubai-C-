@@ -5,8 +5,9 @@
  */
 package Modelo;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
+
+
 
 /**
  *
@@ -26,6 +27,17 @@ public class PersonaJuridica extends Persona {
         this.RUC=RUC;
         this.fechaAniversario=fechaAniversario;
 
+    }
+    public PersonaJuridica( String telefono, String razonSocial, String nombre, String RUC, Date fechaAniversario) {
+        super( telefono);
+        this.razonSocial=razonSocial;
+        this.nombre = nombre;
+        this.RUC=RUC;
+        this.fechaAniversario=fechaAniversario;
+
+    }
+    public PersonaJuridica(){
+        super();
     }
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;

@@ -25,7 +25,9 @@ public class Persona {
                 
 		//fechaNac=_fechaNac;
 	}
-	
+	public Persona(){
+            
+        }
 	
 	public void setIdPersona (String idPersona){
             this.idPersona=idPersona;

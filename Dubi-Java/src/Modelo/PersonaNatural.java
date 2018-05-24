@@ -5,8 +5,7 @@
  */
 package Modelo;
 
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -39,6 +38,9 @@ public class PersonaNatural extends Persona {
         this.DNI = DNI;
         
 
+    }
+    public PersonaNatural(){
+        super();
     }
 
     public void setNombre(String nombre) {
