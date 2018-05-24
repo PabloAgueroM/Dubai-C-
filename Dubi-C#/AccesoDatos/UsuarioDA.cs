@@ -53,7 +53,7 @@ namespace AccesoDatos
                 comando.CommandText = "LISTAR_USUARIOS";
                 comando.Connection = con.Connection;
 
-
+                //MySqlDataReader reader = comando. 
 
                 int check = comando.ExecuteNonQuery();
                 con.Close();
