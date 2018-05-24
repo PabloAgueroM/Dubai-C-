@@ -38,5 +38,16 @@ namespace Vista
             clienteSeleccionado = (Natural)dataGridView1.CurrentRow.DataBoundItem;
             this.DialogResult = DialogResult.OK;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("¿Seguro que desea eliminar este cliente?", "Mensaje", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+            {
+                Natural c = (Natural)dataGridView1.CurrentRow.DataBoundItem;
+                logicaNegocio.eliminarCliente((c.IdPersona).ToString());
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+            }
+        }
     }
 }

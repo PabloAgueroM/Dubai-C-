@@ -103,6 +103,37 @@ namespace AccesoDatos
             return lista;
         }
 
+        public BindingList<Juridica> listarClienteJuridico()
+        {
+            BindingList<Juridica> lista = new BindingList<Juridica>();
+
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "LISTAR_CLIENTE_JURIDICO";
+                comando.Connection = con.Connection;
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Juridica n = new Juridica();
+                    n.Direccion = reader.GetString("DIRECCION");
+                    n.Email = reader.GetString("EMAIL");
+                    n.FechaAniversario = (DateTime)reader.GetMySqlDateTime("FECHA_ANIVERSARIO");
+                    n.IdPersona = reader.GetInt32("ID_PERSONA").ToString();
+                    n.Nombre = reader.GetString("NOMBRE");
+                    n.RazonSocial = reader.GetString("RAZON_SOCIAL");
+                    n.Ruc = reader.GetString("RUC");
+                    n.Telefono = reader.GetString("TELEFONO");
+                    lista.Add(n);
+
+                }
+                con.Close();
+            }
+            return lista;
+        }
+
 
         public void actualizarClienteNatural(Natural c) {
             Conexion con = new Conexion();
@@ -121,9 +152,8 @@ namespace AccesoDatos
                 comando.Parameters.Add("_TELEFONO", MySqlDbType.VarChar).Value = c.Telefono;
                 comando.Parameters.Add("_EMAIL", MySqlDbType.VarChar).Value = c.Email;
                 comando.Parameters.Add("_DIRECCION", MySqlDbType.VarChar).Value = c.Direccion;
-                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Value = c.IdPersona;
+                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Value = Convert.ToInt32(c.IdPersona);
                 comando.ExecuteNonQuery();
-                MessageBox.Show("asdasd asd asdasasddas");
                 con.Close();
             }
 
@@ -137,7 +167,7 @@ namespace AccesoDatos
             {
                 MySqlCommand comando = new MySqlCommand();
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
-                comando.CommandText = "REGISTRAR_CLIENTE_JURIDICO";
+                comando.CommandText = "ACTUALIZAR_CLIENTE_JURIDICO";
                 comando.Connection = con.Connection;
                 comando.Parameters.Add("_RAZON", MySqlDbType.VarChar).Value = c.RazonSocial;
                 comando.Parameters.Add("_RUC", MySqlDbType.VarChar).Value = c.Ruc;
@@ -146,12 +176,26 @@ namespace AccesoDatos
                 comando.Parameters.Add("_EMAIL", MySqlDbType.VarChar).Value = c.Email;
                 comando.Parameters.Add("_DIRECCION", MySqlDbType.VarChar).Value = c.Direccion;
                 comando.Parameters.Add("_FECHA_ANIVERSARIO", MySqlDbType.Date).Value = c.FechaAniversario;
-                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Direction = System.Data.ParameterDirection.Output;
+                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Value = c.IdPersona;
 
                 int check = comando.ExecuteNonQuery();
                 con.Close();
             }
         }
+
+        public void eliminarCliente(string id) {
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("UPDATE PERSONA SET ACTIVO = 0  WHERE ID_PERSONA = \"{0}\"", id);
+                comando.Connection = con.Connection;
+                comando.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        
+
 
     }
 }

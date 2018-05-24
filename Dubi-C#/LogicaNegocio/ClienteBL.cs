@@ -33,6 +33,13 @@ namespace LogicaNegocio
             return lista;
         }
 
+        public BindingList<Juridica> listarClientesJuridicos()
+        {
+            BindingList<Juridica> lista = new BindingList<Juridica>();
+            lista = accesoDatos.listarClienteJuridico();
+            return lista;
+        }
+
         public void actualizarClienteNatural(Natural c) {
             accesoDatos.actualizarClienteNatural(c);
         }
@@ -41,7 +48,9 @@ namespace LogicaNegocio
         public void actualizarClienteJuridico(Juridica c) {
             accesoDatos.actualizarClienteJuridico(c);
         }
-
+        public void eliminarCliente(string id) {
+            accesoDatos.eliminarCliente(id);
+        }
 
     }
 }

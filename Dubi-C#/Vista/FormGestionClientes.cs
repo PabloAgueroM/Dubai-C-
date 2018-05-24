@@ -15,6 +15,7 @@ namespace Vista
     {
         private ClienteBL logicaNegocio;
         private BindingList<Persona> listaClientes = new BindingList<Persona>();
+        private verificador v = new verificador();
         public FormGestionClientes()
         {
             InitializeComponent();
@@ -66,7 +67,19 @@ namespace Vista
                 FormBuscarClienteJuridico buscar = new FormBuscarClienteJuridico();
                 if (buscar.ShowDialog() == DialogResult.OK)
                 {
-                    
+                    textBox14.Text = buscar.ClienteSeleccionado.IdPersona;
+                    textBox6.Text = buscar.ClienteSeleccionado.RazonSocial;
+                    textBox7.Text = buscar.ClienteSeleccionado.Nombre;
+                    textBox8.Text = buscar.ClienteSeleccionado.Ruc;
+                    textBox9.Text = buscar.ClienteSeleccionado.Telefono;
+                    textBox10.Text = buscar.ClienteSeleccionado.Email;
+                    dateTimePicker2.Value = buscar.ClienteSeleccionado.FechaAniversario;
+                    textBox13.Text = buscar.ClienteSeleccionado.Direccion;
+                    this.estadoBotones(2);  
+                    panel2.Visible = true;
+                    panel1.Visible = false;
+                    comboBox1.Text = "Juridica";
+
                 }
             }
             else
@@ -87,6 +100,7 @@ namespace Vista
                     else radioButton2.Checked = true;
                     this.estadoBotones(2);
                     panel1.Visible = true;
+                    panel2.Visible = false;
                     comboBox1.Text = "Natural";
                 }
             }
@@ -185,42 +199,73 @@ namespace Vista
             this.estadoBotones(0);
         }
 
+        
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            
             if (textBox14.Text == "")
             {
                 if (comboBox1.Text == "Juridica")
-                {
-                    Juridica c = new Juridica();
-                    c.RazonSocial = textBox6.Text;
-                    c.Nombre = textBox7.Text;
-                    c.Ruc = textBox8.Text;
-                    c.Telefono = textBox9.Text;
-                    c.Email = textBox10.Text;
-                    c.Direccion = textBox13.Text;
-                    c.FechaAniversario = dateTimePicker2.Value;
-                    int id = logicaNegocio.registrarClienteJuridico(c);
-                    this.estadoBotones(0);
+                {                    
+                    if (textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "" && textBox9.Text != ""
+                        && textBox10.Text != "" && textBox13.Text != "")
+                    {
+                        Juridica c = new Juridica();
+                        c.RazonSocial = textBox6.Text;
+                        c.Nombre = textBox7.Text;
+                        c.Ruc = textBox8.Text;
+                        c.Telefono = textBox9.Text;
+                        c.Email = textBox10.Text;
+                        c.Direccion = textBox13.Text;
+                        c.FechaAniversario = dateTimePicker2.Value;
+                        if (v.verificarNombre(c.RazonSocial) == 0) { MessageBox.Show("Razon Social invalida"); return; }
+                        if (v.verificarNombre(c.Nombre) == 0) { MessageBox.Show("Nombre invalida"); return; }
+                        if (v.verificarNumero(c.Ruc) == 0) { MessageBox.Show("RUC invalido"); return; }
+                        if (v.verificarNumero(c.Telefono) == 0) { MessageBox.Show("Telefono invalido"); return; }
+
+
+                        int id = logicaNegocio.registrarClienteJuridico(c);
+                        this.estadoBotones(0);
+                        MessageBox.Show("Cliente registrado satisfactoriamente");
+                    }
+                    else {
+                        MessageBox.Show("Faltan llenar campos");
+                    }                    
                 }
                 else
                 {
-                    Natural c = new Natural();
-                    c.Nombre = textBox1.Text;
-                    c.Dni = textBox11.Text;
-                    c.ApPat = textBox2.Text;
-                    c.ApMat = textBox3.Text;
-                    c.Email = textBox4.Text;
-                    c.Telefono = textBox5.Text;
-                    c.FechaNac = dateTimePicker1.Value;
-                    c.Direccion = textBox12.Text;
-                    if (radioButton1.Checked == true) c.Sexo = 'M';
-                    else if (radioButton2.Checked == true) c.Sexo = 'F';
+                    if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != ""
+                        && textBox5.Text != "" && textBox11.Text != "" && textBox12.Text != "" &&
+                        (radioButton1.Checked == true || radioButton2.Checked == true))
+                    {
+                        Natural c = new Natural();
+                        c.Nombre = textBox1.Text;
+                        c.Dni = textBox11.Text;
+                        c.ApPat = textBox2.Text;
+                        c.ApMat = textBox3.Text;
+                        c.Email = textBox4.Text;
+                        c.Telefono = textBox5.Text;
+                        c.FechaNac = dateTimePicker1.Value;
+                        c.Direccion = textBox12.Text;
+                        if (radioButton1.Checked == true) c.Sexo = 'M';
+                        else if (radioButton2.Checked == true) c.Sexo = 'F';
 
-                    int id = logicaNegocio.registrarClienteNatural(c);
-                    this.estadoBotones(0);
-                }
-                MessageBox.Show("Cliente registrado satisfactoriamente");
 
+                        if (v.verificarNumero(c.Dni) == 0) { MessageBox.Show("DNI invalid0"); return; }
+                        if (v.verificarNombre(c.Nombre) == 0) { MessageBox.Show("Nombre  invalido"); return; }
+                        if (v.verificarNombre(c.ApMat) == 0) { MessageBox.Show("Apellido materno invalido"); return; }
+                        if (v.verificarNombre(c.ApPat) == 0) { MessageBox.Show("Apellido paterno invalido"); return; }
+                        if (v.verificarNumero(c.Telefono) == 0) { MessageBox.Show("Telefono  invalido"); return; }
+
+                        int id = logicaNegocio.registrarClienteNatural(c);
+                        this.estadoBotones(0);
+                        MessageBox.Show("Cliente registrado satisfactoriamente");
+                    }
+                    else {
+                        MessageBox.Show("Faltan llenar campos");
+                    }
+                }  
             }
             else {
                 if (comboBox1.Text == "Juridica")
@@ -232,7 +277,14 @@ namespace Vista
                     c.Telefono = textBox9.Text;
                     c.Email = textBox10.Text;
                     c.Direccion = textBox13.Text;
+                    c.IdPersona = textBox14.Text;
                     c.FechaAniversario = dateTimePicker2.Value;
+
+                    if (v.verificarNombre(c.RazonSocial) == 0) { MessageBox.Show("Razon Social invalida"); return; }
+                    if (v.verificarNombre(c.Nombre) == 0) { MessageBox.Show("Nombre invalida"); return; }
+                    if (v.verificarNumero(c.Ruc) == 0) { MessageBox.Show("RUC invalido"); return; }
+                    if (v.verificarNumero(c.Telefono) == 0) { MessageBox.Show("Telefono invalido"); return; }
+
                     logicaNegocio.actualizarClienteJuridico(c);
                     this.estadoBotones(0);
                 }
@@ -247,8 +299,15 @@ namespace Vista
                     c.Telefono = textBox5.Text;
                     c.FechaNac = dateTimePicker1.Value;
                     c.Direccion = textBox12.Text;
+                    c.IdPersona = textBox14.Text;
                     if (radioButton1.Checked == true) c.Sexo = 'M';
                     else if (radioButton2.Checked == true) c.Sexo = 'F';
+
+                    if (v.verificarNumero(c.Dni) == 0) { MessageBox.Show("DNI invalid0"); return; }
+                    if (v.verificarNombre(c.Nombre) == 0) { MessageBox.Show("Nombre  invalido"); return; }
+                    if (v.verificarNombre(c.ApMat) == 0) { MessageBox.Show("Apellido materno invalido"); return; }
+                    if (v.verificarNombre(c.ApPat) == 0) { MessageBox.Show("Apellido paterno invalido"); return; }
+                    if (v.verificarNumero(c.Telefono) == 0) { MessageBox.Show("Telefono  invalido"); return; }
 
                     logicaNegocio.actualizarClienteNatural(c);
                     this.estadoBotones(0);
