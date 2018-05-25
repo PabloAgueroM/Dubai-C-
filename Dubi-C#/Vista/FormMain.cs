@@ -31,7 +31,7 @@ namespace Vista
             Vista.FormAdminUsuario ventanaUsuarios = new Vista.FormAdminUsuario();
             Hide();
             ventanaUsuarios.Owner = this;
-            ventanaUsuarios.ShowDialog();
+            ventanaUsuarios.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

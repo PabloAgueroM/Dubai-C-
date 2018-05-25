@@ -66,21 +66,21 @@
             this.textBox1.Location = new System.Drawing.Point(120, 60);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.TabIndex = 2;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(120, 86);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBox2.TabIndex = 3;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(120, 112);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(193, 20);
-            this.textBox3.TabIndex = 3;
+            this.textBox3.TabIndex = 4;
             // 
             // textBox5
             // 
@@ -89,7 +89,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.PasswordChar = '*';
             this.textBox5.Size = new System.Drawing.Size(193, 20);
-            this.textBox5.TabIndex = 7;
+            this.textBox5.TabIndex = 10;
             // 
             // label2
             // 
@@ -157,7 +157,7 @@
             this.comboBox4.Location = new System.Drawing.Point(120, 324);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(193, 21);
-            this.comboBox4.TabIndex = 9;
+            this.comboBox4.TabIndex = 12;
             // 
             // textBox4
             // 
@@ -166,7 +166,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.PasswordChar = '*';
             this.textBox4.Size = new System.Drawing.Size(193, 20);
-            this.textBox4.TabIndex = 8;
+            this.textBox4.TabIndex = 11;
             // 
             // label6
             // 
@@ -182,7 +182,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(120, 141);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(193, 20);
-            this.dateTimePicker1.TabIndex = 22;
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -247,7 +247,7 @@
             this.textBox6.Location = new System.Drawing.Point(120, 34);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(193, 20);
-            this.textBox6.TabIndex = 24;
+            this.textBox6.TabIndex = 1;
             // 
             // label7
             // 
@@ -263,7 +263,7 @@
             this.textBox7.Location = new System.Drawing.Point(120, 167);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(193, 20);
-            this.textBox7.TabIndex = 26;
+            this.textBox7.TabIndex = 6;
             // 
             // label10
             // 
@@ -279,7 +279,7 @@
             this.textBox8.Location = new System.Drawing.Point(120, 193);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(193, 20);
-            this.textBox8.TabIndex = 28;
+            this.textBox8.TabIndex = 7;
             // 
             // comboBox1
             // 
@@ -291,7 +291,7 @@
             this.comboBox1.Location = new System.Drawing.Point(120, 219);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(193, 21);
-            this.comboBox1.TabIndex = 30;
+            this.comboBox1.TabIndex = 8;
             // 
             // label11
             // 
@@ -316,7 +316,7 @@
             this.textBox9.Location = new System.Drawing.Point(120, 246);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(193, 20);
-            this.textBox9.TabIndex = 32;
+            this.textBox9.TabIndex = 9;
             // 
             // FormGestionUsuario
             // 
