@@ -572,26 +572,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_salirBtnMouseClicked
 
-    private void InsumoBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InsumoBtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InsumoBtn1MouseClicked
-
-    private void proveedorBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proveedorBtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_proveedorBtn1MouseClicked
-
-    private void reporteBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reporteBtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reporteBtn1MouseClicked
-
-    private void prodBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prodBtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_prodBtn1MouseClicked
-
-    private void salirBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtn1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_salirBtn1MouseClicked
-
     private void usuBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuBtnMouseClicked
         // TODO add your handling code here: 
         AdministracionUsuarios frm;
@@ -602,6 +582,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_usuBtnMouseClicked
+
+    private void salirBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salirBtn1MouseClicked
+
+    private void prodBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prodBtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_prodBtn1MouseClicked
+
+    private void reporteBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reporteBtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reporteBtn1MouseClicked
+
+    private void proveedorBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proveedorBtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proveedorBtn1MouseClicked
+
+    private void InsumoBtn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InsumoBtn1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsumoBtn1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -652,7 +652,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel minimizar;
     private javax.swing.JPanel prodBtn;
     private javax.swing.JPanel prodBtn1;
-    private javax.swing.JPanel prodBtn2;
     private javax.swing.JPanel proveedorBtn;
     private javax.swing.JPanel proveedorBtn1;
     private javax.swing.JPanel reporteBtn;
@@ -663,7 +662,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel txtInsumo1;
     private javax.swing.JLabel txtProducto;
     private javax.swing.JLabel txtProducto1;
-    private javax.swing.JLabel txtProducto2;
     private javax.swing.JLabel txtProveedor;
     private javax.swing.JLabel txtProveedor1;
     private javax.swing.JLabel txtReporte;
