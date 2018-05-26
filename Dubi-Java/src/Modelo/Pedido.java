@@ -14,7 +14,7 @@ import java.sql.Date;
 public class Pedido {
     private int id;
     private DetallePedido detalle;
-    private Cliente cliente;
+    private Persona cliente;
     private Date fechaOrden;
     private Date fechaEntrega;
     private double aCuenta;
@@ -44,11 +44,11 @@ public class Pedido {
         this.detalle = detalle;
     }
 
-    public Cliente getCliente() {
+    public Persona getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Persona cliente) {
         this.cliente = cliente;
     }
 
