@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Katherine Espinoza 20122127
  */
-public class SeleccionarProducto extends javax.swing.JFrame {
+public class BuscarProducto extends javax.swing.JFrame {
 
     private Producto seleccion;
     private ProductoBL logicaNegocio;
@@ -24,7 +24,7 @@ public class SeleccionarProducto extends javax.swing.JFrame {
     /**
      * Creates new form SeleccionarProducto
      */
-    public SeleccionarProducto() {
+    public BuscarProducto() {
         initComponents();
         setLocationRelativeTo(null);
         logicaNegocio = new ProductoBL();
@@ -170,19 +170,20 @@ public class SeleccionarProducto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SeleccionarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BuscarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new SeleccionarProducto().setVisible(true);
+            new BuscarProducto().setVisible(true);
         });
     }
 
