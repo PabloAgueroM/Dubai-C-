@@ -9,22 +9,24 @@ import Controlador.PedidoBL;
 import Modelo.Pedido;
 import Modelo.Persona;
 import Modelo.Producto;
- 
+
 /**
  *
  * @author alulab14
  */
 public class GestionarPedido extends javax.swing.JFrame {
+
     private PedidoBL logicaNegocio;
     private Producto productoSelecciondo;
     private Persona clienteSeleccionado;
     private Pedido p;
+
     /**
      * Creates new form GestionarPedido
      */
     public GestionarPedido() {
         initComponents();
-        p=new Pedido();
+        p = new Pedido();
     }
 
     /**
@@ -221,9 +223,9 @@ public class GestionarPedido extends javax.swing.JFrame {
         });
 
         btnBuscarPedido.setText("Buscar");
-        btnBuscarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarPedidoActionPerformed(evt);
+        btnBuscarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBuscarPedidoMouseClicked(evt);
             }
         });
 
@@ -336,12 +338,6 @@ public class GestionarPedido extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void btnBuscarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPedidoActionPerformed
-        BuscarPedido frm = new BuscarPedido();
-        frm.setVisible(true);
-        p=frm.getPedidoSeleccionado();
-    }//GEN-LAST:event_btnBuscarPedidoActionPerformed
-
     private void btnCanceladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanceladoActionPerformed
         logicaNegocio.cancelarPedido(p);
     }//GEN-LAST:event_btnCanceladoActionPerformed
@@ -353,20 +349,30 @@ public class GestionarPedido extends javax.swing.JFrame {
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         BuscarProducto frm = new BuscarProducto();
         frm.setVisible(true);
-        productoSelecciondo=new Producto();
-        productoSelecciondo=frm.getSeleccion();
-        
+        productoSelecciondo = new Producto();
+        productoSelecciondo = frm.getSeleccion();
+
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void btnBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteActionPerformed
-        if (cmbTipoCliente.getSelectedItem().equals("NATURAL")){
-            buscarClienteNatural frm=new buscarClienteNatural();
-            frm.setVisible(true);            
-        }else{
-            buscarClienteJuridico frm=new buscarClienteJuridico();
-            frm.setVisible(true);            
+        if (cmbTipoCliente.getSelectedItem().equals("NATURAL")) {
+            BuscarClienteNatural frm = new BuscarClienteNatural();
+            frm.setVisible(true);
+        } else {
+            BuscarClienteJuridico frm = new BuscarClienteJuridico();
+            frm.setVisible(true);
         }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
+
+    private void btnBuscarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarPedidoMouseClicked
+        try {
+            BuscarPedido frm = new BuscarPedido();
+            frm.setVisible(true);
+            p = frm.getPedidoSeleccionado();
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_btnBuscarPedidoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -430,7 +436,6 @@ public class GestionarPedido extends javax.swing.JFrame {
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel productosPanel;
-    private javax.swing.JPanel productosPanel1;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtID;
