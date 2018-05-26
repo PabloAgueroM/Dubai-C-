@@ -58,6 +58,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtSalir = new javax.swing.JLabel();
         usuBtn = new javax.swing.JPanel();
         txtUsuario = new javax.swing.JLabel();
+        reporteBtn2 = new javax.swing.JPanel();
+        txtReporte2 = new javax.swing.JLabel();
         FondoPanel1 = new javax.swing.JPanel();
         InsumoBtn1 = new javax.swing.JPanel();
         txtInsumo1 = new javax.swing.JLabel();
@@ -293,6 +295,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        reporteBtn2.setBackground(new java.awt.Color(153, 153, 153));
+        reporteBtn2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reporteBtn2MouseClicked(evt);
+            }
+        });
+
+        txtReporte2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        txtReporte2.setForeground(new java.awt.Color(255, 255, 255));
+        txtReporte2.setText("Clientes");
+
+        javax.swing.GroupLayout reporteBtn2Layout = new javax.swing.GroupLayout(reporteBtn2);
+        reporteBtn2.setLayout(reporteBtn2Layout);
+        reporteBtn2Layout.setHorizontalGroup(
+            reporteBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reporteBtn2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtReporte2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        reporteBtn2Layout.setVerticalGroup(
+            reporteBtn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(reporteBtn2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtReporte2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);
         FondoPanelLayout.setHorizontalGroup(
@@ -305,7 +335,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(proveedorBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(reporteBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(salirBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(usuBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(usuBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reporteBtn2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(460, Short.MAX_VALUE))
         );
         FondoPanelLayout.setVerticalGroup(
@@ -321,7 +352,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(proveedorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reporteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(7, 7, 7)
+                .addComponent(reporteBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -603,6 +636,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_usuBtnMouseClicked
 
+    private void reporteBtn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reporteBtn2MouseClicked
+        // TODO add your handling code here:
+        GestionarCliente form = new GestionarCliente();
+        form.setVisible(true);
+    }//GEN-LAST:event_reporteBtn2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -652,22 +691,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel minimizar;
     private javax.swing.JPanel prodBtn;
     private javax.swing.JPanel prodBtn1;
-    private javax.swing.JPanel prodBtn2;
     private javax.swing.JPanel proveedorBtn;
     private javax.swing.JPanel proveedorBtn1;
     private javax.swing.JPanel reporteBtn;
     private javax.swing.JPanel reporteBtn1;
+    private javax.swing.JPanel reporteBtn2;
     private javax.swing.JPanel salirBtn;
     private javax.swing.JPanel salirBtn1;
     private javax.swing.JLabel txtInsumo;
     private javax.swing.JLabel txtInsumo1;
     private javax.swing.JLabel txtProducto;
     private javax.swing.JLabel txtProducto1;
-    private javax.swing.JLabel txtProducto2;
     private javax.swing.JLabel txtProveedor;
     private javax.swing.JLabel txtProveedor1;
     private javax.swing.JLabel txtReporte;
     private javax.swing.JLabel txtReporte1;
+    private javax.swing.JLabel txtReporte2;
     private javax.swing.JLabel txtSalir;
     private javax.swing.JLabel txtSalir1;
     private javax.swing.JLabel txtTitulo;

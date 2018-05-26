@@ -6,6 +6,7 @@
 package Vistas;
 
 import Controlador.ClienteBL;
+import Modelo.Persona;
 import Modelo.PersonaJuridica;
 import Modelo.PersonaNatural;
 
@@ -16,6 +17,8 @@ import Modelo.PersonaNatural;
 public class GestionarCliente extends javax.swing.JFrame {
     private ClienteBL logica;
     private int caso;
+    private PersonaNatural seleccionado1;
+    private PersonaJuridica seleccionado2;
     /**
      * Creates new form GestionarCliente
      */
@@ -522,6 +525,9 @@ public class GestionarCliente extends javax.swing.JFrame {
         form1.setVisible(true);
         BuscarClienteJuridico  form2 = new BuscarClienteJuridico();
         form2.setVisible(true);
+        
+        seleccionado1 = form1.getSeleccionado();
+        seleccionado2 = form2.getSeleccionado();        
     }//GEN-LAST:event_btnBuscarMouseClicked
 
     /**

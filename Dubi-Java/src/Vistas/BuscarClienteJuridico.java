@@ -7,6 +7,8 @@ package Vistas;
 
 import Controlador.ClienteBL;
 import Modelo.PersonaJuridica;
+import Modelo.Proveedor;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,13 +16,19 @@ import Modelo.PersonaJuridica;
  */
 public class BuscarClienteJuridico extends javax.swing.JFrame {
     private ClienteBL logica;
+
+    public PersonaJuridica getSeleccionado() {
+        return seleccionado;
+    }
     private PersonaJuridica seleccionado;
+    private ArrayList<PersonaJuridica> lista;
     /**
      * Creates new form BuscarClienteJuridico
      */
     public BuscarClienteJuridico() {
         initComponents();
         logica = new ClienteBL();
+        lista = logica.listarClienteJuridico();
     }
 
     /**
@@ -99,8 +107,9 @@ public class BuscarClienteJuridico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        PersonaJuridica j = new PersonaJuridica();
-       logica.modificarClienteJuridico(j);
+        int index = dgvJuridico.getSelectedRow();
+        seleccionado = (PersonaJuridica) lista.get(index);
+        this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
 
     /**

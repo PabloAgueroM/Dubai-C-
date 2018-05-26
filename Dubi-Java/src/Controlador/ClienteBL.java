@@ -16,7 +16,7 @@ public class ClienteBL {
           ArrayList<PersonaNatural> lista = new ArrayList<PersonaNatural>();
           return lista;
     }        
-    public ArrayList<PersonaJuridica> listarPersonaJuridica() {
+    public ArrayList<PersonaJuridica> listarClienteJuridico() {
           ArrayList<PersonaJuridica> lista = new ArrayList<PersonaJuridica>();
           return lista;
     }
