@@ -92,6 +92,11 @@ public class GestionarUsuarios extends javax.swing.JFrame {
                 BuscarMouseClicked(evt);
             }
         });
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
 
         LbDni.setText("jLabel1");
 
@@ -278,7 +283,13 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
         // TODO add your handlingcode here:
         caso = 2;
+        BuscarUsuario frm = new BuscarUsuario();
+        frm.setVisible(true);
     }//GEN-LAST:event_BuscarMouseClicked
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments

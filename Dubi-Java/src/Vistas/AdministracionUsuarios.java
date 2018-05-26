@@ -30,23 +30,33 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        gestionUsuarios = new javax.swing.JButton();
-        MosrtarUsuarios = new javax.swing.JButton();
+        btnGestionUsuarios = new javax.swing.JButton();
+        btnMostrarUsuarios = new javax.swing.JButton();
         Atras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        gestionUsuarios.setText("Gestionar Usuarios");
-        gestionUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGestionUsuarios.setText("Gestionar Usuarios");
+        btnGestionUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                gestionUsuariosMouseClicked(evt);
+                btnGestionUsuariosMouseClicked(evt);
+            }
+        });
+        btnGestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionUsuariosActionPerformed(evt);
             }
         });
 
-        MosrtarUsuarios.setText("Mostrar Usuarios en linea");
-        MosrtarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnMostrarUsuarios.setText("Mostrar Usuarios en linea");
+        btnMostrarUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MosrtarUsuariosMouseClicked(evt);
+                btnMostrarUsuariosMouseClicked(evt);
+            }
+        });
+        btnMostrarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarUsuariosActionPerformed(evt);
             }
         });
 
@@ -60,9 +70,9 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(gestionUsuarios)
+                        .addComponent(btnGestionUsuarios)
                         .addGap(32, 32, 32)
-                        .addComponent(MosrtarUsuarios))
+                        .addComponent(btnMostrarUsuarios))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(162, 162, 162)
                         .addComponent(Atras)))
@@ -71,10 +81,10 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(203, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gestionUsuarios)
-                    .addComponent(MosrtarUsuarios))
+                    .addComponent(btnGestionUsuarios)
+                    .addComponent(btnMostrarUsuarios))
                 .addGap(43, 43, 43)
                 .addComponent(Atras)
                 .addGap(23, 23, 23))
@@ -83,7 +93,7 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void gestionUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gestionUsuariosMouseClicked
+    private void btnGestionUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionUsuariosMouseClicked
         // TODO add your handling code here:
         GestionarUsuarios frm;
         try {
@@ -92,11 +102,26 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_gestionUsuariosMouseClicked
+    }//GEN-LAST:event_btnGestionUsuariosMouseClicked
 
-    private void MosrtarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MosrtarUsuariosMouseClicked
+    private void btnMostrarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_MosrtarUsuariosMouseClicked
+    }//GEN-LAST:event_btnMostrarUsuariosMouseClicked
+
+    private void btnGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionUsuariosActionPerformed
+
+    private void btnMostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosActionPerformed
+        // TODO add your handling code here:
+        UsuariosEnlinea frm;
+        try {
+            frm = new UsuariosEnlinea();
+            frm.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnMostrarUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,7 +163,7 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
-    private javax.swing.JButton MosrtarUsuarios;
-    private javax.swing.JButton gestionUsuarios;
+    private javax.swing.JButton btnGestionUsuarios;
+    private javax.swing.JButton btnMostrarUsuarios;
     // End of variables declaration//GEN-END:variables
 }

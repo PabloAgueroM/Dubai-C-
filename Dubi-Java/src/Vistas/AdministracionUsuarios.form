@@ -27,9 +27,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Component id="gestionUsuarios" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGestionUsuarios" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="MosrtarUsuarios" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnMostrarUsuarios" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
@@ -43,10 +43,10 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="188" max="32767" attributes="0"/>
+              <EmptySpace pref="203" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="gestionUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="MosrtarUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnGestionUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMostrarUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="Atras" min="-2" max="-2" attributes="0"/>
@@ -56,20 +56,22 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="gestionUsuarios">
+    <Component class="javax.swing.JButton" name="btnGestionUsuarios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gestionar Usuarios"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="gestionUsuariosMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnGestionUsuariosMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionUsuariosActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="MosrtarUsuarios">
+    <Component class="javax.swing.JButton" name="btnMostrarUsuarios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mostrar Usuarios en linea"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="MosrtarUsuariosMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnMostrarUsuariosMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarUsuariosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="Atras">
