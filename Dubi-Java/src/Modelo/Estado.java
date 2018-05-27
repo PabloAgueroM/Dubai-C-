@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Modelo;
 
 /**
  *
- * @author Katherine Espinoza 20122127
+ * @author alulab14
  */
-package Modelo;
-
 public enum Estado {
-    Activo,Inactivo
+    REGISTRADO,CANCELADO,EN_PRODUCCION,ENTREGADO
 }

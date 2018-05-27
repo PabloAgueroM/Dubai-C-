@@ -61,3 +61,9 @@ C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj
 C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
 C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
 C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
+C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe.config
+C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe
+C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
+C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
+C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb

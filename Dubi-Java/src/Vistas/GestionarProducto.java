@@ -492,8 +492,8 @@ public class GestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_InsertarInsumoBotonMouseClicked
 
     private void EliminarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarBtnMouseClicked
-        SeleccionarProducto frm;
-        frm = new SeleccionarProducto();
+        BuscarProducto frm;
+        frm = new BuscarProducto();
         frm.setVisible(true);
         producto = frm.getSeleccion();
         guardarBtn.setEnabled(true);
@@ -501,8 +501,8 @@ public class GestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarBtnMouseClicked
 
     private void buscaProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscaProdMouseClicked
-        SeleccionarProducto frm;
-        frm = new SeleccionarProducto();
+        BuscarProducto frm;
+        frm = new BuscarProducto();
         frm.setVisible(true);
         producto = frm.getSeleccion();
     }//GEN-LAST:event_buscaProdMouseClicked
