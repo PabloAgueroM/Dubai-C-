@@ -5,6 +5,7 @@
  */
 package AccesoDatos;
 
+import Modelo.InsumoxProducto;
 import Modelo.Producto;
 import Modelo.TipoProductoG;
 import Modelo.UnidadDeMedida;
@@ -24,7 +25,7 @@ public class ProductoDA {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call INSERTAR_PRODUCTO(?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement cs = con.prepareCall("{call REGISTRAR_PRODUCTO(?,?,?,?,?,?,?,?,?,?)}");
             cs.setString(2, p.getNombre());
             cs.setString(3, p.getDescripcion());
             cs.setString(4, Character.toString(p.getTalla()));
@@ -88,21 +89,22 @@ public class ProductoDA {
                 p.setStockActual(rs.getDouble("STOCK_ACTUAL"));
                 p.setActivo(rs.getInt("ACTIVO"));
                 
-                CallableStatement cs_u = con.prepareCall("{BUSCA_UNIDAD_MEDIDA(?,?,?)}");
-                cs_u.setInt(1, rs.getInt("ID_UNIDAD_MEDIDA"));
-                cs.executeUpdate();                
-                p.setUnidad(new UnidadDeMedida());
-                p.getUnidad().setId(rs.getInt("ID_UNIDAD_MEDIDA"));
-                p.getUnidad().setNombre(cs_u.getString(2));
-                p.getUnidad().setActivo(cs_u.getInt(3));
-                
-                CallableStatement cs_t = con.prepareCall("{BUSCA_TIPO_PRODUCTO(?,?,?)}");
-                cs_u.setInt(1, rs.getInt("ID_TIPO_PRODUCTO"));
-                cs.executeUpdate();                
-                p.setTipo(new TipoProductoG());                
-                p.getTipo().setId(cs_t.getInt("ID_TIPO_PRODUCTO"));
-                p.getTipo().setNombre(cs_t.getString(2));
-                p.getTipo().setActivo(cs_t.getInt(3)); 
+//                p.insertarInsumos(new InsumoxProducto());
+//                CallableStatement cs_u = con.prepareCall("{BUSCA_UNIDAD_MEDIDA(?,?,?)}");
+//                cs_u.setInt(1, rs.getInt("ID_UNIDAD_MEDIDA"));
+//                cs.executeUpdate();                
+//                p.setUnidad(new UnidadDeMedida());
+//                p.getUnidad().setId(rs.getInt("ID_UNIDAD_MEDIDA"));
+//                p.getUnidad().setNombre(cs_u.getString(2));
+//                p.getUnidad().setActivo(cs_u.getInt(3));
+//                
+//                CallableStatement cs_t = con.prepareCall("{BUSCA_TIPO_PRODUCTO(?,?,?)}");
+//                cs_u.setInt(1, rs.getInt("ID_TIPO_PRODUCTO"));
+//                cs.executeUpdate();                
+//                p.setTipo(new TipoProductoG());                
+//                p.getTipo().setId(cs_t.getInt("ID_TIPO_PRODUCTO"));
+//                p.getTipo().setNombre(cs_t.getString(2));
+//                p.getTipo().setActivo(cs_t.getInt(3)); 
                 lista.add(p);
             }
             con.close();
