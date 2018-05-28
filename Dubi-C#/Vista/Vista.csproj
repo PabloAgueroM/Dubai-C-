@@ -226,6 +226,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -253,6 +254,36 @@
       <Project>{48A34937-0F09-4469-823E-A14D8AA80336}</Project>
       <Name>LogicaNegocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nueva persona.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_contact-new_23203.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Search-Male-User_49620.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_floppy_285657.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Delete_1493279.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_arrow-back_216437.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Remove-Male-User_49612.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_edit-find-replace_118921.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_filter_299094.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

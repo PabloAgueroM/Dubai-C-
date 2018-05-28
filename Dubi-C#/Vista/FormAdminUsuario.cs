@@ -23,12 +23,14 @@ namespace Vista
         private void button2_Click(object sender, EventArgs e)
         {
             FormGestionUsuario VentanaGestionarUsuario = new FormGestionUsuario();
+            VentanaGestionarUsuario.Owner = this;
             VentanaGestionarUsuario.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             FormMostrarUsuarios VentanaUsuarios = new FormMostrarUsuarios();
+            VentanaUsuarios.Owner = this;
             VentanaUsuarios.ShowDialog();
         }
 

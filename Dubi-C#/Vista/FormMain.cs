@@ -39,7 +39,7 @@ namespace Vista
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult res = MessageBox.Show("Salir de esta ventana tambien cerrará la sesión actual ¿Seguro que desea continuar?", "Mensaje", MessageBoxButtons.OKCancel);
+            DialogResult res = MessageBox.Show("Salir de esta ventana tambien cerrará la sesión actual ¿Seguro que desea continuar?", "Mensaje", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             if (res == DialogResult.OK)
             {
                 LoginDA cerrar = new LoginDA();

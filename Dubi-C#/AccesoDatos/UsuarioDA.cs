@@ -153,6 +153,7 @@ namespace AccesoDatos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.CommandText = "MODIFICAR_USUARIO";
                 comando.Connection = con.Connection;
+                comando.Parameters.Add("_ID_PERSONA", MySqlDbType.Int32).Value = Int32.Parse(u.IdPersona);
                 comando.Parameters.Add("_NOMBRE", MySqlDbType.VarChar).Value = u.Nombre;
                 comando.Parameters.Add("_DNI", MySqlDbType.VarChar).Value = u.Dni;
                 comando.Parameters.Add("_AP_PATERNO", MySqlDbType.VarChar).Value = u.ApPat;
@@ -166,8 +167,7 @@ namespace AccesoDatos
                 comando.Parameters.Add("_TIPO_USUARIO", MySqlDbType.Int32).Value = u.TipoUsuario;
                 comando.Parameters.Add("_CONTRASENHA", MySqlDbType.VarChar).Value = u.Password;
                 comando.Parameters.Add("_ESTADOU", MySqlDbType.Int32).Value = 1;
-
-                
+         
                 int result = comando.ExecuteNonQuery();
                 con.Close();
                 return result;

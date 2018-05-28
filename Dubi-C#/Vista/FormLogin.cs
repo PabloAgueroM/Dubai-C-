@@ -37,10 +37,10 @@ namespace Vista
                 {
                     Hide();
                     idActual = textBox1.Text;
+                    textBox2.Text = null;
                     FormMain menu = new FormMain(idActual);
                     menu.Show();
                     menu.Owner = this;
-                    FormCollection fc = Application.OpenForms;
                 }
                 else if(resultado == 0) MessageBox.Show("ID o contraseña incorrecta");           
                 else if(resultado == -1) MessageBox.Show("Error en la conexion con la base de datos");

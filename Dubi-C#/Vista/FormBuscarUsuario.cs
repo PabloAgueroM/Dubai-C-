@@ -52,5 +52,23 @@ namespace Vista
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BindingList<Usuario> filtro = new BindingList<Usuario>();
+
+            foreach (Usuario u in usuarios)
+            {
+                if (u.Nombre.Contains(textBox1.Text.ToUpper()))
+                {
+                    filtro.Add(u);
+                }
+            }
+            dataGridView1.DataSource = filtro;
+        }
     }
 }
