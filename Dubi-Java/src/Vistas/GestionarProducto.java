@@ -81,8 +81,9 @@ public class GestionarProducto extends javax.swing.JFrame {
         lblDescripcion = new javax.swing.JLabel();
         nombreText = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Producto");
+        setUndecorated(true);
 
         DescripcionText.setAutoscrolls(false);
         DescripcionText.setEnabled(false);
@@ -394,8 +395,9 @@ public class GestionarProducto extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(PrecioText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(SeleccionarInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -436,7 +438,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                 nombreText.setEnabled(false);
                 colorText.setEnabled(false);
                 break;
-            case 3:
+            case 3: //Borrar todos los datos
                 idText.setText(null);
                 DescripcionText.setText(null);
                 PrecioText.setText(null);
@@ -454,26 +456,24 @@ public class GestionarProducto extends javax.swing.JFrame {
     }
 
     private void ModificarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarBtnMouseClicked
+        Estado(3);
         Estado(1);
         //Copiar datos a la pantalla
         idText.setText(Integer.toString(producto.getId()));
+        nombreText.setText(producto.getNombre());
         DescripcionText.setText(producto.getDescripcion());
         PrecioText.setText(Double.toString(producto.getPrecio()));
         StockText.setText(Double.toString(producto.getStockActual()));
         //insumos
         Object[] filaP = new Object[3];
         DefaultTableModel modeloP = (DefaultTableModel) TablaInsumosxProducto.getModel();
-        int n = modeloP.getRowCount();
-        for (int i = 0; i < n; i++) {
-            modeloP.removeRow(0);
-        }
         for (int i = 0; i < producto.getLista().size(); i++) {
             filaP[0] = producto.getLista().get(i).getInsumo().getId();
             filaP[1] = producto.getLista().get(i).getInsumo().getNombre();
             filaP[2] = producto.getLista().get(i).getCantidad();
             modeloP.addRow(filaP);
         }
-        accion = 1;
+        accion = 1; 
     }//GEN-LAST:event_ModificarBtnMouseClicked
 
     private void NuevoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoBtnMouseClicked
@@ -532,49 +532,50 @@ public class GestionarProducto extends javax.swing.JFrame {
             return;
         }
         if (producto != null) {
-            //guardar los cambios si no estan vacios            
-            if (!this.nombreText.getText().isEmpty()
-                    && !this.DescripcionText.getText().isEmpty()
-                    && !this.PrecioText.getText().isEmpty()
-                    && !this.StockText.getText().isEmpty()) {
-                try {
-                    if (this.nombreText.getText() == null) {
-                        JOptionPane.showMessageDialog(this, "Debe ingresar el campo nombre");
-                        producto.setNombre(this.nombreText.getText());
-                    }
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "El nombre ingresado no es correcto");
+            //guardar los cambios si no estan vacios
+
+            try {
+                producto.setNombre(this.nombreText.getText());
+                if (this.nombreText.getText() == null) {
+                    JOptionPane.showMessageDialog(this, "Debe ingresar el campo nombre");
+                    producto.setNombre(this.nombreText.getText());
                 }
-                try {
-                    if (this.DescripcionText.getText() == null) {
-                        JOptionPane.showMessageDialog(this, "Debe ingresar el campo Descripcion");
-                        producto.setDescripcion(this.DescripcionText.getText());
-                    }
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "La Descripcion ingresada no es correcta");
-                }
-                try {
-                    if (this.PrecioText.getText() == null) {
-                        JOptionPane.showMessageDialog(this, "Debe ingresar el campo Precio");
-                        producto.setPrecio(Double.parseDouble(this.PrecioText.getText()));
-                    }
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "El precio ingresado debe ser un valor numérico");
-                }
-                try {
-                    if (this.StockText.getText() == null) {
-                        JOptionPane.showMessageDialog(this, "Debe ingresar el campo stock");
-                        producto.setStockActual(Double.parseDouble(this.StockText.getText()));
-                    }
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(this, "El stock ingresado debe ser un valor numérico");
-                }
-                producto.setTalla(cmbTalla.getSelectedItem().toString().charAt(0));
-                producto.setTipo((TipoProductoG) cmbTipo.getSelectedItem());
-                producto.setUnidad((UnidadDeMedida) cmbUnidad.getSelectedItem());
-                producto.setColor(colorText.getText());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "El nombre ingresado no es correcto");
             }
+            try {
+                producto.setDescripcion(this.DescripcionText.getText());
+                if (this.DescripcionText.getText() == null) {
+                    JOptionPane.showMessageDialog(this, "Debe ingresar el campo Descripcion");
+                    producto.setDescripcion(this.DescripcionText.getText());
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "La Descripcion ingresada no es correcta");
+            }
+            try {
+                producto.setPrecio(Double.parseDouble(this.PrecioText.getText()));
+                if (this.PrecioText.getText() == null) {
+                    JOptionPane.showMessageDialog(this, "Debe ingresar el campo Precio");
+                    producto.setPrecio(Double.parseDouble(this.PrecioText.getText()));
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "El precio ingresado debe ser un valor numérico");
+            }
+            try {
+                producto.setStockActual(Double.parseDouble(this.StockText.getText()));
+                if (this.StockText.getText() == null) {
+                    JOptionPane.showMessageDialog(this, "Debe ingresar el campo stock");
+                    producto.setStockActual(Double.parseDouble(this.StockText.getText()));
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, "El stock ingresado debe ser un valor numérico");
+            }
+            producto.setTalla(cmbTalla.getSelectedItem().toString().charAt(0));
+            producto.setTipo((TipoProductoG) cmbTipo.getSelectedItem());
+            producto.setUnidad((UnidadDeMedida) cmbUnidad.getSelectedItem());
+            producto.setColor(colorText.getText());
         }
+
         Estado(2);
         Estado(3);
         switch (accion) {

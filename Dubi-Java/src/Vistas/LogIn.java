@@ -9,6 +9,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -57,9 +59,9 @@ public class LogIn extends javax.swing.JFrame {
         Ingresar = new javax.swing.JButton();
         Cerrar = new javax.swing.JButton();
         imagenLogo = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        titleBar = new javax.swing.JPanel();
+        minimizar_bar = new javax.swing.JLabel();
+        cerrar_bar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -68,6 +70,12 @@ public class LogIn extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(1, 1));
         setUndecorated(true);
+
+        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContraKeyPressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jLabel1.setText("Usuario");
@@ -91,12 +99,6 @@ public class LogIn extends javax.swing.JFrame {
             }
         });
 
-        imagenLogo.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                imagenLogoComponentAdded(evt);
-            }
-        });
-
         javax.swing.GroupLayout imagenLogoLayout = new javax.swing.GroupLayout(imagenLogo);
         imagenLogo.setLayout(imagenLogoLayout);
         imagenLogoLayout.setHorizontalGroup(
@@ -108,50 +110,50 @@ public class LogIn extends javax.swing.JFrame {
             .addGap(0, 176, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(240, 52, 52));
+        titleBar.setBackground(new java.awt.Color(204, 0, 0));
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("_");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        minimizar_bar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        minimizar_bar.setForeground(new java.awt.Color(255, 255, 255));
+        minimizar_bar.setText("_");
+        minimizar_bar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimizar_bar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                minimizar_barMouseClicked(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("x");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        cerrar_bar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        cerrar_bar.setForeground(new java.awt.Color(255, 255, 255));
+        cerrar_bar.setText("x");
+        cerrar_bar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cerrar_bar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                cerrar_barMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout titleBarLayout = new javax.swing.GroupLayout(titleBar);
+        titleBar.setLayout(titleBarLayout);
+        titleBarLayout.setHorizontalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titleBarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(minimizar_bar, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cerrar_bar, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
+        titleBarLayout.setVerticalGroup(
+            titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(minimizar_bar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cerrar_bar, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -177,7 +179,7 @@ public class LogIn extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(9, 9, 9)
                 .addComponent(imagenLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -204,9 +206,9 @@ public class LogIn extends javax.swing.JFrame {
     private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
         System.exit(0);
     }//GEN-LAST:event_CerrarActionPerformed
-
+    ActionEvent e;
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        // TODO add your handling code here:
+        e=evt;
         String usuario = txtUsuario.getText();
         String contra = new String(txtContra.getPassword());
         if (usuario.isEmpty()) {
@@ -221,6 +223,7 @@ public class LogIn extends javax.swing.JFrame {
                 try {
                     vp = new VentanaPrincipal();
                     vp.setVisible(true);
+                    this.dispose();
                 } catch (Exception ex) {
                     Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -230,17 +233,18 @@ public class LogIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_IngresarActionPerformed
 
-    private void imagenLogoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_imagenLogoComponentAdded
-
-    }//GEN-LAST:event_imagenLogoComponentAdded
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void minimizar_barMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizar_barMouseClicked
         setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_minimizar_barMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void cerrar_barMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cerrar_barMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_cerrar_barMouseClicked
+
+    private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER)
+            IngresarActionPerformed(e);
+    }//GEN-LAST:event_txtContraKeyPressed
 
     /**
      * @param args the command line arguments
@@ -284,12 +288,12 @@ public class LogIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cerrar;
     private javax.swing.JButton Ingresar;
+    private javax.swing.JLabel cerrar_bar;
     private javax.swing.JPanel imagenLogo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel minimizar_bar;
+    private javax.swing.JPanel titleBar;
     private javax.swing.JPasswordField txtContra;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
