@@ -1,6 +1,8 @@
 ﻿using Clases;
 using LogicaNegocio;
 using System;
+using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Vista
@@ -53,6 +55,11 @@ namespace Vista
                 default:
                     break;
             }
+        }
+
+        private bool validar()
+        {
+            return true;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -208,6 +215,48 @@ namespace Vista
                 toolStripButton2.Enabled = true;
                 toolStripButton3.Enabled = true;
             }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\d{8}$");
+            if (!rgx.IsMatch(textBox6.Text)) textBox6.ForeColor = Color.Red;
+            else textBox6.ForeColor = Color.Black;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {  
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textBox1.Text)) textBox1.ForeColor = Color.Red;
+            else textBox1.ForeColor = Color.Black;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textBox2.Text)) textBox2.ForeColor = Color.Red;
+            else textBox2.ForeColor = Color.Black;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textBox3.Text)) textBox3.ForeColor = Color.Red;
+            else textBox3.ForeColor = Color.Black;
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            if (!rgx.IsMatch(textBox7.Text)) textBox7.ForeColor = Color.Red;
+            else textBox7.ForeColor = Color.Black;
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\d{9}$");
+            if (!rgx.IsMatch(textBox8.Text)) textBox8.ForeColor = Color.Red;
+            else textBox8.ForeColor = Color.Black;
         }
     }
 }
