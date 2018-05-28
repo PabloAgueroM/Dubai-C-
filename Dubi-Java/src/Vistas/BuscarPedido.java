@@ -48,7 +48,7 @@ public class BuscarPedido extends javax.swing.JFrame {
         tablaPedidos = new javax.swing.JTable();
         btnSeleccionar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tablaPedidos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

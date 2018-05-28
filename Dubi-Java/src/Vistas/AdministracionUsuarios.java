@@ -34,7 +34,7 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
         btnMostrarUsuarios = new javax.swing.JButton();
         Atras = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnGestionUsuarios.setText("Gestionar Usuarios");
         btnGestionUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -40,7 +40,7 @@ public class UsuariosEnlinea extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         usuariosEnLinea = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         usuariosEnLinea.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

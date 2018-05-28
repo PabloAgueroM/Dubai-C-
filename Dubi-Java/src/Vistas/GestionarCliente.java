@@ -82,7 +82,7 @@ public class GestionarCliente extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JMenu();
         btnBuscar = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Tipo de Cliente:");
 

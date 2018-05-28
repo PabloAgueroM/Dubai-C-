@@ -82,7 +82,6 @@ public class GestionarProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Producto");
-        setUndecorated(true);
 
         DescripcionText.setAutoscrolls(false);
         DescripcionText.setEnabled(false);

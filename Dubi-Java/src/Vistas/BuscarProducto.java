@@ -57,7 +57,7 @@ public class BuscarProducto extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seleccionar Producto");
 
         tablaProd.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N

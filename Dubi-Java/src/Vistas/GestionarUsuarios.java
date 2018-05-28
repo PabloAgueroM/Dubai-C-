@@ -63,7 +63,7 @@ public class GestionarUsuarios extends javax.swing.JFrame {
         CmbTipo = new javax.swing.JComboBox<>();
         CmbSexo = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         Nuevo.setText("Nuevo");
         Nuevo.addMouseListener(new java.awt.event.MouseAdapter() {
