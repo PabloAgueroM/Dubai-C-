@@ -33,7 +33,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         fondo.setVisible(true);
         //FondoPanel.add(fondo);
         FondoPanel.setSize(900, 620);
-        FondoPanel.repaint();
     }
 
     /**
