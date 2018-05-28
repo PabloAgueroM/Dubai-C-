@@ -32,7 +32,6 @@ public class GestionarProducto extends javax.swing.JFrame {
 
     public GestionarProducto() throws Exception {
         initComponents();
-        setLocationRelativeTo(null);
         LogicaNegocio = new ProductoBL();
         listaInsumos = new ArrayList<>();
     }
