@@ -15,20 +15,15 @@ namespace Vista
 
         private void button8_Click(object sender, EventArgs e)
         {
-
             LoginDA cerrar = new LoginDA();
-
-            string userID = idActual;
-
-            cerrar.cerrarSesion(userID);
-
+            cerrar.cerrarSesion(idActual);
             Owner.Show();      
             Dispose();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Vista.FormAdminUsuario ventanaUsuarios = new Vista.FormAdminUsuario();
+            FormAdminUsuario ventanaUsuarios = new FormAdminUsuario();
             Hide();
             ventanaUsuarios.Owner = this;
             ventanaUsuarios.Show();
@@ -42,11 +37,19 @@ namespace Vista
             gestionPedidos.ShowDialog();
         }
 
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Owner.Show();
+            DialogResult res = MessageBox.Show("Salir de esta ventana tambien cerrará la sesión actual ¿Seguro que desea continuar?", "Mensaje", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+            {
+                LoginDA cerrar = new LoginDA();
+                cerrar.cerrarSesion(idActual);
+                Owner.Show();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
-        
     }
 }
