@@ -26,13 +26,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setSize(900, 620);
+        this.setSize(750, 620);
         this.getContentPane().setBackground(Color.WHITE);
         Fondo fondo = new Fondo();
-        fondo.setSize(900, 620);
+        fondo.setSize(750, 620);
         fondo.setVisible(true);
         //FondoPanel.add(fondo);
-        FondoPanel.setSize(900, 620);
+        FondoPanel.setSize(750, 620);
     }
 
     /**
@@ -386,7 +386,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addComponent(lateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(556, Short.MAX_VALUE))
+                .addContainerGap(540, Short.MAX_VALUE))
         );
         FondoPanelLayout.setVerticalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,7 +397,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
+            .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -435,7 +435,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         try {
             frm = new GestionarProducto();
             frm.setVisible(true);
-            frm.setLocation(500, 50);
+            frm.setLocation(450, 50);
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }

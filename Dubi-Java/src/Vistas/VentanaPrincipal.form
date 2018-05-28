@@ -27,7 +27,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="FondoPanel" pref="766" max="32767" attributes="0"/>
+          <Component id="FondoPanel" max="32767" attributes="0"/>
           <Component id="titleBar" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -139,7 +139,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="lateralPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="556" max="32767" attributes="0"/>
+                  <EmptySpace pref="540" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
