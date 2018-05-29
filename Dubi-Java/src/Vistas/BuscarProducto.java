@@ -28,8 +28,7 @@ public class BuscarProducto extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         logicaNegocio = new ProductoBL();
-        lista = new ArrayList<>();
-        lista = logicaNegocio.listarProducto();
+        lista = logicaNegocio.listarProductos();
         DefaultTableModel modelo = (DefaultTableModel) tablaProd.getModel();
         Object[] fila = new Object[6];
         for (int i = 0; i < lista.size(); i++) {
@@ -52,13 +51,14 @@ public class BuscarProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaPanel = new javax.swing.JScrollPane();
         tablaProd = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        SeleccionarBtn = new javax.swing.JPanel();
+        lblSeleccionar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seleccionar Producto");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         tablaProd.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         tablaProd.setModel(new javax.swing.table.DefaultTableModel(
@@ -84,31 +84,31 @@ public class BuscarProducto extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tablaProd);
+        TablaPanel.setViewportView(tablaProd);
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        SeleccionarBtn.setBackground(new java.awt.Color(204, 0, 0));
+        SeleccionarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel2MouseClicked(evt);
+                SeleccionarBtnMouseClicked(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Seleccionar");
+        lblSeleccionar.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        lblSeleccionar.setForeground(new java.awt.Color(255, 255, 255));
+        lblSeleccionar.setText("Seleccionar");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+        javax.swing.GroupLayout SeleccionarBtnLayout = new javax.swing.GroupLayout(SeleccionarBtn);
+        SeleccionarBtn.setLayout(SeleccionarBtnLayout);
+        SeleccionarBtnLayout.setHorizontalGroup(
+            SeleccionarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SeleccionarBtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+        SeleccionarBtnLayout.setVerticalGroup(
+            SeleccionarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,42 +116,35 @@ public class BuscarProducto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(405, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(SeleccionarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TablaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SeleccionarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TablaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+    private void SeleccionarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionarBtnMouseClicked
         int index = tablaProd.getSelectedRow();
-        switch (index) {
-            case 1:
-                seleccion = lista.get(index);
-                dispose();
-                break;
-            case -1:
-                JOptionPane.showMessageDialog(this, "Debe seleccionar un producto");
-                break;
-            default:
-                JOptionPane.showMessageDialog(this, "Debe seleccionar solo un producto");
-                break;
+        if (index == -1) {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar un producto");
         }
-    }//GEN-LAST:event_jPanel2MouseClicked
+        if (index >= 0) {
+            seleccion = lista.get(index);
+            dispose();
+        }
+    }//GEN-LAST:event_SeleccionarBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -188,17 +181,13 @@ public class BuscarProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel SeleccionarBtn;
+    private javax.swing.JScrollPane TablaPanel;
+    private javax.swing.JLabel lblSeleccionar;
     private javax.swing.JTable tablaProd;
     // End of variables declaration//GEN-END:variables
 
     public Producto getSeleccion() {
         return seleccion;
-    }
-
-    public void setSeleccion(Producto seleccion) {
-        this.seleccion = seleccion;
     }
 }

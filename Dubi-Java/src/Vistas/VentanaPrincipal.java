@@ -10,7 +10,6 @@ import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
@@ -28,16 +27,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal(String usuario) throws Exception {
         initComponents();
         usuarioActual = usuario;
-        this.setLocationRelativeTo(null);
-        this.setSize(750, 620);
+        this.setLocation(300, 50);
+        this.setSize(750, 650);
         this.getContentPane().setBackground(Color.WHITE);
         Fondo fondo = new Fondo();
-        fondo.setSize(750, 620);
+        fondo.setSize(750, 650);
         fondo.setVisible(true);
-        //FondoPanel.add(fondo);
+        FondoPanel.add(fondo);
         menuActivo.setLayout(new GridLayout());
-        FondoPanel.setSize(750, 620);
-        FondoPanel.setSize(900, 620);
+        menuActivo.setVisible(false);
+        FondoPanel.setSize(750, 650);
         FondoPanel.repaint();
     }
 
@@ -120,7 +119,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             titleBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(titleBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -373,11 +372,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtSalir.setForeground(new java.awt.Color(255, 255, 255));
         txtSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSalir.setText("Salir");
-        txtSalir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSalirMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
@@ -456,7 +450,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 242, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -469,7 +463,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
         menuActivoLayout.setVerticalGroup(
             menuActivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 693, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
@@ -487,8 +481,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addComponent(lateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(menuActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(menuActivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -502,7 +496,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE))
+                .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
             .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -707,10 +701,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         resetColor(btnSalir);
     }//GEN-LAST:event_btnSalirMouseExited
-
-    private void txtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalirMouseClicked
 
     private void txtUsuario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuario1MouseClicked
         // TODO add your handling code here:

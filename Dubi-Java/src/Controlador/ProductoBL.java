@@ -31,7 +31,7 @@ public class ProductoBL {
         p.setActivo(0);
         accesoDatos.modificarInsumo(p);
     }
-    public ArrayList<Producto> listarProducto(){
+    public ArrayList<Producto> listarProductos(){
         return accesoDatos.listarProductos();
     }
     public ArrayList<TipoProductoG> listarTipoProducto(){
