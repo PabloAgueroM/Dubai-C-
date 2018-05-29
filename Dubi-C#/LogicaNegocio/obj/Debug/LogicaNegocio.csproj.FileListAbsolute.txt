@@ -59,3 +59,16 @@ C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.
 C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.dll
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\MySql.Data.dll
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.pdb
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe.config
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CoreCompileInputs.cache
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CopyComplete
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb

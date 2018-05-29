@@ -67,3 +67,10 @@ C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
 C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
 C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
 C:\Users\alulab14.INF\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe.config
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
+D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb

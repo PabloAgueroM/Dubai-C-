@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import AccesoDatos.LoginDA;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -27,8 +28,10 @@ public class LogIn extends javax.swing.JFrame {
     /**
      * Creates new form LogIn
      */
+    private LoginDA acceso;
     public LogIn() throws Exception {
         initComponents();
+        acceso = new LoginDA();
         setLocationRelativeTo(null);
         setSize(300, 400);
         jLabel1.setForeground(Color.red);
@@ -221,13 +224,23 @@ public class LogIn extends javax.swing.JFrame {
             if (usuario.equals("admin") && contra.equals("1234")) {
                 VentanaPrincipal vp;
                 try {
-                    vp = new VentanaPrincipal();
+                    vp = new VentanaPrincipal(usuario);
                     vp.setVisible(true);
                     this.dispose();
                 } catch (Exception ex) {
                     Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else {
+            }else if(acceso.validarUsuario(usuario, contra) == 1){
+                VentanaPrincipal vp;
+                try {
+                    vp = new VentanaPrincipal(usuario);
+                    vp.setVisible(true);
+                    this.dispose();
+                } catch (Exception ex) {
+                    Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }             
+            else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos, intente nuevamente");
             }
         }

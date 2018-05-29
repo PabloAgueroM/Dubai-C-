@@ -93,25 +93,6 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGestionUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionUsuariosMouseClicked
-        // TODO add your handling code here:
-        GestionarUsuarios frm;
-        try {
-            frm = new GestionarUsuarios();
-            frm.setVisible(true);
-        } catch (Exception ex) {
-            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnGestionUsuariosMouseClicked
-
-    private void btnMostrarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMostrarUsuariosMouseClicked
-
-    private void btnGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionUsuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnGestionUsuariosActionPerformed
-
     private void btnMostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosActionPerformed
         // TODO add your handling code here:
         UsuariosEnlinea frm;
@@ -122,6 +103,25 @@ public class AdministracionUsuarios extends javax.swing.JFrame {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnMostrarUsuariosActionPerformed
+
+    private void btnMostrarUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMostrarUsuariosMouseClicked
+
+    private void btnGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionUsuariosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGestionUsuariosActionPerformed
+
+    private void btnGestionUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGestionUsuariosMouseClicked
+        // TODO add your handling code here:
+        GestionarUsuarios frm;
+        try {
+            frm = new GestionarUsuarios();
+            frm.setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGestionUsuariosMouseClicked
 
     /**
      * @param args the command line arguments

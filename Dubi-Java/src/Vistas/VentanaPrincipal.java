@@ -5,7 +5,9 @@
  */
 package Vistas;
 
+import AccesoDatos.LoginDA;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
@@ -22,8 +24,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      *
      * @throws java.lang.Exception
      */
-    public VentanaPrincipal() throws Exception {
+    private String usuarioActual;
+    public VentanaPrincipal(String usuario) throws Exception {
         initComponents();
+        usuarioActual = usuario;
         this.setLocationRelativeTo(null);
         this.setSize(750, 620);
         this.getContentPane().setBackground(Color.WHITE);
@@ -31,6 +35,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         fondo.setSize(750, 620);
         fondo.setVisible(true);
         //FondoPanel.add(fondo);
+        menuActivo.setLayout(new GridLayout());
         FondoPanel.setSize(750, 620);
         FondoPanel.setSize(900, 620);
         FondoPanel.repaint();
@@ -67,6 +72,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtSalir = new javax.swing.JLabel();
         btnReporte = new javax.swing.JPanel();
         txtReporte = new javax.swing.JLabel();
+        menuActivo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -223,6 +229,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtUsuario1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtUsuario1.setText("Usuarios");
         txtUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtUsuario1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtUsuario1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnUsuarioLayout = new javax.swing.GroupLayout(btnUsuario);
         btnUsuario.setLayout(btnUsuarioLayout);
@@ -362,6 +373,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtSalir.setForeground(new java.awt.Color(255, 255, 255));
         txtSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSalir.setText("Salir");
+        txtSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtSalirMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnSalirLayout = new javax.swing.GroupLayout(btnSalir);
         btnSalir.setLayout(btnSalirLayout);
@@ -445,17 +461,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout menuActivoLayout = new javax.swing.GroupLayout(menuActivo);
+        menuActivo.setLayout(menuActivoLayout);
+        menuActivoLayout.setHorizontalGroup(
+            menuActivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 524, Short.MAX_VALUE)
+        );
+        menuActivoLayout.setVerticalGroup(
+            menuActivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
         FondoPanel.setLayout(FondoPanelLayout);
         FondoPanelLayout.setHorizontalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addComponent(lateralPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(543, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menuActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         FondoPanelLayout.setVerticalGroup(
             FondoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lateralPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(FondoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(menuActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -497,9 +530,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetBotones();
         setColor(btnProducto);
         GestionarProducto frm;
+        menuActivo.removeAll();
         try {
             frm = new GestionarProducto();
-            frm.setVisible(true);
+            menuActivo.add(frm.getContentPane());
+            menuActivo.setVisible(true);
+            menuActivo.repaint();
+            //frm.setVisible(true);
 //            frm.setLocation(450, 50);
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
@@ -510,9 +547,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetBotones();
         setColor(btnInsumo);
         GestionInsumo frmIns;
+        menuActivo.removeAll();
         try {
             frmIns = new GestionInsumo();
-            frmIns.setVisible(true);
+            menuActivo.add(frmIns.getContentPane());
+            menuActivo.setVisible(true);
+            menuActivo.repaint();
+            //frm.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -522,9 +563,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetBotones();
         setColor(btnProveedor);
         GestionarProveedor frmProv;
+        menuActivo.removeAll();
         try {
             frmProv = new GestionarProveedor();
-            frmProv.setVisible(true);
+            menuActivo.add(frmProv.getContentPane());
+            menuActivo.setVisible(true);
+            menuActivo.repaint();
+            //frm.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -543,6 +588,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteMouseClicked
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        LoginDA cerrar = new LoginDA();
+        cerrar.cerrarSesion(usuarioActual);
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
 
@@ -551,9 +598,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetBotones();
         setColor(btnPedido);
         GestionarPedido frm;
+        menuActivo.removeAll();
         try {
             frm = new GestionarPedido();
-            frm.setVisible(true);
+            menuActivo.add(frm.getContentPane());
+            menuActivo.setVisible(true);
+            menuActivo.repaint();
+            //frm.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -563,14 +614,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         resetBotones();
         setColor(btnCliente);
+        menuActivo.removeAll();
         GestionarCliente form = new GestionarCliente();
-        form.setVisible(true);
+        menuActivo.add(form.getContentPane());
+        menuActivo.setVisible(true);
+        menuActivo.repaint();
+        //frm.setVisible(true);
     }//GEN-LAST:event_btnClienteMouseClicked
 
     private void btnUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioMouseClicked
         resetBotones();
+        menuActivo.removeAll();
+        //Intento de mantener todo en una misma ventana
+        AdministracionUsuarios frm = new AdministracionUsuarios();
+        menuActivo.add(frm.getContentPane());
+        menuActivo.setVisible(true);
+        menuActivo.repaint();
         setColor(btnUsuario);
-
     }//GEN-LAST:event_btnUsuarioMouseClicked
 
     private void titleBarMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_titleBarMouseDragged
@@ -647,6 +707,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         resetColor(btnSalir);
     }//GEN-LAST:event_btnSalirMouseExited
+
+    private void txtSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSalirMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSalirMouseClicked
+
+    private void txtUsuario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuario1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuario1MouseClicked
     int xx;
     int xy;
 
@@ -689,7 +757,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new VentanaPrincipal().setVisible(true);
+                    new VentanaPrincipal(null).setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -709,6 +777,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btnSalir;
     private javax.swing.JPanel btnUsuario;
     private javax.swing.JPanel lateralPanel;
+    private javax.swing.JPanel menuActivo;
     private javax.swing.JLabel minimizar;
     private javax.swing.JPanel titleBar;
     private javax.swing.JLabel txtInsumo;
