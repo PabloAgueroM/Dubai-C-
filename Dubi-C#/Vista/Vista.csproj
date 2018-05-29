@@ -51,6 +51,24 @@
     <Compile Include="FormBuscarClienteJuridico.Designer.cs">
       <DependentUpon>FormBuscarClienteJuridico.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBuscarPersonaJuridica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarPersonaJuridica.Designer.cs">
+      <DependentUpon>FormBuscarPersonaJuridica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscarPersonaNatural.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarPersonaNatural.Designer.cs">
+      <DependentUpon>FormBuscarPersonaNatural.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBuscarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarProducto.Designer.cs">
+      <DependentUpon>FormBuscarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGestionVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,23 +87,11 @@
     <Compile Include="FormRegCliente.designer.cs">
       <DependentUpon>FormRegCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormModificarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormModificarCliente.designer.cs">
-      <DependentUpon>FormModificarCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBuscarClienteNatural.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBuscarClienteNatural.designer.cs">
       <DependentUpon>FormBuscarClienteNatural.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormBuscarProd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormBuscarProd.designer.cs">
-      <DependentUpon>FormBuscarProd.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDetallePedido.cs">
       <SubType>Form</SubType>
@@ -104,18 +110,6 @@
     </Compile>
     <Compile Include="FormGestionPedido.designer.cs">
       <DependentUpon>FormGestionPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormIngresarPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormIngresarPedido.designer.cs">
-      <DependentUpon>FormIngresarPedido.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormModificarPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormModificarPedido.designer.cs">
-      <DependentUpon>FormModificarPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="FormAdminUsuario.cs">
@@ -164,6 +158,15 @@
     <EmbeddedResource Include="FormBuscarClienteJuridico.resx">
       <DependentUpon>FormBuscarClienteJuridico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscarPersonaJuridica.resx">
+      <DependentUpon>FormBuscarPersonaJuridica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscarPersonaNatural.resx">
+      <DependentUpon>FormBuscarPersonaNatural.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscarProducto.resx">
+      <DependentUpon>FormBuscarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGestionVentas.resx">
       <DependentUpon>FormGestionVentas.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,17 +176,11 @@
     <EmbeddedResource Include="FormRegCliente.resx">
       <DependentUpon>FormRegCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormModificarCliente.resx">
-      <DependentUpon>FormModificarCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarClienteNatural.resx">
       <DependentUpon>FormBuscarClienteNatural.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAdminUsuario.resx">
       <DependentUpon>FormAdminUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormBuscarProd.resx">
-      <DependentUpon>FormBuscarProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDetallePedido.resx">
       <DependentUpon>FormDetallePedido.cs</DependentUpon>
@@ -196,12 +193,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGestionPedido.resx">
       <DependentUpon>FormGestionPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormIngresarPedido.resx">
-      <DependentUpon>FormIngresarPedido.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormModificarPedido.resx">
-      <DependentUpon>FormModificarPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarUsuario.resx">
       <DependentUpon>FormBuscarUsuario.cs</DependentUpon>

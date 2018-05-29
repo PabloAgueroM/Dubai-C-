@@ -52,5 +52,19 @@ namespace LogicaNegocio
             accesoDatos.eliminarCliente(id);
         }
 
+        public BindingList<Natural> listarPersonasNaturales()
+        {
+            BindingList<Natural> lista = new BindingList<Natural>();
+            lista = accesoDatos.listarPersonasNaturales();
+            return lista;
+        }
+
+        public BindingList<Juridica> listarPersonasJuridicas()
+        {
+            BindingList<Juridica> lista = new BindingList<Juridica>();
+            lista = accesoDatos.listarPersonasJuridicas();
+            return lista;
+        }
+
     }
 }

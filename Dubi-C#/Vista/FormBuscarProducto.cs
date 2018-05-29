@@ -7,18 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Clases;
+
 namespace Vista
 {
-    public partial class FormModificarPedido : Form
+    public partial class FormBuscarProducto : Form
     {
-        private BindingList<Pedido> pedidos = new BindingList<Pedido>();
-        
-        public FormModificarPedido(BindingList<Pedido> pedidos)
+        public FormBuscarProducto()
         {
             InitializeComponent();
-            this.pedidos = pedidos;
-            dataGridView1.DataSource = this.pedidos;
         }
         
     }

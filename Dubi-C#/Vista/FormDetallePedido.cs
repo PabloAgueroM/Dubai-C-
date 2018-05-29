@@ -23,18 +23,6 @@ namespace Vista
             textBox1.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FormBuscarProd buscarProd = new FormBuscarProd();
-            if (buscarProd.ShowDialog() == DialogResult.OK) {
-                textBox1.Text = buscarProd.ProductoSeleccionado.Descripcion;
-                precioUnitario = buscarProd.ProductoSeleccionado.Precio;
-            }
-
-
-
-        }
-
         private void Aceptar_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox3.Text == "" || textBox2.Text == "") MessageBox.Show("Faltan llenar campos");
