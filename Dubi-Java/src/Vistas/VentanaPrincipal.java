@@ -228,11 +228,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtUsuario1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtUsuario1.setText("Usuarios");
         txtUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        txtUsuario1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtUsuario1MouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout btnUsuarioLayout = new javax.swing.GroupLayout(btnUsuario);
         btnUsuario.setLayout(btnUsuarioLayout);
@@ -701,10 +696,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
         resetColor(btnSalir);
     }//GEN-LAST:event_btnSalirMouseExited
-
-    private void txtUsuario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuario1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuario1MouseClicked
     int xx;
     int xy;
 
