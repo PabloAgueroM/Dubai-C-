@@ -342,8 +342,8 @@ nb-configuration.xml
 <<<<<<< HEAD
 
 #No se que es xD
-.cache
-.idea
-.txt
+*.cache
+*.idea
+*.txt
 =======
 >>>>>>> aaaf8f7ef790485249bb8adb6cd4c2516a31a622

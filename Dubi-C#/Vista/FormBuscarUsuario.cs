@@ -34,11 +34,7 @@ namespace Vista
         {
             UsuarioSeleccionado = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
         }
-
-        private void FormBuscarUsuario_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Owner.Show();
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -70,5 +66,6 @@ namespace Vista
             }
             dataGridView1.DataSource = filtro;
         }
+        
     }
 }

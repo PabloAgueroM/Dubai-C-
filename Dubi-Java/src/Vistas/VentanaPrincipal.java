@@ -96,7 +96,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         minimizar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         minimizar.setForeground(new java.awt.Color(255, 255, 255));
         minimizar.setText("_");
-        minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizarMouseClicked(evt);
@@ -106,7 +106,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         Cerrar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         Cerrar.setForeground(new java.awt.Color(255, 255, 255));
         Cerrar.setText("x");
-        Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CerrarMouseClicked(evt);
