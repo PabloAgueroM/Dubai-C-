@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Clases;
@@ -42,152 +43,88 @@ namespace Vista
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            this.estadoBotones(1);
-            if (comboBox1.Text == "Juridica")
-            {
-                panel2.Visible = true;
-                panel1.Visible = false;
-                comboBox1.Text = "Juridica";
-            }
-            else
-            {
-                panel1.Visible = true;
-                panel2.Visible = false;
-                comboBox1.Text = "Natural";
-            }
-
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            if (comboBox1.Text == "Juridica")
-            {
-                FormBuscarClienteJuridico buscar = new FormBuscarClienteJuridico();
-                if (buscar.ShowDialog() == DialogResult.OK)
-                {
-                    textBox14.Text = buscar.ClienteSeleccionado.IdPersona;
-                    textBox6.Text = buscar.ClienteSeleccionado.RazonSocial;
-                    textBox7.Text = buscar.ClienteSeleccionado.Nombre;
-                    textBox8.Text = buscar.ClienteSeleccionado.Ruc;
-                    textBox9.Text = buscar.ClienteSeleccionado.Telefono;
-                    textBox10.Text = buscar.ClienteSeleccionado.Email;
-                    dateTimePicker2.Value = buscar.ClienteSeleccionado.FechaAniversario;
-                    textBox13.Text = buscar.ClienteSeleccionado.Direccion;
-                    this.estadoBotones(2);  
-                    panel2.Visible = true;
-                    panel1.Visible = false;
-                    comboBox1.Text = "Juridica";
-
-                }
-            }
-            else
-            {
-                FormBuscarClienteNatural buscar = new FormBuscarClienteNatural();
-                if (buscar.ShowDialog() == DialogResult.OK)
-                {
-                    textBox14.Text = buscar.ClienteSeleccionado.IdPersona;
-                    textBox11.Text = buscar.ClienteSeleccionado.Dni;
-                    textBox1.Text = buscar.ClienteSeleccionado.Nombre;
-                    textBox2.Text = buscar.ClienteSeleccionado.ApPat;
-                    textBox3.Text = buscar.ClienteSeleccionado.ApMat;
-                    textBox4.Text = buscar.ClienteSeleccionado.Email;
-                    textBox12.Text = buscar.ClienteSeleccionado.Direccion;
-                    textBox5.Text = buscar.ClienteSeleccionado.Telefono;
-                    dateTimePicker1.Value = buscar.ClienteSeleccionado.FechaNac;
-                    if (buscar.ClienteSeleccionado.Sexo == 'M') radioButton1.Checked = true;
-                    else radioButton2.Checked = true;
-                    this.estadoBotones(2);
-                    panel1.Visible = true;
-                    panel2.Visible = false;
-                    comboBox1.Text = "Natural";
-                }
-            }
-        }
-
         private void estadoBotones(int n) {
             switch (n)
             {
                 case 0:
-                    textBox1.Enabled = false;
-                    textBox2.Enabled = false;
-                    textBox3.Enabled = false;
-                    textBox4.Enabled = false;
-                    textBox5.Enabled = false;
+                    textNombreN.Enabled = false;
+                    textApPat.Enabled = false;
+                    textApMat.Enabled = false;
+                    textEmailN.Enabled = false;
+                    textTelefonoN.Enabled = false;
                     dateTimePicker1.Enabled = false;
-                    textBox6.Enabled = false;
-                    textBox7.Enabled = false;
-                    textBox8.Enabled = false;
-                    textBox9.Enabled = false;
-                    textBox10.Enabled = false;
-                    textBox11.Enabled = false;
-                    textBox12.Enabled = false;
-                    textBox13.Enabled = false;
-                    textBox1.Text = "";
-                    textBox2.Text = "";
-                    textBox3.Text = "";
-                    textBox4.Text = "";
-                    textBox5.Text = "";
-                    textBox6.Text = "";
-                    textBox7.Text = "";
-                    textBox8.Text = "";
-                    textBox9.Text = "";
-                    textBox10.Text = "";
-                    textBox11.Text = "";
-                    textBox12.Text = "";
-                    textBox13.Text = "";
+                    textRazon.Enabled = false;
+                    textNombreJ.Enabled = false;
+                    textRuc.Enabled = false;
+                    textTelefonoJ.Enabled = false;
+                    textEmailJ.Enabled = false;
+                    txtDni.Enabled = false;
+                    textDireccionN.Enabled = false;
+                    textDireccionJ.Enabled = false;
+                    textNombreN.Text = "";
+                    textApPat.Text = "";
+                    textApMat.Text = "";
+                    textEmailN.Text = "";
+                    textTelefonoN.Text = "";
+                    textRazon.Text = "";
+                    textNombreJ.Text = "";
+                    textRuc.Text = "";
+                    textTelefonoJ.Text = "";
+                    textEmailJ.Text = "";
+                    txtDni.Text = "";
+                    textDireccionN.Text = "";
+                    textDireccionJ.Text = "";
                     textBox14.Text = "";
                     textBox14.Enabled = false;
                     dateTimePicker2.Enabled = false;
-                    toolStripButton1.Enabled = true;
-                    toolStripButton2.Enabled = false;
-                    toolStripButton3.Enabled = false;
-                    toolStripButton4.Enabled = true;
+                    button2.Enabled = true;
+                    button3.Enabled = false;
+                    button4.Enabled = false;
+                    button6.Enabled = true;
 
                     break;
                 case 1:
-                    textBox1.Enabled = true;
-                    textBox2.Enabled = true;
-                    textBox3.Enabled = true;
-                    textBox4.Enabled = true;
-                    textBox5.Enabled = true;
+                    textNombreN.Enabled = true;
+                    textApPat.Enabled = true;
+                    textApMat.Enabled = true;
+                    textEmailN.Enabled = true;
+                    textTelefonoN.Enabled = true;
                     dateTimePicker1.Enabled = true;
-                    textBox6.Enabled = true;
-                    textBox7.Enabled = true;
-                    textBox8.Enabled = true;
-                    textBox9.Enabled = true;
-                    textBox10.Enabled = true;
-                    textBox11.Enabled = true;
-                    textBox12.Enabled = true;
-                    textBox13.Enabled = true;
+                    textRazon.Enabled = true;
+                    textNombreJ.Enabled = true;
+                    textRuc.Enabled = true;
+                    textTelefonoJ.Enabled = true;
+                    textEmailJ.Enabled = true;
+                    txtDni.Enabled = true;
+                    textDireccionN.Enabled = true;
+                    textDireccionJ.Enabled = true;
                     textBox14.Enabled = false;
                     dateTimePicker2.Enabled = true;
-                    toolStripButton1.Enabled = false;
-                    toolStripButton2.Enabled = true;
-                    toolStripButton3.Enabled = true;
-                    toolStripButton4.Enabled = false;
+                    button2.Enabled = false;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
+                    button6.Enabled = false;
                     break;
                 case 2:
-                    textBox1.Enabled = true;
-                    textBox2.Enabled = true;
-                    textBox3.Enabled = true;
-                    textBox4.Enabled = true;
-                    textBox5.Enabled = true;
+                    textNombreN.Enabled = true;
+                    textApPat.Enabled = true;
+                    textApMat.Enabled = true;
+                    textEmailN.Enabled = true;
+                    textTelefonoN.Enabled = true;
                     dateTimePicker1.Enabled = true;
-                    textBox6.Enabled = true;
-                    textBox7.Enabled = true;
-                    textBox8.Enabled = true;
-                    textBox9.Enabled = true;
-                    textBox10.Enabled = true;
-                    textBox11.Enabled = true;
-                    textBox12.Enabled = true;
-                    textBox13.Enabled = true;
+                    textRazon.Enabled = true;
+                    textNombreJ.Enabled = true;
+                    textRuc.Enabled = true;
+                    textTelefonoJ.Enabled = true;
+                    textEmailJ.Enabled = true;
+                    txtDni.Enabled = true;
+                    textDireccionN.Enabled = true;
+                    textDireccionJ.Enabled = true;
                     dateTimePicker2.Enabled = true;
-                    toolStripButton1.Enabled = false;
-                    toolStripButton2.Enabled = true;
-                    toolStripButton3.Enabled = true;
-                    toolStripButton1.Enabled = false;
+                    button2.Enabled = false;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
+                    button6.Enabled = false;
                     break;
 
             }
@@ -208,16 +145,16 @@ namespace Vista
             {
                 if (comboBox1.Text == "Juridica")
                 {                    
-                    if (textBox6.Text != "" && textBox7.Text != "" && textBox8.Text != "" && textBox9.Text != ""
-                        && textBox10.Text != "" && textBox13.Text != "")
+                    if (textRazon.Text != "" && textNombreJ.Text != "" && textRuc.Text != "" && textTelefonoJ.Text != ""
+                        && textEmailJ.Text != "" && textDireccionJ.Text != "")
                     {
                         Juridica c = new Juridica();
-                        c.RazonSocial = textBox6.Text;
-                        c.Nombre = textBox7.Text;
-                        c.Ruc = textBox8.Text;
-                        c.Telefono = textBox9.Text;
-                        c.Email = textBox10.Text;
-                        c.Direccion = textBox13.Text;
+                        c.RazonSocial = textRazon.Text;
+                        c.Nombre = textNombreJ.Text;
+                        c.Ruc = textRuc.Text;
+                        c.Telefono = textTelefonoJ.Text;
+                        c.Email = textEmailJ.Text;
+                        c.Direccion = textDireccionJ.Text;
                         c.FechaAniversario = dateTimePicker2.Value;
                         if (v.verificarNombre(c.RazonSocial) == 0) { MessageBox.Show("Razon Social invalida"); return; }
                         if (v.verificarNombre(c.Nombre) == 0) { MessageBox.Show("Nombre invalida"); return; }
@@ -235,19 +172,19 @@ namespace Vista
                 }
                 else
                 {
-                    if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != ""
-                        && textBox5.Text != "" && textBox11.Text != "" && textBox12.Text != "" &&
+                    if (textNombreN.Text != "" && textApPat.Text != "" && textApMat.Text != "" && textEmailN.Text != ""
+                        && textTelefonoN.Text != "" && txtDni.Text != "" && textDireccionN.Text != "" &&
                         (radioButton1.Checked == true || radioButton2.Checked == true))
                     {
                         Natural c = new Natural();
-                        c.Nombre = textBox1.Text;
-                        c.Dni = textBox11.Text;
-                        c.ApPat = textBox2.Text;
-                        c.ApMat = textBox3.Text;
-                        c.Email = textBox4.Text;
-                        c.Telefono = textBox5.Text;
+                        c.Nombre = textNombreN.Text;
+                        c.Dni = txtDni.Text;
+                        c.ApPat = textApPat.Text;
+                        c.ApMat = textApMat.Text;
+                        c.Email = textEmailN.Text;
+                        c.Telefono = textTelefonoN.Text;
                         c.FechaNac = dateTimePicker1.Value;
-                        c.Direccion = textBox12.Text;
+                        c.Direccion = textDireccionN.Text;
                         if (radioButton1.Checked == true) c.Sexo = 'M';
                         else if (radioButton2.Checked == true) c.Sexo = 'F';
 
@@ -271,12 +208,12 @@ namespace Vista
                 if (comboBox1.Text == "Juridica")
                 {
                     Juridica c = new Juridica();
-                    c.RazonSocial = textBox6.Text;
-                    c.Nombre = textBox7.Text;
-                    c.Ruc = textBox8.Text;
-                    c.Telefono = textBox9.Text;
-                    c.Email = textBox10.Text;
-                    c.Direccion = textBox13.Text;
+                    c.RazonSocial = textRazon.Text;
+                    c.Nombre = textNombreJ.Text;
+                    c.Ruc = textRuc.Text;
+                    c.Telefono = textTelefonoJ.Text;
+                    c.Email = textEmailJ.Text;
+                    c.Direccion = textDireccionJ.Text;
                     c.IdPersona = textBox14.Text;
                     c.FechaAniversario = dateTimePicker2.Value;
 
@@ -291,14 +228,14 @@ namespace Vista
                 else
                 {
                     Natural c = new Natural();
-                    c.Nombre = textBox1.Text;
-                    c.Dni = textBox11.Text;
-                    c.ApPat = textBox2.Text;
-                    c.ApMat = textBox3.Text;
-                    c.Email = textBox4.Text;
-                    c.Telefono = textBox5.Text;
+                    c.Nombre = textNombreN.Text;
+                    c.Dni = txtDni.Text;
+                    c.ApPat = textApPat.Text;
+                    c.ApMat = textApMat.Text;
+                    c.Email = textEmailN.Text;
+                    c.Telefono = textTelefonoN.Text;
                     c.FechaNac = dateTimePicker1.Value;
-                    c.Direccion = textBox12.Text;
+                    c.Direccion = textDireccionN.Text;
                     c.IdPersona = textBox14.Text;
                     if (radioButton1.Checked == true) c.Sexo = 'M';
                     else if (radioButton2.Checked == true) c.Sexo = 'F';
@@ -317,6 +254,310 @@ namespace Vista
             
 
         }
-        
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.estadoBotones(1);
+            if (comboBox1.Text == "Juridica")
+            {
+                panel2.Visible = true;
+                panel1.Visible = false;
+                comboBox1.Text = "Juridica";
+            }
+            else
+            {
+                panel1.Visible = true;
+                panel2.Visible = false;
+                comboBox1.Text = "Natural";
+            }
+
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "Juridica")
+            {
+                FormBuscarClienteJuridico buscar = new FormBuscarClienteJuridico();
+                if (buscar.ShowDialog() == DialogResult.OK)
+                {
+                    textBox14.Text = buscar.ClienteSeleccionado.IdPersona;
+                    textRazon.Text = buscar.ClienteSeleccionado.RazonSocial;
+                    textNombreJ.Text = buscar.ClienteSeleccionado.Nombre;
+                    textRuc.Text = buscar.ClienteSeleccionado.Ruc;
+                    textTelefonoJ.Text = buscar.ClienteSeleccionado.Telefono;
+                    textEmailJ.Text = buscar.ClienteSeleccionado.Email;
+                    dateTimePicker2.Value = buscar.ClienteSeleccionado.FechaAniversario;
+                    textDireccionJ.Text = buscar.ClienteSeleccionado.Direccion;
+                    this.estadoBotones(2);
+                    panel2.Visible = true;
+                    panel1.Visible = false;
+                    comboBox1.Text = "Juridica";
+
+                }
+            }
+            else
+            {
+                FormBuscarClienteNatural buscar = new FormBuscarClienteNatural();
+                if (buscar.ShowDialog() == DialogResult.OK)
+                {
+                    textBox14.Text = buscar.ClienteSeleccionado.IdPersona;
+                    txtDni.Text = buscar.ClienteSeleccionado.Dni;
+                    textNombreN.Text = buscar.ClienteSeleccionado.Nombre;
+                    textApPat.Text = buscar.ClienteSeleccionado.ApPat;
+                    textApMat.Text = buscar.ClienteSeleccionado.ApMat;
+                    textEmailN.Text = buscar.ClienteSeleccionado.Email;
+                    textDireccionN.Text = buscar.ClienteSeleccionado.Direccion;
+                    textTelefonoN.Text = buscar.ClienteSeleccionado.Telefono;
+                    dateTimePicker1.Value = buscar.ClienteSeleccionado.FechaNac;
+                    if (buscar.ClienteSeleccionado.Sexo == 'M') radioButton1.Checked = true;
+                    else radioButton2.Checked = true;
+                    this.estadoBotones(2);
+                    panel1.Visible = true;
+                    panel2.Visible = false;
+                    comboBox1.Text = "Natural";
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.estadoBotones(0);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox14.Text == "")
+            {
+                if (comboBox1.Text == "Juridica")
+                {
+                    int datosValidos = validarDatosJuridico();
+                    if (datosValidos > 0)
+                    {
+                        if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 5) MessageBox.Show("Revisar la fecha de nacimiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    Juridica c = new Juridica();
+                    c.RazonSocial = textRazon.Text.ToUpper();
+                    c.Nombre = textNombreJ.Text.ToUpper();
+                    c.Ruc = textRuc.Text;
+                    c.Telefono = textTelefonoJ.Text;
+                    c.Email = textEmailJ.Text;
+                    c.Direccion = textDireccionJ.Text;
+                    c.FechaAniversario = dateTimePicker2.Value;
+                        
+                    int id = logicaNegocio.registrarClienteJuridico(c);
+                    this.estadoBotones(0);
+                    MessageBox.Show("Cliente registrado correctamente");
+                }
+                else
+                {
+                    int datosValidos = validarDatosNatural();
+                    if (datosValidos > 0) {
+                        if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 3) MessageBox.Show("Falta seleccionar el sexo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 5) MessageBox.Show("Revisar la fecha de nacimiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    
+                    Natural c = new Natural();
+                    c.Nombre = textNombreN.Text.ToUpper();
+                    c.Dni = txtDni.Text;
+                    c.ApPat = textApPat.Text.ToUpper();
+                    c.ApMat = textApMat.Text.ToUpper();
+                    c.Email = textEmailN.Text;
+                    c.Telefono = textTelefonoN.Text;
+                    c.FechaNac = dateTimePicker1.Value;
+                    c.Direccion = textDireccionN.Text;
+                    if (radioButton1.Checked == true) c.Sexo = 'M';
+                    else if (radioButton2.Checked == true) c.Sexo = 'F';
+
+                    int id = logicaNegocio.registrarClienteNatural(c);
+                    this.estadoBotones(0);
+                    MessageBox.Show("Cliente registrado correctamente");
+                    
+                }
+            }
+            else
+            {
+                if (comboBox1.Text == "Juridica")
+                {
+                    int datosValidos = validarDatosJuridico();
+                    if (datosValidos > 0)
+                    {
+                        if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 5) MessageBox.Show("Revisar la fecha de nacimiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    Juridica c = new Juridica();
+                    c.RazonSocial = textRazon.Text.ToUpper();
+                    c.Nombre = textNombreJ.Text.ToUpper();
+                    c.Ruc = textRuc.Text;
+                    c.Telefono = textTelefonoJ.Text;
+                    c.Email = textEmailJ.Text;
+                    c.Direccion = textDireccionJ.Text;
+                    c.IdPersona = textBox14.Text;
+                    c.FechaAniversario = dateTimePicker2.Value;
+
+                    logicaNegocio.actualizarClienteJuridico(c);
+                    this.estadoBotones(0);
+
+                }
+                else
+                {
+                    int datosValidos = validarDatosNatural();
+                    if (datosValidos > 0)
+                    {
+                        if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 3) MessageBox.Show("Falta seleccionar el sexo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else if (datosValidos == 5) MessageBox.Show("Revisar la fecha de nacimiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    Natural c = new Natural();
+                    c.Nombre = textNombreN.Text.ToUpper();
+                    c.Dni = txtDni.Text;
+                    c.ApPat = textApPat.Text.ToUpper();
+                    c.ApMat = textApMat.Text.ToUpper();
+                    c.Email = textEmailN.Text;
+                    c.Telefono = textTelefonoN.Text;
+                    c.FechaNac = dateTimePicker1.Value;
+                    c.Direccion = textDireccionN.Text;
+                    c.IdPersona = textBox14.Text;
+                    if (radioButton1.Checked == true) c.Sexo = 'M';
+                    else if (radioButton2.Checked == true) c.Sexo = 'F';
+
+                    logicaNegocio.actualizarClienteNatural(c);
+                    this.estadoBotones(0);
+                }
+                MessageBox.Show("Cliente actualizado satisfactoriamente");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\d{8}$");
+            if (!rgx.IsMatch(txtDni.Text)) txtDni.ForeColor = Color.Red;
+            else txtDni.ForeColor = Color.Black;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textNombreN.Text)) textNombreN.ForeColor = Color.Red;
+            else textNombreN.ForeColor = Color.Black;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textApPat.Text)) textApPat.ForeColor = Color.Red;
+            else textApPat.ForeColor = Color.Black;
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textApMat.Text)) textApMat.ForeColor = Color.Red;
+            else textApMat.ForeColor = Color.Black;
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            if (!rgx.IsMatch(textEmailN.Text)) textEmailN.ForeColor = Color.Red;
+            else textEmailN.ForeColor = Color.Black;
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\d{9}$");
+            if (!rgx.IsMatch(textTelefonoN.Text)) textTelefonoN.ForeColor = Color.Red;
+            else textTelefonoN.ForeColor = Color.Black;
+        }
+
+        private int validarDatosNatural()
+        {
+            if (textNombreN.ForeColor == Color.Red || textApPat.ForeColor == Color.Red ||
+                textApMat.ForeColor == Color.Red || textEmailN.ForeColor == Color.Red ||
+                txtDni.ForeColor == Color.Red || textDireccionN.ForeColor == Color.Red ||
+                textTelefonoN.ForeColor == Color.Red)
+                return 1;
+
+            if (String.IsNullOrWhiteSpace(textNombreN.Text) || String.IsNullOrWhiteSpace(textApPat.Text) ||
+                String.IsNullOrWhiteSpace(textApMat.Text) || String.IsNullOrWhiteSpace(textEmailN.Text) ||
+                String.IsNullOrWhiteSpace(textTelefonoN.Text) || String.IsNullOrWhiteSpace(txtDni.Text) ||
+                String.IsNullOrWhiteSpace(textDireccionN.Text))
+                return 2;
+
+            if (radioButton1.Checked == false && radioButton2.Checked == false) return 3;
+            if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 25550) return 5;
+
+            return 0;
+        }
+
+        private int validarDatosJuridico()
+        {
+            if (textNombreJ.ForeColor == Color.Red || textRazon.ForeColor == Color.Red ||
+                textRuc.ForeColor == Color.Red || textEmailJ.ForeColor == Color.Red ||
+                textDireccionJ.ForeColor == Color.Red || textTelefonoJ.ForeColor == Color.Red)
+                return 1;
+
+            if (String.IsNullOrWhiteSpace(textNombreJ.Text) || String.IsNullOrWhiteSpace(textRuc.Text) ||
+                String.IsNullOrWhiteSpace(textRazon.Text) || String.IsNullOrWhiteSpace(textEmailJ.Text) ||
+                String.IsNullOrWhiteSpace(textTelefonoJ.Text) ||  String.IsNullOrWhiteSpace(textDireccionJ.Text))
+                return 2;
+
+            if ((int)((DateTime.Now - dateTimePicker2.Value).TotalDays) > 25550) return 5;
+
+            return 0;
+        }
+
+        private void textRazon_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textRazon.Text)) textRazon.ForeColor = Color.Red;
+            else textRazon.ForeColor = Color.Black;
+        }
+
+        private void textNombreJ_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^[\p{L}\s'.-]+$");
+            if (!rgx.IsMatch(textNombreJ.Text)) textNombreJ.ForeColor = Color.Red;
+            else textNombreJ.ForeColor = Color.Black;
+        }
+
+        private void textRuc_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\d{10}$");
+            if (!rgx.IsMatch(textRuc.Text)) textRuc.ForeColor = Color.Red;
+            else textRuc.ForeColor = Color.Black;
+        }
+
+        private void textEmailJ_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            if (!rgx.IsMatch(textEmailJ.Text)) textEmailJ.ForeColor = Color.Red;
+            else textEmailJ.ForeColor = Color.Black;
+        }
+
+        private void textTelefonoJ_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"^\d{9}$");
+            if (!rgx.IsMatch(textTelefonoJ.Text)) textTelefonoJ.ForeColor = Color.Red;
+            else textTelefonoJ.ForeColor = Color.Black;
+        }
+
     }
 }
