@@ -78,12 +78,6 @@ public class GestionarProducto extends javax.swing.JFrame {
         lblInsumoSeleccionado = new javax.swing.JLabel();
         lblCodigo = new javax.swing.JLabel();
         idText = new javax.swing.JTextField();
-        prodTB = new javax.swing.JToolBar();
-        NuevoBtn = new javax.swing.JButton();
-        BuscarBtn = new javax.swing.JButton();
-        ModificarBtn = new javax.swing.JButton();
-        EliminarBtn = new javax.swing.JButton();
-        CancelarBtn = new javax.swing.JButton();
         lblColor = new javax.swing.JLabel();
         lblTalla = new javax.swing.JLabel();
         colorText = new javax.swing.JTextField();
@@ -95,6 +89,11 @@ public class GestionarProducto extends javax.swing.JFrame {
         lblDescripcion = new javax.swing.JLabel();
         nombreText = new javax.swing.JTextField();
         guardarBtn = new javax.swing.JButton();
+        CancelarBtn = new javax.swing.JButton();
+        EliminarBtn = new javax.swing.JButton();
+        ModificarBtn = new javax.swing.JButton();
+        BuscarBtn = new javax.swing.JButton();
+        NuevoBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Producto");
@@ -202,63 +201,6 @@ public class GestionarProducto extends javax.swing.JFrame {
         idText.setEditable(false);
         idText.setAutoscrolls(false);
 
-        prodTB.setRollover(true);
-
-        NuevoBtn.setText("Nuevo");
-        NuevoBtn.setFocusable(false);
-        NuevoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        NuevoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        NuevoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NuevoBtnMouseClicked(evt);
-            }
-        });
-        prodTB.add(NuevoBtn);
-
-        BuscarBtn.setText("Buscar");
-        BuscarBtn.setFocusable(false);
-        BuscarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BuscarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BuscarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarBtnActionPerformed(evt);
-            }
-        });
-        prodTB.add(BuscarBtn);
-
-        ModificarBtn.setText("Modificar");
-        ModificarBtn.setFocusable(false);
-        ModificarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ModificarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        ModificarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ModificarBtnMouseClicked(evt);
-            }
-        });
-        prodTB.add(ModificarBtn);
-
-        EliminarBtn.setText("Eliminar");
-        EliminarBtn.setFocusable(false);
-        EliminarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        EliminarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        EliminarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EliminarBtnMouseClicked(evt);
-            }
-        });
-        prodTB.add(EliminarBtn);
-
-        CancelarBtn.setText("Cancelar");
-        CancelarBtn.setFocusable(false);
-        CancelarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CancelarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CancelarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarBtnActionPerformed(evt);
-            }
-        });
-        prodTB.add(CancelarBtn);
-
         lblColor.setText("Color");
 
         lblTalla.setText("Talla");
@@ -281,13 +223,82 @@ public class GestionarProducto extends javax.swing.JFrame {
             }
         });
 
+        CancelarBtn.setText("Cancelar");
+        CancelarBtn.setFocusable(false);
+        CancelarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CancelarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CancelarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBtnActionPerformed(evt);
+            }
+        });
+
+        EliminarBtn.setText("Eliminar");
+        EliminarBtn.setFocusable(false);
+        EliminarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        EliminarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        EliminarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarBtnMouseClicked(evt);
+            }
+        });
+
+        ModificarBtn.setText("Modificar");
+        ModificarBtn.setFocusable(false);
+        ModificarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        ModificarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ModificarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ModificarBtnMouseClicked(evt);
+            }
+        });
+
+        BuscarBtn.setText("Buscar");
+        BuscarBtn.setFocusable(false);
+        BuscarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuscarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BuscarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarBtnActionPerformed(evt);
+            }
+        });
+
+        NuevoBtn.setText("Nuevo");
+        NuevoBtn.setFocusable(false);
+        NuevoBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        NuevoBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        NuevoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NuevoBtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(SeleccionarInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(206, 206, 206)
+                .addComponent(guardarBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(NuevoBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BuscarBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModificarBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EliminarBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CancelarBtn)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -301,13 +312,13 @@ public class GestionarProducto extends javax.swing.JFrame {
                                     .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(colorText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(PrecioText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblUnidad)
                                         .addComponent(lblTalla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lblStock, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(StockText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,23 +336,19 @@ public class GestionarProducto extends javax.swing.JFrame {
                             .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(prodTB, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SeleccionarInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(guardarBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(prodTB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(EliminarBtn)
+                        .addComponent(CancelarBtn)
+                        .addComponent(ModificarBtn))
+                    .addComponent(BuscarBtn)
+                    .addComponent(NuevoBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -403,6 +410,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                 CantidadInsumoText.setEnabled(true);
                 InsertarInsumoBoton.setEnabled(true);
                 guardarBtn.setEnabled(true);
+                EliminarBtn.setEnabled(true);
                 SelecInsumoBtn.setEnabled(true);
                 cmbTalla.setEnabled(true);
                 cmbTipo.setEnabled(true);
@@ -481,8 +489,6 @@ public class GestionarProducto extends javax.swing.JFrame {
         int op = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar este producto?", "Confirmacion", JOptionPane.YES_NO_OPTION);
         if (op == JOptionPane.YES_OPTION) {
             LogicaNegocio.eliminarProducto(producto);
-        }else{
-            accion=5;
         }
     }//GEN-LAST:event_EliminarBtnMouseClicked
 
@@ -547,7 +553,6 @@ public class GestionarProducto extends javax.swing.JFrame {
                 break;
         }
         Estado(2);
-        Estado(3);
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void BuscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBtnActionPerformed
@@ -658,7 +663,6 @@ public class GestionarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblUnidad;
     private javax.swing.JTextField nombreText;
-    private javax.swing.JToolBar prodTB;
     // End of variables declaration//GEN-END:variables
 
 }
