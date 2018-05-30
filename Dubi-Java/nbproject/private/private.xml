@@ -6,6 +6,13 @@
             <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/Vistas/BuscarUsuario.java</file>
             <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/Vistas/AdministracionUsuarios.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Vistas/GestionarProducto.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Modelo/ProductoGenerico.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Vistas/BuscarProducto.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Controlador/ProductoBL.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/AccesoDatos/ProductoDA.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/AccesoDatos/ProveedorDA.java</file>
+        </group>
     </open-files>
 </project-private>

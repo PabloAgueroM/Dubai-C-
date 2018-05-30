@@ -14,6 +14,9 @@ public class UnidadDeMedida {
     private String nombre;
     private int activo;
 
+    public UnidadDeMedida() {
+    }
+
     public int getId() {
         return id;
     }
@@ -40,5 +43,34 @@ public class UnidadDeMedida {
     @Override
     public String toString(){
         return nombre;
+    }
+    @Override  
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof UnidadDeMedida)) {
+            return false;
+        }
+        UnidadDeMedida t = (UnidadDeMedida) o;
+        if (id != t.id) {
+            return false;
+        }
+        if (nombre != null ? !nombre.equals(t.nombre) : t.nombre != null) {
+            return false;
+        }
+        if (activo!=t.activo)
+            return false;
+        return true;
+    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + (this.nombre != null ? this.nombre.hashCode() : 0);
+        hash = 89 * hash + this.id;
+        return hash;
     }
 }

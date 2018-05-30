@@ -347,7 +347,7 @@ public class GestionarPedido extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntregadoActionPerformed
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        BuscarProducto frm = new BuscarProducto();
+        BuscarProducto frm = new BuscarProducto(null,true);
         frm.setVisible(true);
         productoSelecciondo = new Producto();
         productoSelecciondo = frm.getSeleccion();
