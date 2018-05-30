@@ -23,21 +23,24 @@ import java.util.logging.Logger;
  * @author Pablo
  */
 public class InsumoDA {
-    public int registrarInsumo(Insumo i, Proveedor p, double precio) throws SQLException{
+    public int registrarInsumo(Insumo i, Proveedor p, double precioProveedor) throws SQLException{
         int idInsumo = 0;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection      
                 ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cStmt = con.prepareCall("{call REGISTRAR_INSUMO(?,?,?,?,?,?,?,?)}");
+            CallableStatement cStmt = con.prepareCall("{call REGISTRAR_INSUMO(?,?,?,?,?,?,?,?,?,?,?)}");
             cStmt.registerOutParameter("_ID_PRODUCTO", java.sql.Types.INTEGER);
             cStmt.setString("_NOMBRE", i.getNombre());
             cStmt.setString("_DESCRIPCION", i.getDescripcion());
             cStmt.setString("_COLOR", i.getColor());
             cStmt.setDouble("_STOCK_MINIMO", i.getStockMinimo());
-            cStmt.setInt("_ACTIVO", i.isActivo());
-            cStmt.setInt("_ID_PROVEEDOR", 0); //Considerar modificaciones en la tabla e incluir el id de proveedor como int
-            cStmt.setDouble("_PRECIO", precio);
+            cStmt.setDouble("_PRECIO_REFERENCIAL", i.getPrecio());
+            cStmt.setInt("_ID_UNIDAD_MEDIDA", i.getUnidad().getId());  
+            cStmt.setInt("_ID_TIPO_PRODUCTO", i.getTipo().getId());  
+            cStmt.setInt("_ACTIVO", i.isActivo());  
+            cStmt.setInt("_ID_PROVEEDOR", Integer.parseInt(p.getIDProveedor())); //Considerar modificaciones en la tabla e incluir el id de proveedor como int
+            cStmt.setDouble("_PRECIO_PROVEEDOR", precioProveedor);
             cStmt.execute();
             idInsumo = cStmt.getInt("_ID_PRODUCTO");
             con.close();     
@@ -46,11 +49,7 @@ public class InsumoDA {
         }
         return idInsumo;
     }
-    
-    public void modificarInsumo(){
-
-    }
-    
+  
     public ArrayList<Insumo> listarInsumos() throws SQLException{
         ArrayList<Insumo> lista = new ArrayList<Insumo>();
         
@@ -76,6 +75,5 @@ public class InsumoDA {
             Logger.getLogger(InsumoDA.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lista;
-
     }
 }

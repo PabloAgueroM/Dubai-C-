@@ -72,3 +72,16 @@ D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CopyComplete
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\MySql.Data.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.pdb
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe.config
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csproj.CopyComplete
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb

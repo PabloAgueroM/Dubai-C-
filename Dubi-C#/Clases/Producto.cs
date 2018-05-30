@@ -6,26 +6,20 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-
-    public class Producto
+    public class Producto : ProductoGenerico
     {
+        private char talla;
 
-        private string id;
-        private string descripcion;
-        private float precio;
-        private int stock;
-
-        public Producto(string _id, string _descripcion, float _precio, int _stock)
+        public Producto()
         {
-            id = _id;
-            descripcion = _descripcion;
-            precio = _precio;
-            stock = _stock;
         }
 
-        public string Id { get => id; set => id = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        public float Precio { get => precio; set => precio = value; }
-        public int Stock { get => stock; set => stock = value; }
+        public Producto(string id, string nombre, string descripcion, string color, double precio, double stockActual, TipoProductoG tipo, UnidadDeMedida unidad, int activo,char talla) : base(id, nombre, descripcion, color, precio, stockActual, tipo, unidad, activo)
+        {
+            this.talla = talla;
+        }
+
+        public char Talla { get => talla; set => talla = value; }
     }
+
 }

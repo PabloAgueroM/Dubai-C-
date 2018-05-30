@@ -11,7 +11,6 @@ import Controlador.InsumoBL;
 import Controlador.ProductoBL;
 import Modelo.TipoProductoG;
 import Modelo.UnidadDeMedida;
-import Vistas.BuscarProveedor;
 import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,19 +27,22 @@ public class GestionInsumo extends javax.swing.JFrame {
     private ProductoBL LogicaNegocio;
     private Proveedor proveedorSeleccionado;
     
+    public void limpiarCampos(){
+        txtIdInsumo.setText(null);
+        txtNombreInsumo.setText(null);
+        txtDescripcion.setText(null);
+        txtColor.setText(null);
+    }
+    
     public void estado(String estado){
         switch(estado){
             case "inicial":
-                JMNuevo.setEnabled(true);
-                JMEliminar.setEnabled(false); JMEliminar.setForeground(Color.gray);
-                JMModificar.setEnabled(false); JMModificar.setForeground(Color.gray);
-                JMCancelar.setEnabled(false); JMCancelar.setForeground(Color.gray);
-                JMGuardar.setEnabled(false); JMGuardar.setForeground(Color.gray);
-                JMBuscar.setEnabled(true);
+                limpiarCampos();
                 txtIdInsumo.setEnabled(false); txtIdInsumo.setBackground(Color.lightGray);
                 txtNombreInsumo.setEnabled(false); txtNombreInsumo.setBackground(Color.lightGray);
                 txtColor.setEnabled(false); txtColor.setBackground(Color.lightGray);
                 txtDescripcion.setEnabled(false); txtDescripcion.setBackground(Color.lightGray);
+                txtPrecioReferencial.setEnabled(false); txtPrecioReferencial.setBackground(Color.lightGray);
                 txtStockMinimo.setEnabled(false); txtStockMinimo.setBackground(Color.lightGray);
                 cboTipo.setEnabled(false);
                 cboUnidadMedida.setEnabled(false);
@@ -50,22 +52,21 @@ public class GestionInsumo extends javax.swing.JFrame {
                 txtPrecio.setEnabled(false); txtPrecio.setBackground(Color.lightGray);
                 break;
             case "nuevo":
-                JMNuevo.setEnabled(true); JMNuevo.setForeground(Color.black);
-                JMCancelar.setEnabled(true); JMCancelar.setForeground(Color.black);
-                JMGuardar.setEnabled(true); JMGuardar.setForeground(Color.black);
-                JMEliminar.setEnabled(false); JMEliminar.setForeground(Color.gray);
-                JMModificar.setEnabled(false); JMModificar.setForeground(Color.gray);
                 txtIdInsumo.setEnabled(true); txtIdInsumo.setBackground(Color.gray);
                 txtNombreInsumo.setEnabled(true); txtNombreInsumo.setBackground(Color.white);
                 txtColor.setEnabled(true); txtColor.setBackground(Color.white);
                 txtDescripcion.setEnabled(true); txtDescripcion.setBackground(Color.white);
                 txtStockMinimo.setEnabled(true); txtStockMinimo.setBackground(Color.white);
+                txtPrecioReferencial.setEnabled(true); txtPrecioReferencial.setBackground(Color.white);
                 cboTipo.setEnabled(true);
                 cboUnidadMedida.setEnabled(true);
                 btnBuscarProveedor.setEnabled(true);
                 txtIdProveedor.setEnabled(false); 
                 txtNombreProveedor.setEnabled(false); 
                 txtPrecio.setEnabled(true); txtPrecio.setBackground(Color.white);
+                break;
+            case "guardar":
+                
                 break;
         }
     }
@@ -82,7 +83,6 @@ public class GestionInsumo extends javax.swing.JFrame {
     }
     
 
-    
     public GestionInsumo() {
         initComponents();
         logicaNegocioInsumo = new InsumoBL();
@@ -103,6 +103,8 @@ public class GestionInsumo extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jMenu1 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -118,6 +120,8 @@ public class GestionInsumo extends javax.swing.JFrame {
         txtColor = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtStockMinimo = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtPrecioReferencial = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -126,17 +130,15 @@ public class GestionInsumo extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         btnBuscarProveedor = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        JMNuevo = new javax.swing.JMenu();
-        JMGuardar = new javax.swing.JMenu();
-        JMBuscar = new javax.swing.JMenu();
-        JMModificar = new javax.swing.JMenu();
-        JMEliminar = new javax.swing.JMenu();
-        JMCancelar = new javax.swing.JMenu();
+        jToolBar1 = new javax.swing.JToolBar();
+        btnNuevo = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jMenu1.setText("jMenu1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), "Datos Generales"));
 
@@ -154,6 +156,8 @@ public class GestionInsumo extends javax.swing.JFrame {
 
         jLabel11.setText("Stock Minimo:");
 
+        jLabel12.setText("Precio Referencial:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -165,19 +169,21 @@ public class GestionInsumo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cboTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cboUnidadMedida, 0, 132, Short.MAX_VALUE)))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cboUnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel11))
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPrecioReferencial, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIdInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +210,11 @@ public class GestionInsumo extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecioReferencial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtStockMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,41 +284,29 @@ public class GestionInsumo extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        JMNuevo.setText("Nuevo");
-        JMNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+        jToolBar1.setRollover(true);
+
+        btnNuevo.setText("Nuevo");
+        btnNuevo.setFocusable(false);
+        btnNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JMNuevoMouseClicked(evt);
+                btnNuevoMouseClicked(evt);
             }
         });
-        jMenuBar1.add(JMNuevo);
+        jToolBar1.add(btnNuevo);
 
-        JMGuardar.setText("Guardar");
-        JMGuardar.setEnabled(false);
-        JMGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnGuardar.setText("Guardar");
+        btnGuardar.setFocusable(false);
+        btnGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGuardar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JMGuardarMouseClicked(evt);
+                btnGuardarMouseClicked(evt);
             }
         });
-        jMenuBar1.add(JMGuardar);
-
-        JMBuscar.setText("Buscar");
-        JMBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JMBuscarMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(JMBuscar);
-
-        JMModificar.setText("Modificar");
-        jMenuBar1.add(JMModificar);
-
-        JMEliminar.setText("Eliminar");
-        jMenuBar1.add(JMEliminar);
-
-        JMCancelar.setText("Cancelar");
-        jMenuBar1.add(JMCancelar);
-
-        setJMenuBar(jMenuBar1);
+        jToolBar1.add(btnGuardar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -320,44 +318,23 @@ public class GestionInsumo extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void JMNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMNuevoMouseClicked
-        // TODO add your handling code here:
-        estado("nuevo");
-    }//GEN-LAST:event_JMNuevoMouseClicked
-
-    private void JMGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMGuardarMouseClicked
-        try {
-            // TODO add your handling code here:
-            
-            Insumo i = new Insumo();
-            i.setNombre(txtNombreInsumo.getText());
-            i.setDescripcion(txtDescripcion.getText());
-            i.setColor(txtColor.getText());
-            i.setStockMinimo(Integer.valueOf(txtStockMinimo.getText()));
-            double precio = Double.valueOf(txtPrecio.getText());
-            int id = logicaNegocioInsumo.registrarInsumo(i, proveedorSeleccionado, precio);
-            txtDescripcion.setText(String.valueOf(id));
-            estado("guardar");
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(GestionInsumo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_JMGuardarMouseClicked
 
     private void btnBuscarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseClicked
         // TODO add your handling code here:
@@ -371,10 +348,31 @@ public class GestionInsumo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarProveedorMouseClicked
 
-    private void JMBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMBuscarMouseClicked
+    private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_JMBuscarMouseClicked
+        try {
+            // TODO add your handling code here:
+            Insumo i = new Insumo();
+            i.setNombre(txtNombreInsumo.getText());
+            i.setDescripcion(txtDescripcion.getText());
+            i.setColor(txtColor.getText());
+            i.setPrecio(Double.valueOf(txtPrecioReferencial.getText()));
+            i.setStockMinimo(Integer.valueOf(txtStockMinimo.getText()));
+            i.setTipo((TipoProductoG)cboTipo.getSelectedItem());
+            i.setUnidad((UnidadDeMedida)cboUnidadMedida.getSelectedItem());
+            double precioProveedor = Double.valueOf(txtPrecio.getText());
+            int id = logicaNegocioInsumo.registrarInsumo(i, proveedorSeleccionado, precioProveedor);
+            txtIdInsumo.setText(String.valueOf(id));
+            estado("guardar");
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionInsumo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnGuardarMouseClicked
+
+    private void btnNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevoMouseClicked
+        // TODO add your handling code here:
+        estado("nuevo");
+    }//GEN-LAST:event_btnNuevoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -412,18 +410,15 @@ public class GestionInsumo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu JMBuscar;
-    private javax.swing.JMenu JMCancelar;
-    private javax.swing.JMenu JMEliminar;
-    private javax.swing.JMenu JMGuardar;
-    private javax.swing.JMenu JMModificar;
-    private javax.swing.JMenu JMNuevo;
     private javax.swing.JButton btnBuscarProveedor;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnNuevo;
     private javax.swing.JComboBox cboTipo;
     private javax.swing.JComboBox cboUnidadMedida;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -432,9 +427,11 @@ public class GestionInsumo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdInsumo;
@@ -442,6 +439,7 @@ public class GestionInsumo extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreInsumo;
     private javax.swing.JTextField txtNombreProveedor;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtPrecioReferencial;
     private javax.swing.JTextField txtStockMinimo;
     // End of variables declaration//GEN-END:variables
 }

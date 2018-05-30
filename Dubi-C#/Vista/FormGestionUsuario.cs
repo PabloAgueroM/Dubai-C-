@@ -289,5 +289,6 @@ namespace Vista
                 estadoBotones(1);
             }
         }
+
     }
 }

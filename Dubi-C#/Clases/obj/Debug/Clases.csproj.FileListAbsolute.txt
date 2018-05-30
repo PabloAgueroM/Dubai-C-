@@ -74,3 +74,22 @@ D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb
+C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Data.dll
+C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.dll
+C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
+C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Web.dll
+C:\Users\Martin Caro\Desktop\LP2\ProyectoDubai\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CopyComplete
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe.config
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.exe
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\Clases.pdb
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Data.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Web.dll
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CopyComplete
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.exe
+C:\Users\Martin Caro\Downloads\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.pdb

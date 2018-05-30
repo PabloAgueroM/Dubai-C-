@@ -194,8 +194,70 @@ namespace AccesoDatos
                 con.Close();
             }
         }
-        
 
+        public BindingList<Natural> listarPersonasNaturales()
+        {
+            BindingList<Natural> lista = new BindingList<Natural>();
+
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "LISTAR_PERSONAS_NATURALES";
+                comando.Connection = con.Connection;
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Natural n = new Natural();
+                    n.ApMat = reader.GetString("AP_MATERNO");
+                    n.ApPat = reader.GetString("AP_PATERNO");
+                    n.Direccion = reader.GetString("DIRECCION");
+                    n.Dni = reader.GetString("DNI");
+                    n.Email = reader.GetString("EMAIL");
+                    n.FechaNac = (DateTime)reader.GetMySqlDateTime("FECHA_NACIMIENTO");
+                    n.IdPersona = reader.GetInt32("ID_PERSONA").ToString();
+                    n.Nombre = reader.GetString("NOMBRE");
+                    n.Sexo = reader.GetChar("SEXO");
+                    n.Telefono = reader.GetString("TELEFONO");
+                    lista.Add(n);
+
+                }
+                con.Close();
+            }
+            return lista;
+        }
+
+
+        public BindingList<Juridica> listarPersonasJuridicas()
+        {
+            BindingList<Juridica> lista = new BindingList<Juridica>();
+
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "LISTAR_PERSONAS_JURIDICAS";
+                comando.Connection = con.Connection;
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Juridica n = new Juridica();
+                    n.Direccion = reader.GetString("DIRECCION");
+                    n.Email = reader.GetString("EMAIL");
+                    n.FechaAniversario = (DateTime)reader.GetMySqlDateTime("FECHA_ANIVERSARIO");
+                    n.IdPersona = reader.GetInt32("ID_PERSONA").ToString();
+                    n.Nombre = reader.GetString("NOMBRE");
+                    n.RazonSocial = reader.GetString("RAZON_SOCIAL");
+                    n.Ruc = reader.GetString("RUC");
+                    n.Telefono = reader.GetString("TELEFONO");
+                    lista.Add(n);
+                }
+                con.Close();
+            }
+            return lista;
+        }
 
     }
 }

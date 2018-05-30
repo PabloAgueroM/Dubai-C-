@@ -25,30 +25,9 @@ namespace Vista
 
         }
 
-        public FormBuscarClienteNatural(BindingList<Persona> listaClientes)
-        {
-            InitializeComponent();
-            dataGridView1.DataSource = listaClientes;
-        }
-
         public Natural ClienteSeleccionado { get => clienteSeleccionado; set => clienteSeleccionado = value; }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            clienteSeleccionado = (Natural)dataGridView1.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            DialogResult res = MessageBox.Show("¿Seguro que desea eliminar este cliente?", "Mensaje", MessageBoxButtons.OKCancel);
-            if (res == DialogResult.OK)
-            {
-                Natural c = (Natural)dataGridView1.CurrentRow.DataBoundItem;
-                logicaNegocio.eliminarCliente((c.IdPersona).ToString());
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-            }
-        }
+        
+        
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -70,6 +49,11 @@ namespace Vista
         private void button5_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
