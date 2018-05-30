@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionClientes));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textDireccionN = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -80,6 +81,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.textDireccionN);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.txtDni);
@@ -100,7 +102,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.textNombreN);
-            this.panel1.Location = new System.Drawing.Point(20, 129);
+            this.panel1.Location = new System.Drawing.Point(3, 90);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(472, 299);
             this.panel1.TabIndex = 4;
@@ -290,6 +292,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.textDireccionJ);
             this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.dateTimePicker2);
@@ -304,7 +307,7 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Location = new System.Drawing.Point(23, 158);
+            this.panel2.Location = new System.Drawing.Point(3, 90);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(472, 229);
             this.panel2.TabIndex = 5;
@@ -424,7 +427,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Natural",
             "Juridica"});
-            this.comboBox1.Location = new System.Drawing.Point(171, 58);
+            this.comboBox1.Location = new System.Drawing.Point(132, 29);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(182, 21);
             this.comboBox1.TabIndex = 6;
@@ -433,7 +436,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 58);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(20, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 8;
@@ -442,7 +446,8 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(41, 96);
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Location = new System.Drawing.Point(22, 67);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(73, 13);
             this.label18.TabIndex = 31;
@@ -450,7 +455,7 @@
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(170, 96);
+            this.textBox14.Location = new System.Drawing.Point(132, 64);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(297, 20);
             this.textBox14.TabIndex = 32;
@@ -458,8 +463,9 @@
             // label20
             // 
             this.label20.AutoSize = true;
+            this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(476, 8);
+            this.label20.Location = new System.Drawing.Point(428, 9);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(232, 24);
             this.label20.TabIndex = 46;
@@ -469,7 +475,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::Vista.Properties.Resources.if_Search_Male_User_49620;
-            this.button6.Location = new System.Drawing.Point(501, 98);
+            this.button6.Location = new System.Drawing.Point(481, 95);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(180, 55);
             this.button6.TabIndex = 44;
@@ -483,7 +489,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::Vista.Properties.Resources.if_arrow_back_216437;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(542, 333);
+            this.button5.Location = new System.Drawing.Point(514, 303);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(90, 38);
             this.button5.TabIndex = 45;
@@ -497,7 +503,7 @@
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::Vista.Properties.Resources.if_Delete_1493279;
-            this.button4.Location = new System.Drawing.Point(501, 220);
+            this.button4.Location = new System.Drawing.Point(481, 212);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(180, 55);
             this.button4.TabIndex = 43;
@@ -510,7 +516,7 @@
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Image = global::Vista.Properties.Resources.if_floppy_285657;
-            this.button3.Location = new System.Drawing.Point(501, 159);
+            this.button3.Location = new System.Drawing.Point(480, 154);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 55);
             this.button3.TabIndex = 42;
@@ -526,7 +532,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Image = global::Vista.Properties.Resources.if_contact_new_23203;
-            this.button2.Location = new System.Drawing.Point(501, 37);
+            this.button2.Location = new System.Drawing.Point(481, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 55);
             this.button2.TabIndex = 41;
@@ -540,7 +546,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 429);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(662, 429);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
