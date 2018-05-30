@@ -15,16 +15,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Katherine Espinoza 20122127
  */
-public class BuscarProducto extends javax.swing.JFrame {
+public class BuscarProducto extends javax.swing.JDialog {
 
     private Producto seleccion;
     private ProductoBL logicaNegocio;
     private ArrayList<Producto> lista;
 
     /**
-     * Creates new form SeleccionarProducto
+     * Creates new form BuscarProduct
      */
-    public BuscarProducto() {
+    public BuscarProducto(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
         logicaNegocio = new ProductoBL();
@@ -42,6 +43,10 @@ public class BuscarProducto extends javax.swing.JFrame {
         }
     }
 
+    public Producto getSeleccion() {
+        return seleccion;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,14 +58,12 @@ public class BuscarProducto extends javax.swing.JFrame {
 
         TablaPanel = new javax.swing.JScrollPane();
         tablaProd = new javax.swing.JTable();
-        SeleccionarBtn = new javax.swing.JPanel();
-        lblSeleccionar = new javax.swing.JLabel();
+        SeleccionarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seleccionar Producto");
-        setBackground(new java.awt.Color(255, 255, 255));
 
-        tablaProd.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        tablaProd.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         tablaProd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -86,56 +89,40 @@ public class BuscarProducto extends javax.swing.JFrame {
         });
         TablaPanel.setViewportView(tablaProd);
 
-        SeleccionarBtn.setBackground(new java.awt.Color(204, 0, 0));
-        SeleccionarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SeleccionarBtnMouseClicked(evt);
+        SeleccionarBtn.setText("Seleccionar");
+        SeleccionarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarBtnActionPerformed(evt);
             }
         });
-
-        lblSeleccionar.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        lblSeleccionar.setForeground(new java.awt.Color(255, 255, 255));
-        lblSeleccionar.setText("Seleccionar");
-
-        javax.swing.GroupLayout SeleccionarBtnLayout = new javax.swing.GroupLayout(SeleccionarBtn);
-        SeleccionarBtn.setLayout(SeleccionarBtnLayout);
-        SeleccionarBtnLayout.setHorizontalGroup(
-            SeleccionarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SeleccionarBtnLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        SeleccionarBtnLayout.setVerticalGroup(
-            SeleccionarBtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SeleccionarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TablaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(TablaPanel, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 436, Short.MAX_VALUE)
+                        .addComponent(SeleccionarBtn)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(SeleccionarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addContainerGap()
+                .addComponent(SeleccionarBtn)
+                .addGap(32, 32, 32)
                 .addComponent(TablaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SeleccionarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SeleccionarBtnMouseClicked
+    private void SeleccionarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarBtnActionPerformed
         int index = tablaProd.getSelectedRow();
         if (index == -1) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un producto");
@@ -144,7 +131,7 @@ public class BuscarProducto extends javax.swing.JFrame {
             seleccion = lista.get(index);
             dispose();
         }
-    }//GEN-LAST:event_SeleccionarBtnMouseClicked
+    }//GEN-LAST:event_SeleccionarBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,7 +144,7 @@ public class BuscarProducto extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -174,20 +161,24 @@ public class BuscarProducto extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new BuscarProducto().setVisible(true);
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                BuscarProducto dialog = new BuscarProducto(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel SeleccionarBtn;
+    private javax.swing.JButton SeleccionarBtn;
     private javax.swing.JScrollPane TablaPanel;
-    private javax.swing.JLabel lblSeleccionar;
     private javax.swing.JTable tablaProd;
     // End of variables declaration//GEN-END:variables
-
-    public Producto getSeleccion() {
-        return seleccion;
-    }
 }

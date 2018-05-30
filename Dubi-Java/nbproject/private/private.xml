@@ -10,9 +10,20 @@
         </group>
 <<<<<<< HEAD
         <group>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Vistas/GestionarProducto.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Modelo/ProductoGenerico.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Vistas/BuscarProducto.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/Controlador/ProductoBL.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/AccesoDatos/ProductoDA.java</file>
+            <file>file:/C:/Users/Katty/Documents/GitHub/Dubai-C-/Dubi-Java/src/AccesoDatos/ProveedorDA.java</file>
+        </group>
+=======
+<<<<<<< HEAD
+        <group>
             <file>file:/C:/Users/Martin%20Caro/Desktop/LP2/ProyectoDubai/Dubai-C-/Dubi-Java/src/AccesoDatos/ProductoDA.java</file>
         </group>
 =======
 >>>>>>> 5160dd9f980f9aa055f6e87cc02c2fcce687b13c
+>>>>>>> 5050fcc2aa62532c541e403d8696353d08d3f54f
     </open-files>
 </project-private>

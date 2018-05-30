@@ -50,21 +50,21 @@ public class ProductoDA {
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call MODIFICAR_PRODUCTO(?,?,?,?,?,?,?,?,?,?)}");
-            cs.setDouble(1, p.getId());
-            cs.setString(2, p.getNombre());
-            cs.setString(3, p.getDescripcion());
-            cs.setString(4, Character.toString(p.getTalla()));
-            cs.setString(5, p.getColor());
-            cs.setDouble(6, p.getPrecio());
-            cs.setDouble(7, p.getStockActual());
-            cs.setInt(8, p.isActivo());
-            cs.setInt(9, p.getTipo().getId());
-            cs.setInt(10, p.getUnidad().getId());
-            cs.executeUpdate();
-            System.out.println("Registro actualizado");
-            con.close();
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45")) {
+                CallableStatement cs = con.prepareCall("{call MODIFICAR_PRODUCTO(?,?,?,?,?,?,?,?,?,?)}");
+                cs.setInt(1, p.getId());
+                cs.setString(2, p.getNombre());
+                cs.setString(3, p.getDescripcion());
+                cs.setString(4, Character.toString(p.getTalla()));
+                cs.setString(5, p.getColor());
+                cs.setDouble(6, p.getPrecio());
+                cs.setDouble(7, p.getStockActual());
+                cs.setInt(8, p.getTipo().getId());
+                cs.setInt(9, p.getUnidad().getId());
+                cs.setInt(10, p.isActivo());
+                cs.execute();
+                System.out.println("Registro actualizado");
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -78,6 +78,7 @@ public class ProductoDA {
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
             CallableStatement cs = con.prepareCall("{call LISTAR_PRODUCTOS()}");
             ResultSet rs = cs.executeQuery();
+            String n;
             while (rs.next()) {
                 Producto p = new Producto();
                 p.setId(rs.getInt("ID_PRODUCTO"));
@@ -88,23 +89,22 @@ public class ProductoDA {
                 p.setPrecio(rs.getDouble("PRECIO"));
                 p.setStockActual(rs.getDouble("STOCK_ACTUAL"));
                 p.setActivo(rs.getInt("ACTIVO"));
+                p.setUnidad(new UnidadDeMedida());
+                p.getUnidad().setId(rs.getInt("ID_UNIDAD_MEDIDA"));                
+                p.setTipo(new TipoProductoG());                
+                p.getTipo().setId(rs.getInt("ID_TIPO_PRODUCTO"));
+                                
+                CallableStatement cs_t = con.prepareCall("{call BUSCA_TIPO_PRODUCTO(?,?,?)}");
+                cs_t.setInt(1, rs.getInt("ID_TIPO_PRODUCTO"));
+                cs_t.execute();
+                p.getTipo().setNombre(cs_t.getString("_NOMBRE"));
+                p.getTipo().setActivo(cs_t.getInt("_ACTIVO")); 
                 
-//                p.insertarInsumos(new InsumoxProducto());
-//                CallableStatement cs_u = con.prepareCall("{BUSCA_UNIDAD_MEDIDA(?,?,?)}");
-//                cs_u.setInt(1, rs.getInt("ID_UNIDAD_MEDIDA"));
-//                cs.executeUpdate();                
-//                p.setUnidad(new UnidadDeMedida());
-//                p.getUnidad().setId(rs.getInt("ID_UNIDAD_MEDIDA"));
-//                p.getUnidad().setNombre(cs_u.getString(2));
-//                p.getUnidad().setActivo(cs_u.getInt(3));
-//                
-//                CallableStatement cs_t = con.prepareCall("{BUSCA_TIPO_PRODUCTO(?,?,?)}");
-//                cs_u.setInt(1, rs.getInt("ID_TIPO_PRODUCTO"));
-//                cs.executeUpdate();                
-//                p.setTipo(new TipoProductoG());                
-//                p.getTipo().setId(cs_t.getInt("ID_TIPO_PRODUCTO"));
-//                p.getTipo().setNombre(cs_t.getString(2));
-//                p.getTipo().setActivo(cs_t.getInt(3)); 
+                CallableStatement cs_u = con.prepareCall("{call BUSCA_UNIDAD_MEDIDA(?,?,?)}");
+                cs_u.setInt(1, rs.getInt("ID_UNIDAD_MEDIDA"));
+                cs_u.execute();
+                p.getUnidad().setNombre(cs_u.getString("_NOMBRE"));
+                p.getUnidad().setActivo(cs_u.getInt("_ACTIVO")); 
                 lista.add(p);
             }
             con.close();

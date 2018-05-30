@@ -20,6 +20,9 @@ public class ProductoGenerico {
     private UnidadDeMedida unidad;
     private int Activo;
 
+    public ProductoGenerico() {
+    }
+    
     public int getId() {
         return id;
     }

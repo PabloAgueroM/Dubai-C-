@@ -9,6 +9,9 @@ public class InsumoxProducto {
         cantidad=c;
     }
 
+    public InsumoxProducto() {
+    }
+
     public void setInsumo(Insumo i){
         insumo=i;
     }
