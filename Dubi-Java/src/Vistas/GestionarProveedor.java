@@ -8,6 +8,7 @@ package Vistas;
 import Controlador.ProveedorBL;
 import Modelo.*;
 import java.sql.Date;
+import java.util.regex.*;
 import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -24,10 +25,26 @@ public class GestionarProveedor extends javax.swing.JFrame {
 
     public GestionarProveedor() {
         initComponents();
-        
+
         logicaNegocio = new ProveedorBL();
         proveedorSeleccionado = new Proveedor();
         estado(1);
+    }
+
+    public int validarDatos() {
+        if (TxtRazonSocial.getText().trim().isEmpty() || TxtNombre.getText().trim().isEmpty() || TxtRUC.getText().trim().isEmpty() || TxtTelefono.getText().trim().isEmpty()
+            || TxtEmail.getText().trim().isEmpty() || TxtNombreRep.getText().trim().isEmpty() || TxtApellidoPRep.getText().trim().isEmpty() || TxtApellidoMRep.getText().trim().isEmpty()
+            || TxtDNIRep.getText().trim().isEmpty() || TxtTelefonoRep.getText().trim().isEmpty()) {
+           // JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+            return 1;
+        }
+        if (TxtRazonSocial.getForeground() == java.awt.Color.RED || TxtNombre.getForeground() == java.awt.Color.RED || TxtRUC.getForeground() == java.awt.Color.RED || TxtTelefono.getForeground() == java.awt.Color.RED
+            || TxtEmail.getForeground() == java.awt.Color.RED || TxtNombreRep.getForeground() == java.awt.Color.RED || TxtApellidoPRep.getForeground() == java.awt.Color.RED || TxtApellidoMRep.getForeground() == java.awt.Color.RED
+            || TxtDNIRep.getForeground() == java.awt.Color.RED || TxtTelefonoRep.getForeground() == java.awt.Color.RED) {
+            //JOptionPane.showMessageDialog(null, "Por favor, corrija los campos incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+            return 2;
+        }
+        return 0;
     }
 
     public void estado(int i) {
@@ -51,7 +68,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 BtnEliminar.setEnabled(false);
                 BtnListarProveedor.setEnabled(true);
                 BtnNuevo.setEnabled(true);
-                BtnTerminar.setEnabled(true);
+                
                 flag = 0;
                 limpiarCampos();
                 break;
@@ -74,7 +91,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 BtnListarProveedor.setEnabled(true);
                 BtnNuevo.setEnabled(false);
                 BtnEliminar.setEnabled(false);
-                BtnTerminar.setEnabled(true);
+                
                 flag = 0;
                 limpiarCampos();
                 break;
@@ -97,7 +114,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 BtnEliminar.setEnabled(false);
                 BtnListarProveedor.setEnabled(true);
                 BtnNuevo.setEnabled(true);
-                BtnTerminar.setEnabled(true);
+                
                 flag = 0;
 
                 break;
@@ -156,7 +173,6 @@ public class GestionarProveedor extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         TxtID = new javax.swing.JTextField();
         BtnListarProveedor = new javax.swing.JButton();
-        BtnTerminar = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         BtnNuevo = new javax.swing.JButton();
         BtnGuardar = new javax.swing.JButton();
@@ -178,14 +194,39 @@ public class GestionarProveedor extends javax.swing.JFrame {
         jLabel12.setText("Teléfono:");
 
         TxtNombreRep.setText("jTextField1");
+        TxtNombreRep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtNombreRepKeyTyped(evt);
+            }
+        });
 
         TxtApellidoPRep.setText("jTextField2");
+        TxtApellidoPRep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtApellidoPRepKeyTyped(evt);
+            }
+        });
 
         TxtApellidoMRep.setText("jTextField3");
+        TxtApellidoMRep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtApellidoMRepKeyTyped(evt);
+            }
+        });
 
         TxtDNIRep.setText("jTextField4");
+        TxtDNIRep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtDNIRepKeyTyped(evt);
+            }
+        });
 
         TxtTelefonoRep.setText("jTextField5");
+        TxtTelefonoRep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefonoRepKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -251,10 +292,25 @@ public class GestionarProveedor extends javax.swing.JFrame {
         TxtNombre.setText("jTextField2");
 
         TxtRUC.setText("jTextField3");
+        TxtRUC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtRUCKeyTyped(evt);
+            }
+        });
 
         TxtTelefono.setText("jTextField5");
+        TxtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtTelefonoKeyTyped(evt);
+            }
+        });
 
         TxtEmail.setText("jTextField6");
+        TxtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtEmailKeyTyped(evt);
+            }
+        });
 
         CbDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
@@ -268,13 +324,6 @@ public class GestionarProveedor extends javax.swing.JFrame {
         BtnListarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnListarProveedorActionPerformed(evt);
-            }
-        });
-
-        BtnTerminar.setText("Atrás");
-        BtnTerminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnTerminarActionPerformed(evt);
             }
         });
 
@@ -311,10 +360,6 @@ public class GestionarProveedor extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(BtnListarProveedor)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(BtnTerminar)
-                .addGap(290, 290, 290))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,9 +401,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                     .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BtnTerminar)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         jToolBar1.setRollover(true);
@@ -423,17 +466,9 @@ public class GestionarProveedor extends javax.swing.JFrame {
         if (flag == 0) { //es nuevo proveedor
             Proveedor prov = new Proveedor();
             PersonaNatural rep = new PersonaNatural();
-            Date fecha = new Date(118, CbMes.getSelectedIndex(), CbDia.getSelectedIndex()+1);
+            Date fecha = new Date(118, CbMes.getSelectedIndex(), CbDia.getSelectedIndex() + 1);
             prov.setRazonSocial(TxtRazonSocial.getText());
-            String ruc = TxtRUC.getText();
-            try {
-                Integer.parseInt(ruc);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "El RUC debe ser un numero");
-                return;
-            }
-            prov.setRUC(ruc);
+            prov.setRUC(TxtRUC.getText());
             prov.setNombre(TxtNombre.getText());
             prov.setFechaAniversario(fecha);
             prov.setEmail(TxtEmail.getText());
@@ -441,39 +476,29 @@ public class GestionarProveedor extends javax.swing.JFrame {
             rep.setNombre(TxtNombreRep.getText());
             rep.setApellidoP(TxtApellidoPRep.getText());
             rep.setApellidoM(TxtApellidoMRep.getText());
-            String dni = TxtDNIRep.getText();
-            try {
-                Integer.parseInt(dni);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "El DNI debe ser un numero");
-                return;
-            }
-            rep.setDNI(dni);
+            rep.setDNI(TxtDNIRep.getText());
             rep.setTelefono(TxtTelefonoRep.getText());
-            prov.setRepresentante(rep);
-            if (ruc.trim().isEmpty() || TxtRazonSocial.getText().trim().isEmpty() || TxtNombre.getText().trim().isEmpty() || TxtTelefono.getText().trim().isEmpty() || TxtEmail.getText().trim().isEmpty() || TxtNombreRep.getText().trim().isEmpty() || TxtApellidoPRep.getText().trim().isEmpty() || TxtApellidoMRep.getText().trim().isEmpty() || TxtDNIRep.getText().trim().isEmpty() || TxtTelefonoRep.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
-                return;
+            prov.setRepresentante(rep);            
+            int valido=validarDatos();
+            if(valido>0){
+                if(valido==1){
+                    JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if(valido==2){
+                    JOptionPane.showMessageDialog(null, "Por favor, corrija los campos incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
             }
-
             logicaNegocio.registrarProveedor(prov);
             estado(3);
         } else {
 
-            Date fecha = new Date(118, CbMes.getSelectedIndex(), CbDia.getSelectedIndex()+1);
-            //  proveedorSeleccionado.setIDProveedor(TxtID.getText());
+            Date fecha = new Date(118, CbMes.getSelectedIndex(), CbDia.getSelectedIndex() + 1);
+            proveedorSeleccionado.setIDProveedor(TxtID.getText());
             proveedorSeleccionado.setRazonSocial(TxtRazonSocial.getText());
-
-            String ruc = TxtRUC.getText();
-            try {
-                Integer.parseInt(ruc);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "El RUC debe ser un numero");
-                return;
-            }
-            proveedorSeleccionado.setRUC(ruc);
+            proveedorSeleccionado.setRUC(TxtRUC.getText());
             proveedorSeleccionado.setNombre(TxtNombre.getText());
             proveedorSeleccionado.setFechaAniversario(fecha);
             proveedorSeleccionado.setEmail(TxtEmail.getText());
@@ -482,23 +507,22 @@ public class GestionarProveedor extends javax.swing.JFrame {
             rep.setNombre(TxtNombreRep.getText());
             rep.setApellidoP(TxtApellidoPRep.getText());
             rep.setApellidoM(TxtApellidoMRep.getText());
-            String dni = TxtDNIRep.getText();
-            try {
-                Integer.parseInt(dni);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "El DNI debe ser un numero");
-                return;
-            }
-            rep.setDNI(dni);
+            rep.setDNI(TxtDNIRep.getText());
             rep.setTelefono(TxtTelefonoRep.getText());
-            if (ruc.trim().isEmpty() || TxtRazonSocial.getText().trim().isEmpty() || TxtNombre.getText().trim().isEmpty() || TxtTelefono.getText().trim().isEmpty() || TxtEmail.getText().trim().isEmpty() || TxtNombreRep.getText().trim().isEmpty() || TxtApellidoPRep.getText().trim().isEmpty() || TxtApellidoMRep.getText().trim().isEmpty() || TxtDNIRep.getText().trim().isEmpty() || TxtTelefonoRep.getText().trim().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
-                return;
-            }
             proveedorSeleccionado.setRepresentante(rep);
-
-            logicaNegocio.ModificarProveedor(proveedorSeleccionado);
+            int valido=validarDatos();
+            if(valido>0){
+                if(valido==1){
+                    JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if(valido==2){
+                    JOptionPane.showMessageDialog(null, "Por favor, corrija los campos incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+            }
+            logicaNegocio.ModificarProveedor(proveedorSeleccionado);            
             estado(1);
         }
     }//GEN-LAST:event_BtnGuardarActionPerformed
@@ -535,10 +559,6 @@ public class GestionarProveedor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BtnListarProveedorActionPerformed
 
-    private void BtnTerminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTerminarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_BtnTerminarActionPerformed
-
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
         int dialogButton = JOptionPane.YES_NO_OPTION;
         int dialogResult = JOptionPane.showConfirmDialog(null, "¿Realmente desea eliminar este proveeedor?", "Atención", dialogButton);
@@ -552,6 +572,94 @@ public class GestionarProveedor extends javax.swing.JFrame {
             flag = 0;
         }
     }//GEN-LAST:event_BtnEliminarActionPerformed
+
+    private void TxtRUCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtRUCKeyTyped
+        String texto = TxtRUC.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{9}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtRUC.setForeground(java.awt.Color.RED);
+        } else {
+            TxtRUC.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtRUCKeyTyped
+
+    private void TxtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyTyped
+        String texto = TxtTelefono.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{6}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtTelefono.setForeground(java.awt.Color.RED);
+        } else {
+            TxtTelefono.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtTelefonoKeyTyped
+
+    private void TxtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtEmailKeyTyped
+        String texto = TxtEmail.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{1,6}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtEmail.setForeground(java.awt.Color.RED);
+        } else {
+            TxtEmail.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtEmailKeyTyped
+
+    private void TxtNombreRepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreRepKeyTyped
+        String texto = TxtNombreRep.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[a-zA-Z]+$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtNombreRep.setForeground(java.awt.Color.RED);
+        } else {
+            TxtNombreRep.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtNombreRepKeyTyped
+
+    private void TxtApellidoPRepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtApellidoPRepKeyTyped
+        String texto = TxtApellidoPRep.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[a-zA-Z]+$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtApellidoPRep.setForeground(java.awt.Color.RED);
+        } else {
+            TxtApellidoPRep.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtApellidoPRepKeyTyped
+
+    private void TxtApellidoMRepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtApellidoMRepKeyTyped
+        String texto = TxtApellidoMRep.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[a-zA-Z]+$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtApellidoMRep.setForeground(java.awt.Color.RED);
+        } else {
+            TxtApellidoMRep.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtApellidoMRepKeyTyped
+
+    private void TxtDNIRepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDNIRepKeyTyped
+        String texto = TxtDNIRep.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{7}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtDNIRep.setForeground(java.awt.Color.RED);
+        } else {
+            TxtDNIRep.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtDNIRepKeyTyped
+
+    private void TxtTelefonoRepKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoRepKeyTyped
+        String texto = TxtTelefonoRep.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtTelefonoRep.setForeground(java.awt.Color.RED);
+        } else {
+            TxtTelefonoRep.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtTelefonoRepKeyTyped
 
     /**
      * @param args the command line arguments
@@ -594,7 +702,6 @@ public class GestionarProveedor extends javax.swing.JFrame {
     private javax.swing.JButton BtnGuardar;
     private javax.swing.JButton BtnListarProveedor;
     private javax.swing.JButton BtnNuevo;
-    private javax.swing.JButton BtnTerminar;
     private javax.swing.JComboBox<String> CbDia;
     private javax.swing.JComboBox<String> CbMes;
     private javax.swing.JTextField TxtApellidoMRep;

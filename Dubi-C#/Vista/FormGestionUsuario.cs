@@ -147,11 +147,7 @@ namespace Vista
 
         private int validarDatos()
         {
-            if (textBox1.ForeColor == Color.Red || textBox2.ForeColor == Color.Red ||
-                textBox3.ForeColor == Color.Red || textBox6.ForeColor == Color.Red ||
-                textBox7.ForeColor == Color.Red || textBox8.ForeColor == Color.Red ||
-                textBox5.ForeColor == Color.Red)          
-                return 1;
+           
             
             if (String.IsNullOrWhiteSpace(textBox1.Text) || String.IsNullOrWhiteSpace(textBox2.Text) ||
                 String.IsNullOrWhiteSpace(textBox3.Text) || String.IsNullOrWhiteSpace(textBox4.Text) ||
@@ -159,6 +155,12 @@ namespace Vista
                 String.IsNullOrWhiteSpace(textBox7.Text) || String.IsNullOrWhiteSpace(textBox8.Text) ||
                 String.IsNullOrWhiteSpace(textBox9.Text))           
                 return 2;
+
+            if (textBox1.ForeColor == Color.Red || textBox2.ForeColor == Color.Red ||
+               textBox3.ForeColor == Color.Red || textBox6.ForeColor == Color.Red ||
+               textBox7.ForeColor == Color.Red || textBox8.ForeColor == Color.Red ||
+               textBox5.ForeColor == Color.Red)
+                return 1;
 
             if (radioButton1.Checked == false && radioButton2.Checked == false) return 3;
             if (comboBox4.SelectedIndex < 0) return 4;
