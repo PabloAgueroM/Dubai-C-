@@ -410,7 +410,6 @@ public class GestionarProducto extends javax.swing.JFrame {
                 CantidadInsumoText.setEnabled(true);
                 InsertarInsumoBoton.setEnabled(true);
                 guardarBtn.setEnabled(true);
-                EliminarBtn.setEnabled(true);
                 SelecInsumoBtn.setEnabled(true);
                 cmbTalla.setEnabled(true);
                 cmbTipo.setEnabled(true);
