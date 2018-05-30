@@ -2,12 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group/>
         <group name="Clases/Pruebas">
-            <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/Vistas/BuscarUsuario.java</file>
-            <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/Vistas/AdministracionUsuarios.java</file>
+            <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/Vistas/GestionInsumo.java</file>
+            <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/AccesoDatos/InsumoDA.java</file>
+            <file>file:/D:/Bru/Universidad/Facu/Lenguaje%20de%20Programacion%202/Tarea%20Academica/Git/Dubai-C-/Dubi-Java/src/Vistas/GestionarProveedor.java</file>
         </group>
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/Martin%20Caro/Desktop/LP2/ProyectoDubai/Dubai-C-/Dubi-Java/src/AccesoDatos/ProductoDA.java</file>
         </group>
+=======
+>>>>>>> 5160dd9f980f9aa055f6e87cc02c2fcce687b13c
     </open-files>
 </project-private>
