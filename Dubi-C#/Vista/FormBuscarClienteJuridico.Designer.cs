@@ -59,6 +59,7 @@
             this.Direccion});
             this.dataGridView1.Location = new System.Drawing.Point(13, 44);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(875, 245);
             this.dataGridView1.TabIndex = 4;
             // 
@@ -67,36 +68,42 @@
             this.IdPersona.DataPropertyName = "IdPersona";
             this.IdPersona.HeaderText = "IdPersona";
             this.IdPersona.Name = "IdPersona";
+            this.IdPersona.ReadOnly = true;
             // 
             // Razon_Social
             // 
             this.Razon_Social.DataPropertyName = "RazonSocial";
             this.Razon_Social.HeaderText = "Razon_Social";
             this.Razon_Social.Name = "Razon_Social";
+            this.Razon_Social.ReadOnly = true;
             // 
             // nombre
             // 
             this.nombre.DataPropertyName = "Nombre";
             this.nombre.HeaderText = "Nombre";
             this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
             // email
             // 
             this.email.DataPropertyName = "Email";
             this.email.HeaderText = "Email";
             this.email.Name = "email";
+            this.email.ReadOnly = true;
             // 
             // telefono
             // 
             this.telefono.DataPropertyName = "Telefono";
             this.telefono.HeaderText = "Telefono";
             this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // Direccion
             // 
             this.Direccion.DataPropertyName = "Direccion";
             this.Direccion.HeaderText = "Direccion";
             this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
             // 
             // button3
             // 

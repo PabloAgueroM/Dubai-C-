@@ -81,12 +81,6 @@
     <Compile Include="FormGestionClientes.designer.cs">
       <DependentUpon>FormGestionClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRegCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRegCliente.designer.cs">
-      <DependentUpon>FormRegCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormBuscarClienteNatural.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGestionClientes.resx">
       <DependentUpon>FormGestionClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRegCliente.resx">
-      <DependentUpon>FormRegCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarClienteNatural.resx">
       <DependentUpon>FormBuscarClienteNatural.cs</DependentUpon>

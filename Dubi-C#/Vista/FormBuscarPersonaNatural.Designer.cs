@@ -73,6 +73,7 @@
             this.telefono});
             this.dataGridView1.Location = new System.Drawing.Point(15, 35);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(802, 245);
             this.dataGridView1.TabIndex = 53;
             // 
@@ -81,30 +82,35 @@
             this.nombre.DataPropertyName = "Nombre";
             this.nombre.HeaderText = "nombre";
             this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
             // ApellidoP
             // 
             this.ApellidoP.DataPropertyName = "ApPat";
             this.ApellidoP.HeaderText = "ApellidoP";
             this.ApellidoP.Name = "ApellidoP";
+            this.ApellidoP.ReadOnly = true;
             // 
             // ApellidoM
             // 
             this.ApellidoM.DataPropertyName = "ApMat";
             this.ApellidoM.HeaderText = "ApellidoM";
             this.ApellidoM.Name = "ApellidoM";
+            this.ApellidoM.ReadOnly = true;
             // 
             // email
             // 
             this.email.DataPropertyName = "Email";
             this.email.HeaderText = "email";
             this.email.Name = "email";
+            this.email.ReadOnly = true;
             // 
             // telefono
             // 
             this.telefono.DataPropertyName = "Telefono";
             this.telefono.HeaderText = "telefono";
             this.telefono.Name = "telefono";
+            this.telefono.ReadOnly = true;
             // 
             // button5
             // 

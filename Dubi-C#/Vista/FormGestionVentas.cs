@@ -12,10 +12,11 @@ namespace Vista
 {
     public partial class FormGestionVentas : Form
     {
-        
-        public FormGestionVentas()
+        private string idActual;   
+        public FormGestionVentas(string id)
         {
             InitializeComponent();
+            idActual = id;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +29,7 @@ namespace Vista
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormGestionPedido gestionarPedido = new FormGestionPedido();
+            FormGestionPedido gestionarPedido = new FormGestionPedido(idActual);
             gestionarPedido.ShowDialog();
             
         }
@@ -42,6 +43,11 @@ namespace Vista
         private void button3_Click(object sender, EventArgs e)
         {
             Close();            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
