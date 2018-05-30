@@ -9,7 +9,7 @@ namespace Clases
 
     public class ProductoGenerico
     {
-        private int id;
+        private string id;
         private string nombre;
         private string descripcion;
         private string color;
@@ -19,7 +19,7 @@ namespace Clases
         private UnidadDeMedida unidad;
         private int Activo;
 
-        public ProductoGenerico(int id, string nombre, string descripcion, string color, double precio, double stockActual, TipoProductoG tipo, UnidadDeMedida unidad, int activo)
+        public ProductoGenerico(string id, string nombre, string descripcion, string color, double precio, double stockActual, TipoProductoG tipo, UnidadDeMedida unidad, int activo)
         {
             this.id = id;
             this.nombre = nombre;
@@ -32,7 +32,9 @@ namespace Clases
             Activo = activo;
         }
 
-        public int Id { get => id; set => id = value; }
+        public ProductoGenerico() { }
+
+        public string Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public string Color { get => color; set => color = value; }

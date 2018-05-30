@@ -10,7 +10,11 @@ namespace Clases
     {
         private char talla;
 
-        public Producto(int id, string nombre, string descripcion, string color, double precio, double stockActual, TipoProductoG tipo, UnidadDeMedida unidad, int activo,char talla) : base(id, nombre, descripcion, color, precio, stockActual, tipo, unidad, activo)
+        public Producto()
+        {
+        }
+
+        public Producto(string id, string nombre, string descripcion, string color, double precio, double stockActual, TipoProductoG tipo, UnidadDeMedida unidad, int activo,char talla) : base(id, nombre, descripcion, color, precio, stockActual, tipo, unidad, activo)
         {
             this.talla = talla;
         }
