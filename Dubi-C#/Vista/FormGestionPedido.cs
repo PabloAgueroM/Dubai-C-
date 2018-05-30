@@ -15,9 +15,13 @@ namespace Vista
     {
         private BindingList<DetallePedido> detalles = new BindingList<DetallePedido>();
         private Pedido pedido = new Pedido();
+        private Producto productoSeleccionado = new Producto();
+        private float total = 0;
+
         public FormGestionPedido()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = detalles;
             this.estadoBotones(0);
         }
@@ -70,6 +74,15 @@ namespace Vista
                     button8.Enabled = true;
                     button7.Enabled = true;
                     button4.Enabled = false;
+                    button1.Enabled = true;
+                    button5.Enabled = false;
+                    dateTimePicker1.Enabled = true;
+                    break;
+                case 2:
+                    textBox5.Text = "";
+                    textBox6.Text = "";
+                    textBox7.Text = "";
+                    textBox8.Text = "";
                     break;
                 default:
                     break;
@@ -115,12 +128,38 @@ namespace Vista
         private void button7_Click(object sender, EventArgs e)
         {
             this.estadoBotones(0);
+            var itemToRemove = detalles.ToList();
+            foreach (DetallePedido d in itemToRemove) {
+                detalles.Remove(d);
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            FormBuscarProducto buscar = new FormBuscarProducto();
+            if (buscar.ShowDialog() == DialogResult.OK)
+            {
+                this.productoSeleccionado = buscar.ProductoSeleccionado;
+                textBox5.Text = buscar.ProductoSeleccionado.Id;
+                textBox6.Text = buscar.ProductoSeleccionado.Nombre;
+                textBox7.Text = buscar.ProductoSeleccionado.Precio.ToString();
 
+            }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "")
+            { MessageBox.Show("Debe seleccionar un producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            if (textBox8.Text == "") { MessageBox.Show("Debe seleccionar una cantidad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            DetallePedido d = new DetallePedido();
+            d.Producto = this.productoSeleccionado;
+            d.Cantidad = Convert.ToInt32(textBox8.Text);
+            d.Subtotal = d.Cantidad * Convert.ToSingle(textBox7.Text);
+            detalles.Add(d);
+            this.estadoBotones(2);
+            total = total + d.Subtotal;
+            textBox9.Text = "S/. " + total.ToString();
+        }
     }
 }
