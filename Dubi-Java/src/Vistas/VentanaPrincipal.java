@@ -36,6 +36,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         FondoPanel.add(fondo);
         menuActivo.setLayout(new GridLayout());
         menuActivo.setVisible(false);
+        menuActivo.setOpaque(false);
         FondoPanel.setSize(750, 650);
         FondoPanel.repaint();
     }
@@ -120,7 +121,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(titleBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 491, Short.MAX_VALUE)
                 .addComponent(minimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -445,7 +446,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnReporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 409, Short.MAX_VALUE)
                 .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -454,11 +455,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuActivo.setLayout(menuActivoLayout);
         menuActivoLayout.setHorizontalGroup(
             menuActivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         menuActivoLayout.setVerticalGroup(
             menuActivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 693, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout FondoPanelLayout = new javax.swing.GroupLayout(FondoPanel);
@@ -477,21 +478,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(FondoPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(menuActivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 760, Short.MAX_VALUE)
             .addComponent(titleBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
+                .addComponent(FondoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE))
             .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -524,6 +525,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             frm = new GestionarProducto();
             menuActivo.add(frm.getContentPane());
             menuActivo.setVisible(true);
+            menuActivo.setOpaque(false);
             menuActivo.repaint();
             //frm.setVisible(true);
 //            frm.setLocation(450, 50);
@@ -541,6 +543,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             frmIns = new GestionInsumo();
             menuActivo.add(frmIns.getContentPane());
             menuActivo.setVisible(true);
+            menuActivo.setOpaque(false);
             menuActivo.repaint();
             //frm.setVisible(true);
         } catch (Exception ex) {
@@ -557,6 +560,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             frmProv = new GestionarProveedor();
             menuActivo.add(frmProv.getContentPane());
             menuActivo.setVisible(true);
+            menuActivo.setOpaque(false);
             menuActivo.repaint();
             //frm.setVisible(true);
         } catch (Exception ex) {
@@ -592,6 +596,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             frm = new GestionarPedido();
             menuActivo.add(frm.getContentPane());
             menuActivo.setVisible(true);
+            menuActivo.setOpaque(false);
             menuActivo.repaint();
             //frm.setVisible(true);
         } catch (Exception ex) {
@@ -604,9 +609,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetBotones();
         setColor(btnCliente);
         menuActivo.removeAll();
-        GestionarCliente form = new GestionarCliente();
+        GestionarPedido form = new GestionarPedido();
         menuActivo.add(form.getContentPane());
         menuActivo.setVisible(true);
+        menuActivo.setOpaque(false);
         menuActivo.repaint();
         //frm.setVisible(true);
     }//GEN-LAST:event_btnClienteMouseClicked
@@ -615,9 +621,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetBotones();
         menuActivo.removeAll();
         //Intento de mantener todo en una misma ventana
-        AdministracionUsuarios frm = new AdministracionUsuarios();
+        GestionarPedido frm = new GestionarPedido();
         menuActivo.add(frm.getContentPane());
         menuActivo.setVisible(true);
+        menuActivo.setOpaque(false);
         menuActivo.repaint();
         setColor(btnUsuario);
     }//GEN-LAST:event_btnUsuarioMouseClicked

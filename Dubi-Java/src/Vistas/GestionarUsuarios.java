@@ -34,262 +34,32 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Nuevo = new javax.swing.JButton();
-        Guardar = new javax.swing.JButton();
-        Cancelar = new javax.swing.JButton();
-        Buscar = new javax.swing.JButton();
-        LbDni = new javax.swing.JLabel();
-        LbNombre = new javax.swing.JLabel();
-        LbApPaterno = new javax.swing.JLabel();
-        LbApMaterno = new javax.swing.JLabel();
-        LbFecha = new javax.swing.JLabel();
-        LbEmail = new javax.swing.JLabel();
-        LbSexo = new javax.swing.JLabel();
-        LbTelefono = new javax.swing.JLabel();
-        LbDireccion = new javax.swing.JLabel();
-        LbContrasenia = new javax.swing.JLabel();
-        LbConfirmar = new javax.swing.JLabel();
-        LbTipo = new javax.swing.JLabel();
-        TxtDni = new javax.swing.JTextField();
-        TxtNombre = new javax.swing.JTextField();
-        TxtApPaterno = new javax.swing.JTextField();
-        TxtApMaterno = new javax.swing.JTextField();
-        TxtEmail = new javax.swing.JTextField();
-        TxtTelefono = new javax.swing.JTextField();
-        TxtDireccion = new javax.swing.JTextField();
-        TxtContrasenia = new javax.swing.JTextField();
-        TxtConfimar = new javax.swing.JTextField();
-        TxtFecha = new javax.swing.JFormattedTextField();
-        CmbTipo = new javax.swing.JComboBox<>();
-        CmbSexo = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        Nuevo.setText("Nuevo");
-        Nuevo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                NuevoMouseClicked(evt);
-            }
-        });
-
-        Guardar.setText("Guardar");
-        Guardar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GuardarMouseClicked(evt);
-            }
-        });
-
-        Cancelar.setText("Cancelar");
-        Cancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CancelarMouseClicked(evt);
-            }
-        });
-
-        Buscar.setText("Buscar");
-        Buscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BuscarMouseClicked(evt);
-            }
-        });
-        Buscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarActionPerformed(evt);
-            }
-        });
-
-        LbDni.setText("jLabel1");
-
-        LbNombre.setText("jLabel1");
-
-        LbApPaterno.setText("jLabel1");
-
-        LbApMaterno.setText("jLabel1");
-
-        LbFecha.setText("jLabel1");
-
-        LbEmail.setText("jLabel1");
-
-        LbSexo.setText("jLabel1");
-
-        LbTelefono.setText("jLabel1");
-
-        LbDireccion.setText("jLabel1");
-
-        LbContrasenia.setText("jLabel1");
-
-        LbConfirmar.setText("jLabel1");
-
-        LbTipo.setText("jLabel1");
-
-        TxtDni.setText("jTextField1");
-
-        TxtNombre.setText("jTextField1");
-
-        TxtApPaterno.setText("jTextField1");
-
-        TxtApMaterno.setText("jTextField1");
-
-        TxtEmail.setText("jTextField1");
-
-        TxtTelefono.setText("jTextField1");
-
-        TxtDireccion.setText("jTextField1");
-
-        TxtContrasenia.setText("jTextField1");
-
-        TxtConfimar.setText("jTextField1");
-
-        TxtFecha.setText("jFormattedTextField1");
-
-        CmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        CmbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Disponible en el cliente de C#");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Nuevo)
-                        .addGap(18, 18, 18)
-                        .addComponent(Guardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Cancelar)
-                        .addGap(18, 18, 18)
-                        .addComponent(Buscar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LbDni)
-                            .addComponent(LbNombre)
-                            .addComponent(LbApPaterno)
-                            .addComponent(LbApMaterno)
-                            .addComponent(LbFecha)
-                            .addComponent(LbEmail)
-                            .addComponent(LbTelefono)
-                            .addComponent(LbSexo)
-                            .addComponent(LbDireccion)
-                            .addComponent(LbContrasenia)
-                            .addComponent(LbConfirmar)
-                            .addComponent(LbTipo))
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtApMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtApPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(CmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TxtConfimar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(CmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(71, 71, 71)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Nuevo)
-                            .addComponent(Guardar)
-                            .addComponent(Cancelar)
-                            .addComponent(Buscar))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbDni)
-                            .addComponent(TxtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbNombre)
-                            .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbApPaterno)
-                            .addComponent(TxtApPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbApMaterno)
-                            .addComponent(TxtApMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbFecha)
-                            .addComponent(TxtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LbEmail)
-                            .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbTelefono)
-                            .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LbSexo)
-                            .addComponent(CmbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addComponent(LbDireccion))
-                    .addComponent(TxtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbContrasenia)
-                    .addComponent(TxtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbConfirmar)
-                    .addComponent(TxtConfimar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbTipo)
-                    .addComponent(CmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(190, 190, 190)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(212, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void NuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoMouseClicked
-        // TODO add your handling code here:
-        caso = 1;
-    }//GEN-LAST:event_NuevoMouseClicked
-
-    private void GuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMouseClicked
-        // TODO add your handling code here:
-        Usuario u = new Usuario();
-        
-        if(caso == 1){
-            logica.registrarUsuario(u);
-        }
-        else{
-            logica.modificarUsuario(u);
-        }
-        
-                
-    }//GEN-LAST:event_GuardarMouseClicked
-
-    private void CancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CancelarMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_CancelarMouseClicked
-
-    private void BuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarMouseClicked
-        // TODO add your handlingcode here:
-        caso = 2;
-        BuscarUsuario frm = new BuscarUsuario();
-        frm.setVisible(true);
-    }//GEN-LAST:event_BuscarMouseClicked
-
-    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -328,33 +98,6 @@ public class GestionarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Buscar;
-    private javax.swing.JButton Cancelar;
-    private javax.swing.JComboBox<String> CmbSexo;
-    private javax.swing.JComboBox<String> CmbTipo;
-    private javax.swing.JButton Guardar;
-    private javax.swing.JLabel LbApMaterno;
-    private javax.swing.JLabel LbApPaterno;
-    private javax.swing.JLabel LbConfirmar;
-    private javax.swing.JLabel LbContrasenia;
-    private javax.swing.JLabel LbDireccion;
-    private javax.swing.JLabel LbDni;
-    private javax.swing.JLabel LbEmail;
-    private javax.swing.JLabel LbFecha;
-    private javax.swing.JLabel LbNombre;
-    private javax.swing.JLabel LbSexo;
-    private javax.swing.JLabel LbTelefono;
-    private javax.swing.JLabel LbTipo;
-    private javax.swing.JButton Nuevo;
-    private javax.swing.JTextField TxtApMaterno;
-    private javax.swing.JTextField TxtApPaterno;
-    private javax.swing.JTextField TxtConfimar;
-    private javax.swing.JTextField TxtContrasenia;
-    private javax.swing.JTextField TxtDireccion;
-    private javax.swing.JTextField TxtDni;
-    private javax.swing.JTextField TxtEmail;
-    private javax.swing.JFormattedTextField TxtFecha;
-    private javax.swing.JTextField TxtNombre;
-    private javax.swing.JTextField TxtTelefono;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
