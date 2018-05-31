@@ -23,6 +23,7 @@ namespace Vista
             logicaNegocio = new ClienteBL();
             this.panel1.Visible = false;
             this.panel2.Visible = false;
+            comboBox1.SelectedIndex = 0;
             this.estadoBotones(0);            
         }
 

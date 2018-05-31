@@ -16,8 +16,8 @@ namespace Vista
 
     public partial class FormGestionPedido : Form
     {
-        private BindingList<DetallePedido> detalles = new BindingList<DetallePedido>();
-        private Pedido pedido = new Pedido();
+        private BindingList<DetallePedido> detalles;
+        private Pedido pedido;
         private Producto productoSeleccionado = new Producto();
         private float total = 0;
         private int guardar = 0;
@@ -27,9 +27,12 @@ namespace Vista
         {
             InitializeComponent();
             logicaNegocio = new PedidoBL();
+            pedido = new Pedido();
+            detalles = new BindingList<DetallePedido>();
             this.idActual = idActual;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = detalles;
+            comboBox1.SelectedIndex = 0;
             this.estadoBotones(0);
         }
         private void estadoBotones(int n)
@@ -205,11 +208,10 @@ namespace Vista
             }
         }
         private int validarDatosPedido() {
-            if (textBox1.ForeColor == Color.Red )
+            if (textBox1.ForeColor == Color.Red || textBox2.ForeColor == Color.Red)
                 return 1;
 
-            if (String.IsNullOrWhiteSpace(textBox1.Text) || String.IsNullOrWhiteSpace(textBox2.Text) ||
-                String.IsNullOrWhiteSpace(textBox5.Text) )
+            if (String.IsNullOrWhiteSpace(textBox1.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                 return 2;
             
             if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 0) return 5;            
@@ -249,9 +251,8 @@ namespace Vista
             {
 
             }
-
-
             guardar = 0;
+            this.estadoBotones(0);
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
@@ -260,5 +261,24 @@ namespace Vista
             if (!rgx.IsMatch(textBox8.Text)) textBox8.ForeColor = Color.Red;
             else textBox8.ForeColor = Color.Black;            
         }
+        
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            dateTimePicker1.MinDate = DateTime.Now;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            Regex rgx = new Regex(@"([0-9]*[.])?[0-9]+");
+            if (!rgx.IsMatch(textBox2.Text)) textBox2.ForeColor = Color.Red;
+            else textBox2.ForeColor = Color.Black;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+        
     }
 }
