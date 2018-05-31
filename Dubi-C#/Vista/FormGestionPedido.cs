@@ -287,7 +287,7 @@ namespace Vista
             this.estadoBotones(1);
             FormBuscarPedido buscar = new FormBuscarPedido();
             if(buscar.ShowDialog() == DialogResult.OK){
-                detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
+                //detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
                 dataGridView1.Update();
                 dataGridView1.Refresh();
             }

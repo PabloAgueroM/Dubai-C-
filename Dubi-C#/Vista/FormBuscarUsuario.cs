@@ -33,6 +33,8 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             UsuarioSeleccionado = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
+            this.DialogResult = DialogResult.OK;
+            this.Owner.Show();
         }
         
 
