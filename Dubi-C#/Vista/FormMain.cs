@@ -31,7 +31,7 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormGestionVentas gestionPedidos = new FormGestionVentas();
+            FormGestionVentas gestionPedidos = new FormGestionVentas(idActual);
             gestionPedidos.Owner = this;
             Hide();
             gestionPedidos.ShowDialog();

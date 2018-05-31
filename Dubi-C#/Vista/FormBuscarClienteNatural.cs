@@ -53,7 +53,16 @@ namespace Vista
 
         private void button3_Click(object sender, EventArgs e)
         {
+            BindingList<Natural> filtro = new BindingList<Natural>();
 
+            foreach (Natural n in logicaNegocio.listarClientesNaturales())
+            {
+                if (n.Nombre.Contains(textBox1.Text.ToUpper()))
+                {
+                    filtro.Add(n);
+                }
+            }
+            dataGridView1.DataSource = filtro;
         }
     }
 }

@@ -32,6 +32,7 @@ public class GestionInsumo extends javax.swing.JFrame {
         txtNombreInsumo.setText(null);
         txtDescripcion.setText(null);
         txtColor.setText(null);
+        
     }
     
     public void estado(String estado){
