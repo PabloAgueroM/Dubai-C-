@@ -49,5 +49,11 @@ namespace Vista
         {
             Close();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            FormGestionCompras gestionarPedido = new FormGestionCompras();
+            gestionarPedido.ShowDialog();
+        }
     }
 }
