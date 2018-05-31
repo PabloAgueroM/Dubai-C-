@@ -178,7 +178,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(23, 303);
+            this.label6.Location = new System.Drawing.Point(23, 309);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(95, 13);
             this.label6.TabIndex = 15;
@@ -186,7 +186,7 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(133, 299);
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 305);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 5;
@@ -316,7 +316,7 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(637, 9);
+            this.label20.Location = new System.Drawing.Point(619, 9);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(232, 24);
             this.label20.TabIndex = 51;
@@ -425,7 +425,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Location = new System.Drawing.Point(196, 276);
+            this.checkBox1.Location = new System.Drawing.Point(196, 266);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(44, 17);
             this.checkBox1.TabIndex = 55;
@@ -452,7 +452,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(79, 273);
+            this.textBox2.Location = new System.Drawing.Point(79, 263);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(82, 20);
             this.textBox2.TabIndex = 59;
@@ -462,7 +462,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 276);
+            this.label2.Location = new System.Drawing.Point(25, 266);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 58;
@@ -528,7 +528,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(874, 574);
+            this.ClientSize = new System.Drawing.Size(859, 574);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox9);
@@ -550,7 +550,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormGestionPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar Pedido";
+            this.Text = "Gestionar Pedido";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
