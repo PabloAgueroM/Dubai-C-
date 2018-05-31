@@ -598,13 +598,8 @@
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.dateTimePicker1);
             this.panel1.Controls.Add(this.checkBox1);
-<<<<<<< HEAD
             this.panel1.Location = new System.Drawing.Point(20, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.panel1.Location = new System.Drawing.Point(15, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 1e35dd6a7acc1b72650de376d463ecd3b2a34030
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(803, 410);
             this.panel1.TabIndex = 50;
@@ -615,13 +610,8 @@
             this.panel2.Controls.Add(this.textBox9);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.textBox4);
-<<<<<<< HEAD
             this.panel2.Location = new System.Drawing.Point(507, 636);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-=======
-            this.panel2.Location = new System.Drawing.Point(380, 517);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> 1e35dd6a7acc1b72650de376d463ecd3b2a34030
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(597, 59);
             this.panel2.TabIndex = 61;

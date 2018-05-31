@@ -283,7 +283,6 @@ namespace Vista
 
         private void button4_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             this.guardar = 2;
             this.estadoBotones(1);
             FormBuscarPedido buscar = new FormBuscarPedido();
@@ -292,9 +291,6 @@ namespace Vista
                 dataGridView1.Update();
                 dataGridView1.Refresh();
             }
-=======
-
->>>>>>> 1e35dd6a7acc1b72650de376d463ecd3b2a34030
         }
     }
 }
