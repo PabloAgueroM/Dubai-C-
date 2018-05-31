@@ -6,6 +6,7 @@
 package Controlador;
 
 import AccesoDatos.ProductoDA;
+import Modelo.InsumoxProducto;
 import Modelo.Producto;
 import Modelo.TipoProductoG;
 import Modelo.UnidadDeMedida;
@@ -39,5 +40,17 @@ public class ProductoBL {
     }    
     public ArrayList<UnidadDeMedida> listarUnidades(){
         return accesoDatos.listarUnidadMedida();
+    }
+    public void agregarInsumoXProducto(int idProducto,InsumoxProducto ip){
+        accesoDatos.agregarInsumoXProducto(idProducto,ip);
+    }
+    public void modificarInsumoXProducto(int idProducto,InsumoxProducto ip){
+        accesoDatos.modificarInsumoXProducto(idProducto, ip);
+    }
+    public void eliminarInsumoXProducto(int idProducto,int idInsumo) {
+        accesoDatos.eliminarInsumoXProducto(idProducto, idInsumo);
+    }
+    public ArrayList<InsumoxProducto> listarInsumoXProducto(int idProducto) {
+        return accesoDatos.listarInsumoXProducto(idProducto);
     }
 }

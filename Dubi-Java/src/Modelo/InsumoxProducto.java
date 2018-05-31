@@ -1,28 +1,38 @@
 package Modelo;
 
 public class InsumoxProducto {
-    private Insumo insumo;
-    private float cantidad;
+    private int idInsumo;
+    private String descripcion;
+    private double cantidad;
 
-    public InsumoxProducto(Insumo i,float c){
-        insumo=i;
+    public InsumoxProducto(int i,String d,double c){
+        idInsumo=i;
+        descripcion=d;
         cantidad=c;
     }
 
     public InsumoxProducto() {
     }
 
-    public void setInsumo(Insumo i){
-        insumo=i;
+    public void setIdInsumo(int i){
+        idInsumo=i;
     }
-    public Insumo getInsumo(){
-        return insumo;
+    public int getIdInsumo(){
+        return idInsumo;
     }
 
     public void setCantidad(float c){
         cantidad=c;
     }
-    public float getCantidad(){
+    public double getCantidad(){
         return cantidad;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

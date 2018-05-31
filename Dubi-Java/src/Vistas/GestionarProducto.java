@@ -29,7 +29,18 @@ public class GestionarProducto extends javax.swing.JFrame {
     private Producto producto;
     private ProductoBL LogicaNegocio;
     private int accion = 1;
+
     //accion: 0=nuevo; 1=modificar; 2=eliminar.
+    public void leerInsumosXproducto() {
+        DefaultTableModel modelo = (DefaultTableModel) TablaInsumosxProducto.getModel();
+        int n = TablaInsumosxProducto.getRowCount();
+        for (int i = 0; i < n; i++) {
+            InsumoxProducto ip = new InsumoxProducto((int) TablaInsumosxProducto.getValueAt(i, 0),
+                    (String) TablaInsumosxProducto.getValueAt(i, 1),
+                    (int) TablaInsumosxProducto.getValueAt(i, 2));
+            producto.insertarInsumos(ip);
+        }
+    }
 
     public GestionarProducto() throws Exception {
         initComponents();
@@ -76,6 +87,8 @@ public class GestionarProducto extends javax.swing.JFrame {
         TablaInsumosxProducto = new javax.swing.JTable();
         SelecInsumoBtn = new javax.swing.JButton();
         lblInsumoSeleccionado = new javax.swing.JLabel();
+        eliminarInsBtn = new javax.swing.JButton();
+        modificarInsBtn = new javax.swing.JButton();
         lblCodigo = new javax.swing.JLabel();
         idText = new javax.swing.JTextField();
         lblColor = new javax.swing.JLabel();
@@ -157,6 +170,20 @@ public class GestionarProducto extends javax.swing.JFrame {
             }
         });
 
+        eliminarInsBtn.setText("Eliminar");
+        eliminarInsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarInsBtnActionPerformed(evt);
+            }
+        });
+
+        modificarInsBtn.setText("Modificar");
+        modificarInsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarInsBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SeleccionarInsumosLayout = new javax.swing.GroupLayout(SeleccionarInsumos);
         SeleccionarInsumos.setLayout(SeleccionarInsumosLayout);
         SeleccionarInsumosLayout.setHorizontalGroup(
@@ -165,19 +192,22 @@ public class GestionarProducto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(SeleccionarInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SeleccionarInsumosLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(SelecInsumoBtn)
-                        .addGap(92, 92, 92)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblCantidadI)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(CantidadInsumoText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(InsertarInsumoBoton)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(InsertarInsumoBoton))
                     .addGroup(SeleccionarInsumosLayout.createSequentialGroup()
                         .addComponent(lblInsumoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                        .addGap(0, 135, Short.MAX_VALUE))
+                    .addGroup(SeleccionarInsumosLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(SeleccionarInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(modificarInsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(eliminarInsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         SeleccionarInsumosLayout.setVerticalGroup(
@@ -192,7 +222,12 @@ public class GestionarProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblInsumoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(SeleccionarInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SeleccionarInsumosLayout.createSequentialGroup()
+                        .addComponent(eliminarInsBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(modificarInsBtn)))
                 .addGap(270, 270, 270))
         );
 
@@ -312,13 +347,13 @@ public class GestionarProducto extends javax.swing.JFrame {
                                     .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(colorText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(PrecioText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblUnidad)
                                         .addComponent(lblTalla, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(lblStock, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(StockText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,7 +448,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                 SelecInsumoBtn.setEnabled(true);
                 cmbTalla.setEnabled(true);
                 cmbTipo.setEnabled(true);
-                cmbUnidad.setEnabled(true);                
+                cmbUnidad.setEnabled(true);
 
                 cmbTipo.removeAllItems();
                 ArrayList<TipoProductoG> listaProd = LogicaNegocio.listarTipoProducto();
@@ -445,6 +480,8 @@ public class GestionarProducto extends javax.swing.JFrame {
                 cmbTalla.setEnabled(false);
                 cmbTipo.setEnabled(false);
                 cmbUnidad.setEnabled(false);
+                SelecInsumoBtn.setEnabled(false);
+                modificarInsBtn.setEnabled(false);
                 break;
             case 3: //Borrar todos los datos
                 idText.setText(null);
@@ -466,22 +503,27 @@ public class GestionarProducto extends javax.swing.JFrame {
     private void ModificarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarBtnMouseClicked
         Estado(1);
         guardarBtn.setEnabled(true);
+        SelecInsumoBtn.setEnabled(true);
+        modificarInsBtn.setEnabled(true);
         accion = 1;
     }//GEN-LAST:event_ModificarBtnMouseClicked
 
     private void NuevoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoBtnMouseClicked
         Estado(1);
         Estado(3);
+        SelecInsumoBtn.setEnabled(true);
+        modificarInsBtn.setEnabled(true);
         producto = new Producto();
         accion = 0;
     }//GEN-LAST:event_NuevoBtnMouseClicked
 
     private void InsertarInsumoBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InsertarInsumoBotonMouseClicked
         DefaultTableModel modelo = (DefaultTableModel) TablaInsumosxProducto.getModel();
-        InsumoxProducto ip = new InsumoxProducto(seleccionInsumo,
+        InsumoxProducto ip = new InsumoxProducto(seleccionInsumo.getId(),
+                seleccionInsumo.getDescripcion(),
                 Float.parseFloat(CantidadInsumoText.getText()));
         producto.insertarInsumos(ip);
-        modelo.addRow(new Object[]{ip.getInsumo().getId(), ip.getInsumo().getNombre(), ip.getCantidad()});
+        modelo.addRow(new Object[]{seleccionInsumo.getId(), seleccionInsumo.getDescripcion(), ip.getCantidad()});
     }//GEN-LAST:event_InsertarInsumoBotonMouseClicked
 
     private void EliminarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarBtnMouseClicked
@@ -541,6 +583,14 @@ public class GestionarProducto extends javax.swing.JFrame {
         }
         switch (accion) {
             case 0:
+                DefaultTableModel modelo = (DefaultTableModel) TablaInsumosxProducto.getModel();
+                int n = modelo.getRowCount();
+                for (int i = 0; i < n; i++) {
+                    InsumoxProducto ip=new InsumoxProducto((int)TablaInsumosxProducto.getValueAt(i, 0),
+                            (String)TablaInsumosxProducto.getValueAt(i, 1),
+                            (Double)TablaInsumosxProducto.getValueAt(i, 2));
+                    producto.getLista().add(ip);
+                }
                 LogicaNegocio.agregarProducto(producto);
                 idText.setText(Integer.toString(producto.getId()));
                 break;
@@ -575,8 +625,8 @@ public class GestionarProducto extends javax.swing.JFrame {
         Object[] filaP = new Object[3];
         DefaultTableModel modeloP = (DefaultTableModel) TablaInsumosxProducto.getModel();
         for (int i = 0; i < producto.getLista().size(); i++) {
-            filaP[0] = producto.getLista().get(i).getInsumo().getId();
-            filaP[1] = producto.getLista().get(i).getInsumo().getNombre();
+            filaP[0] = producto.getLista().get(i).getIdInsumo();
+            filaP[1] = producto.getLista().get(i).getDescripcion();
             filaP[2] = producto.getLista().get(i).getCantidad();
             modeloP.addRow(filaP);
         }
@@ -595,6 +645,22 @@ public class GestionarProducto extends javax.swing.JFrame {
             Logger.getLogger(GestionarProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SelecInsumoBtnMouseClicked
+
+    private void modificarInsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarInsBtnActionPerformed
+        int index = TablaInsumosxProducto.getSelectedRow();
+        if (index >= 0) {
+            InsumoxProducto ip = new InsumoxProducto((int) TablaInsumosxProducto.getValueAt(index, 0),
+                    (String) TablaInsumosxProducto.getValueAt(index, 1),
+                    Double.parseDouble(CantidadInsumoText.getText()));
+            LogicaNegocio.modificarInsumoXProducto(producto.getId(),
+                    ip);
+        }
+    }//GEN-LAST:event_modificarInsBtnActionPerformed
+
+    private void eliminarInsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarInsBtnActionPerformed
+        int index = TablaInsumosxProducto.getSelectedRow();
+        LogicaNegocio.eliminarInsumoXProducto(producto.getId(), (int) TablaInsumosxProducto.getValueAt(index, 0));
+    }//GEN-LAST:event_eliminarInsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -648,6 +714,7 @@ public class GestionarProducto extends javax.swing.JFrame {
     private javax.swing.JComboBox<TipoProductoG> cmbTipo;
     private javax.swing.JComboBox<UnidadDeMedida> cmbUnidad;
     private javax.swing.JTextField colorText;
+    private javax.swing.JButton eliminarInsBtn;
     private javax.swing.JButton guardarBtn;
     private javax.swing.JTextField idText;
     private javax.swing.JScrollPane jScrollPane2;
@@ -661,6 +728,7 @@ public class GestionarProducto extends javax.swing.JFrame {
     private javax.swing.JLabel lblTalla;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblUnidad;
+    private javax.swing.JButton modificarInsBtn;
     private javax.swing.JTextField nombreText;
     // End of variables declaration//GEN-END:variables
 
