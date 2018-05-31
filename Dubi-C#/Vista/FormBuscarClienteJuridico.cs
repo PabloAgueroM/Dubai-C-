@@ -36,5 +36,19 @@ namespace Vista
         {
             Dispose();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            BindingList<Juridica> filtro = new BindingList<Juridica>();
+
+            foreach (Juridica n in logicaNegocio.listarClientesJuridicos())
+            {
+                if (n.Nombre.Contains(textBox1.Text.ToUpper()))
+                {
+                    filtro.Add(n);
+                }
+            }
+            dataGridView1.DataSource = filtro;
+        }
     }
 }

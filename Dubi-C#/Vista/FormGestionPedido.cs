@@ -75,6 +75,7 @@ namespace Vista
                     textBox9.Text = "";
                     button9.Enabled = true;
                     button4.Enabled = true;
+                    this.guardar = 0;
                     break;
                 case 1:
                     button9.Enabled = false;
@@ -88,7 +89,6 @@ namespace Vista
                     button7.Enabled = true;
                     button4.Enabled = false;
                     dateTimePicker1.Enabled = true;
-                    guardar = 1;
                     break;
                 case 2:
                     textBox5.Text = "";
@@ -222,15 +222,16 @@ namespace Vista
 
         private void button8_Click(object sender, EventArgs e)
         {
+            int datosValidos = validarDatosPedido();
+            if (datosValidos > 0)
+            {
+                if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 5) MessageBox.Show("Revisar la fecha estimada de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (guardar == 1) {
-                int datosValidos = validarDatosPedido();
-                if (datosValidos > 0)
-                {
-                    if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    else if (datosValidos == 5) MessageBox.Show("Revisar la fecha estimada de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                
                 pedido.Cuenta = Convert.ToSingle(textBox2.Text);
                 pedido.IdCliente = textBox1.Text;
                 pedido.FechaEntrega = dateTimePicker1.Value;
@@ -279,6 +280,17 @@ namespace Vista
         {
             Dispose();
         }
-        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.guardar = 2;
+            this.estadoBotones(1);
+            FormBuscarPedido buscar = new FormBuscarPedido();
+            if(buscar.ShowDialog() == DialogResult.OK){
+                detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
+                dataGridView1.Update();
+                dataGridView1.Refresh();
+            }
+        }
     }
 }

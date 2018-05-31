@@ -12,7 +12,6 @@ namespace Clases
         private string idPedido;
         private string idCliente;
         private string idUsuario;
-        private string idOrdenProduccion;
         private DateTime fechaEntrega;
         private float importeTotal;
         private float saldo;
@@ -21,12 +20,11 @@ namespace Clases
 
 
         public Pedido() { }
-        public Pedido(string idPedido, string idCliente, string idUsuario, string idOrdenProduccion, DateTime fechaEntrega, float importeTotal, float saldo, float cuenta, bool igv)
+        public Pedido(string idPedido, string idCliente, string idUsuario, DateTime fechaEntrega, float importeTotal, float saldo, float cuenta, bool igv)
         {
             this.idPedido = idPedido;
             this.idCliente = idCliente;
             this.idUsuario = idUsuario;
-            this.idOrdenProduccion = idOrdenProduccion;
             this.fechaEntrega = fechaEntrega;
             this.importeTotal = importeTotal;
             this.saldo = saldo;
@@ -37,7 +35,6 @@ namespace Clases
         public string IdPedido { get => idPedido; set => idPedido = value; }
         public string IdCliente { get => idCliente; set => idCliente = value; }
         public string IdUsuario { get => idUsuario; set => idUsuario = value; }
-        public string IdOrdenProduccion { get => idOrdenProduccion; set => idOrdenProduccion = value; }
         public DateTime FechaEntrega { get => fechaEntrega; set => fechaEntrega = value; }
         public float ImporteTotal { get => importeTotal; set => importeTotal = value; }
         public float Saldo { get => saldo; set => saldo = value; }

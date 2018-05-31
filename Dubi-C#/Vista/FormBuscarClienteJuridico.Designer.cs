@@ -57,10 +57,11 @@
             this.email,
             this.telefono,
             this.Direccion});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 44);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 54);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(875, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(1167, 302);
             this.dataGridView1.TabIndex = 4;
             // 
             // IdPersona
@@ -109,26 +110,30 @@
             // 
             this.button3.BackgroundImage = global::Vista.Properties.Resources.if_filter_299094;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(316, 9);
+            this.button3.Location = new System.Drawing.Point(421, 11);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 25);
+            this.button3.Size = new System.Drawing.Size(33, 31);
             this.button3.TabIndex = 46;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(124, 11);
+            this.textBox1.Location = new System.Drawing.Point(165, 14);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.Size = new System.Drawing.Size(247, 22);
             this.textBox1.TabIndex = 45;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(20, 15);
+            this.label1.Location = new System.Drawing.Point(27, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(133, 17);
             this.label1.TabIndex = 44;
             this.label1.Text = "Buscar por nombre:";
             // 
@@ -137,9 +142,10 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::Vista.Properties.Resources.if_arrow_back_216437;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(22, 332);
+            this.button5.Location = new System.Drawing.Point(29, 409);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 38);
+            this.button5.Size = new System.Drawing.Size(120, 47);
             this.button5.TabIndex = 49;
             this.button5.Text = "Atrás";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,9 +158,10 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::Vista.Properties.Resources.if_Remove_Male_User_49612;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(438, 325);
+            this.button4.Location = new System.Drawing.Point(584, 400);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 55);
+            this.button4.Size = new System.Drawing.Size(240, 68);
             this.button4.TabIndex = 48;
             this.button4.Text = "Eliminar usuario seleccionado";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -166,9 +173,10 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::Vista.Properties.Resources.if_edit_find_replace_118921;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(252, 325);
+            this.button6.Location = new System.Drawing.Point(336, 400);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(180, 55);
+            this.button6.Size = new System.Drawing.Size(240, 68);
             this.button6.TabIndex = 47;
             this.button6.Text = "Modificar usuario seleccionado";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -177,10 +185,10 @@
             // 
             // FormBuscarClienteJuridico
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(908, 403);
+            this.ClientSize = new System.Drawing.Size(1211, 496);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button6);
@@ -188,6 +196,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormBuscarClienteJuridico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormBuscarClienteJuridico";

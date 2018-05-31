@@ -93,11 +93,11 @@
     <Compile Include="FormBuscarClienteNatural.designer.cs">
       <DependentUpon>FormBuscarClienteNatural.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEliminarPedido.cs">
+    <Compile Include="FormBuscarPedido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEliminarPedido.designer.cs">
-      <DependentUpon>FormEliminarPedido.cs</DependentUpon>
+    <Compile Include="FormBuscarPedido.designer.cs">
+      <DependentUpon>FormBuscarPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGestionPedido.cs">
       <SubType>Form</SubType>
@@ -176,8 +176,8 @@
     <EmbeddedResource Include="FormAdminUsuario.resx">
       <DependentUpon>FormAdminUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEliminarPedido.resx">
-      <DependentUpon>FormEliminarPedido.cs</DependentUpon>
+    <EmbeddedResource Include="FormBuscarPedido.resx">
+      <DependentUpon>FormBuscarPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormElimUsuario.resx">
       <DependentUpon>FormElimUsuario.cs</DependentUpon>
