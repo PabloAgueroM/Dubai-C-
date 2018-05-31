@@ -575,7 +575,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
 
     private void TxtRUCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtRUCKeyTyped
         String texto = TxtRUC.getText();
-        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{9}$", Pattern.CASE_INSENSITIVE);
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{10}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = EMAIL_VALIDO.matcher(texto);
         if (!matcher.find()) {
             TxtRUC.setForeground(java.awt.Color.RED);
