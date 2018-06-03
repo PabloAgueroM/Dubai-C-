@@ -23,6 +23,7 @@ namespace Vista
         {
             InitializeComponent();
 
+            comboBox1.SelectedIndex = 0;
             UsuarioBL userBL = new UsuarioBL();
             usuarioSeleccionado = new Usuario();
             usuarios = userBL.listarTodosUsuarios();
@@ -33,8 +34,7 @@ namespace Vista
         private void button1_Click(object sender, EventArgs e)
         {
             UsuarioSeleccionado = (Usuario)dataGridView1.CurrentRow.DataBoundItem;
-            this.DialogResult = DialogResult.OK;
-            this.Owner.Show();
+            DialogResult = DialogResult.OK;
         }
         
 
@@ -55,19 +55,62 @@ namespace Vista
             Dispose();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedIndex == 0) return;
+
             BindingList<Usuario> filtro = new BindingList<Usuario>();
 
-            foreach (Usuario u in usuarios)
+            if (comboBox1.SelectedIndex == 1)
             {
-                if (u.Nombre.Contains(textBox1.Text.ToUpper()))
-                {
-                    filtro.Add(u);
-                }
+                foreach (Usuario u in usuarios)
+                    if (u.Nombre.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                foreach (Usuario u in usuarios)                
+                    if (u.ApPat.Contains(textBox1.Text.ToUpper())) filtro.Add(u);                
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                foreach (Usuario u in usuarios)                
+                    if (u.ApMat.Contains(textBox1.Text.ToUpper())) filtro.Add(u);                
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                foreach (Usuario u in usuarios)
+                    if (u.Dni.Contains(textBox1.Text.ToUpper())) filtro.Add(u);                
             }
             dataGridView1.DataSource = filtro;
         }
-        
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0) return;
+
+            BindingList<Usuario> filtro = new BindingList<Usuario>();
+
+            if (comboBox1.SelectedIndex == 1)
+            {
+                foreach (Usuario u in usuarios)
+                    if (u.Nombre.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                foreach (Usuario u in usuarios)
+                    if (u.ApPat.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                foreach (Usuario u in usuarios)
+                    if (u.ApMat.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                foreach (Usuario u in usuarios)
+                    if (u.Dni.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            dataGridView1.DataSource = filtro;
+        }
     }
 }

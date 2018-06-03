@@ -265,8 +265,6 @@ namespace Vista
         private void button6_Click(object sender, EventArgs e)
         {
             FormBuscarUsuario form = new FormBuscarUsuario();
-            Hide();
-            form.Owner = this;
             form.ShowDialog();
             if (form.DialogResult == DialogResult.OK)
             {
@@ -291,6 +289,5 @@ namespace Vista
                 estadoBotones(1);
             }
         }
-
     }
 }

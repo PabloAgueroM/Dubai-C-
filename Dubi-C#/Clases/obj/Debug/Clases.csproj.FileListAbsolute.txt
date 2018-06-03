@@ -115,3 +115,9 @@ D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Web.dll
 D:\Bru\Universidad\Facu\Lenguaje de Programacion 2\Tarea Academica\Git\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CopyComplete
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Data.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\bin\Debug\MySql.Web.dll
+C:\Users\tomass\Documents\LP2\ta\Dubai-C-\Dubi-C#\Clases\obj\Debug\Clases.csproj.CopyComplete

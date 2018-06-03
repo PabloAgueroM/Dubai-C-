@@ -203,7 +203,7 @@ namespace Vista
                 textBox9.Text = total.ToString();
                 detalles.Remove(detalleSeleccionado);
             }
-            catch (Exception a) {
+            catch (Exception) {
                 MessageBox.Show("Debe seleccionar un detalle del pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return;
             }
         }
