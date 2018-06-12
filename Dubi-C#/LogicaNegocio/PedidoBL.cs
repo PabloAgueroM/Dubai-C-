@@ -34,5 +34,10 @@ namespace LogicaNegocio
         {
             return accesoDatos.filtrarPedidos(id);
         }
+
+        public int cancelarPedido(string id)
+        {
+            return accesoDatos.cancelarPedido(id);
+        }
     }
 }

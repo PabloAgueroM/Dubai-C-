@@ -96,3 +96,14 @@ C:\Users\alulab14.INF.001\Desktop\lplpllp\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Deb
 C:\Users\alulab14.INF.001\Desktop\lplpllp\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
 C:\Users\alulab14.INF.001\Desktop\lplpllp\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
 C:\Users\alulab14.INF.001\Desktop\lplpllp\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.dll
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\LogicaNegocio.pdb
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.dll
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\MySql.Data.dll
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\AccesoDatos.pdb
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.pdb
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\bin\Debug\Clases.exe.config
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.csprojResolveAssemblyReference.cache
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.dll
+C:\temp\ta\Dubai-C-\Dubi-C#\LogicaNegocio\obj\Debug\LogicaNegocio.pdb
