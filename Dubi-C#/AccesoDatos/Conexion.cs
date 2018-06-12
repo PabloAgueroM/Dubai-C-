@@ -20,7 +20,7 @@ namespace AccesoDatos
             get { return connection; }
         }
 
-        public bool IsConnected()
+        public bool IsConnected()   
         {
             if (Connection == null)
             {
