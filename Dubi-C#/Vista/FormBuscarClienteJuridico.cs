@@ -20,8 +20,9 @@ namespace Vista
         {
             InitializeComponent();
             logicaNegocio = new ClienteBL();
+            comboBox1.SelectedIndex = 0;
             dataGridView1.AutoGenerateColumns = false;
-            juridicas = logicaNegocio.listarClientesJuridicos();
+            juridicas = logicaNegocio.listarPersonasJuridicas();
             dataGridView1.DataSource = juridicas;
         }
 
@@ -54,6 +55,45 @@ namespace Vista
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0) return;
+
+            BindingList<Juridica> filtro = new BindingList<Juridica>();
+
+            if (comboBox1.SelectedIndex == 1)
+            {
+                foreach (Juridica n in juridicas)
+                    if (n.Ruc.Contains(textBox1.Text.ToUpper())) filtro.Add(n);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                foreach (Juridica n in juridicas)
+                    if (n.RazonSocial.Contains(textBox1.Text.ToUpper())) filtro.Add(n);
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                foreach (Juridica u in juridicas)
+                    if (u.Nombre.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                foreach (Juridica u in juridicas)
+                    if (u.Email.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 5)
+            {
+                foreach (Juridica u in juridicas)
+                    if (u.Telefono.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 5)
+            {
+                foreach (Juridica u in juridicas)
+                    if (u.Direccion.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            dataGridView1.DataSource = filtro;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.SelectedIndex == 0) return;
 

@@ -58,10 +58,11 @@
             this.ApellidoM,
             this.email,
             this.telefono});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 33);
+            this.dataGridView1.Location = new System.Drawing.Point(35, 41);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(802, 245);
+            this.dataGridView1.Size = new System.Drawing.Size(1069, 302);
             this.dataGridView1.TabIndex = 1;
             // 
             // DNI
@@ -86,7 +87,7 @@
             this.ApellidoP.HeaderText = "Apellido_Paterno";
             this.ApellidoP.Name = "ApellidoP";
             this.ApellidoP.ReadOnly = true;
-            this.ApellidoP.Width = 112;
+            this.ApellidoP.Width = 145;
             // 
             // ApellidoM
             // 
@@ -95,7 +96,7 @@
             this.ApellidoM.HeaderText = "Apellido_Materno";
             this.ApellidoM.Name = "ApellidoM";
             this.ApellidoM.ReadOnly = true;
-            this.ApellidoM.Width = 114;
+            this.ApellidoM.Width = 147;
             // 
             // email
             // 
@@ -104,7 +105,7 @@
             this.email.HeaderText = "E-Mail";
             this.email.Name = "email";
             this.email.ReadOnly = true;
-            this.email.Width = 61;
+            this.email.Width = 76;
             // 
             // telefono
             // 
@@ -113,13 +114,14 @@
             this.telefono.HeaderText = "Telefono";
             this.telefono.Name = "telefono";
             this.telefono.ReadOnly = true;
-            this.telefono.Width = 74;
+            this.telefono.Width = 93;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(273, 4);
+            this.textBox1.Location = new System.Drawing.Point(364, 5);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.Size = new System.Drawing.Size(247, 22);
             this.textBox1.TabIndex = 48;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -127,9 +129,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(23, 7);
+            this.label1.Location = new System.Drawing.Point(31, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(98, 17);
             this.label1.TabIndex = 47;
             this.label1.Text = "BUSCAR POR";
             // 
@@ -138,9 +141,10 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::Vista.Properties.Resources.if_arrow_back_216437;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(49, 321);
+            this.button5.Location = new System.Drawing.Point(65, 395);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 38);
+            this.button5.Size = new System.Drawing.Size(120, 47);
             this.button5.TabIndex = 52;
             this.button5.Text = "Atrás";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -153,9 +157,10 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::Vista.Properties.Resources.if_Remove_Male_User_49612;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(465, 314);
+            this.button4.Location = new System.Drawing.Point(620, 386);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 55);
+            this.button4.Size = new System.Drawing.Size(240, 68);
             this.button4.TabIndex = 51;
             this.button4.Text = "Eliminar usuario seleccionado";
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -168,9 +173,10 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::Vista.Properties.Resources.if_edit_find_replace_118921;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(279, 314);
+            this.button6.Location = new System.Drawing.Point(372, 386);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(180, 55);
+            this.button6.Size = new System.Drawing.Size(240, 68);
             this.button6.TabIndex = 50;
             this.button6.Text = "Modificar usuario seleccionado";
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -189,27 +195,30 @@
             "Apellido Materno",
             "E-Mail",
             "Telefono"});
-            this.comboBox1.Location = new System.Drawing.Point(109, 4);
+            this.comboBox1.Location = new System.Drawing.Point(145, 5);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(138, 21);
+            this.comboBox1.Size = new System.Drawing.Size(183, 24);
             this.comboBox1.TabIndex = 53;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(253, 7);
+            this.label2.Location = new System.Drawing.Point(337, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.Size = new System.Drawing.Size(12, 17);
             this.label2.TabIndex = 54;
             this.label2.Text = ":";
             // 
             // FormBuscarClienteNatural
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(852, 391);
+            this.ClientSize = new System.Drawing.Size(1136, 481);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button5);
@@ -218,6 +227,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormBuscarClienteNatural";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Cliente";
