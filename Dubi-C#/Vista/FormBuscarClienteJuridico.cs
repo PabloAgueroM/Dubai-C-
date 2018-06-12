@@ -75,21 +75,6 @@ namespace Vista
                 foreach (Juridica u in juridicas)
                     if (u.Nombre.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
             }
-            else if (comboBox1.SelectedIndex == 4)
-            {
-                foreach (Juridica u in juridicas)
-                    if (u.Email.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Juridica u in juridicas)
-                    if (u.Telefono.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Juridica u in juridicas)
-                    if (u.Direccion.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
             dataGridView1.DataSource = filtro;
         }
 
@@ -113,21 +98,6 @@ namespace Vista
             {
                 foreach (Juridica u in juridicas)
                     if (u.Nombre.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 4)
-            {
-                foreach (Juridica u in juridicas)
-                    if (u.Email.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Juridica u in juridicas)
-                    if (u.Telefono.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Juridica u in juridicas)
-                    if (u.Direccion.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
             }
             dataGridView1.DataSource = filtro;
         }

@@ -46,7 +46,6 @@ namespace Vista
                     button10.Enabled = false;
                     button1.Enabled = false;
                     button5.Enabled = false;
-                    textBox1.Enabled = false;
                     textBox3.Enabled = false;
                     textBox10.Enabled = false;
                     textBox11.Enabled = false;
@@ -60,8 +59,7 @@ namespace Vista
                     textBox9.Enabled = false;
                     checkBox1.Enabled = false;
                     dateTimePicker1.Enabled = false;
-
-                    textBox1.Text = "";
+                    
                     textBox3.Text = "";
                     textBox10.Text = "";
                     textBox11.Text = "";
@@ -115,11 +113,10 @@ namespace Vista
                 if (buscar.ShowDialog() == DialogResult.OK)
                 {                    
                     comboBox1.Text = "Juridica";
-                    textBox1.Text = buscar.ClienteSeleccionado.IdPersona;
                     textBox3.Text = buscar.ClienteSeleccionado.Nombre;
                     textBox11.Text = buscar.ClienteSeleccionado.Email;
                     textBox10.Text = buscar.ClienteSeleccionado.Telefono;
-
+                    pedido.IdCliente = buscar.ClienteSeleccionado.IdPersona;
                 }
 
             }
@@ -129,11 +126,10 @@ namespace Vista
                 if (buscar.ShowDialog() == DialogResult.OK)
                 {                    
                     comboBox1.Text = "Natural";
-                    textBox1.Text = buscar.ClienteSeleccionado.IdPersona;
-                    textBox3.Text = buscar.ClienteSeleccionado.Nombre;
+                    textBox3.Text = buscar.ClienteSeleccionado.Nombre + " " + buscar.ClienteSeleccionado.ApPat + " " + buscar.ClienteSeleccionado.ApMat;
                     textBox11.Text = buscar.ClienteSeleccionado.Email;
                     textBox10.Text = buscar.ClienteSeleccionado.Telefono;
-
+                    pedido.IdCliente = buscar.ClienteSeleccionado.IdPersona;
                 }
             }
         }
@@ -208,10 +204,10 @@ namespace Vista
             }
         }
         private int validarDatosPedido() {
-            if (textBox1.ForeColor == Color.Red || textBox2.ForeColor == Color.Red)
+            if (textBox3.ForeColor == Color.Red || textBox2.ForeColor == Color.Red)
                 return 1;
 
-            if (String.IsNullOrWhiteSpace(textBox1.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
+            if (String.IsNullOrWhiteSpace(textBox3.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                 return 2;
             
             if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 0) return 5;            
@@ -233,7 +229,6 @@ namespace Vista
             if (guardar == 1) {
                 
                 pedido.Cuenta = Convert.ToSingle(textBox2.Text);
-                pedido.IdCliente = textBox1.Text;
                 pedido.FechaEntrega = dateTimePicker1.Value;
                 pedido.ImporteTotal = Convert.ToSingle(textBox9.Text);
                 pedido.Cuenta = Convert.ToSingle(textBox2.Text);

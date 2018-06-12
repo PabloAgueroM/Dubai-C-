@@ -80,16 +80,6 @@ namespace Vista
                 foreach (Natural u in naturales)
                     if (u.ApMat.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
             }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Natural u in naturales)
-                    if (u.Email.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Natural u in naturales)
-                    if (u.Telefono.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
             dataGridView1.DataSource = filtro;
         }
 
@@ -118,16 +108,6 @@ namespace Vista
             {
                 foreach (Natural u in naturales)
                     if (u.ApMat.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Natural u in naturales)
-                    if (u.Email.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
-            }
-            else if (comboBox1.SelectedIndex == 5)
-            {
-                foreach (Natural u in naturales)
-                    if (u.Telefono.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
             }
             dataGridView1.DataSource = filtro;
         }
