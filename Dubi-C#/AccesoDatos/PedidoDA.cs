@@ -153,6 +153,20 @@ namespace AccesoDatos
             return lista;
         }
 
-
+        public int cancelarPedido(string id)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("UPDATE PEDIDO_PRODUCTO SET ACTIVO = 0, ESTADO = 'CANCELADO' WHERE ID_PEDIDO_P = \"{0}\"", id);
+                comando.Connection = conexion.Connection;
+                int rv = 0;
+                try { rv = comando.ExecuteNonQuery(); return rv; }
+                catch (Exception) { return -1; }
+                finally { conexion.Close(); }
+            }
+            return -1;
+        }
     }
 }
