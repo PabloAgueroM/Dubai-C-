@@ -37,8 +37,10 @@ public class ProductoDA {
             cs.setInt(10, p.isActivo());
             cs.execute();
             p.setId(cs.getInt(1));
+            
             for(InsumoxProducto ip: p.getLista())
                 agregarInsumoXProducto(p.getId(), ip);
+            
             System.out.println("Registro realizado");
             con.close();
         } catch (Exception e) {
@@ -47,7 +49,7 @@ public class ProductoDA {
         return p.getId();
     }
 
-    public void modificarInsumo(Producto p) {
+    public void modificarProducto(Producto p) {
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
@@ -64,6 +66,9 @@ public class ProductoDA {
                 cs.setInt(9, p.getTipo().getId());
                 cs.setInt(10, p.isActivo());
                 cs.executeUpdate();
+                
+                for(InsumoxProducto ip: p.getLista())
+                agregarInsumoXProducto(p.getId(), ip);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -92,18 +97,20 @@ public class ProductoDA {
                 p.getUnidad().setId(rs.getInt("ID_UNIDAD_MEDIDA"));
                 p.setTipo(new TipoProductoG());
                 p.getTipo().setId(rs.getInt("ID_TIPO_PRODUCTO"));
-
+                //Tipo Producto
                 CallableStatement cs_t = con.prepareCall("{call BUSCA_TIPO_PRODUCTO(?,?,?)}");
                 cs_t.setInt(1, rs.getInt("ID_TIPO_PRODUCTO"));
                 cs_t.execute();
                 p.getTipo().setNombre(cs_t.getString("_NOMBRE"));
                 p.getTipo().setActivo(cs_t.getInt("_ACTIVO"));
-
+                //Unidad de Medida
                 CallableStatement cs_u = con.prepareCall("{call BUSCA_UNIDAD_MEDIDA(?,?,?)}");
                 cs_u.setInt(1, rs.getInt("ID_UNIDAD_MEDIDA"));
                 cs_u.execute();
                 p.getUnidad().setNombre(cs_u.getString("_NOMBRE"));
                 p.getUnidad().setActivo(cs_u.getInt("_ACTIVO"));
+                //Lista Insumos
+                p.setLista(listarInsumoXProducto(p.getId()));                
                 lista.add(p);
             }
             con.close();

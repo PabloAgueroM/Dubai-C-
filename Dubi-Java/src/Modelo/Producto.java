@@ -35,6 +35,9 @@ public class Producto extends ProductoGenerico{
     public ArrayList<InsumoxProducto> getLista() {
         return insumos;
     }
+    public void setLista(ArrayList<InsumoxProducto> l) {
+        insumos=l;
+    }
     public void mostrarDatos() {
         System.out.println(getId()+ " " + getDescripcion() + " " + getPrecio() + " " + getStockActual());
     }
