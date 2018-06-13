@@ -33,7 +33,8 @@ namespace Vista
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = detalles;
             comboBox1.SelectedIndex = 0;
-            this.estadoBotones(0);
+            estadoBotones(0);
+            dateTimePicker1.MinDate = DateTime.Now;
         }
         private void estadoBotones(int n)
         {
