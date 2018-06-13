@@ -56,7 +56,6 @@ namespace Vista
                     textBox7.Enabled = false;
                     textBox8.Enabled = false;
                     textBox2.Enabled = false;
-                    textBox4.Enabled = false;
                     textBox9.Enabled = false;
                     checkBox1.Enabled = false;
                     dateTimePicker1.Enabled = false;
@@ -70,7 +69,6 @@ namespace Vista
                     textBox7.Text = "";
                     textBox8.Text = "";
                     textBox2.Text = "";
-                    textBox4.Text = "";
                     textBox9.Text = "";
                     button9.Enabled = true;
                     button4.Enabled = true;
@@ -242,11 +240,25 @@ namespace Vista
                 MessageBox.Show("Pedido registrado correctamente");
 
                 this.estadoBotones(1);
+
                 
             }
             else if (guardar == 2)
             {
+                pedido.Cuenta = Convert.ToSingle(textBox2.Text);
+                pedido.FechaEntrega = dateTimePicker1.Value;
+                pedido.ImporteTotal = Convert.ToSingle(textBox9.Text);
+                pedido.Cuenta = Convert.ToSingle(textBox2.Text);
+                pedido.Saldo = pedido.ImporteTotal - pedido.Cuenta;
+                pedido.IdUsuario = idActual;
+                if (checkBox1.Checked == true) pedido.Igv = true;
+                else pedido.Igv = false;
 
+
+                logicaNegocio.actualizarPedido(pedido, detalles);
+                MessageBox.Show("Pedido registrado correctamente");
+
+                this.estadoBotones(1);
             }
             guardar = 0;
 
@@ -286,12 +298,11 @@ namespace Vista
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            this.guardar = 2;
-            this.estadoBotones(1);
+        {            
             FormBuscarPedido buscar = new FormBuscarPedido();
             if(buscar.ShowDialog() == DialogResult.OK){
-                this.estadoBotones(1);
+                guardar = 2;
+                estadoBotones(1);
                 button1.Enabled = true;
                 button5.Enabled = true;
                 comboBox1.Enabled = false;
@@ -302,6 +313,7 @@ namespace Vista
                 textBox2.Text = buscar.PedidoSeleccionado.Cuenta.ToString();
                 if (buscar.PedidoSeleccionado.Igv == true) checkBox1.Checked = true;
                 dateTimePicker1.Value = buscar.PedidoSeleccionado.FechaEntrega;
+                total = (float)Convert.ToDecimal(textBox9.Text);
 
                 foreach (DetallePedido detalle in detalles) {
                     detalle.Producto = logicaNegocio.buscarProducto(detalle.Producto.Id);

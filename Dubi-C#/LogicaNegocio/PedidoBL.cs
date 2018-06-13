@@ -50,5 +50,10 @@ namespace LogicaNegocio
             return accesoDatos.buscarCliente(id);
         }
 
+        public void actualizarPedido(Pedido p, BindingList<DetallePedido> detalles)
+        {
+            accesoDatos.actualizarPedido(p, detalles);
+        }
+
     }
 }
