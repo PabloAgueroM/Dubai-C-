@@ -505,6 +505,8 @@ public class GestionarProducto extends javax.swing.JFrame {
         guardarBtn.setEnabled(true);
         SelecInsumoBtn.setEnabled(true);
         modificarInsBtn.setEnabled(true);
+        for(InsumoxProducto ip: producto.getLista())
+            LogicaNegocio.eliminarInsumoXProducto(producto.getId(),ip.getIdInsumo());
         accion = 1;
     }//GEN-LAST:event_ModificarBtnMouseClicked
 
@@ -605,6 +607,7 @@ public class GestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_guardarBtnActionPerformed
 
     private void BuscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBtnActionPerformed
+        Estado(3);
         BuscarProducto frm;
         frm = new BuscarProducto(null, true);
         frm.setVisible(true);
@@ -620,7 +623,7 @@ public class GestionarProducto extends javax.swing.JFrame {
         cmbTalla.setSelectedItem(Character.toString(producto.getTalla()));
         cmbTipo.setSelectedItem(producto.getTipo());
         cmbUnidad.setSelectedItem(producto.getUnidad());
-
+        
         //insumos
         Object[] filaP = new Object[3];
         DefaultTableModel modeloP = (DefaultTableModel) TablaInsumosxProducto.getModel();

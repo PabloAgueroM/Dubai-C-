@@ -24,11 +24,15 @@ namespace Vista
             panel1.Visible = false;
             panel2.Visible = false;
             comboBox1.SelectedIndex = 0;
+<<<<<<< HEAD
             estadoBotones(0);
             dateTimePicker1.MaxDate = DateTime.Now.AddYears(-18);
             dateTimePicker1.MinDate = DateTime.Now.AddYears(-100);
             dateTimePicker2.MaxDate = DateTime.Now;
             dateTimePicker2.MinDate = DateTime.Now.AddYears(-80);
+=======
+            this.estadoBotones(0);
+>>>>>>> d49e51953174916b79dae6dd442fe7ccfbce1f1e
         }
 
 
@@ -439,6 +443,6 @@ namespace Vista
             if (!rgx.IsMatch(textTelefonoJ.Text)) textTelefonoJ.ForeColor = Color.Red;
             else textTelefonoJ.ForeColor = Color.Black;
         }
-
+        
     }
 }

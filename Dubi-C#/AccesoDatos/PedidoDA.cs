@@ -110,7 +110,7 @@ namespace AccesoDatos
                     n.IdDetalle = reader.GetInt32("ID_DETALLE_ORDEN").ToString();
                     n.IdPedido = id;
                     n.Cantidad = reader.GetInt32("CANT_PRODUCTO");
-                    n.Subtotal = (float)reader.GetDecimal("IMPORTE_TOTAL");
+                    n.Subtotal = reader.GetFloat("IMPORTE_TOTAL_PRODUCTO");
                     n.Producto.Id = reader.GetInt32("ID_PRODUCTO").ToString();
                     lista.Add(n);
 
@@ -167,6 +167,100 @@ namespace AccesoDatos
                 finally { conexion.Close(); }
             }
             return -1;
+        }
+
+        public Producto buscarProducto(string id)
+        {
+            Producto p = new Producto();
+            Conexion conexion = new Conexion();           
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("SELECT * FROM PRODUCTO_GENERICO WHERE ID_PRODUCTO =  \"{0}\"", id);
+                comando.Connection = conexion.Connection;
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    p.Id = reader.GetInt32("ID_PRODUCTO").ToString();
+                    p.Nombre = reader.GetString("NOMBRE");
+                    p.Precio = reader.GetInt32("PRECIO");
+                    p.Descripcion = reader.GetString("DESCRIPCION");
+                    p.Color = reader.GetString("COLOR");
+                }
+                conexion.Close();
+            }
+            return p;
+        }
+
+        public Persona buscarCliente(string id)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("SELECT * FROM PERSONA_NATURAL WHERE PERSONA_NATURAL.ID_PERSONA = {0}", id);
+                comando.Connection = conexion.Connection;
+
+                int nfilas1 = 0;
+                try
+                {
+                    nfilas1 = int.Parse(comando.ExecuteScalar().ToString());
+                }
+                catch (Exception)
+                {
+
+                }
+
+                int nfilas2 = 0;
+
+                comando.CommandText = String.Format("SELECT * FROM PERSONA_JURIDICA WHERE ID_PERSONA = {0}", id);
+                try
+                {
+                    nfilas2 = int.Parse(comando.ExecuteScalar().ToString());
+                }
+                catch (Exception)
+                {
+
+                }
+
+                if (nfilas2 > nfilas1)
+                {
+                    Juridica j = new Juridica();
+                    comando.CommandText = String.Format("SELECT * FROM PERSONA_JURIDICA INNER JOIN PERSONA WHERE PERSONA_JURIDICA.ID_PERSONA = {0}", id);
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        j.Nombre = reader.GetString("NOMBRE");
+                        j.Email = reader.GetString("EMAIL");
+                        j.Telefono = reader.GetString("TELEFONO");
+                    }
+                    conexion.Close();
+                    return j;
+                }
+                else if (nfilas2 < nfilas1)
+                {
+                    Natural n = new Natural();
+                    comando.CommandText = String.Format("SELECT * FROM PERSONA_NATURAL INNER JOIN PERSONA WHERE PERSONA_NATURAL.ID_PERSONA = {0}", id);
+                    MySqlDataReader reader = comando.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        n.Nombre = reader.GetString("NOMBRE");
+                        n.ApPat = reader.GetString("AP_PATERNO");
+                        n.ApMat = reader.GetString("AP_MATERNO");
+                        n.Email = reader.GetString("EMAIL");
+                        n.Telefono = reader.GetString("TELEFONO");
+                    }
+                    conexion.Close();
+                    return n;
+                }
+                else
+                {
+                    Console.WriteLine("caroxdaniela");
+                }
+            }
+            return null;
         }
     }
 }

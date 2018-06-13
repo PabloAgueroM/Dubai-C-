@@ -13,6 +13,7 @@ package Controlador;
 import AccesoDatos.InsumoDA;
 import Modelo.Insumo;
 import Modelo.Proveedor;
+import Modelo.ProveedorxInsumo;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -23,11 +24,24 @@ public class InsumoBL {
         accesoDatos = new InsumoDA();
     }
     
-    public int registrarInsumo(Insumo i,Proveedor p, double precio) throws SQLException{
-        return accesoDatos.registrarInsumo(i,p,precio);
+    public int registrarInsumo(Insumo i) throws SQLException{
+        return accesoDatos.registrarInsumo(i);
     }
+    
+    public void modificarInsumo(Insumo i) throws SQLException{
+        accesoDatos.modificarInsumo(i);
+    }
+    
+    public void eliminarInsumo(Insumo i) throws SQLException{
+        accesoDatos.eliminarInsumo(i);
+    }
+    
     
     public ArrayList<Insumo> listarInsumos() throws SQLException{
         return accesoDatos.listarInsumos();
+    }
+    
+    public ArrayList<ProveedorxInsumo> listarProveedoresXInsumo(int idInsumo)throws SQLException{
+        return accesoDatos.listarProveedoresXInsumo(idInsumo);
     }
 }

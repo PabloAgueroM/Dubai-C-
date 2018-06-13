@@ -26,11 +26,11 @@ public class ProductoBL {
         accesoDatos.registrarProducto(p);
     }
     public void modificarProducto(Producto p){
-        accesoDatos.modificarInsumo(p);
+        accesoDatos.modificarProducto(p);
     }
     public void eliminarProducto(Producto p){
         p.setActivo(0);
-        accesoDatos.modificarInsumo(p);
+        accesoDatos.modificarProducto(p);
     }
     public ArrayList<Producto> listarProductos(){
         return accesoDatos.listarProductos();
