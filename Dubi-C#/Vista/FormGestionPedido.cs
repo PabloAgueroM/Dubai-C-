@@ -208,12 +208,13 @@ namespace Vista
 
             if (String.IsNullOrWhiteSpace(textBox3.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                 return 2;
-            
+
+            if (int.Parse(textBox2.Text) > int.Parse(textBox9.Text))
+                return 3;
+
             if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 0) return 5;            
             return 0;
         }
-
-        
 
         private void button8_Click(object sender, EventArgs e)
         {
@@ -222,6 +223,7 @@ namespace Vista
             {
                 if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 3) MessageBox.Show("Cuenta mayor a total", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 5) MessageBox.Show("Revisar la fecha estimada de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -236,10 +238,12 @@ namespace Vista
                 if (checkBox1.Checked == true) pedido.Igv = true;
                 else pedido.Igv = false;
 
+                
+
                 pedido.IdPedido = logicaNegocio.registrarPedido(pedido, detalles).ToString();
                 MessageBox.Show("Pedido registrado correctamente");
 
-                this.estadoBotones(1);
+                estadoBotones(1);
 
                 
             }
@@ -288,7 +292,7 @@ namespace Vista
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             Regex rgx = new Regex(@"^\d+$");
-            if (!rgx.IsMatch(textBox2.Text) || (Convert.ToInt32(textBox2.Text) > total )) textBox2.ForeColor = Color.Red;
+            if (!rgx.IsMatch(textBox2.Text)) textBox2.ForeColor = Color.Red;
             else textBox2.ForeColor = Color.Black;
         }
 

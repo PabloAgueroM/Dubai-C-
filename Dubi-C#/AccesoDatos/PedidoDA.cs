@@ -99,6 +99,7 @@ namespace AccesoDatos
                     n.ImporteTotal = (float)reader.GetDecimal("IMPORTE_TOTAL");
                     n.Cuenta = (float)reader.GetDecimal("A_CUENTA_PED");
                     n.Saldo = (float)reader.GetDecimal("SALDO_PED");
+                    n.Estado = reader.GetString("ESTADO");
                     if (reader.GetDecimal("IGV") > 0) n.Igv = true;
                     else n.Igv = false;                   
 
@@ -315,6 +316,20 @@ namespace AccesoDatos
             }
         }
 
-
+        public int avanzarPedido(string id)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("UPDATE PEDIDO_PRODUCTO SET ESTADO = 'EN PRODUCCION' WHERE ID_PEDIDO_P = \"{0}\"", id);
+                comando.Connection = conexion.Connection;
+                int rv = 0;
+                try { rv = comando.ExecuteNonQuery(); return rv; }
+                catch (Exception) { return -1; }
+                finally { conexion.Close(); }
+            }
+            return -1;
+        }
     }
 }

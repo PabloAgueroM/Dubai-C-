@@ -17,6 +17,7 @@ namespace Clases
         private float saldo;
         private float cuenta;
         private bool igv;
+        private string estado;
 
 
         public Pedido() { }
@@ -40,21 +41,8 @@ namespace Clases
         public float Saldo { get => saldo; set => saldo = value; }
         public float Cuenta { get => cuenta; set => cuenta = value; }
         public bool Igv { get => igv; set => igv = value; }
+        public string Estado { get => estado; set => estado = value; }
 
-
-
-        /*
-        public void MostrarDatosPedido()
-        {
-            Console.Write("ID Pedido: " + this.IDPedido + "\n" + "Aqui se imprime el cliente y el usuario segun sus id\n" +
-                          "Fecha Registro: " + (this.FechaRegistro).ToString("HH:mm dd/MM/yyyy") + "\n" +
-                          "Fecha Entrega Aproximada: " + (this.FechaEntrega).ToString("HH:mm dd/MM/yyyy") + "\n" +
-                          "ImporteTotal: " + this.ImporteTotal + "\n" +
-                          "Saldo: " + this.Saldo + "\n" +
-                          "Cuenta: " + this.Cuenta + "\n" +
-                          "ID Orden de Produccion asociado: " + this.IDOrdenProduccion + "\n" +
-                          "Aqui va el detalle del pedido\n");
-        }
-        */
+      
     }
 }

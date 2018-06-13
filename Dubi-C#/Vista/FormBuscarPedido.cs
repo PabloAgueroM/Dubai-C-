@@ -19,6 +19,7 @@ namespace Vista
         {
             InitializeComponent();
             logicaNegocio = new PedidoBL();
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = logicaNegocio.listarPedidos();
         }
 
@@ -45,12 +46,24 @@ namespace Vista
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("¿Seguro que desea eliminar este usuario?", "Mensaje", MessageBoxButtons.OKCancel);
+            DialogResult res = MessageBox.Show("¿Seguro que desea cancelar este pedido?", "Mensaje", MessageBoxButtons.OKCancel);
             if (res == DialogResult.OK)
             {
                 PedidoSeleccionado = (Pedido)dataGridView1.CurrentRow.DataBoundItem;
                 PedidoBL pedidoBL = new PedidoBL();
                 pedidoBL.cancelarPedido(PedidoSeleccionado.IdPedido);
+                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("¿Seguro que desea pasar a produccion este pedido?", "Mensaje", MessageBoxButtons.OKCancel);
+            if (res == DialogResult.OK)
+            {
+                PedidoSeleccionado = (Pedido)dataGridView1.CurrentRow.DataBoundItem;
+                PedidoBL pedidoBL = new PedidoBL();
+                pedidoBL.avanzarPedido(PedidoSeleccionado.IdPedido);
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
             }
         }
