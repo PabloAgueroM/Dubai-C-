@@ -248,7 +248,15 @@ namespace Vista
 
             }
             guardar = 0;
+
             this.estadoBotones(0);
+            var itemToRemove = detalles.ToList();
+            foreach (DetallePedido d in itemToRemove)
+            {
+                detalles.Remove(d);
+            }
+            total = 0;
+
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
@@ -282,9 +290,31 @@ namespace Vista
             this.estadoBotones(1);
             FormBuscarPedido buscar = new FormBuscarPedido();
             if(buscar.ShowDialog() == DialogResult.OK){
-                //detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
-                dataGridView1.Update();
-                dataGridView1.Refresh();
+                this.estadoBotones(1);
+                button1.Enabled = true;
+                button5.Enabled = true;
+                detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
+                foreach (DetallePedido detalle in detalles) {
+                    detalle.Producto = logicaNegocio.buscarProducto(detalle.Producto.Id);
+                }
+                dataGridView1.DataSource = detalles;
+                Persona p = logicaNegocio.buscarCliente(buscar.PedidoSeleccionado.IdCliente);
+                if(p is Natural)
+                {
+                    Natural n = (Natural)p;
+                    textBox3.Text = n.Nombre + " " + n.ApPat + " " + n.ApMat;
+                    textBox11.Text = n.Email;
+                    textBox10.Text = n.Telefono;
+                    pedido.IdCliente = buscar.PedidoSeleccionado.IdCliente;
+                }
+                else
+                {
+                    Juridica n = (Juridica)p;
+                    textBox3.Text = n.Nombre;
+                    textBox11.Text = n.Email;
+                    textBox10.Text = n.Telefono;
+                    pedido.IdCliente = buscar.PedidoSeleccionado.IdCliente;
+                }
             }
         }
     }

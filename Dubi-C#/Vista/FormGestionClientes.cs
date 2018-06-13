@@ -24,7 +24,7 @@ namespace Vista
             this.panel1.Visible = false;
             this.panel2.Visible = false;
             comboBox1.SelectedIndex = 0;
-            this.estadoBotones(0);            
+            this.estadoBotones(0);
         }
 
 
@@ -435,6 +435,6 @@ namespace Vista
             if (!rgx.IsMatch(textTelefonoJ.Text)) textTelefonoJ.ForeColor = Color.Red;
             else textTelefonoJ.ForeColor = Color.Black;
         }
-
+        
     }
 }
