@@ -28,6 +28,10 @@ public class GestionarPedido extends javax.swing.JFrame {
         initComponents();
         p = new Pedido();
     }
+    
+    public void ModificarMensaje(String msg){
+        jLabel3.setText(msg);        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

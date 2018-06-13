@@ -413,7 +413,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             btnReporteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnReporteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtReporte)
+                .addComponent(txtReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -571,13 +571,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseClicked
         resetBotones();
         setColor(btnReporte);
-        /*AdministracionDeReportes frmRep;
+        GestionarPedido frm;
+        menuActivo.removeAll();
         try {
-            frmRep = new AdministracionDeReportes();
-            frmRep.setVisible(true);
+            frm = new GestionarPedido();
+            frm.ModificarMensaje("Disponible proximamente");
+            menuActivo.add(frm.getContentPane());
+            menuActivo.setVisible(true);
+            menuActivo.setOpaque(false);
+            menuActivo.repaint();
+            //frm.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }//GEN-LAST:event_btnReporteMouseClicked
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked

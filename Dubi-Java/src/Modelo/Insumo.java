@@ -5,27 +5,38 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Pablo Agüero
  */
 public class Insumo extends ProductoGenerico{
-    private int idInsumo;
-    private int stockMinimo;
+    private double stockMinimo;
+    private ArrayList<ProveedorxInsumo> proveedores;
     
-    public void setIdInsumo(int idInsumo){
-        this.idInsumo = idInsumo;
+    public Insumo(){
+        proveedores = new ArrayList<ProveedorxInsumo>();
     }
-    
-    public int getIdInsumo(){
-        return idInsumo;
-    }
-    
-    public void setStockMinimo(int stockMinimo){
+        
+    public void setStockMinimo(double stockMinimo){
         this.stockMinimo = stockMinimo;
     }
     
-    public int getStockMinimo(){
+    public double getStockMinimo(){
         return stockMinimo;
     }
+    
+    public void setProveedoresXInsumo(ArrayList<ProveedorxInsumo> lista){
+        proveedores = lista;
+    }
+    
+    public ArrayList<ProveedorxInsumo> getProveedoresXInsumo(){
+        return proveedores;
+    }
+    
+    public void añadirProveedorXInsumo(ProveedorxInsumo pXi){
+        proveedores.add(pXi);
+    }
+    
 }
