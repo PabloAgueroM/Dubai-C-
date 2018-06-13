@@ -56,7 +56,7 @@ namespace AccesoDatos
                 comando.Parameters.Add("_IMPORTE_TOTAL_PRODUCTO", MySqlDbType.Int32).Value = d.Subtotal;
                 comando.Parameters.Add("_ID_PRODUCTO", MySqlDbType.Int32).Value = d.Producto.Id;               
 
-                int check = comando.ExecuteNonQuery();
+                comando.ExecuteNonQuery();
                 con.Close();
 
             }
@@ -289,19 +289,22 @@ namespace AccesoDatos
                 comando.CommandType = System.Data.CommandType.StoredProcedure;
                 comando.CommandText = "ACTUALIZAR_PEDIDO_PRODUCTO";
                 comando.Connection = con.Connection;
+                comando.Parameters.Add("_ID_PEDIDO", MySqlDbType.Int32).Value = p.IdPedido;
                 comando.Parameters.Add("_ID_EMPLEADO", MySqlDbType.Int32).Value = p.IdUsuario;
-                comando.Parameters.Add("_ID_CLIENTE", MySqlDbType.Int32).Value = p.IdCliente;
                 comando.Parameters.Add("_FECHA_ENTREGA", MySqlDbType.Date).Value = p.FechaEntrega;
                 comando.Parameters.Add("_IMPORTE_TOTAL", MySqlDbType.Decimal).Value = p.ImporteTotal;
                 comando.Parameters.Add("_A_CUENTA_PED", MySqlDbType.Decimal).Value = p.Cuenta;
                 comando.Parameters.Add("_SALDO_PED", MySqlDbType.Decimal).Value = p.Saldo;
                 comando.Parameters.Add("_IGV", MySqlDbType.Decimal).Value = p.Igv;
+                
+                comando.ExecuteNonQuery();
 
-                comando.Parameters.Add("_ID_PEDIDO", MySqlDbType.Int32).Direction = System.Data.ParameterDirection.Output;
-                int check = comando.ExecuteNonQuery();
-                p.IdPedido = comando.Parameters["_ID_PEDIDO"].Value.ToString();
-
-
+                MySqlCommand comando2 = new MySqlCommand();
+                comando2.CommandType = System.Data.CommandType.StoredProcedure;
+                comando2.CommandText = "ELIMINAR_DETALLE_PEDIDO_PRODUCTO";
+                comando2.Connection = con.Connection;
+                comando2.Parameters.Add("_NUM_ORDEN", MySqlDbType.Int32).Value = p.IdPedido;
+                comando2.ExecuteNonQuery();
 
                 foreach (DetallePedido d in detalles)
                 {

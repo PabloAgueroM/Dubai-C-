@@ -256,7 +256,7 @@ namespace Vista
 
 
                 logicaNegocio.actualizarPedido(pedido, detalles);
-                MessageBox.Show("Pedido registrado correctamente");
+                MessageBox.Show("Pedido actualizado correctamente");
 
                 this.estadoBotones(1);
             }
@@ -287,8 +287,8 @@ namespace Vista
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            Regex rgx = new Regex(@"([0-9]*[.])?[0-9]+");
-            if (!rgx.IsMatch(textBox2.Text)) textBox2.ForeColor = Color.Red;
+            Regex rgx = new Regex(@"^\d+$");
+            if (!rgx.IsMatch(textBox2.Text) || (Convert.ToInt32(textBox2.Text) > total )) textBox2.ForeColor = Color.Red;
             else textBox2.ForeColor = Color.Black;
         }
 
@@ -309,6 +309,8 @@ namespace Vista
                 button6.Enabled = false;
                 detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
 
+                this.pedido.IdPedido = buscar.PedidoSeleccionado.IdPedido;
+                total = buscar.PedidoSeleccionado.ImporteTotal;
                 textBox9.Text = buscar.PedidoSeleccionado.ImporteTotal.ToString();
                 textBox2.Text = buscar.PedidoSeleccionado.Cuenta.ToString();
                 if (buscar.PedidoSeleccionado.Igv == true) checkBox1.Checked = true;

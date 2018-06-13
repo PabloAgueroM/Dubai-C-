@@ -335,6 +335,7 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(308, 79);
+            this.textBox8.MaxLength = 5;
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(56, 20);
             this.textBox8.TabIndex = 54;
