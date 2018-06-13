@@ -39,5 +39,16 @@ namespace LogicaNegocio
         {
             return accesoDatos.cancelarPedido(id);
         }
+
+        public Producto buscarProducto(string id)
+        {
+            return accesoDatos.buscarProducto(id);
+        }
+
+        public Persona buscarCliente(string id)
+        {
+            return accesoDatos.buscarCliente(id);
+        }
+
     }
 }

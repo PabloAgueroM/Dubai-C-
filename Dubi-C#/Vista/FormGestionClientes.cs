@@ -21,10 +21,13 @@ namespace Vista
         {
             InitializeComponent();
             logicaNegocio = new ClienteBL();
-            this.panel1.Visible = false;
-            this.panel2.Visible = false;
+            panel1.Visible = false;
+            panel2.Visible = false;
             comboBox1.SelectedIndex = 0;
-            this.estadoBotones(0);            
+            estadoBotones(0);
+            dateTimePicker1.MaxDate = DateTime.Now.AddYears(-18);
+            dateTimePicker1.MinDate = DateTime.Now.AddYears(-100);
+            dateTimePicker2.MaxDate = DateTime.Now;
         }
 
 
@@ -435,6 +438,6 @@ namespace Vista
             if (!rgx.IsMatch(textTelefonoJ.Text)) textTelefonoJ.ForeColor = Color.Red;
             else textTelefonoJ.ForeColor = Color.Black;
         }
-
+        
     }
 }

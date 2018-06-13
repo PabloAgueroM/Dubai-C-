@@ -13,7 +13,9 @@ namespace Clases
         private string idDetalle;
         private int cantidad;
         private float subtotal;
-        public DetallePedido() { }
+        public DetallePedido() {
+            this.producto = new Producto();
+        }
 
         public DetallePedido(Producto idProducto, string idPedido, string idDetalle, int cantidad, float subtotal)
         {
