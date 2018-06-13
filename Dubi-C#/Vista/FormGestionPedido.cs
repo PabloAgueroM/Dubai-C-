@@ -294,14 +294,24 @@ namespace Vista
                 this.estadoBotones(1);
                 button1.Enabled = true;
                 button5.Enabled = true;
+                comboBox1.Enabled = false;
+                button6.Enabled = false;
                 detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
+
+                textBox9.Text = buscar.PedidoSeleccionado.ImporteTotal.ToString();
+                textBox2.Text = buscar.PedidoSeleccionado.Cuenta.ToString();
+                if (buscar.PedidoSeleccionado.Igv == true) checkBox1.Checked = true;
+                dateTimePicker1.Value = buscar.PedidoSeleccionado.FechaEntrega;
+
                 foreach (DetallePedido detalle in detalles) {
                     detalle.Producto = logicaNegocio.buscarProducto(detalle.Producto.Id);
                 }
                 dataGridView1.DataSource = detalles;
+
                 Persona p = logicaNegocio.buscarCliente(buscar.PedidoSeleccionado.IdCliente);
                 if(p is Natural)
                 {
+                    comboBox1.SelectedIndex = 0;
                     Natural n = (Natural)p;
                     textBox3.Text = n.Nombre + " " + n.ApPat + " " + n.ApMat;
                     textBox11.Text = n.Email;
@@ -310,6 +320,7 @@ namespace Vista
                 }
                 else
                 {
+                    comboBox1.SelectedIndex = 1;
                     Juridica n = (Juridica)p;
                     textBox3.Text = n.Nombre;
                     textBox11.Text = n.Email;
