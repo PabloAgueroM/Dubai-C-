@@ -58,6 +58,7 @@ public class BuscarProveedor extends javax.swing.JDialog {
         BtnSeleccionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Búsqueda de Proveedores");
 
         TablaPr.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

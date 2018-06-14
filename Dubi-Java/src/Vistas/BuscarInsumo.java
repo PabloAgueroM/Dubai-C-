@@ -50,9 +50,9 @@ public class BuscarInsumo extends javax.swing.JDialog {
         for(int i=0;i<listaInsumos.size();i++){
             fila[0]= listaInsumos.get(i).getId();
             fila[1]= listaInsumos.get(i).getNombre();
-            fila[2]= listaInsumos.get(i).getUnidad();
-            fila[3]= listaInsumos.get(i).getStockMinimo();
-            fila[4]= listaInsumos.get(i).getPrecio();
+            fila[2]= listaInsumos.get(i).getDescripcion();
+            fila[3]= listaInsumos.get(i).getUnidad();
+            fila[4]= listaInsumos.get(i).getStockMinimo();
             modelo.addRow(fila);
         }  
     }
@@ -70,6 +70,7 @@ public class BuscarInsumo extends javax.swing.JDialog {
         tblInsumos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Búsqueda de Insumos");
 
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.addMouseListener(new java.awt.event.MouseAdapter() {
