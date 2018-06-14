@@ -84,4 +84,19 @@ public class Proveedor_X_Insumo_DA {
         }
         return valido;
     }
+    
+    public void eliminarInsumoXProveedor(int idInsumo, int idProveedor)throws SQLException{
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection      
+                ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
+            CallableStatement cStmt = con.prepareCall("{call ELIMINAR_PROVEEDOR_X_INSUMO(?,?)}");
+            cStmt.setInt("_ID_PRODUCTO", idInsumo);
+            cStmt.setInt("_ID_PROVEEDOR", idProveedor);
+            cStmt.execute();
+            con.close();     
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InsumoDA.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

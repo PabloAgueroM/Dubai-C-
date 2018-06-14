@@ -809,8 +809,15 @@ public class GestionInsumo extends javax.swing.JFrame {
         int index = tblProveedoresXInsumo.getSelectedRow();
         
         if(index >= 0){
+            if(flag == 1){
+                try {
+                    LogicaNegocioProveedorXInsumo.eliminarProveedorXInsumo(insumoSeleccionado.getId(),
+                            Integer.parseInt(proveedores.get(index).getProveedor().getIDProveedor()));
+                } catch (SQLException ex) {
+                    Logger.getLogger(GestionInsumo.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             proveedores.remove(index);
-        
             DefaultTableModel modelo = (DefaultTableModel) tblProveedoresXInsumo.getModel();
             modelo.removeRow(index);
         }
