@@ -62,7 +62,7 @@ public class GestionInsumo extends javax.swing.JFrame {
     
     public int validarDatos() {
         if (txtNombreInsumo.getText().trim().isEmpty() || txtDescripcion.getText().trim().isEmpty() || txtColor.getText().trim().isEmpty() || txtPrecioReferencial.getText().trim().isEmpty()
-            || txtIdProveedor.getText().trim().isEmpty() || txtNombreProveedor.getText().trim().isEmpty() || txtPrecio.getText().trim().isEmpty() ){
+            /*|| txtIdProveedor.getText().trim().isEmpty() || txtNombreProveedor.getText().trim().isEmpty() || txtPrecio.getText().trim().isEmpty() */){
            // JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
             return 1;
         }
@@ -632,7 +632,7 @@ public class GestionInsumo extends javax.swing.JFrame {
                     for(ProveedorxInsumo pXi : insumoSeleccionado.getProveedoresXInsumo()){
                         LogicaNegocioProveedorXInsumo.modificarProveedorXInsumo(insumoSeleccionado.getId(),pXi,insumoSeleccionado.isActivo());
                     }
-                    estado("modificar");          
+                    estado("inicial");          
                 }
             }      
         } catch (SQLException ex) {

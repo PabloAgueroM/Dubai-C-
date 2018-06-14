@@ -30,7 +30,7 @@ public class Proveedor_X_Insumo_DA {
             Connection con = DriverManager.getConnection      
                 ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
             CallableStatement cStmt = con.prepareCall("{call REGISTRAR_PROVEEDOR_X_INSUMO(?,?,?,?)}");
-            cStmt.setInt("_ID_INSUMO", idInsumo);
+            cStmt.setInt("_ID_PRODUCTO", idInsumo);
             cStmt.setInt("_ID_PROVEEDOR", Integer.parseInt(pXi.getProveedor().getIDProveedor()));
             cStmt.setDouble("_PRECIO_PROVEEDOR", pXi.getPrecio());
             cStmt.setInt("_ACTIVO",activo);

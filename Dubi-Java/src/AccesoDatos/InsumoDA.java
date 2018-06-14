@@ -85,7 +85,7 @@ public class InsumoDA {
             Connection con = DriverManager.getConnection      
                 ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
             CallableStatement cStmt = con.prepareCall("{call REGISTRAR_INSUMO(?,?,?,?,?,?,?,?,?)}");
-            cStmt.registerOutParameter("_ID_PRODUCTO", java.sql.Types.INTEGER);
+            cStmt.registerOutParameter("_ID_PRODUCTO",  java.sql.Types.INTEGER);
             cStmt.setString("_NOMBRE", i.getNombre());
             cStmt.setString("_DESCRIPCION", i.getDescripcion());
             cStmt.setString("_COLOR", i.getColor());
@@ -117,7 +117,6 @@ public class InsumoDA {
             cStmt.setDouble("_PRECIO_REFERENCIAL", i.getPrecio());
             cStmt.setInt("_ID_UNIDAD_MEDIDA", i.getUnidad().getId());  
             cStmt.setInt("_ID_TIPO_PRODUCTO", i.getTipo().getId());  
-            cStmt.setInt("_ID_INSUMO", java.sql.Types.INTEGER); 
             cStmt.execute();
             con.close();     
         } catch (ClassNotFoundException ex) {
@@ -131,7 +130,7 @@ public class InsumoDA {
             Connection con = DriverManager.getConnection      
                 ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
             CallableStatement cStmt = con.prepareCall("{call ELIMINAR_INSUMO(?)}");
-            cStmt.setInt("_ID_PRODUCTO", java.sql.Types.INTEGER); 
+            cStmt.setInt("_ID_PRODUCTO", i.getId()); 
             cStmt.execute();
             con.close();     
         } catch (ClassNotFoundException ex) {
