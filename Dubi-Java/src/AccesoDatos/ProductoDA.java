@@ -186,8 +186,8 @@ public class ProductoDA {
             String query = "UPDATE INSUMO_X_PRODUCTO SET CANTIDAD_INSUMO=? WHERE ID_INSUMO=? AND ID_PRODUCTO=?";
             PreparedStatement sentencia = con.prepareStatement(query);
             sentencia.setDouble(1, ip.getCantidad());
-            sentencia.setInt(1, ip.getIdInsumo());
-            sentencia.setInt(1, idProducto);
+            sentencia.setInt(2, ip.getIdInsumo());
+            sentencia.setInt(3, idProducto);
             sentencia.executeUpdate();
             System.out.println("Registro actualizado");
         } catch (Exception e) {

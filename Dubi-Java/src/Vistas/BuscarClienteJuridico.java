@@ -7,28 +7,41 @@ package Vistas;
 
 import Controlador.ClienteBL;
 import Modelo.PersonaJuridica;
-import Modelo.Proveedor;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author alulab14
+ * @author Bruno Diaz
  */
-public class BuscarClienteJuridico extends javax.swing.JFrame {
+public class BuscarClienteJuridico extends javax.swing.JDialog {
     private ClienteBL logica;
-
-    public PersonaJuridica getSeleccionado() {
-        return seleccionado;
-    }
     private PersonaJuridica seleccionado;
     private ArrayList<PersonaJuridica> lista;
+    public void actualizarDatos() {
+        DefaultTableModel modelo = (DefaultTableModel) dgvJuridico.getModel();
+        Object[] fila = new Object[3];
+        for (int i = 0; i < lista.size(); i++) {
+            fila[0] = lista.get(i).getIdPersona();
+            fila[1] = lista.get(i).getNombre();
+            fila[2] = lista.get(i).getRUC();
+            modelo.addRow(fila);
+        }
+    }
+
+    public PersonaJuridica getSeleccionado() {
+        return this.seleccionado;
+    }
     /**
-     * Creates new form BuscarClienteJuridico
+     * Creates new form NewJDialog
      */
-    public BuscarClienteJuridico() {
+    public BuscarClienteJuridico(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        this.setTitle("Busqueda de Cliente Juridico");
         logica = new ClienteBL();
         lista = logica.listarClienteJuridico();
+        actualizarDatos();
     }
 
     /**
@@ -42,7 +55,6 @@ public class BuscarClienteJuridico extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvJuridico = new javax.swing.JTable();
-        btnEliminar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -57,14 +69,7 @@ public class BuscarClienteJuridico extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(dgvJuridico);
 
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnModificar.setText("Modificar");
+        btnModificar.setText("Seleccionar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
@@ -80,19 +85,15 @@ public class BuscarClienteJuridico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnEliminar)
-                        .addGap(18, 18, 18)
                         .addComponent(btnModificar)
-                        .addGap(11, 11, 11)))
-                .addGap(51, 51, 51))
+                        .addGap(8, 8, 8)))
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnModificar))
+                .addComponent(btnModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
@@ -100,11 +101,6 @@ public class BuscarClienteJuridico extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-       PersonaJuridica j = new PersonaJuridica();
-       logica.eliminarClienteJuridico(j);
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         int index = dgvJuridico.getSelectedRow();
@@ -138,17 +134,24 @@ public class BuscarClienteJuridico extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(BuscarClienteJuridico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarClienteJuridico().setVisible(true);
+                BuscarClienteJuridico dialog = new BuscarClienteJuridico(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JTable dgvJuridico;
     private javax.swing.JScrollPane jScrollPane1;

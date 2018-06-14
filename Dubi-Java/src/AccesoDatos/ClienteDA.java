@@ -36,14 +36,51 @@ public class ClienteDA {
     }
 
     public ArrayList<PersonaNatural> listarClienteNatural() {
-          ArrayList<PersonaNatural> lista = new ArrayList<PersonaNatural>();
-          return lista;
+        ArrayList<PersonaNatural> lista = new ArrayList<PersonaNatural>();
+        try{
+          Class.forName("com.mysql.jdbc.Driver");
+          Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
+          CallableStatement sentencia=con.prepareCall("{CALL LISTAR_CLIENTE_NATURAL()}");
+          ResultSet rs= sentencia.executeQuery();
+          while(rs.next()){
+              PersonaNatural pn= new PersonaNatural();
+              pn.setIdPersona(rs.getString("ID_PERSONA"));
+              pn.setNombre(rs.getString("NOMBRE"));
+              pn.setApellidoP(rs.getString("AP_PATERNO"));
+              pn.setApellidoM(rs.getString("AP_MATERNO"));
+              pn.setDNI(rs.getString("DNI"));
+              pn.setTelefono(rs.getString("TELEFONO"));
+              pn.setEmail(rs.getString("EMAIL"));
+              lista.add(pn);
+          }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return lista;
     }
     
     
     public ArrayList<PersonaJuridica> listarPersonaJuridica() {
-          ArrayList<PersonaJuridica> lista = new ArrayList<PersonaJuridica>();
-          return lista;
+        ArrayList<PersonaJuridica> lista = new ArrayList<PersonaJuridica>();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
+            CallableStatement sentencia=con.prepareCall("{CALL LISTAR_CLIENTE_JURIDICO()}");
+            ResultSet rs= sentencia.executeQuery();
+            while(rs.next()){
+                PersonaJuridica pn= new PersonaJuridica();
+                pn.setIdPersona(rs.getString("ID_PERSONA"));
+                pn.setNombre(rs.getString("NOMBRE"));
+                pn.setRUC(rs.getString("RUC"));
+                pn.setRazonSocial(rs.getString("RAZON_SOCIAL"));
+                pn.setTelefono(rs.getString("TELEFONO"));
+                pn.setEmail(rs.getString("EMAIL"));
+                lista.add(pn);
+            }
+          }catch (Exception e){
+              System.out.println(e.getMessage());
+          }
+        return lista;
     }
     
 }
