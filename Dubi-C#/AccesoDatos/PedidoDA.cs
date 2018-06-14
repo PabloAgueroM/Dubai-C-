@@ -177,12 +177,19 @@ namespace AccesoDatos
             if (conexion.IsConnected())
             {
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = String.Format("UPDATE PEDIDO_PRODUCTO SET ACTIVO = 0, ESTADO = 'CANCELADO' WHERE ID_PEDIDO_P = \"{0}\"", id);
+                comando.CommandText = String.Format("UPDATE PEDIDO_PRODUCTO SET ACTIVO = 0, ESTADO = 'CANCELADO'" +
+                    " WHERE ID_PEDIDO_P = \"{0}\"", id);
                 comando.Connection = conexion.Connection;
                 int rv = 0;
-                try { rv = comando.ExecuteNonQuery(); return rv; }
+                try { rv = comando.ExecuteNonQuery(); }
                 catch (Exception) { return -1; }
-                finally { conexion.Close(); }
+
+                comando.CommandText = String.Format("UPDATE DETALLE_PEDIDO_PRODUCTO SET ACTIVO =0 WHERE NUM_ORDEN=\"{0}\"", id);
+                int rv2 = 0;
+                try { rv2 = comando.ExecuteNonQuery(); }
+                catch (Exception) { return -1; }
+                conexion.Close(); 
+
             }
             return -1;
         }
