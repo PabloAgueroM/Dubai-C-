@@ -222,7 +222,7 @@ public class ProductoDA {
                 InsumoxProducto ip = new InsumoxProducto();
                 ip.setIdInsumo(rs.getInt("ID_INSUMO"));
                 ip.setDescripcion(rs.getString("DESCRIPCION"));
-                ip.setIdInsumo(rs.getInt("CANTIDAD_INSUMO"));
+                ip.setCantidad(rs.getDouble("CANTIDAD_INSUMO"));
                 lista.add(ip);
             }
             con.close();

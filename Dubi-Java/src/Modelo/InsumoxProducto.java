@@ -21,7 +21,7 @@ public class InsumoxProducto {
         return idInsumo;
     }
 
-    public void setCantidad(float c){
+    public void setCantidad(double c){
         cantidad=c;
     }
     public double getCantidad(){
