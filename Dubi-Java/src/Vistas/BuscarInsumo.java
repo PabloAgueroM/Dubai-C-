@@ -7,17 +7,22 @@ package Vistas;
 
 import Controlador.InsumoBL;
 import Modelo.Insumo;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author Pablo
  */
 public class BuscarInsumo extends javax.swing.JDialog {
+    private TableRowSorter tbrFiltro;
     private InsumoBL logicaNegocio;
     private Insumo insumoSeleccionado;
     private ArrayList<Insumo> listaInsumos;
@@ -42,7 +47,28 @@ public class BuscarInsumo extends javax.swing.JDialog {
         
         actualizarDatos();
     }
-
+    
+    public void filtrar(){
+        int columnaABuscar = 0;
+        
+        if(cboFiltro.getSelectedItem() == "ID"){
+            columnaABuscar = 0;
+        }
+        if(cboFiltro.getSelectedItem() == "Nombre"){
+            columnaABuscar = 1;
+        }
+        if(cboFiltro.getSelectedItem() == "Descripción"){
+            columnaABuscar = 2;
+        }
+        if(cboFiltro.getSelectedItem() == "Unidad de Medida"){
+            columnaABuscar = 3;
+        }
+        if(cboFiltro.getSelectedItem() == "Stock Mínimo"){
+            columnaABuscar = 4;
+        }
+        tbrFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+    }
+    
     public void actualizarDatos(){
         DefaultTableModel modelo = (DefaultTableModel) tblInsumos.getModel();
         
@@ -68,6 +94,9 @@ public class BuscarInsumo extends javax.swing.JDialog {
         btnSeleccionar = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInsumos = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        cboFiltro = new javax.swing.JComboBox();
+        txtFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsqueda de Insumos");
@@ -89,6 +118,16 @@ public class BuscarInsumo extends javax.swing.JDialog {
         ));
         jScrollPane1.setViewportView(tblInsumos);
 
+        jLabel1.setText("Buscar por:");
+
+        cboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "ID", "Nombre", "Descripción", "Unidad de Medida", "Stock Mínimo" }));
+
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,17 +137,30 @@ public class BuscarInsumo extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtFiltro)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSeleccionar)
-                .addGap(23, 23, 23))
+                .addGap(25, 25, 25))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap()
                 .addComponent(btnSeleccionar)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -121,6 +173,20 @@ public class BuscarInsumo extends javax.swing.JDialog {
         insumoSeleccionado = listaInsumos.get(index);
         this.dispose();
     }//GEN-LAST:event_btnSeleccionarMouseClicked
+
+    private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
+        // TODO add your handling code here:
+        txtFiltro.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtFiltro.getText());
+                txtFiltro.setText(cadena);
+                repaint();
+                filtrar();
+            }
+        });
+        tbrFiltro = new TableRowSorter(tblInsumos.getModel());
+        tblInsumos.setRowSorter(tbrFiltro);
+    }//GEN-LAST:event_txtFiltroKeyTyped
 
     /**
      * @param args the command line arguments
@@ -170,7 +236,10 @@ public class BuscarInsumo extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnSeleccionar;
+    private javax.swing.JComboBox cboFiltro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblInsumos;
+    private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }

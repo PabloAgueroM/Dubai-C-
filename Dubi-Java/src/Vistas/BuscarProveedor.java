@@ -7,15 +7,19 @@ package Vistas;
 
 import Controlador.ProveedorBL;
 import Modelo.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author alulab14
  */
 public class BuscarProveedor extends javax.swing.JDialog {
-
+    private TableRowSorter tbrFiltro;
     private ProveedorBL logicaNegocio;
     private Proveedor proveedorSeleccionado;
     private ArrayList<Proveedor> lista;
@@ -29,7 +33,7 @@ public class BuscarProveedor extends javax.swing.JDialog {
     }
 
     public void actualizarDatos() {
-        DefaultTableModel modelo = (DefaultTableModel) TablaPr.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) tblProveedores.getModel();
         Object[] fila = new Object[3];
         for (int i = 0; i < lista.size(); i++) {
             fila[0] = lista.get(i).getIDProveedor();
@@ -54,13 +58,16 @@ public class BuscarProveedor extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        TablaPr = new javax.swing.JTable();
+        tblProveedores = new javax.swing.JTable();
         BtnSeleccionar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        cboFiltro = new javax.swing.JComboBox();
+        txtFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsqueda de Proveedores");
 
-        TablaPr.setModel(new javax.swing.table.DefaultTableModel(
+        tblProveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -68,7 +75,7 @@ public class BuscarProveedor extends javax.swing.JDialog {
                 "ID", "Nombre", "RUC"
             }
         ));
-        jScrollPane1.setViewportView(TablaPr);
+        jScrollPane1.setViewportView(tblProveedores);
 
         BtnSeleccionar.setText("Seleccionar");
         BtnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -77,35 +84,92 @@ public class BuscarProveedor extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setText("Buscar por:");
+
+        cboFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "ID", "Nombre", "RUC" }));
+
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFiltro)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtnSeleccionar)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtnSeleccionar)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(13, 13, 13)
                 .addComponent(BtnSeleccionar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cboFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarActionPerformed
-        int index = TablaPr.getSelectedRow();
+        int index = tblProveedores.getSelectedRow();
         proveedorSeleccionado = (Proveedor) lista.get(index);
         this.dispose();
     }//GEN-LAST:event_BtnSeleccionarActionPerformed
+    
+    public void filtrar(){
+        int columnaABuscar = 0;
+        
+        if(cboFiltro.getSelectedItem() == "ID"){
+            columnaABuscar = 0;
+        }
+        if(cboFiltro.getSelectedItem() == "Nombre"){
+            columnaABuscar = 1;
+        }
+        if(cboFiltro.getSelectedItem() == "RUC"){
+            columnaABuscar = 2;
+        }
+        tbrFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+        
+    }
+    
+    
+    private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
+        // TODO add your handling code here:
+         txtFiltro.addKeyListener(new KeyAdapter() {
+            public void keyReleased(final KeyEvent e) {
+                String cadena = (txtFiltro.getText());
+                txtFiltro.setText(cadena);
+                repaint();
+                filtrar();
+            }
+        });
+        tbrFiltro = new TableRowSorter(tblProveedores.getModel());
+        tblProveedores.setRowSorter(tbrFiltro);
+    }//GEN-LAST:event_txtFiltroKeyTyped
 
     /**
      * @param args the command line arguments
@@ -151,7 +215,10 @@ public class BuscarProveedor extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSeleccionar;
-    private javax.swing.JTable TablaPr;
+    private javax.swing.JComboBox cboFiltro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblProveedores;
+    private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }
