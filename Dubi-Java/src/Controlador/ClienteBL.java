@@ -5,7 +5,7 @@ import Modelo.*;
 import java.util.ArrayList;
 
 public class ClienteBL {
-    private ClienteDA accesoDatos;
+    private ClienteDA accesoDatos = new ClienteDA();
     public void registrarClienteNatural(PersonaNatural c) {    }    
     public void registrarClienteJuridica(PersonaJuridica c) {    }
     public void modificarClienteNatural(PersonaNatural p) { }    
@@ -13,11 +13,11 @@ public class ClienteBL {
     public void eliminarClienteNatural(PersonaNatural p) {       }    
     public void eliminarClienteJuridico(PersonaJuridica p) {}
     public ArrayList<PersonaNatural> listarClienteNatural() {
-          ArrayList<PersonaNatural> lista = new ArrayList<PersonaNatural>();
-          return lista;
+          
+          return accesoDatos.listarClienteNatural();
     }        
     public ArrayList<PersonaJuridica> listarClienteJuridico() {
-          ArrayList<PersonaJuridica> lista = new ArrayList<PersonaJuridica>();
-          return lista;
+         
+          return accesoDatos.listarPersonaJuridica();
     }
 }

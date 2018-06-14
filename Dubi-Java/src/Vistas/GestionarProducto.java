@@ -213,7 +213,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                         .addComponent(InsertarInsumoBoton))
                     .addGroup(SeleccionarInsumosLayout.createSequentialGroup()
                         .addComponent(lblInsumoSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 92, Short.MAX_VALUE))
+                        .addGap(0, 122, Short.MAX_VALUE))
                     .addGroup(SeleccionarInsumosLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -350,12 +350,12 @@ public class GestionarProducto extends javax.swing.JFrame {
                                     .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(colorText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(PrecioText, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblUnidad)
                                     .addComponent(lblTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblStock))
-                                .addGap(26, 26, 26)
+                                .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmbTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,7 +386,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CancelarBtn))
                             .addComponent(lblPrecioSugerido, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 136, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,6 +641,7 @@ public class GestionarProducto extends javax.swing.JFrame {
 
     private void BuscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBtnActionPerformed
         Estado(3);
+        Estado(2);
         BuscarProducto frm;
         frm = new BuscarProducto(null, true);
         frm.setVisible(true);
@@ -694,6 +695,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                     Double.parseDouble(CantidadInsumoText.getText()));
             LogicaNegocio.modificarInsumoXProducto(producto.getId(), ip);
         }
+        ActualizarTablaDeInsumos();
     }//GEN-LAST:event_modificarInsBtnActionPerformed
 
     private void eliminarInsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarInsBtnActionPerformed

@@ -571,11 +571,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void btnReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseClicked
         resetBotones();
         setColor(btnReporte);
-        GestionarPedido frm;
+        GestionReportes frm;
         menuActivo.removeAll();
         try {
-            frm = new GestionarPedido();
-            frm.ModificarMensaje("Disponible proximamente");
+            frm = new GestionReportes();
             menuActivo.add(frm.getContentPane());
             menuActivo.setVisible(true);
             menuActivo.setOpaque(false);

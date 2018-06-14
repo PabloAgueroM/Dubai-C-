@@ -6,30 +6,46 @@
 package Vistas;
 
 import Controlador.ClienteBL;
-import Modelo.PersonaJuridica;
 import Modelo.PersonaNatural;
-import Modelo.Proveedor;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author alulab14
+ * @author Bruno Diaz
  */
-public class BuscarClienteNatural extends javax.swing.JFrame {
+public class BuscarClienteNatural extends javax.swing.JDialog {
     private ClienteBL logica;
-
-    public PersonaNatural getSeleccionado() {
-        return seleccionado;
-    }
     private PersonaNatural seleccionado;
     private ArrayList<PersonaNatural> lista;
     /**
      * Creates new form BuscarClienteNatural
      */
-    public BuscarClienteNatural() {
+    public void actualizarDatos() {
+        DefaultTableModel modelo = (DefaultTableModel) dgvNatural.getModel();
+        Object[] fila = new Object[3];
+        for (int i = 0; i < lista.size(); i++) {
+            fila[0] = lista.get(i).getIdPersona();
+            fila[1] = lista.get(i).getNombre()+" " + lista.get(i).getApellidoP() +" "+ lista.get(i).getApellidoM();
+            fila[2] = lista.get(i).getDNI();
+
+            modelo.addRow(fila);
+        }
+    }
+
+    public PersonaNatural getSeleccionado() {
+        return this.seleccionado;
+    }
+    /**
+     * Creates new form BuscarClienteNatural
+     */
+    public BuscarClienteNatural(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        this.setTitle("Busqueda de Cliente Natural");
         logica = new ClienteBL();
         lista = logica.listarClienteNatural();
+        actualizarDatos();
     }
 
     /**
@@ -44,7 +60,6 @@ public class BuscarClienteNatural extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         dgvNatural = new javax.swing.JTable();
         btnModificar = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,22 +68,23 @@ public class BuscarClienteNatural extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "RUC"
+                "ID", "Nombre", "DNI"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(dgvNatural);
 
-        btnModificar.setText("Modificar");
+        btnModificar.setText("Seleccionar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
             }
         });
 
@@ -76,27 +92,23 @@ public class BuscarClienteNatural extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(btnModificar)
-                        .addGap(70, 70, 70)
-                        .addComponent(btnEliminar)))
-                .addGap(51, 51, 51))
+                .addComponent(btnModificar)
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar)
-                    .addComponent(btnEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(btnModificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,11 +119,6 @@ public class BuscarClienteNatural extends javax.swing.JFrame {
         seleccionado = (PersonaNatural) lista.get(index);
         this.dispose();
     }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        PersonaNatural p = new PersonaNatural();
-        logica.eliminarClienteNatural(p);
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,16 +147,22 @@ public class BuscarClienteNatural extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BuscarClienteNatural().setVisible(true);
+                BuscarClienteNatural dialog = new BuscarClienteNatural(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JTable dgvNatural;
     private javax.swing.JScrollPane jScrollPane1;
