@@ -45,12 +45,14 @@ public class BuscarInsumo extends javax.swing.JDialog {
 
     public void actualizarDatos(){
         DefaultTableModel modelo = (DefaultTableModel) tblInsumos.getModel();
-        Object[] fila = new Object[4];
+        
+        Object[] fila = new Object[5];
         for(int i=0;i<listaInsumos.size();i++){
-            fila[0]= listaInsumos.get(i).getNombre();
-            fila[1]= listaInsumos.get(i).getDescripcion();
+            fila[0]= listaInsumos.get(i).getId();
+            fila[1]= listaInsumos.get(i).getNombre();
             fila[2]= listaInsumos.get(i).getUnidad();
             fila[3]= listaInsumos.get(i).getStockMinimo();
+            fila[4]= listaInsumos.get(i).getPrecio();
             modelo.addRow(fila);
         }  
     }
@@ -81,7 +83,7 @@ public class BuscarInsumo extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre", "Descripción", "Unidad de Medida", "Stock Mínimo"
+                "Id Insumo", "Nombre", "Descripción", "Unidad de Medida", "Stock Mínimo"
             }
         ));
         jScrollPane1.setViewportView(tblInsumos);
