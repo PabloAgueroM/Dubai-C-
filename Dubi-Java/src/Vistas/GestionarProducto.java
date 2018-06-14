@@ -29,6 +29,7 @@ public class GestionarProducto extends javax.swing.JFrame {
     private Producto producto;
     private ProductoBL LogicaNegocio;
     private int accion = 1;
+    double precio = 0;
 
     //accion: 0=nuevo; 1=modificar; 2=eliminar.
     public void leerInsumosXproducto() {
@@ -502,6 +503,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                 PrecioText.setText(null);
                 StockText.setText(null);
                 CantidadInsumoText.setText(null);
+                precio = 0;
                 //borrar datos en lista de insumos del producto
                 DefaultTableModel modelo = (DefaultTableModel) TablaInsumosxProducto.getModel();
                 int n = modelo.getRowCount();
@@ -556,7 +558,6 @@ public class GestionarProducto extends javax.swing.JFrame {
                 Float.parseFloat(CantidadInsumoText.getText()));
         producto.insertarInsumos(ip);
         modelo.addRow(new Object[]{seleccionInsumo.getId(), seleccionInsumo.getDescripcion(), ip.getCantidad()});
-        double precio = 0;
         precio += seleccionInsumo.getPrecio() * ip.getCantidad();
         lblPrecioSugerido.setText("Precio Mínimo: " + precio);
     }//GEN-LAST:event_InsertarInsumoBotonMouseClicked
