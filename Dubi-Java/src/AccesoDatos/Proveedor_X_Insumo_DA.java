@@ -61,4 +61,27 @@ public class Proveedor_X_Insumo_DA {
             Logger.getLogger(InsumoDA.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public int validarProveedorXInsumo(int idInsumo,int idProveedor)throws SQLException{
+        int valido = 0;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection      
+                ("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
+            CallableStatement cStmt = con.prepareCall("{call VALIDAR_INSUMO_X_PROVEEDOR(?,?)}");
+            cStmt.setInt("_ID_PRODUCTO", idInsumo);
+            cStmt.setInt("_ID_PROVEEDOR", idProveedor);
+            
+            ResultSet rs = cStmt.executeQuery();
+            
+            if(rs.next()){
+                valido = rs.getInt(1);
+            }
+
+            con.close();     
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(InsumoDA.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return valido;
+    }
 }

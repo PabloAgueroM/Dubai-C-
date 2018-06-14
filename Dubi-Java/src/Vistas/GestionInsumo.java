@@ -630,7 +630,12 @@ public class GestionInsumo extends javax.swing.JFrame {
                     logicaNegocioInsumo.modificarInsumo(insumoSeleccionado);
 
                     for(ProveedorxInsumo pXi : insumoSeleccionado.getProveedoresXInsumo()){
-                        LogicaNegocioProveedorXInsumo.modificarProveedorXInsumo(insumoSeleccionado.getId(),pXi,insumoSeleccionado.isActivo());
+                        if(LogicaNegocioProveedorXInsumo.validarProveedorXInsumo(insumoSeleccionado.getId(), Integer.valueOf(pXi.getProveedor().getIDProveedor())) == 1){
+                            LogicaNegocioProveedorXInsumo.modificarProveedorXInsumo(insumoSeleccionado.getId(),pXi,insumoSeleccionado.isActivo());
+                        }
+                        else if(LogicaNegocioProveedorXInsumo.validarProveedorXInsumo(insumoSeleccionado.getId(), Integer.valueOf(pXi.getProveedor().getIDProveedor())) == 0){
+                            LogicaNegocioProveedorXInsumo.registrarProveedorXInsumo(insumoSeleccionado.getId(),pXi,insumoSeleccionado.isActivo());
+                        }
                     }
                     estado("inicial");          
                 }
@@ -653,6 +658,7 @@ public class GestionInsumo extends javax.swing.JFrame {
             ProveedorxInsumo pXi = new ProveedorxInsumo(proveedorSeleccionado, precioProveedor);
             proveedores.add(pXi);
             añadirTblProveedores();
+            proveedorSeleccionado = null;
             txtNombreProveedor.setText(null);
             txtIdProveedor.setText(null);
             txtPrecio.setText(null);
@@ -817,7 +823,7 @@ public class GestionInsumo extends javax.swing.JFrame {
         // TODO add your handling code here:
         int index = tblProveedoresXInsumo.getSelectedRow();
         
-        if(index >= 0){
+        if((index >= 0) && (txtPrecio.getText().length()>0)){
             ProveedorxInsumo proveedor = proveedores.get(index);
             //proveedor.setProveedor(proveedorSeleccionado);
             proveedor.setPrecio(Double.valueOf(txtPrecio.getText()));

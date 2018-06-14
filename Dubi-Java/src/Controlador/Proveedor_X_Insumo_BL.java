@@ -29,4 +29,8 @@ public class Proveedor_X_Insumo_BL {
     public void modificarProveedorXInsumo(int idInsumo,ProveedorxInsumo pXi,int activo) throws SQLException{
         accesoDatos.modificarProveedorXInsumo(idInsumo,pXi,activo);
     }
+    
+    public int validarProveedorXInsumo(int idInsumo,int idProveedor) throws SQLException{
+        return accesoDatos.validarProveedorXInsumo(idInsumo, idProveedor);
+    }
 }
