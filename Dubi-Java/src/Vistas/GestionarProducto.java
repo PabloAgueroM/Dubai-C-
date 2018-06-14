@@ -151,7 +151,7 @@ public class GestionarProducto extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false
@@ -519,8 +519,9 @@ public class GestionarProducto extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) TablaInsumosxProducto.getModel();
         int n = modelo.getRowCount();
         for (int i = 0; i < n; i++) {
-            modelo.removeRow(0);
+            modelo.removeRow(i);
         }
+        producto.setLista(LogicaNegocio.listarInsumoXProducto(producto.getId()));
         for (int i = 0; i < producto.getLista().size(); i++) {
             filaP[0] = producto.getLista().get(i).getIdInsumo();
             filaP[1] = producto.getLista().get(i).getDescripcion();
@@ -534,9 +535,9 @@ public class GestionarProducto extends javax.swing.JFrame {
         SelecInsumoBtn.setEnabled(true);
         eliminarInsBtn.setEnabled(true);
         modificarInsBtn.setEnabled(true);
-        for (InsumoxProducto ip : producto.getLista()) {
-            LogicaNegocio.eliminarInsumoXProducto(producto.getId(), ip.getIdInsumo());
-        }
+//        for (InsumoxProducto ip : producto.getLista()) {
+//            LogicaNegocio.eliminarInsumoXProducto(producto.getId(), ip.getIdInsumo());
+//        }
         accion = 1;
     }//GEN-LAST:event_ModificarBtnMouseClicked
 
@@ -555,8 +556,8 @@ public class GestionarProducto extends javax.swing.JFrame {
                 Float.parseFloat(CantidadInsumoText.getText()));
         producto.insertarInsumos(ip);
         modelo.addRow(new Object[]{seleccionInsumo.getId(), seleccionInsumo.getDescripcion(), ip.getCantidad()});
-        double precio=0;
-        precio += seleccionInsumo.getPrecio()*ip.getCantidad();
+        double precio = 0;
+        precio += seleccionInsumo.getPrecio() * ip.getCantidad();
         lblPrecioSugerido.setText("Precio Mínimo: " + precio);
     }//GEN-LAST:event_InsertarInsumoBotonMouseClicked
 
