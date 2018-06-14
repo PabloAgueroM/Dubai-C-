@@ -35,6 +35,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.IDPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaEntrega = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImporteTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,7 +51,7 @@
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Image = global::Vista.Properties.Resources.if_arrow_back_216437;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(50, 324);
+            this.button5.Location = new System.Drawing.Point(27, 327);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(90, 38);
             this.button5.TabIndex = 59;
@@ -58,7 +66,7 @@
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Image = global::Vista.Properties.Resources.if_Remove_Male_User_49612;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button4.Location = new System.Drawing.Point(466, 317);
+            this.button4.Location = new System.Drawing.Point(368, 303);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(180, 55);
             this.button4.TabIndex = 58;
@@ -73,7 +81,7 @@
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::Vista.Properties.Resources.if_edit_find_replace_118921;
             this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.Location = new System.Drawing.Point(280, 317);
+            this.button6.Location = new System.Drawing.Point(182, 303);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(180, 55);
             this.button6.TabIndex = 57;
@@ -115,17 +123,83 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDPedido,
+            this.Cliente,
+            this.FechaEntrega,
+            this.ImporteTotal,
+            this.Cuenta,
+            this.Saldo,
+            this.Estado});
             this.dataGridView1.Location = new System.Drawing.Point(27, 37);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(802, 245);
             this.dataGridView1.TabIndex = 53;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::Vista.Properties.Resources.if_Remove_Male_User_49612;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Location = new System.Drawing.Point(554, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 55);
+            this.button1.TabIndex = 60;
+            this.button1.Text = "Mandar a producción";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // IDPedido
+            // 
+            this.IDPedido.DataPropertyName = "IdPedido";
+            this.IDPedido.HeaderText = "ID Pedido";
+            this.IDPedido.Name = "IDPedido";
+            this.IDPedido.ReadOnly = true;
+            // 
+            // Cliente
+            // 
+            this.Cliente.HeaderText = "Cliente";
+            this.Cliente.Name = "Cliente";
+            this.Cliente.ReadOnly = true;
+            // 
+            // FechaEntrega
+            // 
+            this.FechaEntrega.HeaderText = "FechaEntrega";
+            this.FechaEntrega.Name = "FechaEntrega";
+            this.FechaEntrega.ReadOnly = true;
+            // 
+            // ImporteTotal
+            // 
+            this.ImporteTotal.HeaderText = "ImporteTotal";
+            this.ImporteTotal.Name = "ImporteTotal";
+            this.ImporteTotal.ReadOnly = true;
+            // 
+            // Cuenta
+            // 
+            this.Cuenta.HeaderText = "Cuenta";
+            this.Cuenta.Name = "Cuenta";
+            this.Cuenta.ReadOnly = true;
+            // 
+            // Saldo
+            // 
+            this.Saldo.HeaderText = "Saldo";
+            this.Saldo.Name = "Saldo";
+            this.Saldo.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
             // FormBuscarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(852, 377);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button6);
@@ -151,5 +225,13 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEntrega;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ImporteTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cuenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
     }
 }

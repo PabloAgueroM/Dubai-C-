@@ -33,7 +33,8 @@ namespace Vista
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = detalles;
             comboBox1.SelectedIndex = 0;
-            this.estadoBotones(0);
+            estadoBotones(0);
+            dateTimePicker1.MinDate = DateTime.Now;
         }
         private void estadoBotones(int n)
         {
@@ -55,7 +56,6 @@ namespace Vista
                     textBox7.Enabled = false;
                     textBox8.Enabled = false;
                     textBox2.Enabled = false;
-                    textBox4.Enabled = false;
                     textBox9.Enabled = false;
                     checkBox1.Enabled = false;
                     dateTimePicker1.Enabled = false;
@@ -69,7 +69,6 @@ namespace Vista
                     textBox7.Text = "";
                     textBox8.Text = "";
                     textBox2.Text = "";
-                    textBox4.Text = "";
                     textBox9.Text = "";
                     button9.Enabled = true;
                     button4.Enabled = true;
@@ -209,12 +208,13 @@ namespace Vista
 
             if (String.IsNullOrWhiteSpace(textBox3.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                 return 2;
-            
+
+            if (int.Parse(textBox2.Text) > int.Parse(textBox9.Text))
+                return 3;
+
             if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 0) return 5;            
             return 0;
         }
-
-        
 
         private void button8_Click(object sender, EventArgs e)
         {
@@ -223,6 +223,7 @@ namespace Vista
             {
                 if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 3) MessageBox.Show("Cuenta mayor a total", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 5) MessageBox.Show("Revisar la fecha estimada de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -237,18 +238,42 @@ namespace Vista
                 if (checkBox1.Checked == true) pedido.Igv = true;
                 else pedido.Igv = false;
 
+                
+
                 pedido.IdPedido = logicaNegocio.registrarPedido(pedido, detalles).ToString();
                 MessageBox.Show("Pedido registrado correctamente");
 
-                this.estadoBotones(1);
+                estadoBotones(1);
+
                 
             }
             else if (guardar == 2)
             {
+                pedido.Cuenta = Convert.ToSingle(textBox2.Text);
+                pedido.FechaEntrega = dateTimePicker1.Value;
+                pedido.ImporteTotal = Convert.ToSingle(textBox9.Text);
+                pedido.Cuenta = Convert.ToSingle(textBox2.Text);
+                pedido.Saldo = pedido.ImporteTotal - pedido.Cuenta;
+                pedido.IdUsuario = idActual;
+                if (checkBox1.Checked == true) pedido.Igv = true;
+                else pedido.Igv = false;
 
+
+                logicaNegocio.actualizarPedido(pedido, detalles);
+                MessageBox.Show("Pedido actualizado correctamente");
+
+                this.estadoBotones(1);
             }
             guardar = 0;
+
             this.estadoBotones(0);
+            var itemToRemove = detalles.ToList();
+            foreach (DetallePedido d in itemToRemove)
+            {
+                detalles.Remove(d);
+            }
+            total = 0;
+
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
@@ -266,7 +291,7 @@ namespace Vista
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            Regex rgx = new Regex(@"([0-9]*[.])?[0-9]+");
+            Regex rgx = new Regex(@"^\d+$");
             if (!rgx.IsMatch(textBox2.Text)) textBox2.ForeColor = Color.Red;
             else textBox2.ForeColor = Color.Black;
         }
@@ -277,14 +302,49 @@ namespace Vista
         }
 
         private void button4_Click(object sender, EventArgs e)
-        {
-            this.guardar = 2;
-            this.estadoBotones(1);
+        {            
             FormBuscarPedido buscar = new FormBuscarPedido();
             if(buscar.ShowDialog() == DialogResult.OK){
-                //detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
-                dataGridView1.Update();
-                dataGridView1.Refresh();
+                guardar = 2;
+                estadoBotones(1);
+                button1.Enabled = true;
+                button5.Enabled = true;
+                comboBox1.Enabled = false;
+                button6.Enabled = false;
+                detalles = logicaNegocio.listarDetallesPedido(buscar.PedidoSeleccionado.IdPedido);
+
+                this.pedido.IdPedido = buscar.PedidoSeleccionado.IdPedido;
+                total = buscar.PedidoSeleccionado.ImporteTotal;
+                textBox9.Text = buscar.PedidoSeleccionado.ImporteTotal.ToString();
+                textBox2.Text = buscar.PedidoSeleccionado.Cuenta.ToString();
+                if (buscar.PedidoSeleccionado.Igv == true) checkBox1.Checked = true;
+                dateTimePicker1.Value = buscar.PedidoSeleccionado.FechaEntrega;
+                total = (float)Convert.ToDecimal(textBox9.Text);
+
+                foreach (DetallePedido detalle in detalles) {
+                    detalle.Producto = logicaNegocio.buscarProducto(detalle.Producto.Id);
+                }
+                dataGridView1.DataSource = detalles;
+
+                Persona p = logicaNegocio.buscarCliente(buscar.PedidoSeleccionado.IdCliente);
+                if(p is Natural)
+                {
+                    comboBox1.SelectedIndex = 0;
+                    Natural n = (Natural)p;
+                    textBox3.Text = n.Nombre + " " + n.ApPat + " " + n.ApMat;
+                    textBox11.Text = n.Email;
+                    textBox10.Text = n.Telefono;
+                    pedido.IdCliente = buscar.PedidoSeleccionado.IdCliente;
+                }
+                else
+                {
+                    comboBox1.SelectedIndex = 1;
+                    Juridica n = (Juridica)p;
+                    textBox3.Text = n.Nombre;
+                    textBox11.Text = n.Email;
+                    textBox10.Text = n.Telefono;
+                    pedido.IdCliente = buscar.PedidoSeleccionado.IdCliente;
+                }
             }
         }
     }

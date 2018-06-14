@@ -39,6 +39,15 @@ public class GestionInsumo extends javax.swing.JFrame {
     
     int flag = 0;
     
+    public void limpiarTblProveedores(){
+        DefaultTableModel modelo = (DefaultTableModel) tblProveedoresXInsumo.getModel();
+        int rowCount = modelo.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--){
+            modelo.removeRow(i);
+        }
+    }
+    
     public void limpiarCampos(){
         txtIdInsumo.setText(null);
         txtNombreInsumo.setText(null);
@@ -51,7 +60,7 @@ public class GestionInsumo extends javax.swing.JFrame {
         txtPrecio.setText(null); 
     }
     
-     public int validarDatos() {
+    public int validarDatos() {
         if (txtNombreInsumo.getText().trim().isEmpty() || txtDescripcion.getText().trim().isEmpty() || txtColor.getText().trim().isEmpty() || txtPrecioReferencial.getText().trim().isEmpty()
             || txtIdProveedor.getText().trim().isEmpty() || txtNombreProveedor.getText().trim().isEmpty() || txtPrecio.getText().trim().isEmpty() ){
            // JOptionPane.showMessageDialog(null, "Por favor, llene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -69,6 +78,10 @@ public class GestionInsumo extends javax.swing.JFrame {
         switch(estado){
             case "inicial":
                 limpiarCampos();
+                btnNuevo.setEnabled(true);
+                btnBuscarInsumo.setEnabled(true);
+                btnGuardar.setEnabled(false);
+                btnEliminar.setEnabled(false);
                 txtIdInsumo.setEnabled(false); txtIdInsumo.setBackground(Color.lightGray);
                 txtNombreInsumo.setEnabled(false); txtNombreInsumo.setBackground(Color.lightGray);
                 txtColor.setEnabled(false); txtColor.setBackground(Color.lightGray);
@@ -81,9 +94,16 @@ public class GestionInsumo extends javax.swing.JFrame {
                 txtIdProveedor.setEnabled(false); txtIdProveedor.setBackground(Color.lightGray);
                 txtNombreProveedor.setEnabled(false); txtNombreProveedor.setBackground(Color.lightGray);
                 txtPrecio.setEnabled(false); txtPrecio.setBackground(Color.lightGray);
+                btnAñadirProveedor.setEnabled(false);
+                btnModificarProveedor.setEnabled(false);
+                btnEliminarProveedor.setEnabled(false);
+                limpiarTblProveedores();
                 break;
             case "nuevo":
-                txtIdInsumo.setEnabled(true); txtIdInsumo.setBackground(Color.gray);
+                btnGuardar.setEnabled(true);
+                btnBuscarInsumo.setEnabled(false);
+                btnEliminar.setEnabled(false);
+                txtIdInsumo.setEnabled(true); txtIdInsumo.setBackground(Color.lightGray);
                 txtNombreInsumo.setEnabled(true); txtNombreInsumo.setBackground(Color.white);
                 txtColor.setEnabled(true); txtColor.setBackground(Color.white);
                 txtDescripcion.setEnabled(true); txtDescripcion.setBackground(Color.white);
@@ -95,9 +115,29 @@ public class GestionInsumo extends javax.swing.JFrame {
                 txtIdProveedor.setEnabled(false); 
                 txtNombreProveedor.setEnabled(false); 
                 txtPrecio.setEnabled(true); txtPrecio.setBackground(Color.white);
+                btnAñadirProveedor.setEnabled(true);
+                btnModificarProveedor.setEnabled(true);
+                btnEliminarProveedor.setEnabled(true);
+                
                 break;
             case "guardar":
                 
+                break;
+            case "buscar":
+                txtNombreInsumo.setEnabled(true); txtNombreInsumo.setBackground(Color.white);
+                txtDescripcion.setEnabled(true); txtDescripcion.setBackground(Color.white);
+                txtStockMinimo.setEnabled(true); txtStockMinimo.setBackground(Color.white);
+                txtPrecioReferencial.setEnabled(true); txtPrecioReferencial.setBackground(Color.white);
+                txtColor.setEnabled(true); txtColor.setBackground(Color.white);
+                txtPrecio.setEnabled(true); txtPrecio.setBackground(Color.white);
+                cboTipo.setEnabled(true);
+                cboUnidadMedida.setEditable(true);
+                btnNuevo.setEnabled(false); btnBuscarInsumo.setEnabled(false);
+                btnGuardar.setEnabled(true); btnEliminar.setEnabled(true); btnCancelar.setEnabled(true);
+                btnBuscarProveedor.setEnabled(true);
+                btnAñadirProveedor.setEnabled(true);
+                btnModificarProveedor.setEnabled(true);
+                btnEliminarProveedor.setEnabled(true);
                 break;
         }
     }
@@ -120,10 +160,23 @@ public class GestionInsumo extends javax.swing.JFrame {
             fila[0]= proveedores.get(i).getProveedor().getIDProveedor();
             fila[1]= proveedores.get(i).getProveedor().getNombre();
             fila[2]= proveedores.get(i).getPrecio();
+            //System.out.println(proveedores.get(i).getProveedor().getNombre());
+            modelo.addRow(fila);
         }
-        modelo.addRow(fila);
     }
 
+    public void añadirTblProveedores(){
+        DefaultTableModel modelo = (DefaultTableModel) tblProveedoresXInsumo.getModel();
+        Object[] fila = new Object[3];
+        
+        int i = proveedores.size();
+        fila[0]= proveedores.get(i-1).getProveedor().getIDProveedor();
+        fila[1]= proveedores.get(i-1).getProveedor().getNombre();
+        fila[2]= proveedores.get(i-1).getPrecio();
+        modelo.addRow(fila);    
+    }
+    
+    
     public GestionInsumo() {
         initComponents();
         proveedores = new ArrayList<ProveedorxInsumo>();
@@ -352,8 +405,18 @@ public class GestionInsumo extends javax.swing.JFrame {
         });
 
         btnModificarProveedor.setText("Modificar");
+        btnModificarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnModificarProveedorMouseClicked(evt);
+            }
+        });
 
         btnEliminarProveedor.setText("Eliminar");
+        btnEliminarProveedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarProveedorMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -501,7 +564,7 @@ public class GestionInsumo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGuardarMouseClicked
-        // TODO add your handling code here:
+            // TODO add your handling code here:
         try {
                 
             if(flag == 0){ //Se registra nuevo insumo
@@ -526,10 +589,9 @@ public class GestionInsumo extends javax.swing.JFrame {
                 i.setTipo((TipoProductoG)cboTipo.getSelectedItem());
                 i.setUnidad((UnidadDeMedida)cboUnidadMedida.getSelectedItem());
                 i.setActivo(1);
-                
-                
+
                 if(valido == 0){
-                
+       
                 //Registrar Insumo en la BD
                     int id = logicaNegocioInsumo.registrarInsumo(i);
                     txtIdInsumo.setText(String.valueOf(id));
@@ -570,14 +632,9 @@ public class GestionInsumo extends javax.swing.JFrame {
                     for(ProveedorxInsumo pXi : insumoSeleccionado.getProveedoresXInsumo()){
                         LogicaNegocioProveedorXInsumo.modificarProveedorXInsumo(insumoSeleccionado.getId(),pXi,insumoSeleccionado.isActivo());
                     }
-                    estado("modificar");
-                    
+                    estado("modificar");          
                 }
-
-                
-            }
-                
-                
+            }      
         } catch (SQLException ex) {
             Logger.getLogger(GestionInsumo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -591,10 +648,21 @@ public class GestionInsumo extends javax.swing.JFrame {
 
     private void btnAñadirProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAñadirProveedorMouseClicked
         // TODO add your handling code here:
-        double precioProveedor = Double.parseDouble(txtPrecio.getText());
-        ProveedorxInsumo pXi = new ProveedorxInsumo(proveedorSeleccionado, precioProveedor);
-        proveedores.add(pXi);
-        actualizarDatos();
+ if((proveedorSeleccionado != null) && (txtPrecio.getText().length() > 0)){
+            double precioProveedor = Double.parseDouble(txtPrecio.getText());
+            ProveedorxInsumo pXi = new ProveedorxInsumo(proveedorSeleccionado, precioProveedor);
+            proveedores.add(pXi);
+            añadirTblProveedores();
+            txtNombreProveedor.setText(null);
+            txtIdProveedor.setText(null);
+            txtPrecio.setText(null);
+        }
+        else if (proveedorSeleccionado == null){
+            JOptionPane.showMessageDialog(null, "Proveedor no seleccionado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if (txtPrecio.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe ingresar el precio del insumo.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAñadirProveedorMouseClicked
 
     private void btnBuscarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarProveedorMouseClicked
@@ -617,6 +685,7 @@ public class GestionInsumo extends javax.swing.JFrame {
             
             insumoSeleccionado = frmBI.getInsumoSeleccionado();
             if(insumoSeleccionado != null){
+                estado("buscar");
                 txtIdInsumo.setText(String.valueOf(insumoSeleccionado.getId()));
                 txtNombreInsumo.setText(insumoSeleccionado.getNombre());
                 txtDescripcion.setText(insumoSeleccionado.getDescripcion());
@@ -627,10 +696,13 @@ public class GestionInsumo extends javax.swing.JFrame {
                 cboUnidadMedida.setSelectedItem(insumoSeleccionado.getUnidad());
                 
                 proveedores = logicaNegocioInsumo.listarProveedoresXInsumo(insumoSeleccionado.getId());
+//                for(int q = 0; q<proveedores.size();q++){
+//                    System.out.println(proveedores.get(q).getProveedor().getNombre());
+//                }
+                insumoSeleccionado.setProveedoresXInsumo(proveedores);
+                
                 actualizarDatos();
                 
-                btnNuevo.setEnabled(false); btnBuscarInsumo.setEnabled(false);
-                btnGuardar.setEnabled(true); btnEliminar.setEnabled(true); btnCancelar.setEnabled(true);
                 flag = 1;
             }
             
@@ -639,6 +711,7 @@ public class GestionInsumo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarInsumoMouseClicked
 
+    
     private void txtNombreInsumoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreInsumoKeyTyped
         // TODO add your handling code here:
         String texto = txtNombreInsumo.getText();
@@ -724,6 +797,49 @@ public class GestionInsumo extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnEliminarMouseClicked
+
+    private void btnEliminarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarProveedorMouseClicked
+        // TODO add your handling code here:
+        int index = tblProveedoresXInsumo.getSelectedRow();
+        
+        if(index >= 0){
+            proveedores.remove(index);
+        
+            DefaultTableModel modelo = (DefaultTableModel) tblProveedoresXInsumo.getModel();
+            modelo.removeRow(index);
+        }
+        else if(index < 0){
+            JOptionPane.showMessageDialog(null, "Fila no seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnEliminarProveedorMouseClicked
+
+    private void btnModificarProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarProveedorMouseClicked
+        // TODO add your handling code here:
+        int index = tblProveedoresXInsumo.getSelectedRow();
+        
+        if(index >= 0){
+            ProveedorxInsumo proveedor = proveedores.get(index);
+            //proveedor.setProveedor(proveedorSeleccionado);
+            proveedor.setPrecio(Double.valueOf(txtPrecio.getText()));
+            proveedores.set(index, proveedor);
+
+            DefaultTableModel modelo = (DefaultTableModel) tblProveedoresXInsumo.getModel();
+            modelo.removeRow(index);
+
+            Object[] fila = new Object[3];
+            fila[0]= proveedores.get(index).getProveedor().getIDProveedor();
+            fila[1]= proveedores.get(index).getProveedor().getNombre();
+            fila[2]= proveedores.get(index).getPrecio();
+
+            modelo.insertRow(index,fila);
+        }
+        else if(index < 0){
+            JOptionPane.showMessageDialog(null, "Fila no seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else if(txtPrecio.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe ingresar el precio del insumo.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnModificarProveedorMouseClicked
 
     /**
      * @param args the command line arguments

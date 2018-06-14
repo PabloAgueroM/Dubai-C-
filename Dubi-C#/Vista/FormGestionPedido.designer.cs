@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGestionPedido));
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +37,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -53,7 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -81,17 +78,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(237, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Saldo:";
             // 
             // dataGridView1
             // 
@@ -153,7 +139,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(494, 32);
+            this.button1.Location = new System.Drawing.Point(412, 32);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -163,20 +149,13 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(494, 61);
+            this.button5.Location = new System.Drawing.Point(412, 61);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 12;
             this.button5.Text = "Eliminar";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(304, 16);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(136, 20);
-            this.textBox4.TabIndex = 3;
             // 
             // label6
             // 
@@ -251,7 +230,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Image = global::Vista.Properties.Resources.if_Search_Male_User_49620;
-            this.button6.Location = new System.Drawing.Point(412, 50);
+            this.button6.Location = new System.Drawing.Point(398, 47);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(102, 39);
             this.button6.TabIndex = 45;
@@ -312,7 +291,6 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.textBox7);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.textBox6);
@@ -330,18 +308,6 @@
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Productos";
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = global::Vista.Properties.Resources.if_edit_find_replace_118921;
-            this.button3.Location = new System.Drawing.Point(249, 29);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(111, 39);
-            this.button3.TabIndex = 60;
-            this.button3.Text = "Nuevo producto";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
@@ -369,8 +335,9 @@
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(308, 79);
+            this.textBox8.MaxLength = 5;
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(172, 20);
+            this.textBox8.Size = new System.Drawing.Size(56, 20);
             this.textBox8.TabIndex = 54;
             this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
@@ -378,7 +345,7 @@
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.Image = global::Vista.Properties.Resources.if_edit_find_replace_118921;
-            this.button10.Location = new System.Drawing.Point(369, 29);
+            this.button10.Location = new System.Drawing.Point(253, 23);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(111, 39);
             this.button10.TabIndex = 46;
@@ -453,6 +420,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(62, 266);
+            this.textBox2.MaxLength = 6;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(82, 20);
             this.textBox2.TabIndex = 59;
@@ -559,12 +527,10 @@
             // 
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.textBox9);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.textBox4);
             this.panel2.Location = new System.Drawing.Point(380, 517);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(448, 48);
+            this.panel2.Size = new System.Drawing.Size(447, 48);
             this.panel2.TabIndex = 61;
             // 
             // FormGestionPedido
@@ -602,12 +568,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -647,6 +611,5 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
     }
 }

@@ -36,7 +36,6 @@ public class InsumoBL {
         accesoDatos.eliminarInsumo(i);
     }
     
-    
     public ArrayList<Insumo> listarInsumos() throws SQLException{
         return accesoDatos.listarInsumos();
     }

@@ -21,8 +21,7 @@ public class ProveedorxInsumo {
     }
 
     public ProveedorxInsumo() {
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
     
     public void setProveedor(Proveedor proveedor){
@@ -40,5 +39,4 @@ public class ProveedorxInsumo {
     public double getPrecio(){
         return precio;
     }
-    
 }

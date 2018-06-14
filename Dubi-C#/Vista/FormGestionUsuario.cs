@@ -16,6 +16,8 @@ namespace Vista
         {
             InitializeComponent();
             estadoBotones(0);
+            dateTimePicker1.MaxDate = DateTime.Now.AddYears(-18);
+            dateTimePicker1.MinDate = DateTime.Now.AddYears(-80);
             button3.Enabled = false;
             button4.Enabled = false;
             modificar = false;
@@ -46,7 +48,6 @@ namespace Vista
                     textBox9.Text = null;
                     textBox10.Text = null;
                     dateTimePicker1.Enabled = false;
-                    dateTimePicker1.Value = DateTime.Now;
                     comboBox4.Enabled = false;
                     comboBox4.SelectedItem = null;
                     radioButton1.Enabled = false;

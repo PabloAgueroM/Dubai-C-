@@ -39,5 +39,26 @@ namespace LogicaNegocio
         {
             return accesoDatos.cancelarPedido(id);
         }
+
+        public Producto buscarProducto(string id)
+        {
+            return accesoDatos.buscarProducto(id);
+        }
+
+        public Persona buscarCliente(string id)
+        {
+            return accesoDatos.buscarCliente(id);
+        }
+
+        public void actualizarPedido(Pedido p, BindingList<DetallePedido> detalles)
+        {
+            accesoDatos.actualizarPedido(p, detalles);
+        }
+
+        public int avanzarPedido(string id)
+        {
+            return accesoDatos.avanzarPedido(id);
+        }
+
     }
 }
