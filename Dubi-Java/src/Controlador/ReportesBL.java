@@ -9,19 +9,28 @@ import AccesoDatos.*;
 import Modelo.PersonaJuridica;
 import Modelo.PersonaNatural;
 import Modelo.Proveedor;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import org.apache.commons.collections4.*;
+import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormat;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFColor;
+//import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
@@ -32,9 +41,80 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ReportesBL {   
     
     private ReportesDA accesoDatos;
+    private Map<String, CellStyle> cellStyles;
     
     public ReportesBL(){
         accesoDatos = new ReportesDA();
+        
+    }
+    
+    public void setCellStyles(Workbook workbook){
+        cellStyles = new HashMap<String, CellStyle>();
+        
+        DataFormat dataFormat = workbook.createDataFormat();
+
+        CellStyle cellStyle;
+        //XSSFFont font;
+
+        cellStyle =  workbook.createCellStyle();
+        cellStyle.setFillPattern(FillPatternType.FINE_DOTS);
+        cellStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+        cellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+        cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);   
+        cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+        cellStyle.setBorderTop(BorderStyle.MEDIUM);
+        cellStyle.setBorderRight(BorderStyle.MEDIUM);
+        cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+        
+//        font = workbook.createFont();
+//        font.setFontHeightInPoints((short)16);
+//        font.setFontName("Calibri");                                            
+//        cellStyle.setFont(font);
+        cellStyles.put("header_cell_style", cellStyle);
+
+        cellStyle = workbook.createCellStyle(); 
+        cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);
+        cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+        cellStyle.setBorderTop(BorderStyle.MEDIUM);
+        cellStyle.setBorderRight(BorderStyle.MEDIUM);
+        cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+        
+//        font = workbook.createFont();
+//        font.setFontHeightInPoints((short)12);
+//        font.setFontName("Calibri");                   
+//        cellStyle.setFont(font);
+        cellStyles.put("normal_cell_style", cellStyle);
+
+        cellStyle = workbook.createCellStyle();
+        cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);       
+        cellStyle.setDataFormat(dataFormat.getFormat("dd-mmm-yyyy"));
+        cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+        cellStyle.setBorderTop(BorderStyle.MEDIUM);
+        cellStyle.setBorderRight(BorderStyle.MEDIUM);
+        cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+//        font = workbook.createFont();
+//        font.setFontHeightInPoints((short)12);
+//        font.setFontName("Calibri");                   
+//        cellStyle.setFont(font);
+        cellStyles.put("date_cell_style", cellStyle);
+
+        cellStyle = workbook.createCellStyle();
+        cellStyle.setFillPattern(FillPatternType.FINE_DOTS);
+        cellStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+        cellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+        cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);       
+        cellStyle.setDataFormat(dataFormat.getFormat("dd-mmm-yyyy"));
+        cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+        cellStyle.setBorderTop(BorderStyle.MEDIUM);
+        cellStyle.setBorderRight(BorderStyle.MEDIUM);
+        cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+//        font = workbook.createFont();
+//        font.setFontHeightInPoints((short)16);
+//        font.setFontName("Calibri");                   
+//        cellStyle.setFont(font);
+        cellStyles.put("header_date_cell_style", cellStyle);
+        
+        
     }
     
     public int reporteVentasTotales(PersonaNatural natural,PersonaJuridica juridica){
@@ -66,28 +146,37 @@ public class ReportesBL {
             short rowNum = 0;
             short colNum = 0;
             
+            setCellStyles(wb);
+            
             row = sheet.createRow(rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Cliente:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(nombre);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
         
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue(documento);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Email:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(email);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Telefono:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(telef);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             String pedidoAnterior = "";
             rowNum++;
             boolean primero = true;
@@ -102,8 +191,10 @@ public class ReportesBL {
                         row = sheet.createRow(rowNum);
                         cell = row.createCell((short)8);
                         cell.setCellValue("Total:");
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
                         cell = row.createCell((short)9);
                         cell.setCellValue(String.valueOf(totalPedido));
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
                         total += totalPedido;
                         totalPedido = 0;
                     }else{
@@ -115,33 +206,44 @@ public class ReportesBL {
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
                     cell.setCellValue("Pedido "+(String)col.get(0));
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     pedidoAnterior = (String)col.get(0);
                     rowNum++;
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
                     cell.setCellValue("Id Pedido");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)2);
                     cell.setCellValue("Id Producto");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)3);
                     cell.setCellValue("Nombre");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)4);
                     cell.setCellValue("Descripcion");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)5);
                     cell.setCellValue("Color");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)6);
                     cell.setCellValue("Precio Unitario");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)7);
                     cell.setCellValue("Talla");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)8);
                     cell.setCellValue("Cant Producto");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)9);
                     cell.setCellValue("Importe (S/.)");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                 }
                 rowNum++;
                 row = sheet.createRow(rowNum);
                 for(int j=0; j<col.size();j++){
                     cell = row.createCell((short) j+1);
                     cell.setCellValue((String)col.get(j));
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
                     if(j == col.size()-1){
                         totalPedido += Float.parseFloat((String)col.get(j));
                     }
@@ -151,22 +253,42 @@ public class ReportesBL {
             row = sheet.createRow(rowNum);
             cell = row.createCell((short)8);
             cell.setCellValue("Total:");
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
             cell = row.createCell((short)9);
             cell.setCellValue(String.valueOf(totalPedido));
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
             total += totalPedido;
             totalPedido = 0;
             rowNum++;rowNum++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(1);
             cell.setCellValue("Importe Total por Cliente:");
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
             cell = row.createCell(2);
             cell.setCellValue(String.valueOf(total));
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
-            String path = new File("").getAbsolutePath();
-            System.out.println(path);
+            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
             
-            FileOutputStream fileOut = new FileOutputStream(path+"\\ReporteDeVentasCliente-"+id+".xlsx");
-            wb.write(fileOut);
+            
+            JFileChooser fileChooser = new JFileChooser();
+            if (fileChooser.showSaveDialog(null)== JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                
+                String path = fileChooser.getSelectedFile().getName();
+                String dir = fileChooser.getCurrentDirectory().toString();
+                //String path = new File("").getAbsolutePath();
+                
+                String realpath = dir+"\\"+path+".xlsx";
+                System.out.println(realpath);
+
+                FileOutputStream fileOut = new FileOutputStream(realpath);
+                wb.write(fileOut);
+            }else{ 
+                String path = "No se escogio un directorio valido";
+                System.out.println(path);
+            }
+           
             
         }catch (Exception ex) {
             ex.printStackTrace();
@@ -293,11 +415,24 @@ public class ReportesBL {
             cell = row.createCell(2);
             cell.setCellValue(String.valueOf(total));
             
-            String path = new File("").getAbsolutePath();
-            System.out.println(path);
-            
-            FileOutputStream fileOut = new FileOutputStream(path+"\\ReporteDeComprasProveedor-"+id+".xlsx");
-            wb.write(fileOut);
+            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
+            JFileChooser fileChooser = new JFileChooser();
+            if (fileChooser.showSaveDialog(null)== JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                
+                String path = fileChooser.getSelectedFile().getName();
+                String dir = fileChooser.getCurrentDirectory().toString();
+                //String path = new File("").getAbsolutePath();
+                
+                String realpath = dir+"\\"+path+".xlsx";
+                System.out.println(realpath);
+
+                FileOutputStream fileOut = new FileOutputStream(realpath);
+                wb.write(fileOut);
+            }else{ 
+                String path = "No se escogio un directorio valido";
+                System.out.println(path);
+            }
             
         }catch (Exception ex) {
             System.out.println(ex.getMessage().toString());
@@ -344,12 +479,25 @@ public class ReportesBL {
                 }
                 rowNum++;
             } 
+            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
             
-            String path = new File("").getAbsolutePath();
-            System.out.println(path);
-            
-            FileOutputStream fileOut = new FileOutputStream(path+"\\ReporteDeClientes.xlsx");
-            wb.write(fileOut);
+            JFileChooser fileChooser = new JFileChooser();
+            if (fileChooser.showSaveDialog(null)== JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                
+                String path = fileChooser.getSelectedFile().getName();
+                String dir = fileChooser.getCurrentDirectory().toString();
+                //String path = new File("").getAbsolutePath();
+                
+                String realpath = dir+"\\"+path+".xlsx";
+                System.out.println(realpath);
+
+                FileOutputStream fileOut = new FileOutputStream(realpath);
+                wb.write(fileOut);
+            }else{ 
+                String path = "No se escogio un directorio valido";
+                System.out.println(path);
+            }
             
         }catch (Exception ex) {
             System.out.println(ex.getMessage().toString());
@@ -398,6 +546,7 @@ public class ReportesBL {
                 }
                 rowNum++;
             } 
+            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
             
             listaDatos = accesoDatos.listaInsumos();
             
@@ -432,12 +581,24 @@ public class ReportesBL {
                 }
                 rowNum++;
             } 
-            
-            String path = new File("").getAbsolutePath();
-            System.out.println(path);
-            
-            FileOutputStream fileOut = new FileOutputStream(path+"\\ReporteDeProductosEInsumos.xlsx");
-            wb.write(fileOut);
+            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
+            JFileChooser fileChooser = new JFileChooser();
+            if (fileChooser.showSaveDialog(null)== JFileChooser.APPROVE_OPTION) {
+                File file = fileChooser.getSelectedFile();
+                
+                String path = fileChooser.getSelectedFile().getName();
+                String dir = fileChooser.getCurrentDirectory().toString();
+                //String path = new File("").getAbsolutePath();
+                
+                String realpath = dir+"\\"+path+".xlsx";
+                System.out.println(realpath);
+
+                FileOutputStream fileOut = new FileOutputStream(realpath);
+                wb.write(fileOut);
+            }else{ 
+                String path = "No se escogio un directorio valido";
+                System.out.println(path);
+            }
             
         }catch (Exception ex) {
             System.out.println(ex.getMessage().toString());
