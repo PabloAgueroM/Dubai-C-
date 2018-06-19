@@ -165,7 +165,6 @@ namespace Vista
 
             if (radioButton1.Checked == false && radioButton2.Checked == false) return 3;
             if (comboBox4.SelectedIndex < 0) return 4;
-            if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 25550) return 5;
             if (textBox4.Text != textBox5.Text) return 6;
             
             return 0;
@@ -192,7 +191,6 @@ namespace Vista
                 else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 3) MessageBox.Show("Falta seleccionar el sexo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 4) MessageBox.Show("Falta seleccionar el tipo de usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (datosValidos == 5) MessageBox.Show("Revisar la fecha de nacimiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 6) MessageBox.Show("Las contraseñas no coinciden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
