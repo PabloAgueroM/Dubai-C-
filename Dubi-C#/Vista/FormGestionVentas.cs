@@ -16,6 +16,8 @@ namespace Vista
         public FormGestionVentas(string id)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             idActual = id;
         }
 

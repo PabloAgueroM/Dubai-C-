@@ -405,7 +405,7 @@ public class GestionReportes extends javax.swing.JFrame {
                 .addGroup(comprasTotalesLayout.createSequentialGroup()
                     .addGap(66, 66, 66)
                     .addComponent(jLabel18)
-                    .addContainerGap(51, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         comprasTotalesLayout.setVerticalGroup(
             comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,7 +578,7 @@ public class GestionReportes extends javax.swing.JFrame {
             .addGroup(ventasTotalesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Explicacion4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

@@ -136,6 +136,11 @@ public class BuscarProveedor extends javax.swing.JDialog {
 
     private void BtnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeleccionarActionPerformed
         int index = tblProveedores.getSelectedRow();
+        
+        if (tblProveedores.getRowSorter()!=null) {
+            index = tblProveedores.getRowSorter().convertRowIndexToModel(index);
+        }
+        
         proveedorSeleccionado = (Proveedor) lista.get(index);
         this.dispose();
     }//GEN-LAST:event_BtnSeleccionarActionPerformed
@@ -143,6 +148,9 @@ public class BuscarProveedor extends javax.swing.JDialog {
     public void filtrar(){
         int columnaABuscar = 0;
         
+        if(cboFiltro.getSelectedItem() == "Seleccionar"){
+            columnaABuscar = -1;
+        }
         if(cboFiltro.getSelectedItem() == "ID"){
             columnaABuscar = 0;
         }
@@ -152,8 +160,9 @@ public class BuscarProveedor extends javax.swing.JDialog {
         if(cboFiltro.getSelectedItem() == "RUC"){
             columnaABuscar = 2;
         }
-        tbrFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
-        
+        if(columnaABuscar != -1){
+            tbrFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+        }
     }
     
     

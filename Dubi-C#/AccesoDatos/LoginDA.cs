@@ -76,5 +76,30 @@ namespace AccesoDatos
             }
             else { return -1; }
         }
+
+        public int ObtenerNivelUsuario(string id)
+        {
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("SELECT TIPO_USUARIO FROM USUARIO WHERE ID_USUARIO = '{0}' AND ACTIVO=1", id);
+                comando.Connection = conexion.Connection;
+                try
+                {
+                    MySqlDataReader reader =  comando.ExecuteReader();
+                    int nivel = 0;
+                    if (reader.Read()) nivel = reader.GetInt32("TIPO_USUARIO");
+                    conexion.Close();
+                    return nivel;
+                }
+                catch (Exception)
+                {
+                    conexion.Close();
+                    return 0;
+                }
+            }
+            else { return -1; }
+        }
     }
 }

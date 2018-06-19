@@ -23,9 +23,12 @@ namespace Vista
         private int guardar = 0;
         private string idActual;
         private PedidoBL logicaNegocio;
+
         public FormGestionPedido(string idActual)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new PedidoBL();
             pedido = new Pedido();
             detalles = new BindingList<DetallePedido>();
@@ -35,7 +38,9 @@ namespace Vista
             comboBox1.SelectedIndex = 0;
             estadoBotones(0);
             dateTimePicker1.MinDate = DateTime.Now;
+            dateTimePicker1.MaxDate = DateTime.Now.AddYears(+2);
         }
+
         private void estadoBotones(int n)
         {
             switch (n)
@@ -57,7 +62,6 @@ namespace Vista
                     textBox8.Enabled = false;
                     textBox2.Enabled = false;
                     textBox9.Enabled = false;
-                    checkBox1.Enabled = false;
                     dateTimePicker1.Enabled = false;
                     
                     textBox3.Text = "";
@@ -80,7 +84,6 @@ namespace Vista
                     button10.Enabled = true;
                     textBox8.Enabled = true;
                     textBox2.Enabled = true;
-                    checkBox1.Enabled = true;
                     comboBox1.Enabled = true;
                     button8.Enabled = true;
                     button7.Enabled = true;
@@ -161,10 +164,11 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox5.Text == "")
+            if (String.IsNullOrEmpty(textBox5.Text))
             { MessageBox.Show("Debe seleccionar un producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
-            if (String.IsNullOrWhiteSpace(textBox8.Text)) { MessageBox.Show("Debe seleccionar una cantidad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            if (String.IsNullOrWhiteSpace(textBox8.Text)) { MessageBox.Show("Debe ingresar una cantidad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             if (textBox8.ForeColor == Color.Red) { MessageBox.Show("Cantidad invalida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            if (Convert.ToInt32(textBox8.Text) == 0) { MessageBox.Show("Cantidad debe ser mayor a cero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             DetallePedido d = new DetallePedido();
             d.Producto = this.productoSeleccionado;
             d.Cantidad = Convert.ToInt32(textBox8.Text);
@@ -173,8 +177,7 @@ namespace Vista
             this.estadoBotones(2);
             total = total + d.Subtotal;
             textBox9.Text = total.ToString();
-
-            //var itemToRemove = detalles.ToList();
+            
             foreach (DetallePedido de in detalles)
             {
                 if (d.Producto.Id == de.Producto.Id) {
@@ -203,11 +206,15 @@ namespace Vista
             }
         }
         private int validarDatosPedido() {
-            if (textBox3.ForeColor == Color.Red || textBox2.ForeColor == Color.Red)
-                return 1;
-
-            if (String.IsNullOrWhiteSpace(textBox3.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
+            if (String.IsNullOrWhiteSpace(textBox3.Text))
                 return 2;
+            if (total == 0)
+                return 5;
+
+            if (String.IsNullOrWhiteSpace(textBox2.Text))
+                return 4;            
+            if (textBox3.ForeColor == Color.Red || textBox2.ForeColor == Color.Red)
+                return 1;            
 
             if (int.Parse(textBox2.Text) > int.Parse(textBox9.Text))
                 return 3;
@@ -222,9 +229,10 @@ namespace Vista
             if (datosValidos > 0)
             {
                 if (datosValidos == 1) MessageBox.Show("Corregir los campos con letra roja", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (datosValidos == 2) MessageBox.Show("Faltan llenar campos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 2) MessageBox.Show("Debe seleccionar un cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 4) MessageBox.Show("Debe ingresar un monto a cuenta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (datosValidos == 3) MessageBox.Show("Cuenta mayor a total", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (datosValidos == 5) MessageBox.Show("Revisar la fecha estimada de entrega", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (datosValidos == 5) MessageBox.Show("Debe registrar detalles del pedido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (guardar == 1) {
@@ -235,13 +243,12 @@ namespace Vista
                 pedido.Cuenta = Convert.ToSingle(textBox2.Text);
                 pedido.Saldo = pedido.ImporteTotal - pedido.Cuenta;
                 pedido.IdUsuario = idActual;
-                if (checkBox1.Checked == true) pedido.Igv = true;
-                else pedido.Igv = false;
+                pedido.Igv = true;
 
                 
 
                 pedido.IdPedido = logicaNegocio.registrarPedido(pedido, detalles).ToString();
-                MessageBox.Show("Pedido registrado correctamente");
+                MessageBox.Show("Pedido registrado correctamente\nID del Pedido: "+ pedido.IdPedido);
 
                 estadoBotones(1);
 
@@ -255,8 +262,7 @@ namespace Vista
                 pedido.Cuenta = Convert.ToSingle(textBox2.Text);
                 pedido.Saldo = pedido.ImporteTotal - pedido.Cuenta;
                 pedido.IdUsuario = idActual;
-                if (checkBox1.Checked == true) pedido.Igv = true;
-                else pedido.Igv = false;
+                pedido.Igv = true;
 
 
                 logicaNegocio.actualizarPedido(pedido, detalles);
@@ -317,7 +323,6 @@ namespace Vista
                 total = buscar.PedidoSeleccionado.ImporteTotal;
                 textBox9.Text = buscar.PedidoSeleccionado.ImporteTotal.ToString();
                 textBox2.Text = buscar.PedidoSeleccionado.Cuenta.ToString();
-                if (buscar.PedidoSeleccionado.Igv == true) checkBox1.Checked = true;
                 dateTimePicker1.Value = buscar.PedidoSeleccionado.FechaEntrega;
                 total = (float)Convert.ToDecimal(textBox9.Text);
 
@@ -347,5 +352,11 @@ namespace Vista
                 }
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

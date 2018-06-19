@@ -7,10 +7,40 @@ namespace Vista
     public partial class FormMain : Form
     {
         private string idActual;
-        public FormMain(string id)
+        public FormMain(string id, int nivel)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             idActual = id;
+            estadoBotones(nivel);
+            //revisarInsumos();
+        }
+
+        //private void revisarInsumos()
+        //{
+
+        //}
+
+        private void estadoBotones(int nivel)
+        {
+            if(nivel == 4)
+            {
+                button3.Enabled = false;
+                button5.Enabled = false;
+                button7.Enabled = false;
+            }
+            else if (nivel == 3)
+            {
+                button3.Enabled = false;
+                button5.Enabled = false;
+            }
+            else if (nivel == 2)
+            {
+                button1.Enabled = false;
+                button5.Enabled = false;
+                button7.Enabled = false;
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)

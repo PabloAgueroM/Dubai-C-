@@ -22,6 +22,8 @@ namespace Vista
         public FormBuscarPersonaNatural()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new ClienteBL();
             comboBox1.SelectedIndex = 0;
             dataGridView1.AutoGenerateColumns = false;

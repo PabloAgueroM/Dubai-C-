@@ -15,12 +15,18 @@ namespace Vista
     {
         private Pedido pedidoSeleccionado;
         private PedidoBL logicaNegocio;
+        private BindingList<Pedido> pedidos = new BindingList<Pedido>();
         public FormBuscarPedido()
         {
             InitializeComponent();
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new PedidoBL();
+            comboBox1.SelectedIndex = 0;
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = logicaNegocio.listarPedidos();
+            pedidos = logicaNegocio.listarPedidos();
+            dataGridView1.DataSource = pedidos;
         }
 
         public Pedido PedidoSeleccionado { get => pedidoSeleccionado; set => pedidoSeleccionado = value; }
@@ -36,13 +42,6 @@ namespace Vista
             DialogResult = DialogResult.OK;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (String.IsNullOrEmpty(textBox1.Text)) dataGridView1.DataSource = logicaNegocio.listarPedidos();
-            else dataGridView1.DataSource = logicaNegocio.filtrarPedidos(textBox1.Text);
-            dataGridView1.Update();
-            dataGridView1.Refresh();
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -66,6 +65,44 @@ namespace Vista
                 pedidoBL.avanzarPedido(PedidoSeleccionado.IdPedido);
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0) return;
+
+            BindingList<Pedido> filtro = new BindingList<Pedido>();
+
+            if (comboBox1.SelectedIndex == 1)
+            {
+                foreach (Pedido u in pedidos)
+                    if (u.IdPedido.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                foreach (Pedido u in pedidos)
+                    if (u.IdCliente.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            dataGridView1.DataSource = filtro;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0) return;
+
+            BindingList<Pedido> filtro = new BindingList<Pedido>();
+
+            if (comboBox1.SelectedIndex == 1)
+            {
+                foreach (Pedido u in pedidos)
+                    if (u.IdPedido.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                foreach (Pedido u in pedidos)
+                    if (u.IdCliente.Contains(textBox1.Text.ToUpper())) filtro.Add(u);
+            }
+            dataGridView1.DataSource = filtro;
         }
     }
 }

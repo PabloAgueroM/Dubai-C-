@@ -16,10 +16,11 @@ namespace Vista
     {
         private ClienteBL logicaNegocio;
         private BindingList<Persona> listaClientes = new BindingList<Persona>();
-        private verificador v = new verificador();
         public FormGestionClientes()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new ClienteBL();
             panel1.Visible = false;
             panel2.Visible = false;

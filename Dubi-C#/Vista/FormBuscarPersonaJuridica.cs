@@ -21,6 +21,8 @@ namespace Vista
         public FormBuscarPersonaJuridica()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new ClienteBL();
             comboBox1.SelectedIndex = 0;
             dataGridView1.AutoGenerateColumns = false;

@@ -18,6 +18,8 @@ namespace Vista
         public FormMostrarUsuarios()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
 
             UsuarioBL userBL = new UsuarioBL();
             usuarios = userBL.listarUsuarios();

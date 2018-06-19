@@ -71,7 +71,6 @@
     <Compile Include="TipoProductoG.cs" />
     <Compile Include="UnidadDeMedida.cs" />
     <Compile Include="Usuario.cs" />
-    <Compile Include="verificador.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
