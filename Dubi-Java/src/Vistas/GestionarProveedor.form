@@ -23,8 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jToolBar1" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-          <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jToolBar1" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -230,7 +238,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
+                <Property name="text" type="java.lang.String" value="Tel&#xe9;fono Celular:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtNombreRep">
@@ -238,7 +246,7 @@
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtNombreRepKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtNombreRepKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtApellidoPRep">
@@ -246,7 +254,7 @@
                 <Property name="text" type="java.lang.String" value="jTextField2"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtApellidoPRepKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtApellidoPRepKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtApellidoMRep">
@@ -254,7 +262,7 @@
                 <Property name="text" type="java.lang.String" value="jTextField3"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtApellidoMRepKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtApellidoMRepKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtDNIRep">
@@ -262,7 +270,7 @@
                 <Property name="text" type="java.lang.String" value="jTextField4"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtDNIRepKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtDNIRepKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TxtTelefonoRep">
@@ -270,7 +278,7 @@
                 <Property name="text" type="java.lang.String" value="jTextField5"/>
               </Properties>
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefonoRepKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefonoRepKeyReleased"/>
               </Events>
             </Component>
           </SubComponents>
@@ -320,7 +328,7 @@
             <Property name="text" type="java.lang.String" value="jTextField3"/>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtRUCKeyTyped"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtRUCKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtTelefono">
@@ -328,7 +336,7 @@
             <Property name="text" type="java.lang.String" value="jTextField5"/>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefonoKeyTyped"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtTelefonoKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="TxtEmail">
@@ -336,7 +344,7 @@
             <Property name="text" type="java.lang.String" value="jTextField6"/>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtEmailKeyTyped"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TxtEmailKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="CbDia">
