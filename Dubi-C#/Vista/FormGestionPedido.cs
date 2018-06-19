@@ -35,6 +35,7 @@ namespace Vista
             comboBox1.SelectedIndex = 0;
             estadoBotones(0);
             dateTimePicker1.MinDate = DateTime.Now;
+            dateTimePicker1.MaxDate = DateTime.Now.AddYears(+2);
         }
         private void estadoBotones(int n)
         {
