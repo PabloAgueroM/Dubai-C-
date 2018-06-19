@@ -26,6 +26,9 @@ namespace Clases
             this.subtotal = subtotal;
         }
 
+
+        public string Talla { get => Producto.Talla.ToString(); set => Producto.Talla.ToString(); }
+        public string PrecioProducto { get => Producto.Precio.ToString(); set => Producto.Precio.ToString(); }
         public string NombreProducto { get => Producto.Nombre; set => Producto.Nombre = value; }
         public string IdProducto { get => Producto.Id; set => Producto.Id = value; }
         public Producto Producto { get => producto; set => producto = value; }
