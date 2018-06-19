@@ -206,44 +206,44 @@ public class ReportesBL {
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
                     cell.setCellValue("Pedido "+(String)col.get(0));
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     pedidoAnterior = (String)col.get(0);
                     rowNum++;
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
                     cell.setCellValue("Id Pedido");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)2);
                     cell.setCellValue("Id Producto");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)3);
                     cell.setCellValue("Nombre");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)4);
                     cell.setCellValue("Descripcion");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)5);
                     cell.setCellValue("Color");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)6);
                     cell.setCellValue("Precio Unitario");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)7);
                     cell.setCellValue("Talla");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)8);
                     cell.setCellValue("Cant Producto");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)9);
                     cell.setCellValue("Importe (S/.)");
-                        cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                 }
                 rowNum++;
                 row = sheet.createRow(rowNum);
                 for(int j=0; j<col.size();j++){
                     cell = row.createCell((short) j+1);
                     cell.setCellValue((String)col.get(j));
-                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
                     if(j == col.size()-1){
                         totalPedido += Float.parseFloat((String)col.get(j));
                     }
@@ -253,20 +253,20 @@ public class ReportesBL {
             row = sheet.createRow(rowNum);
             cell = row.createCell((short)8);
             cell.setCellValue("Total:");
-                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             cell = row.createCell((short)9);
             cell.setCellValue(String.valueOf(totalPedido));
-                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             total += totalPedido;
             totalPedido = 0;
             rowNum++;rowNum++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(1);
             cell.setCellValue("Importe Total por Cliente:");
-                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell(2);
             cell.setCellValue(String.valueOf(total));
-                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
             for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
             
@@ -287,6 +287,7 @@ public class ReportesBL {
             }else{ 
                 String path = "No se escogio un directorio valido";
                 System.out.println(path);
+                return 0;
             }
            
             
@@ -317,30 +318,40 @@ public class ReportesBL {
             short rowNum = 0;
             short colNum = 0;
             
+            setCellStyles(wb);
+            
             row = sheet.createRow(rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Proveedor:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(nombre);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
         
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("RUC:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(documento);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Email:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(email);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Telefono:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(telef);
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             String pedidoAnterior = "";
             rowNum++;
             boolean primero = true;
@@ -355,8 +366,10 @@ public class ReportesBL {
                         row = sheet.createRow(rowNum);
                         cell = row.createCell((short)8);
                         cell.setCellValue("Total:");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                         cell = row.createCell((short)9);
                         cell.setCellValue(String.valueOf(totalPedido));
+                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
                         total += totalPedido;
                         totalPedido = 0;
                     }else{
@@ -368,33 +381,44 @@ public class ReportesBL {
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
                     cell.setCellValue("Compra "+(String)col.get(0));
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     pedidoAnterior = (String)col.get(0);
                     rowNum++;
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
                     cell.setCellValue("Id Pedido");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)2);
                     cell.setCellValue("Id Insumo");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)3);
                     cell.setCellValue("Nombre");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)4);
                     cell.setCellValue("Descripcion");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)5);
                     cell.setCellValue("Color");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)6);
                     cell.setCellValue("Precio Unitario");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)7);
                     cell.setCellValue("Stock Minimo");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)8);
                     cell.setCellValue("Cant Insumo");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                     cell = row.createCell((short)9);
                     cell.setCellValue("Cuenta (S/.)");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
                 }
                 rowNum++;
                 row = sheet.createRow(rowNum);
                 for(int j=0; j<col.size();j++){
                     cell = row.createCell((short) j+1);
                     cell.setCellValue((String)col.get(j));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
                     if(j == col.size()-1){
                         totalPedido += Float.parseFloat((String)col.get(j));
                     }
@@ -404,16 +428,20 @@ public class ReportesBL {
             row = sheet.createRow(rowNum);
             cell = row.createCell((short)8);
             cell.setCellValue("Total:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)9);
             cell.setCellValue(String.valueOf(totalPedido));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             total += totalPedido;
             totalPedido = 0;
             rowNum++;rowNum++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(1);
             cell.setCellValue("Cuenta Total por Proveedor:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell(2);
             cell.setCellValue(String.valueOf(total));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
             for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
             JFileChooser fileChooser = new JFileChooser();
@@ -432,6 +460,7 @@ public class ReportesBL {
             }else{ 
                 String path = "No se escogio un directorio valido";
                 System.out.println(path);
+                return 0;
             }
             
         }catch (Exception ex) {
@@ -451,23 +480,31 @@ public class ReportesBL {
             Cell cell;
             short rowNum = 0;
             
+            setCellStyles(wb);
+            
             row = sheet.createRow(rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Reporte de Clientes");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Id Cliente");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue("Nombre");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)3);
             cell.setCellValue("Email");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)4);
             cell.setCellValue("Telefono");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)5);
             cell.setCellValue("Importe Total");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             rowNum++;
             for(int i = 0; i<listaDatos.size(); i++){
                 row = sheet.createRow((short) i+rowNum);
@@ -476,6 +513,7 @@ public class ReportesBL {
                 for(int j=0; j<col.size();j++){
                     cell = row.createCell((short) j+1);
                     cell.setCellValue((String)col.get(j));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
                 }
                 rowNum++;
             } 
@@ -497,6 +535,7 @@ public class ReportesBL {
             }else{ 
                 String path = "No se escogio un directorio valido";
                 System.out.println(path);
+                return 0;
             }
             
         }catch (Exception ex) {
@@ -516,25 +555,34 @@ public class ReportesBL {
             Cell cell;
             short rowNum = 0;
             
+            setCellStyles(wb);
+            
             row = sheet.createRow(rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Productos Más Vendidos");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Id Producto");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue("Nombre");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)3);
             cell.setCellValue("Descripcion");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)4);
             cell.setCellValue("Color");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)5);
             cell.setCellValue("Talla");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)6);
             cell.setCellValue("Importe Total");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             rowNum++;
             for(int i = 0; i<listaDatos.size(); i++){
                 row = sheet.createRow((short) i+rowNum);
@@ -543,6 +591,7 @@ public class ReportesBL {
                 for(int j=0; j<col.size();j++){
                     cell = row.createCell((short) j+1);
                     cell.setCellValue((String)col.get(j));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
                 }
                 rowNum++;
             } 
@@ -557,19 +606,25 @@ public class ReportesBL {
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Insumos Más Comprados");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Id Insumo");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue("Nombre");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)3);
             cell.setCellValue("Descripcion");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)4);
             cell.setCellValue("Color");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)5);
             cell.setCellValue("Importe Total");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
             rowNum++;
             for(int i = 0; i<listaDatos.size(); i++){
                 row = sheet.createRow((short) i+rowNum);
@@ -578,6 +633,7 @@ public class ReportesBL {
                 for(int j=0; j<col.size();j++){
                     cell = row.createCell((short) j+1);
                     cell.setCellValue((String)col.get(j));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
                 }
                 rowNum++;
             } 
@@ -598,6 +654,7 @@ public class ReportesBL {
             }else{ 
                 String path = "No se escogio un directorio valido";
                 System.out.println(path);
+                return 0;
             }
             
         }catch (Exception ex) {
