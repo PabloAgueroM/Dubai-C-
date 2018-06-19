@@ -17,7 +17,7 @@ import javax.swing.JPanel;
  * @author Katherine Espinoza 20122127
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+    private JPanel btn;
     /**
      * Creates new form VentanaPrincipal
      *
@@ -517,8 +517,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         resetColor(btnSalir);
     }
     private void btnProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductoMouseClicked
+        btn=btnProducto;
+        setSelect(btn);
         resetBotones();
-        setColor(btnProducto);
         GestionarProducto frm;
         menuActivo.removeAll();
         try {
@@ -535,6 +536,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductoMouseClicked
 
     private void btnInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsumoMouseClicked
+        btn=btnInsumo;
+        setSelect(btn);
         resetBotones();
         setColor(btnInsumo);
         GestionInsumo frmIns;
@@ -552,8 +555,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsumoMouseClicked
 
     private void btnProveedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseClicked
+        btn=btnProveedor;
+        setSelect(btn);
         resetBotones();
-        setColor(btnProveedor);
         GestionarProveedor frmProv;
         menuActivo.removeAll();
         try {
@@ -569,8 +573,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProveedorMouseClicked
 
     private void btnReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseClicked
+        btn=btnReporte;
+        setSelect(btn);
         resetBotones();
-        setColor(btnReporte);
         GestionReportes frm;
         menuActivo.removeAll();
         try {
@@ -586,15 +591,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteMouseClicked
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        btn=btnSalir;
+        setSelect(btn);
         LoginDA cerrar = new LoginDA();
         cerrar.cerrarSesion(usuarioActual);
         System.exit(0);
     }//GEN-LAST:event_btnSalirMouseClicked
 
     private void btnPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPedidoMouseClicked
-        // TODO add your handling code here: 
+        btn=btnPedido;
+        setSelect(btn);
         resetBotones();
-        setColor(btnPedido);
         GestionarPedido frm;
         menuActivo.removeAll();
         try {
@@ -610,9 +617,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPedidoMouseClicked
 
     private void btnClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseClicked
-        // TODO add your handling code here:
+        btn=btnCliente;
+        setSelect(btn);
         resetBotones();
-        setColor(btnCliente);
         menuActivo.removeAll();
         GestionarPedido form = new GestionarPedido();
         menuActivo.add(form.getContentPane());
@@ -623,6 +630,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClienteMouseClicked
 
     private void btnUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioMouseClicked
+        btn=btnUsuario;
+        setSelect(btn);
         resetBotones();
         menuActivo.removeAll();
         //Intento de mantener todo en una misma ventana
@@ -646,7 +655,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_titleBarMousePressed
 
     private void btnPedidoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPedidoMouseMoved
-        btnPedido.setBackground(new Color(180, 65, 65));
+        setColor(btnPedido);
     }//GEN-LAST:event_btnPedidoMouseMoved
 
     private void btnPedidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPedidoMouseExited
@@ -654,7 +663,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPedidoMouseExited
 
     private void btnUsuarioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioMouseMoved
-        btnUsuario.setBackground(new Color(180, 65, 65));
+        setColor(btnUsuario);
     }//GEN-LAST:event_btnUsuarioMouseMoved
 
     private void btnUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUsuarioMouseExited
@@ -662,7 +671,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUsuarioMouseExited
 
     private void btnProductoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductoMouseMoved
-        btnProducto.setBackground(new Color(180, 65, 65));
+        setColor(btnProducto);
     }//GEN-LAST:event_btnProductoMouseMoved
 
     private void btnProductoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProductoMouseExited
@@ -670,7 +679,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProductoMouseExited
 
     private void btnInsumoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsumoMouseMoved
-        btnInsumo.setBackground(new Color(180, 65, 65));
+        setColor(btnInsumo);
     }//GEN-LAST:event_btnInsumoMouseMoved
 
     private void btnInsumoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsumoMouseExited
@@ -678,7 +687,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInsumoMouseExited
 
     private void btnProveedorMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseMoved
-        btnProveedor.setBackground(new Color(180, 65, 65));
+        setColor(btnProveedor);
     }//GEN-LAST:event_btnProveedorMouseMoved
 
     private void btnProveedorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProveedorMouseExited
@@ -686,7 +695,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnProveedorMouseExited
 
     private void btnReporteMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseMoved
-        btnReporte.setBackground(new Color(180, 65, 65));
+        setColor(btnReporte);
     }//GEN-LAST:event_btnReporteMouseMoved
 
     private void btnReporteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReporteMouseExited
@@ -694,7 +703,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReporteMouseExited
 
     private void btnClienteMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseMoved
-        btnCliente.setBackground(new Color(180, 65, 65));
+        setColor(btnCliente);
     }//GEN-LAST:event_btnClienteMouseMoved
 
     private void btnClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClienteMouseExited
@@ -702,7 +711,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClienteMouseExited
 
     private void btnSalirMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseMoved
-        btnSalir.setBackground(new Color(180, 65, 65));
+        setColor(btnSalir);
     }//GEN-LAST:event_btnSalirMouseMoved
 
     private void btnSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseExited
@@ -712,10 +721,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     int xy;
 
     void setColor(JPanel p) {
-        p.setBackground(new Color(65, 65, 65));
+        if (btn!=p)
+            p.setBackground(new Color(65, 65, 65));
     }
-
+    void setSelect(JPanel p) {
+        p.setBackground(new Color(180, 30, 30));
+    }
     void resetColor(JPanel p) {
+        if (btn!=p)
         p.setBackground(new Color(0, 0, 0));
     }
 

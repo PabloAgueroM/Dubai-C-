@@ -37,10 +37,11 @@ public class ProductoDA {
             cs.setInt(10, p.isActivo());
             cs.execute();
             p.setId(cs.getInt(1));
-            
-            for(InsumoxProducto ip: p.getLista())
+
+            for (InsumoxProducto ip : p.getLista()) {
                 agregarInsumoXProducto(p.getId(), ip);
-            
+            }
+
             System.out.println("Registro realizado");
             con.close();
         } catch (Exception e) {
@@ -66,9 +67,9 @@ public class ProductoDA {
                 cs.setInt(9, p.getTipo().getId());
                 cs.setInt(10, p.isActivo());
                 cs.executeUpdate();
-                
-                for(InsumoxProducto ip: p.getLista())
-                agregarInsumoXProducto(p.getId(), ip);
+                if (p.isActivo()==1)
+                    for (InsumoxProducto ip : p.getLista())
+                        agregarInsumoXProducto(p.getId(), ip);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -110,7 +111,7 @@ public class ProductoDA {
                 p.getUnidad().setNombre(cs_u.getString("_NOMBRE"));
                 p.getUnidad().setActivo(cs_u.getInt("_ACTIVO"));
                 //Lista Insumos
-                p.setLista(listarInsumoXProducto(p.getId()));                
+                p.setLista(listarInsumoXProducto(p.getId()));
                 lista.add(p);
             }
             con.close();
@@ -161,7 +162,7 @@ public class ProductoDA {
         }
         return lista;
     }
-    
+
     public void agregarInsumoXProducto(int idProducto, InsumoxProducto ip) {
         try {
             //Registrar el Driver
@@ -179,7 +180,7 @@ public class ProductoDA {
         }
     }
 
-    public void modificarInsumoXProducto(int idProducto,InsumoxProducto ip) {
+    public void modificarInsumoXProducto(int idProducto, InsumoxProducto ip) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
@@ -194,7 +195,8 @@ public class ProductoDA {
             System.out.println(e.getMessage());
         }
     }
-    public void eliminarInsumoXProducto(int idProducto,int idInsumo) {
+
+    public void eliminarInsumoXProducto(int idProducto, int idInsumo) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
@@ -232,4 +234,3 @@ public class ProductoDA {
         return lista;
     }
 }
-
