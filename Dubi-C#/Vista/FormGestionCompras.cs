@@ -15,6 +15,8 @@ namespace Vista
         public FormGestionCompras()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
         }
 
         private void label4_Click(object sender, EventArgs e)

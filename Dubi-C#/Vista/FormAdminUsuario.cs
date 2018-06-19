@@ -17,7 +17,10 @@ namespace Vista
         public FormAdminUsuario()
         {
             InitializeComponent();
-            
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+
         }
 
         private void button2_Click(object sender, EventArgs e)

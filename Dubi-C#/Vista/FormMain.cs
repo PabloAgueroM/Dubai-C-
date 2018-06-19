@@ -10,6 +10,8 @@ namespace Vista
         public FormMain(string id, int nivel)
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             idActual = id;
             estadoBotones(nivel);
             //revisarInsumos();

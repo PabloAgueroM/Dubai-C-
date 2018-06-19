@@ -19,6 +19,8 @@ namespace Vista
         public FormGestionClientes()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new ClienteBL();
             panel1.Visible = false;
             panel2.Visible = false;

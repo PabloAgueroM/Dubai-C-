@@ -18,6 +18,7 @@ namespace Vista
         public FormLogin()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             AcceptButton = button1;
         }
 

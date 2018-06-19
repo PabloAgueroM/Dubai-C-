@@ -15,6 +15,8 @@ namespace Vista
         public FormGestionUsuario()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             estadoBotones(0);
             dateTimePicker1.MaxDate = DateTime.Now.AddYears(-18);
             dateTimePicker1.MinDate = DateTime.Now.AddYears(-80);

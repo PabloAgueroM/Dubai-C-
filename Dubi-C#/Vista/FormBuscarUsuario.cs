@@ -22,7 +22,8 @@ namespace Vista
         public FormBuscarUsuario()
         {
             InitializeComponent();
-
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             comboBox1.SelectedIndex = 0;
             UsuarioBL userBL = new UsuarioBL();
             usuarioSeleccionado = new Usuario();

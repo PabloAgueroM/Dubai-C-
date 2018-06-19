@@ -19,7 +19,10 @@ namespace Vista
         public FormBuscarProducto()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             logicaNegocio = new ProductoBL();
+            comboBox1.SelectedIndex = 0;
             dataGridView1.AutoGenerateColumns = false;
             productos = logicaNegocio.listarProductos();
             dataGridView1.DataSource = productos;
