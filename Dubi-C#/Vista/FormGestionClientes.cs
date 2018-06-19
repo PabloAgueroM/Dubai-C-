@@ -16,7 +16,6 @@ namespace Vista
     {
         private ClienteBL logicaNegocio;
         private BindingList<Persona> listaClientes = new BindingList<Persona>();
-        private verificador v = new verificador();
         public FormGestionClientes()
         {
             InitializeComponent();

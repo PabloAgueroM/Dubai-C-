@@ -38,7 +38,8 @@ namespace Vista
                     Hide();
                     idActual = textBox1.Text;
                     textBox2.Text = null;
-                    FormMain menu = new FormMain(idActual);
+                    int nivelUsuario = login.ObtenerNivelUsuario(idActual);
+                    FormMain menu = new FormMain(idActual, nivelUsuario);
                     menu.Show();
                     menu.Owner = this;
                 }
