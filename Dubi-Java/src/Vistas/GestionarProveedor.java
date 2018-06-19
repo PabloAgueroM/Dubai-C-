@@ -66,7 +66,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 BtnCancelar.setEnabled(false);
                 BtnGuardar.setEnabled(false);
                 BtnEliminar.setEnabled(false);
-                BtnListarProveedor.setEnabled(true);
+                Buscar.setEnabled(true);
                 BtnNuevo.setEnabled(true);
                 
                 flag = 0;
@@ -88,7 +88,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 TxtTelefonoRep.setEnabled(true);
                 BtnCancelar.setEnabled(true);
                 BtnGuardar.setEnabled(true);
-                BtnListarProveedor.setEnabled(true);
+                Buscar.setEnabled(true);
                 BtnNuevo.setEnabled(false);
                 BtnEliminar.setEnabled(false);
                 
@@ -112,7 +112,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 BtnCancelar.setEnabled(false);
                 BtnGuardar.setEnabled(false);
                 BtnEliminar.setEnabled(false);
-                BtnListarProveedor.setEnabled(true);
+                Buscar.setEnabled(true);
                 BtnNuevo.setEnabled(true);
                 
                 flag = 0;
@@ -172,12 +172,12 @@ public class GestionarProveedor extends javax.swing.JFrame {
         CbMes = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         TxtID = new javax.swing.JTextField();
-        BtnListarProveedor = new javax.swing.JButton();
+        BtnGuardar = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         BtnNuevo = new javax.swing.JButton();
-        BtnGuardar = new javax.swing.JButton();
-        BtnCancelar = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
+        BtnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -320,10 +320,10 @@ public class GestionarProveedor extends javax.swing.JFrame {
 
         TxtID.setText("jTextField1");
 
-        BtnListarProveedor.setText("...");
-        BtnListarProveedor.addActionListener(new java.awt.event.ActionListener() {
+        BtnGuardar.setText("Guardar");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnListarProveedorActionPerformed(evt);
+                BtnGuardarActionPerformed(evt);
             }
         });
 
@@ -357,23 +357,22 @@ public class GestionarProveedor extends javax.swing.JFrame {
                                     .addComponent(TxtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtEmail, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtRazonSocial)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(TxtID, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnListarProveedor))))))
+                                    .addComponent(TxtID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(198, 198, 198)
+                        .addComponent(BtnGuardar)))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(13, 13, 13)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(TxtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnListarProveedor))
+                    .addComponent(TxtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -400,9 +399,11 @@ public class GestionarProveedor extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(41, 41, 41)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(272, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(BtnGuardar)
+                .addContainerGap(223, Short.MAX_VALUE))
         );
 
         jToolBar1.setRollover(true);
@@ -415,21 +416,13 @@ public class GestionarProveedor extends javax.swing.JFrame {
         });
         jToolBar1.add(BtnNuevo);
 
-        BtnGuardar.setText("Guardar");
-        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnGuardarActionPerformed(evt);
+                BuscarActionPerformed(evt);
             }
         });
-        jToolBar1.add(BtnGuardar);
-
-        BtnCancelar.setText("Cancelar");
-        BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCancelarActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(BtnCancelar);
+        jToolBar1.add(Buscar);
 
         BtnEliminar.setText("Eliminar");
         BtnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -438,6 +431,14 @@ public class GestionarProveedor extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(BtnEliminar);
+
+        BtnCancelar.setText("Cancelar");
+        BtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCancelarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(BtnCancelar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -532,7 +533,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
         flag = 0;
     }//GEN-LAST:event_BtnCancelarActionPerformed
 
-    private void BtnListarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarProveedorActionPerformed
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         BuscarProveedor frm = new BuscarProveedor(null, true);
         frm.setVisible(true);
         proveedorSeleccionado = frm.getProveedorSeleccionado();
@@ -557,7 +558,7 @@ public class GestionarProveedor extends javax.swing.JFrame {
             BtnEliminar.setEnabled(true);
 
         }
-    }//GEN-LAST:event_BtnListarProveedorActionPerformed
+    }//GEN-LAST:event_BuscarActionPerformed
 
     private void BtnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEliminarActionPerformed
         int dialogButton = JOptionPane.YES_NO_OPTION;
@@ -700,8 +701,8 @@ public class GestionarProveedor extends javax.swing.JFrame {
     private javax.swing.JButton BtnCancelar;
     private javax.swing.JButton BtnEliminar;
     private javax.swing.JButton BtnGuardar;
-    private javax.swing.JButton BtnListarProveedor;
     private javax.swing.JButton BtnNuevo;
+    private javax.swing.JButton Buscar;
     private javax.swing.JComboBox<String> CbDia;
     private javax.swing.JComboBox<String> CbMes;
     private javax.swing.JTextField TxtApellidoMRep;

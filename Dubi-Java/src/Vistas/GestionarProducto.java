@@ -109,12 +109,12 @@ public class GestionarProducto extends javax.swing.JFrame {
         lblDescripcion = new javax.swing.JLabel();
         nombreText = new javax.swing.JTextField();
         guardarBtn = new javax.swing.JButton();
-        CancelarBtn = new javax.swing.JButton();
-        EliminarBtn = new javax.swing.JButton();
-        ModificarBtn = new javax.swing.JButton();
-        BuscarBtn = new javax.swing.JButton();
-        NuevoBtn = new javax.swing.JButton();
         lblPrecioSugerido = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        NuevoBtn = new javax.swing.JButton();
+        BuscarBtn = new javax.swing.JButton();
+        EliminarBtn = new javax.swing.JButton();
+        CancelarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Producto");
@@ -288,45 +288,7 @@ public class GestionarProducto extends javax.swing.JFrame {
             }
         });
 
-        CancelarBtn.setText("Cancelar");
-        CancelarBtn.setFocusable(false);
-        CancelarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        CancelarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        CancelarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarBtnActionPerformed(evt);
-            }
-        });
-
-        EliminarBtn.setText("Eliminar");
-        EliminarBtn.setFocusable(false);
-        EliminarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        EliminarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        EliminarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EliminarBtnMouseClicked(evt);
-            }
-        });
-
-        ModificarBtn.setText("Modificar");
-        ModificarBtn.setFocusable(false);
-        ModificarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        ModificarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        ModificarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ModificarBtnMouseClicked(evt);
-            }
-        });
-
-        BuscarBtn.setText("Buscar");
-        BuscarBtn.setFocusable(false);
-        BuscarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BuscarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BuscarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarBtnActionPerformed(evt);
-            }
-        });
+        jToolBar1.setRollover(true);
 
         NuevoBtn.setText("Nuevo");
         NuevoBtn.setFocusable(false);
@@ -337,19 +299,45 @@ public class GestionarProducto extends javax.swing.JFrame {
                 NuevoBtnMouseClicked(evt);
             }
         });
+        jToolBar1.add(NuevoBtn);
+
+        BuscarBtn.setText("Buscar");
+        BuscarBtn.setFocusable(false);
+        BuscarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BuscarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BuscarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarBtnActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(BuscarBtn);
+
+        EliminarBtn.setText("Eliminar");
+        EliminarBtn.setFocusable(false);
+        EliminarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        EliminarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        EliminarBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarBtnMouseClicked(evt);
+            }
+        });
+        jToolBar1.add(EliminarBtn);
+
+        CancelarBtn.setText("Cancelar");
+        CancelarBtn.setFocusable(false);
+        CancelarBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        CancelarBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        CancelarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarBtnActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(CancelarBtn);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SeleccionarInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(guardarBtn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,31 +378,29 @@ public class GestionarProducto extends javax.swing.JFrame {
                             .addComponent(nombreText, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPrecioSugerido, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 370, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(SeleccionarInsumos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(NuevoBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BuscarBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ModificarBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(EliminarBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CancelarBtn))
-                            .addComponent(lblPrecioSugerido, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 136, Short.MAX_VALUE))))
+                                .addGap(206, 206, 206)
+                                .addComponent(guardarBtn))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(EliminarBtn)
-                        .addComponent(CancelarBtn)
-                        .addComponent(ModificarBtn))
-                    .addComponent(BuscarBtn)
-                    .addComponent(NuevoBtn))
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -455,7 +441,7 @@ public class GestionarProducto extends javax.swing.JFrame {
                 .addComponent(SeleccionarInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(guardarBtn)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -498,7 +484,6 @@ public class GestionarProducto extends javax.swing.JFrame {
                 StockText.setEnabled(false);
                 CantidadInsumoText.setEnabled(false);
                 InsertarInsumoBoton.setEnabled(false);
-                ModificarBtn.setEnabled(false);
                 EliminarBtn.setEnabled(false);
                 SelecInsumoBtn.setEnabled(false);
                 guardarBtn.setEnabled(false);
@@ -545,15 +530,6 @@ public class GestionarProducto extends javax.swing.JFrame {
             modelo.addRow(filaP);
         }
     }
-    private void ModificarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarBtnMouseClicked
-        Estado(ESTADO_HABILITAR);
-        guardarBtn.setEnabled(true);
-        SelecInsumoBtn.setEnabled(true);
-        eliminarInsBtn.setEnabled(true);
-        modificarInsBtn.setEnabled(true);
-        accion = 1;
-    }//GEN-LAST:event_ModificarBtnMouseClicked
-
     private void NuevoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NuevoBtnMouseClicked
         Estado(ESTADO_HABILITAR);
         Estado(ESTADO_LIMPIAR);
@@ -638,7 +614,7 @@ public class GestionarProducto extends javax.swing.JFrame {
 
     private void BuscarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarBtnActionPerformed
         Estado(ESTADO_LIMPIAR);
-        Estado(ESTADO_DESHABILITAR);
+        Estado(ESTADO_HABILITAR);
         BuscarProducto frm;
         frm = new BuscarProducto(null, true);
         frm.setVisible(true);
@@ -667,8 +643,8 @@ public class GestionarProducto extends javax.swing.JFrame {
             filaP[2] = producto.getLista().get(i).getCantidad();
             modeloP.addRow(filaP);
         }
-        ModificarBtn.setEnabled(true);
         EliminarBtn.setEnabled(true);
+        accion=1;
     }//GEN-LAST:event_BuscarBtnActionPerformed
 
     private void SelecInsumoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SelecInsumoBtnMouseClicked
@@ -687,7 +663,7 @@ public class GestionarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_SelecInsumoBtnMouseClicked
 
     private void modificarInsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarInsBtnActionPerformed
-        if (ModificarBtn.isEnabled()) {
+        if (modificarInsBtn.isEnabled()) {
             int index = TablaInsumosxProducto.getSelectedRow();
             if (index >= 0) {
                 InsumoxProducto ip = new InsumoxProducto((int) TablaInsumosxProducto.getValueAt(index, 0),
@@ -770,7 +746,6 @@ public class GestionarProducto extends javax.swing.JFrame {
     private javax.swing.JTextField DescripcionText;
     private javax.swing.JButton EliminarBtn;
     private javax.swing.JButton InsertarInsumoBoton;
-    private javax.swing.JButton ModificarBtn;
     private javax.swing.JButton NuevoBtn;
     private javax.swing.JLabel Precio;
     private javax.swing.JTextField PrecioText;
@@ -786,6 +761,7 @@ public class GestionarProducto extends javax.swing.JFrame {
     private javax.swing.JButton guardarBtn;
     private javax.swing.JTextField idText;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lblCantidadI;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblColor;
