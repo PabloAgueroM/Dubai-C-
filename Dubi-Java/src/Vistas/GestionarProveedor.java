@@ -195,36 +195,36 @@ public class GestionarProveedor extends javax.swing.JFrame {
 
         TxtNombreRep.setText("jTextField1");
         TxtNombreRep.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtNombreRepKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtNombreRepKeyReleased(evt);
             }
         });
 
         TxtApellidoPRep.setText("jTextField2");
         TxtApellidoPRep.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtApellidoPRepKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtApellidoPRepKeyReleased(evt);
             }
         });
 
         TxtApellidoMRep.setText("jTextField3");
         TxtApellidoMRep.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtApellidoMRepKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtApellidoMRepKeyReleased(evt);
             }
         });
 
         TxtDNIRep.setText("jTextField4");
         TxtDNIRep.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtDNIRepKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtDNIRepKeyReleased(evt);
             }
         });
 
         TxtTelefonoRep.setText("jTextField5");
         TxtTelefonoRep.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtTelefonoRepKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtTelefonoRepKeyReleased(evt);
             }
         });
 
@@ -293,22 +293,22 @@ public class GestionarProveedor extends javax.swing.JFrame {
 
         TxtRUC.setText("jTextField3");
         TxtRUC.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtRUCKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtRUCKeyReleased(evt);
             }
         });
 
         TxtTelefono.setText("jTextField5");
         TxtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtTelefonoKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtTelefonoKeyReleased(evt);
             }
         });
 
         TxtEmail.setText("jTextField6");
         TxtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                TxtEmailKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtEmailKeyReleased(evt);
             }
         });
 
@@ -581,39 +581,8 @@ public class GestionarProveedor extends javax.swing.JFrame {
             flag = 0;
         }
     }//GEN-LAST:event_BtnEliminarActionPerformed
-//#########################################################################################################################
-    private void TxtRUCKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtRUCKeyPressed
-        String texto = TxtRUC.getText();
-        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{10}$", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = EMAIL_VALIDO.matcher(texto);
-        if (!matcher.find()) {
-            TxtRUC.setForeground(java.awt.Color.RED);
-        } else {
-            TxtRUC.setForeground(java.awt.Color.BLACK);
-        }    }//GEN-LAST:event_TxtRUCKeyPressed
-
-    private void TxtTelefonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyPressed
-        String texto = TxtTelefono.getText();
-        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{6}$", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = EMAIL_VALIDO.matcher(texto);
-        if (!matcher.find()) {
-            TxtTelefono.setForeground(java.awt.Color.RED);
-        } else {
-            TxtTelefono.setForeground(java.awt.Color.BLACK);
-        }
-    }//GEN-LAST:event_TxtTelefonoKeyPressed
-
-    private void TxtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtEmailKeyPressed
-        String texto = TxtEmail.getText();
-        Pattern EMAIL_VALIDO = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{1,6}$", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = EMAIL_VALIDO.matcher(texto);
-        if (!matcher.find()) {
-            TxtEmail.setForeground(java.awt.Color.RED);
-        } else {
-            TxtEmail.setForeground(java.awt.Color.BLACK);
-        }    }//GEN-LAST:event_TxtEmailKeyPressed
-
-    private void TxtNombreRepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreRepKeyPressed
+//###################################################################################
+    private void TxtNombreRepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtNombreRepKeyReleased
         String texto = TxtNombreRep.getText();
         Pattern EMAIL_VALIDO = Pattern.compile("^[a-zA-Z ]+$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = EMAIL_VALIDO.matcher(texto);
@@ -621,10 +590,42 @@ public class GestionarProveedor extends javax.swing.JFrame {
             TxtNombreRep.setForeground(java.awt.Color.RED);
         } else {
             TxtNombreRep.setForeground(java.awt.Color.BLACK);
-        }
-    }//GEN-LAST:event_TxtNombreRepKeyPressed
+        }    }//GEN-LAST:event_TxtNombreRepKeyReleased
 
-    private void TxtApellidoPRepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtApellidoPRepKeyPressed
+    private void TxtRUCKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtRUCKeyReleased
+        String texto = TxtRUC.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{11}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtRUC.setForeground(java.awt.Color.RED);
+        } else {
+            TxtRUC.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtRUCKeyReleased
+
+    private void TxtTelefonoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoKeyReleased
+        String texto = TxtTelefono.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{7}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtTelefono.setForeground(java.awt.Color.RED);
+        } else {
+            TxtTelefono.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtTelefonoKeyReleased
+
+    private void TxtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtEmailKeyReleased
+        String texto = TxtEmail.getText();
+        Pattern EMAIL_VALIDO = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{1,6}$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = EMAIL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            TxtEmail.setForeground(java.awt.Color.RED);
+        } else {
+            TxtEmail.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_TxtEmailKeyReleased
+
+    private void TxtApellidoPRepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtApellidoPRepKeyReleased
         String texto = TxtApellidoPRep.getText();
         Pattern EMAIL_VALIDO = Pattern.compile("^[a-zA-Z ]+$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = EMAIL_VALIDO.matcher(texto);
@@ -632,10 +633,9 @@ public class GestionarProveedor extends javax.swing.JFrame {
             TxtApellidoPRep.setForeground(java.awt.Color.RED);
         } else {
             TxtApellidoPRep.setForeground(java.awt.Color.BLACK);
-        }
-    }//GEN-LAST:event_TxtApellidoPRepKeyPressed
+        }    }//GEN-LAST:event_TxtApellidoPRepKeyReleased
 
-    private void TxtApellidoMRepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtApellidoMRepKeyPressed
+    private void TxtApellidoMRepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtApellidoMRepKeyReleased
         String texto = TxtApellidoMRep.getText();
         Pattern EMAIL_VALIDO = Pattern.compile("^[a-zA-Z ]+$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = EMAIL_VALIDO.matcher(texto);
@@ -643,27 +643,27 @@ public class GestionarProveedor extends javax.swing.JFrame {
             TxtApellidoMRep.setForeground(java.awt.Color.RED);
         } else {
             TxtApellidoMRep.setForeground(java.awt.Color.BLACK);
-        }    }//GEN-LAST:event_TxtApellidoMRepKeyPressed
+        }     }//GEN-LAST:event_TxtApellidoMRepKeyReleased
 
-    private void TxtDNIRepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDNIRepKeyPressed
+    private void TxtDNIRepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtDNIRepKeyReleased
         String texto = TxtDNIRep.getText();
-        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{7}$", Pattern.CASE_INSENSITIVE);
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = EMAIL_VALIDO.matcher(texto);
         if (!matcher.find()) {
             TxtDNIRep.setForeground(java.awt.Color.RED);
         } else {
             TxtDNIRep.setForeground(java.awt.Color.BLACK);
-        }    }//GEN-LAST:event_TxtDNIRepKeyPressed
+        }     }//GEN-LAST:event_TxtDNIRepKeyReleased
 
-    private void TxtTelefonoRepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoRepKeyPressed
+    private void TxtTelefonoRepKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtTelefonoRepKeyReleased
         String texto = TxtTelefonoRep.getText();
-        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{8}$", Pattern.CASE_INSENSITIVE);
+        Pattern EMAIL_VALIDO = Pattern.compile("^[0-9]{9}$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = EMAIL_VALIDO.matcher(texto);
         if (!matcher.find()) {
             TxtTelefonoRep.setForeground(java.awt.Color.RED);
         } else {
             TxtTelefonoRep.setForeground(java.awt.Color.BLACK);
-        }    }//GEN-LAST:event_TxtTelefonoRepKeyPressed
+        }     }//GEN-LAST:event_TxtTelefonoRepKeyReleased
 
     /**
      * @param args the command line arguments
