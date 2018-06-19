@@ -51,6 +51,9 @@ public class BuscarInsumo extends javax.swing.JDialog {
     public void filtrar(){
         int columnaABuscar = 0;
         
+        if(cboFiltro.getSelectedItem() == "Seleccionar"){
+            columnaABuscar = -1;
+        }
         if(cboFiltro.getSelectedItem() == "ID"){
             columnaABuscar = 0;
         }
@@ -66,7 +69,9 @@ public class BuscarInsumo extends javax.swing.JDialog {
         if(cboFiltro.getSelectedItem() == "Stock Mínimo"){
             columnaABuscar = 4;
         }
-        tbrFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+        if(columnaABuscar != -1){
+            tbrFiltro.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(), columnaABuscar));
+        } 
     }
     
     public void actualizarDatos(){
@@ -170,6 +175,11 @@ public class BuscarInsumo extends javax.swing.JDialog {
     private void btnSeleccionarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeleccionarMouseClicked
         // TODO add your handling code here:
         int index = tblInsumos.getSelectedRow();
+        
+        if (tblInsumos.getRowSorter()!=null) {
+            index = tblInsumos.getRowSorter().convertRowIndexToModel(index);
+        }
+        
         insumoSeleccionado = listaInsumos.get(index);
         this.dispose();
     }//GEN-LAST:event_btnSeleccionarMouseClicked
