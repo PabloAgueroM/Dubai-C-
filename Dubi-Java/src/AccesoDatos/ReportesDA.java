@@ -24,15 +24,17 @@ public class ReportesDA {
     
     
     
-    public ArrayList listaVentasTotales(int idCliente){
+    public ArrayList listaVentasTotales(int idCliente,String fIni, String fFin){
         ArrayList listaDatos = new ArrayList();
         
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call REPORTE_VENTAS_X_CLIENTE(?)}");
+            CallableStatement cs = con.prepareCall("{call REPORTE_VENTAS_X_CLIENTE(?,?,?)}");
             cs.setInt(1, idCliente);
+            cs.setString(2, fIni);
+            cs.setString(3, fFin);
             ResultSet rset = cs.executeQuery();
             while(rset.next()){
                 ArrayList<String> registro = new ArrayList<String>();
@@ -45,6 +47,7 @@ public class ReportesDA {
                 registro.add(rset.getString(7));
                 registro.add(rset.getString(8));
                 registro.add(rset.getString(9));
+                registro.add(rset.getString(10));
                 listaDatos.add(registro);
             }
             con.close();
@@ -54,15 +57,17 @@ public class ReportesDA {
         return listaDatos;
     } 
     
-    public ArrayList listaComprasTotales(int idProveedor){
+    public ArrayList listaComprasTotales(int idProveedor,String fIni, String fFin){
         ArrayList listaDatos = new ArrayList();
         
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call REPORTE_COMPRAS_X_PROVEEDOR(?)}");
+            CallableStatement cs = con.prepareCall("{call REPORTE_COMPRAS_X_PROVEEDOR(?,?,?)}");
             cs.setInt(1, idProveedor);
+            cs.setString(2, fIni);
+            cs.setString(3, fFin);
             ResultSet rset = cs.executeQuery();
             while(rset.next()){
                 ArrayList<String> registro = new ArrayList<String>();
@@ -75,6 +80,7 @@ public class ReportesDA {
                 registro.add(rset.getString(7));
                 registro.add(rset.getString(8));
                 registro.add(rset.getString(9));
+                registro.add(rset.getString(10));
                 listaDatos.add(registro);
             }
             con.close();
@@ -84,14 +90,16 @@ public class ReportesDA {
         return listaDatos;
     } 
     
-    public ArrayList listaMejoresClientes( ){
+    public ArrayList listaMejoresClientes(String fIni, String fFin ){
         ArrayList listaDatos = new ArrayList();
         
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call REPORTE_CLIENTES()}");
+            CallableStatement cs = con.prepareCall("{call REPORTE_CLIENTES(?,?)}");
+            cs.setString(1, fIni);
+            cs.setString(2, fFin);
             ResultSet rset = cs.executeQuery(); 
             while(rset.next()){
                 ArrayList<String> registro = new ArrayList<String>();
@@ -109,14 +117,16 @@ public class ReportesDA {
         return listaDatos;
     } 
     
-    public ArrayList listaProductos( ){
+    public ArrayList listaProductos( String fIni, String fFin){
         ArrayList listaDatos = new ArrayList();
         
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call REPORTE_PRODUCTOS()}");
+            CallableStatement cs = con.prepareCall("{call REPORTE_PRODUCTOS(?,?)}");
+            cs.setString(1, fIni);
+            cs.setString(2, fFin);
             ResultSet rset = cs.executeQuery(); 
             while(rset.next()){
                 ArrayList<String> registro = new ArrayList<String>();
@@ -126,6 +136,10 @@ public class ReportesDA {
                 registro.add(rset.getString(4));
                 registro.add(rset.getString(5));
                 registro.add(rset.getString(6));
+                registro.add(rset.getString(7));
+                registro.add(rset.getString(8));
+                registro.add(rset.getString(9));
+                registro.add(rset.getString(10));
                 listaDatos.add(registro);
             }
             con.close();
@@ -135,14 +149,16 @@ public class ReportesDA {
         return listaDatos;
     } 
     
-    public ArrayList listaInsumos( ){
+    public ArrayList listaInsumos(String fIni, String fFin ){
         ArrayList listaDatos = new ArrayList();
         
         try {
             //Registrar el Driver
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g5", "inf282g5", "KHjN45");
-            CallableStatement cs = con.prepareCall("{call REPORTE_INSUMOS()}");
+            CallableStatement cs = con.prepareCall("{call REPORTE_INSUMOS(?,?)}");
+            cs.setString(1, fIni);
+            cs.setString(2, fFin);
             ResultSet rset = cs.executeQuery(); 
             while(rset.next()){
                 ArrayList<String> registro = new ArrayList<String>();
@@ -151,6 +167,10 @@ public class ReportesDA {
                 registro.add(rset.getString(3));
                 registro.add(rset.getString(4));
                 registro.add(rset.getString(5));
+                registro.add(rset.getString(6));
+                registro.add(rset.getString(7));
+                registro.add(rset.getString(8));
+                registro.add(rset.getString(9));
                 listaDatos.add(registro);
             }
             con.close();

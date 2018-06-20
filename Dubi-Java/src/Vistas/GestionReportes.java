@@ -10,6 +10,7 @@ import Modelo.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -91,11 +92,19 @@ public class GestionReportes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Explicacion = new javax.swing.JLabel();
         imagen = new javax.swing.JPanel();
+        fechaIni = new com.toedter.calendar.JDateChooser();
+        fechaFin = new com.toedter.calendar.JDateChooser();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         masVendidos = new javax.swing.JPanel();
         btnExportar3 = new javax.swing.JButton();
         Explicacion2 = new javax.swing.JLabel();
         imagen1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        fechaIni1 = new com.toedter.calendar.JDateChooser();
+        jLabel21 = new javax.swing.JLabel();
+        fechaFin1 = new com.toedter.calendar.JDateChooser();
         comprasTotales = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         selProveedor = new javax.swing.JButton();
@@ -111,9 +120,12 @@ public class GestionReportes extends javax.swing.JFrame {
         TxtNombre = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnExportar = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
         Explicacion3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        fechaIni2 = new com.toedter.calendar.JDateChooser();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        fechaFin2 = new com.toedter.calendar.JDateChooser();
         ventasTotales = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         selCliente = new javax.swing.JButton();
@@ -131,12 +143,19 @@ public class GestionReportes extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         Explicacion4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        fechaIni3 = new com.toedter.calendar.JDateChooser();
+        fechaFin3 = new com.toedter.calendar.JDateChooser();
+        jLabel25 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(520, 750));
         setSize(new java.awt.Dimension(500, 600));
+        getContentPane().setLayout(null);
 
         panelesReportes.setMaximumSize(new java.awt.Dimension(500, 500));
+
+        mejoresClientes.setLayout(null);
 
         btnExportar2.setText("Exportar");
         btnExportar2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,11 +168,18 @@ public class GestionReportes extends javax.swing.JFrame {
                 btnExportar2ActionPerformed(evt);
             }
         });
+        mejoresClientes.add(btnExportar2);
+        btnExportar2.setBounds(180, 390, 75, 23);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Reporte de Mejores Clientes:");
+        mejoresClientes.add(jLabel1);
+        jLabel1.setBounds(20, 40, 200, 14);
 
         Explicacion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Explicacion.setText("Texto 1");
+        mejoresClientes.add(Explicacion);
+        Explicacion.setBounds(20, 70, 376, 52);
 
         javax.swing.GroupLayout imagenLayout = new javax.swing.GroupLayout(imagen);
         imagen.setLayout(imagenLayout);
@@ -166,41 +192,28 @@ public class GestionReportes extends javax.swing.JFrame {
             .addGap(0, 133, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout mejoresClientesLayout = new javax.swing.GroupLayout(mejoresClientes);
-        mejoresClientes.setLayout(mejoresClientesLayout);
-        mejoresClientesLayout.setHorizontalGroup(
-            mejoresClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mejoresClientesLayout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(Explicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-            .addGroup(mejoresClientesLayout.createSequentialGroup()
-                .addGroup(mejoresClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mejoresClientesLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mejoresClientesLayout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addGroup(mejoresClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnExportar2)
-                            .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        mejoresClientesLayout.setVerticalGroup(
-            mejoresClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mejoresClientesLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(Explicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(btnExportar2)
-                .addContainerGap(111, Short.MAX_VALUE))
-        );
+        mejoresClientes.add(imagen);
+        imagen.setBounds(130, 240, 175, 133);
+
+        fechaIni.setDateFormatString("yyyy/MM/dd");
+        mejoresClientes.add(fechaIni);
+        fechaIni.setBounds(210, 150, 120, 20);
+
+        fechaFin.setDateFormatString("yyyy/MM/dd");
+        mejoresClientes.add(fechaFin);
+        fechaFin.setBounds(210, 190, 120, 20);
+
+        jLabel12.setText("Fecha inicio");
+        mejoresClientes.add(jLabel12);
+        jLabel12.setBounds(80, 150, 60, 14);
+
+        jLabel19.setText("Fecha fin");
+        mejoresClientes.add(jLabel19);
+        jLabel19.setBounds(80, 190, 60, 14);
 
         panelesReportes.addTab("Mejores Clientes", mejoresClientes);
+
+        masVendidos.setLayout(null);
 
         btnExportar3.setText("Exportar");
         btnExportar3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -213,6 +226,12 @@ public class GestionReportes extends javax.swing.JFrame {
                 btnExportar3ActionPerformed(evt);
             }
         });
+        masVendidos.add(btnExportar3);
+        btnExportar3.setBounds(180, 390, 75, 23);
+
+        Explicacion2.setText("Texto2");
+        masVendidos.add(Explicacion2);
+        Explicacion2.setBounds(66, 64, 312, 63);
 
         javax.swing.GroupLayout imagen1Layout = new javax.swing.GroupLayout(imagen1);
         imagen1.setLayout(imagen1Layout);
@@ -225,47 +244,36 @@ public class GestionReportes extends javax.swing.JFrame {
             .addGap(0, 133, Short.MAX_VALUE)
         );
 
-        jLabel2.setText("Reporte de Productos e Insumos:");
+        masVendidos.add(imagen1);
+        imagen1.setBounds(130, 240, 175, 133);
 
-        javax.swing.GroupLayout masVendidosLayout = new javax.swing.GroupLayout(masVendidos);
-        masVendidos.setLayout(masVendidosLayout);
-        masVendidosLayout.setHorizontalGroup(
-            masVendidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, masVendidosLayout.createSequentialGroup()
-                .addGap(0, 66, Short.MAX_VALUE)
-                .addComponent(Explicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-            .addGroup(masVendidosLayout.createSequentialGroup()
-                .addGroup(masVendidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(masVendidosLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addGroup(masVendidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(masVendidosLayout.createSequentialGroup()
-                                .addComponent(btnExportar3)
-                                .addGap(75, 75, 75))))
-                    .addGroup(masVendidosLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        masVendidosLayout.setVerticalGroup(
-            masVendidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(masVendidosLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(Explicacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(btnExportar3)
-                .addContainerGap(131, Short.MAX_VALUE))
-        );
+        jLabel2.setText("Reporte de Productos e Insumos:");
+        masVendidos.add(jLabel2);
+        jLabel2.setBounds(40, 32, 161, 14);
+
+        jLabel20.setText("Fecha inicio");
+        masVendidos.add(jLabel20);
+        jLabel20.setBounds(80, 150, 60, 14);
+
+        fechaIni1.setDateFormatString("yyyy/MM/dd");
+        masVendidos.add(fechaIni1);
+        fechaIni1.setBounds(210, 150, 120, 20);
+
+        jLabel21.setText("Fecha fin");
+        masVendidos.add(jLabel21);
+        jLabel21.setBounds(80, 190, 60, 14);
+
+        fechaFin1.setDateFormatString("yyyy/MM/dd");
+        masVendidos.add(fechaFin1);
+        fechaFin1.setBounds(210, 190, 120, 20);
 
         panelesReportes.addTab("Mas Vendidos", masVendidos);
 
+        comprasTotales.setLayout(null);
+
         jLabel3.setText("Lista de Proveedores:");
+        comprasTotales.add(jLabel3);
+        jLabel3.setBounds(40, 220, 119, 14);
 
         selProveedor.setText("Seleccionar Proveedor");
         selProveedor.addActionListener(new java.awt.event.ActionListener() {
@@ -273,6 +281,8 @@ public class GestionReportes extends javax.swing.JFrame {
                 selProveedorActionPerformed(evt);
             }
         });
+        comprasTotales.add(selProveedor);
+        selProveedor.setBounds(220, 220, 139, 23);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Proveedor:"));
 
@@ -315,56 +325,68 @@ public class GestionReportes extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(30, 30, 30)
+                        .addComponent(TxtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(53, 53, 53)
                         .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TxtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel8))
-                                    .addGap(48, 48, 48)
-                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtRUC, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(63, 63, 63))
+                        .addComponent(jLabel5)
+                        .addGap(54, 54, 54)
+                        .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(48, 48, 48)
+                        .addComponent(TxtRUC, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(66, 66, 66)
+                        .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel4))
                     .addComponent(TxtRazonSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel6))
                     .addComponent(TxtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel5))
                     .addComponent(TxtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel7))
                     .addComponent(TxtRUC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel8))
                     .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addGap(19, 19, 19))
         );
+
+        comprasTotales.add(jPanel2);
+        jPanel2.setBounds(10, 254, 418, 200);
 
         btnExportar.setText("Exportar");
         btnExportar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -372,67 +394,40 @@ public class GestionReportes extends javax.swing.JFrame {
                 btnExportarMouseClicked(evt);
             }
         });
-
-        jLabel18.setText("Aca falta algo no se que, relacionado a seleccionar fechas y cliente");
+        comprasTotales.add(btnExportar);
+        btnExportar.setBounds(190, 460, 75, 23);
 
         Explicacion3.setText("Aca falta algo no se que, relacionado a seleccionar fechas y proveedor");
+        comprasTotales.add(Explicacion3);
+        Explicacion3.setBounds(24, 42, 404, 70);
 
         jLabel9.setText("Reporte de Compras por Proveedor:");
+        comprasTotales.add(jLabel9);
+        jLabel9.setBounds(24, 22, 175, 14);
 
-        javax.swing.GroupLayout comprasTotalesLayout = new javax.swing.GroupLayout(comprasTotales);
-        comprasTotales.setLayout(comprasTotalesLayout);
-        comprasTotalesLayout.setHorizontalGroup(
-            comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(comprasTotalesLayout.createSequentialGroup()
-                .addGroup(comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(comprasTotalesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(comprasTotalesLayout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(btnExportar))
-                    .addGroup(comprasTotalesLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addGroup(comprasTotalesLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83)
-                                .addComponent(selProveedor))
-                            .addComponent(Explicacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(comprasTotalesLayout.createSequentialGroup()
-                    .addGap(66, 66, 66)
-                    .addComponent(jLabel18)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        comprasTotalesLayout.setVerticalGroup(
-            comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, comprasTotalesLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Explicacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(selProveedor))
-                .addGap(22, 22, 22)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnExportar)
-                .addContainerGap())
-            .addGroup(comprasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(comprasTotalesLayout.createSequentialGroup()
-                    .addGap(241, 241, 241)
-                    .addComponent(jLabel18)
-                    .addContainerGap(233, Short.MAX_VALUE)))
-        );
+        fechaIni2.setDateFormatString("yyyy/MM/dd");
+        comprasTotales.add(fechaIni2);
+        fechaIni2.setBounds(220, 160, 120, 20);
+
+        jLabel22.setText("Fecha inicio");
+        comprasTotales.add(jLabel22);
+        jLabel22.setBounds(40, 160, 60, 14);
+
+        jLabel23.setText("Fecha fin");
+        comprasTotales.add(jLabel23);
+        jLabel23.setBounds(40, 190, 60, 14);
+
+        fechaFin2.setDateFormatString("yyyy/MM/dd");
+        comprasTotales.add(fechaFin2);
+        fechaFin2.setBounds(220, 190, 120, 20);
 
         panelesReportes.addTab("Compras Totales", comprasTotales);
 
+        ventasTotales.setLayout(null);
+
         jLabel11.setText("Lista de Clientes:");
+        ventasTotales.add(jLabel11);
+        jLabel11.setBounds(40, 250, 119, 14);
 
         selCliente.setText("Seleccionar Cliente");
         selCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -440,6 +435,8 @@ public class GestionReportes extends javax.swing.JFrame {
                 selClienteActionPerformed(evt);
             }
         });
+        ventasTotales.add(selCliente);
+        selCliente.setBounds(220, 250, 123, 23);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del Cliente:"));
 
@@ -503,24 +500,27 @@ public class GestionReportes extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(TxtNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(TxtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
                     .addComponent(TxtTelefono1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(TxtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                .addGap(19, 19, 19))
         );
+
+        ventasTotales.add(jPanel3);
+        jPanel3.setBounds(10, 280, 418, 160);
 
         btnExportar1.setText("Exportar");
         btnExportar1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -528,6 +528,8 @@ public class GestionReportes extends javax.swing.JFrame {
                 btnExportar1MouseClicked(evt);
             }
         });
+        ventasTotales.add(btnExportar1);
+        btnExportar1.setBounds(190, 460, 75, 23);
 
         cmbTipoCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Natural", "Juridico" }));
         cmbTipoCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -535,84 +537,41 @@ public class GestionReportes extends javax.swing.JFrame {
                 cmbTipoClienteActionPerformed(evt);
             }
         });
+        ventasTotales.add(cmbTipoCliente);
+        cmbTipoCliente.setBounds(220, 210, 61, 20);
 
         jLabel17.setText("Tipo de Cliente:");
+        ventasTotales.add(jLabel17);
+        jLabel17.setBounds(40, 210, 75, 14);
 
         Explicacion4.setText("Aca falta algo no se que, relacionado a seleccionar fechas y cliente");
+        ventasTotales.add(Explicacion4);
+        Explicacion4.setBounds(34, 35, 373, 60);
 
         jLabel10.setText("Reporte de Pedidos por Cliente:");
+        ventasTotales.add(jLabel10);
+        jLabel10.setBounds(30, 20, 153, 14);
 
-        javax.swing.GroupLayout ventasTotalesLayout = new javax.swing.GroupLayout(ventasTotales);
-        ventasTotales.setLayout(ventasTotalesLayout);
-        ventasTotalesLayout.setHorizontalGroup(
-            ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventasTotalesLayout.createSequentialGroup()
-                .addGroup(ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ventasTotalesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventasTotalesLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(btnExportar1))
-                    .addGroup(ventasTotalesLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ventasTotalesLayout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(105, 105, 105)
-                                .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ventasTotalesLayout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(53, 53, 53)
-                                .addComponent(selCliente)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventasTotalesLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(Explicacion4, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
-        );
-        ventasTotalesLayout.setVerticalGroup(
-            ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventasTotalesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Explicacion4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbTipoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addGap(18, 18, 18)
-                .addGroup(ventasTotalesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(selCliente))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnExportar1)
-                .addContainerGap())
-        );
+        jLabel24.setText("Fecha inicio");
+        ventasTotales.add(jLabel24);
+        jLabel24.setBounds(40, 150, 60, 14);
+
+        fechaIni3.setDateFormatString("yyyy/MM/dd");
+        ventasTotales.add(fechaIni3);
+        fechaIni3.setBounds(220, 150, 120, 20);
+
+        fechaFin3.setDateFormatString("yyyy/MM/dd");
+        ventasTotales.add(fechaFin3);
+        fechaFin3.setBounds(220, 180, 120, 20);
+
+        jLabel25.setText("Fecha fin");
+        ventasTotales.add(jLabel25);
+        jLabel25.setBounds(40, 180, 60, 14);
 
         panelesReportes.addTab("VentasTotales", ventasTotales);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelesReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelesReportes, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
+        getContentPane().add(panelesReportes);
+        panelesReportes.setBounds(20, 10, 438, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -715,7 +674,14 @@ public class GestionReportes extends javax.swing.JFrame {
     private void btnExportarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportarMouseClicked
         // TODO add your handling code here:
         try {
-            int cod = logicaN.reporteComprasTotales(proveedorSeleccionado);
+            String fIni = ((JTextField)fechaIni2.getDateEditor().getUiComponent()).getText();
+            String fFin = ((JTextField)fechaFin2.getDateEditor().getUiComponent()).getText();
+            //System.out.println(fIni + " " + fFin);
+            if(fIni.compareTo(fFin)>0){
+                JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la fecha de fin");
+                return;
+            }
+            int cod = logicaN.reporteComprasTotales(proveedorSeleccionado, fIni,  fFin);
             if (cod == 1) {
                 JOptionPane.showMessageDialog(null, "Se creo correctamente");
             } else {
@@ -730,7 +696,14 @@ public class GestionReportes extends javax.swing.JFrame {
     private void btnExportar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportar1MouseClicked
         // TODO add your handling code here:
         try {
-            int cod = logicaN.reporteVentasTotales(naturalSeleccionado, juridicaSeleccionado);
+            String fIni = ((JTextField)fechaIni3.getDateEditor().getUiComponent()).getText();
+            String fFin = ((JTextField)fechaFin3.getDateEditor().getUiComponent()).getText();
+            //System.out.println(fIni + " " + fFin);
+            if(fIni.compareTo(fFin)>0){
+                JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la fecha de fin");
+                return;
+            }
+            int cod = logicaN.reporteVentasTotales(naturalSeleccionado, juridicaSeleccionado, fIni,  fFin);
             if (cod == 1) {
                 JOptionPane.showMessageDialog(null, "Se creo correctamente");
             } else {
@@ -744,7 +717,14 @@ public class GestionReportes extends javax.swing.JFrame {
     private void btnExportar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportar2MouseClicked
         // TODO add your handling code here:
         try {
-            int cod = logicaN.reporteClientes();
+            String fIni = ((JTextField)fechaIni.getDateEditor().getUiComponent()).getText();
+            String fFin = ((JTextField)fechaFin.getDateEditor().getUiComponent()).getText();
+            //System.out.println(fIni + " " + fFin);
+            if(fIni.compareTo(fFin)>0){
+                JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la fecha de fin");
+                return;
+            }
+            int cod = logicaN.reporteClientes(fIni,fFin);
             if (cod == 1) {
                 JOptionPane.showMessageDialog(null, "Se creo correctamente");
             } else {
@@ -762,7 +742,15 @@ public class GestionReportes extends javax.swing.JFrame {
     private void btnExportar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportar3MouseClicked
         // TODO add your handling code here:
         try {
-            int cod = logicaN.reporteProductosEInsumos();
+            String fIni = ((JTextField)fechaIni1.getDateEditor().getUiComponent()).getText();
+            String fFin = ((JTextField)fechaFin1.getDateEditor().getUiComponent()).getText();
+            //System.out.println(fIni + " " + fFin);
+            if(fIni.compareTo(fFin)>0){
+                JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la fecha de fin");
+                return;
+            }
+            int cod = logicaN.reporteProductosEInsumos( fIni,  fFin);
+            
             if (cod == 1) {
                 JOptionPane.showMessageDialog(null, "Se creo correctamente");
             } else {
@@ -832,18 +820,33 @@ public class GestionReportes extends javax.swing.JFrame {
     private javax.swing.JButton btnExportar3;
     private javax.swing.JComboBox<String> cmbTipoCliente;
     private javax.swing.JPanel comprasTotales;
+    private com.toedter.calendar.JDateChooser fechaFin;
+    private com.toedter.calendar.JDateChooser fechaFin1;
+    private com.toedter.calendar.JDateChooser fechaFin2;
+    private com.toedter.calendar.JDateChooser fechaFin3;
+    private com.toedter.calendar.JDateChooser fechaIni;
+    private com.toedter.calendar.JDateChooser fechaIni1;
+    private com.toedter.calendar.JDateChooser fechaIni2;
+    private com.toedter.calendar.JDateChooser fechaIni3;
     private javax.swing.JPanel imagen;
     private javax.swing.JPanel imagen1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
