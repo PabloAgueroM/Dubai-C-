@@ -75,6 +75,18 @@ public class GestionInsumo extends javax.swing.JFrame {
         return 0;
     }
     
+    public boolean proveedorConsiderado(ProveedorxInsumo pXi, ArrayList<ProveedorxInsumo> proveedores){
+        boolean provflag = false;
+        
+        for(int i=0;i<proveedores.size();i++){
+            if(proveedores.get(i).getProveedor().getIDProveedor().equals(pXi.getProveedor().getIDProveedor())){
+                provflag = true;
+                break;
+            }
+        }
+        return provflag;
+    }
+    
     public void estado(String estado){
         switch(estado){
             case "inicial":
@@ -812,8 +824,15 @@ public class GestionInsumo extends javax.swing.JFrame {
         if((proveedorSeleccionado != null) && (txtPrecio.getText().length() > 0)){
             double precioProveedor = Double.parseDouble(txtPrecio.getText());
             ProveedorxInsumo pXi = new ProveedorxInsumo(proveedorSeleccionado, precioProveedor);
-            proveedores.add(pXi);
-            añadirTblProveedores();
+            
+            boolean provFlag = proveedorConsiderado(pXi,proveedores);
+            
+            if(provFlag == false){
+                proveedores.add(pXi);
+                añadirTblProveedores();
+            }else{
+                JOptionPane.showMessageDialog(null, "El proveedor ya ha sido seleccionado.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
             proveedorSeleccionado = null;
             txtNombreProveedor.setText(null);
             txtPrecio.setText(null);
