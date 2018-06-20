@@ -286,6 +286,12 @@ public class GestionInsumo extends javax.swing.JFrame {
 
         jLabel11.setText("Stock Minimo:");
 
+        txtStockMinimo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockMinimoKeyTyped(evt);
+            }
+        });
+
         jLabel12.setText("Precio Referencial:");
 
         txtPrecioReferencial.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -907,6 +913,18 @@ public class GestionInsumo extends javax.swing.JFrame {
             txtNombreProveedor.setText("Nombre: "+proveedorSeleccionado.getNombre());
         }
     }//GEN-LAST:event_btnBuscarProveedorActionPerformed
+
+    private void txtStockMinimoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockMinimoKeyTyped
+        // TODO add your handling code here:
+        String texto = txtStockMinimo.getText();
+        Pattern STOCK_VALIDO = Pattern.compile("^[0-9]+(\\.[0-9]{1,2})?$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = STOCK_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            txtStockMinimo.setForeground(java.awt.Color.RED);
+        } else {
+            txtStockMinimo.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_txtStockMinimoKeyTyped
 
     /**
      * @param args the command line arguments

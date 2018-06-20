@@ -233,6 +233,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtStockMinimo">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtStockMinimoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
