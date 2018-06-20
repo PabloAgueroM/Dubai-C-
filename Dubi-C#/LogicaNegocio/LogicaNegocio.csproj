@@ -42,11 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteBL.cs" />
-<<<<<<< HEAD
     <Compile Include="OrdenCompraBL.cs" />
-=======
     <Compile Include="OrdenProduccionBL.cs" />
->>>>>>> 9be8aaad55d5a8dc7d54bb395145cfe4e9943283
     <Compile Include="PedidoBL.cs" />
     <Compile Include="ProductoBL.cs" />
     <Compile Include="UsuarioBL.cs" />

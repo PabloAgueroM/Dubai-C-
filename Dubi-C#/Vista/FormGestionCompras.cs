@@ -276,5 +276,10 @@ namespace Vista
         {
             dateTimePicker1.MinDate = DateTime.Now;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
