@@ -62,7 +62,7 @@ namespace Vista
             {
                 PedidoSeleccionado = (Pedido)dataGridView1.CurrentRow.DataBoundItem;
                 PedidoBL pedidoBL = new PedidoBL();
-                pedidoBL.avanzarPedido(PedidoSeleccionado.IdPedido);
+                pedidoBL.avanzarPedido(PedidoSeleccionado);
                 dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
             }
         }

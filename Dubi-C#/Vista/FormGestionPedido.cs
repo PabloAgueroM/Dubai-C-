@@ -219,7 +219,9 @@ namespace Vista
             if (int.Parse(textBox2.Text) > int.Parse(textBox9.Text))
                 return 3;
 
-            if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 0) return 5;            
+            if ((int)((DateTime.Now - dateTimePicker1.Value).TotalDays) > 0)
+                return 6;     
+            
             return 0;
         }
 
@@ -351,11 +353,6 @@ namespace Vista
                     pedido.IdCliente = buscar.PedidoSeleccionado.IdCliente;
                 }
             }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
         }
         
     }

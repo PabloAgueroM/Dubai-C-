@@ -55,9 +55,9 @@ namespace LogicaNegocio
             accesoDatos.actualizarPedido(p, detalles);
         }
 
-        public int avanzarPedido(string id)
+        public void avanzarPedido(Pedido p)
         {
-            return accesoDatos.avanzarPedido(id);
+             accesoDatos.avanzarPedido(p);
         }
 
     }

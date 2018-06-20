@@ -85,23 +85,20 @@ public class ReportesBL {
 //        cellStyle.setFont(font);
         cellStyles.put("normal_cell_style", cellStyle);
 
-        cellStyle = workbook.createCellStyle();
-        cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);       
-        cellStyle.setDataFormat(dataFormat.getFormat("dd-mmm-yyyy"));
-        cellStyle.setBorderBottom(BorderStyle.MEDIUM);
-        cellStyle.setBorderTop(BorderStyle.MEDIUM);
-        cellStyle.setBorderRight(BorderStyle.MEDIUM);
-        cellStyle.setBorderLeft(BorderStyle.MEDIUM);
+//        cellStyle = workbook.createCellStyle();
+//        cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);       
+//        cellStyle.setDataFormat(dataFormat.getFormat("dd-mmm-yyyy"));
+//        cellStyle.setBorderBottom(BorderStyle.MEDIUM);
+//        cellStyle.setBorderTop(BorderStyle.MEDIUM);
+//        cellStyle.setBorderRight(BorderStyle.MEDIUM);
+//        cellStyle.setBorderLeft(BorderStyle.MEDIUM);
 //        font = workbook.createFont();
 //        font.setFontHeightInPoints((short)12);
 //        font.setFontName("Calibri");                   
 //        cellStyle.setFont(font);
-        cellStyles.put("date_cell_style", cellStyle);
+//        cellStyles.put("date_cell_style", cellStyle);
 
         cellStyle = workbook.createCellStyle();
-        cellStyle.setFillPattern(FillPatternType.FINE_DOTS);
-        cellStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
-        cellStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
         cellStyle.setAlignment(HorizontalAlignment.CENTER_SELECTION);       
         cellStyle.setDataFormat(dataFormat.getFormat("dd-mmm-yyyy"));
         cellStyle.setBorderBottom(BorderStyle.MEDIUM);
@@ -117,27 +114,27 @@ public class ReportesBL {
         
     }
     
-    public int reporteVentasTotales(PersonaNatural natural,PersonaJuridica juridica){
+    public int reporteVentasTotales(PersonaNatural natural,PersonaJuridica juridica,String fIni, String fFin){
         String id = "", nombre = "", documento = "",email = "", telef = "";
         if(natural!=null || juridica!= null){
             if(natural!=null){
                 id = natural.getIdPersona();
                 nombre = natural.getNombre() + " "+ natural.getApellidoP() + " "+ natural.getApellidoM();
-                documento = "DNI: " + natural.getDNI();
+                documento =  natural.getDNI();
                 email = natural.getEmail();
                 telef = natural.getTelefono();
             }
             else if(juridica !=null){
                 id = juridica.getIdPersona();
                 nombre = juridica.getNombre();
-                documento = "RUC: " + juridica.getRUC();
+                documento =  juridica.getRUC();
                 email = juridica.getEmail();
                 telef = juridica.getTelefono();
             }
             else return 0;
         }else return 0;
         try {
-            ArrayList listaDatos = accesoDatos.listaVentasTotales(Integer.parseInt(id));
+            ArrayList listaDatos = accesoDatos.listaVentasTotales(Integer.parseInt(id), fIni,  fFin);
             Workbook wb = new XSSFWorkbook();
             Sheet sheet = wb.createSheet("Reporte de Ventas");
             CellStyle style;
@@ -155,12 +152,15 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(nombre);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
         
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
-            cell.setCellValue(documento);
+            cell.setCellValue("DNI/RUC:");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(documento);
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
@@ -168,7 +168,7 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(email);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
@@ -176,9 +176,26 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(telef);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             String pedidoAnterior = "";
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Desde (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fIni);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Hasta (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fFin);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
             rowNum++;
+            
             boolean primero = true;
             float totalPedido =0;
             float total=0;
@@ -189,10 +206,10 @@ public class ReportesBL {
                     if(!primero){
                         rowNum++;
                         row = sheet.createRow(rowNum);
+                        cell = row.createCell((short)7);
+                        cell.setCellValue("Total (S/.):");
+                        cell.setCellStyle(cellStyles.get("header_cell_style"));
                         cell = row.createCell((short)8);
-                        cell.setCellValue("Total:");
-                        cell.setCellStyle(cellStyles.get("normal_cell_style"));
-                        cell = row.createCell((short)9);
                         cell.setCellValue(String.valueOf(totalPedido));
                         cell.setCellStyle(cellStyles.get("normal_cell_style"));
                         total += totalPedido;
@@ -207,68 +224,73 @@ public class ReportesBL {
                     cell = row.createCell((short)1);
                     cell.setCellValue("Pedido "+(String)col.get(0));
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell = row.createCell((short)2);
+                    cell.setCellValue("Fecha (YYYY/MM/DD):");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell = row.createCell((short)3);
+                    cell.setCellValue((String)col.get(1));
+                    cell.setCellStyle(cellStyles.get("header_date_cell_style"));
                     pedidoAnterior = (String)col.get(0);
                     rowNum++;
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
-                    cell.setCellValue("Id Pedido");
-                    cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)2);
                     cell.setCellValue("Id Producto");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)3);
+                    cell = row.createCell((short)2);
                     cell.setCellValue("Nombre");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)4);
+                    cell = row.createCell((short)3);
                     cell.setCellValue("Descripcion");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)5);
+                    cell = row.createCell((short)4);
                     cell.setCellValue("Color");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)6);
+                    cell = row.createCell((short)5);
                     cell.setCellValue("Precio Unitario");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)7);
+                    cell = row.createCell((short)6);
                     cell.setCellValue("Talla");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)8);
+                    cell = row.createCell((short)7);
                     cell.setCellValue("Cant Producto");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)9);
+                    cell = row.createCell((short)8);
                     cell.setCellValue("Importe (S/.)");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
                 }
                 rowNum++;
                 row = sheet.createRow(rowNum);
-                for(int j=0; j<col.size();j++){
-                    cell = row.createCell((short) j+1);
+                for(int j=2; j<col.size();j++){
+                    cell = row.createCell((short) j-1);
                     cell.setCellValue((String)col.get(j));
                     cell.setCellStyle(cellStyles.get("normal_cell_style"));
                     if(j == col.size()-1){
                         totalPedido += Float.parseFloat((String)col.get(j));
                     }
                 }
+                if(i==listaDatos.size()-1){
+                    rowNum++;
+                    row = sheet.createRow(rowNum);
+                    cell = row.createCell((short)7);
+                    cell.setCellValue("Total:");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell = row.createCell((short)8);
+                    cell.setCellValue(String.valueOf(totalPedido));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
+                    total += totalPedido;
+                    totalPedido = 0;
+                }
             } 
-            rowNum++;
-            row = sheet.createRow(rowNum);
-            cell = row.createCell((short)8);
-            cell.setCellValue("Total:");
-            cell.setCellStyle(cellStyles.get("normal_cell_style"));
-            cell = row.createCell((short)9);
-            cell.setCellValue(String.valueOf(totalPedido));
-            cell.setCellStyle(cellStyles.get("normal_cell_style"));
-            total += totalPedido;
-            totalPedido = 0;
             rowNum++;rowNum++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(1);
-            cell.setCellValue("Importe Total por Cliente:");
+            cell.setCellValue("Importe Total por Cliente (S/.):");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell(2);
             cell.setCellValue(String.valueOf(total));
             cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
-            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
+            for(int i = 0; i< 12; i++) sheet.autoSizeColumn(i);
             
             
             JFileChooser fileChooser = new JFileChooser();
@@ -298,7 +320,7 @@ public class ReportesBL {
         return 1;
     }
     
-    public int reporteComprasTotales(Proveedor prov){
+    public int reporteComprasTotales(Proveedor prov,String fIni, String fFin){
         String id = "", nombre = "", documento = "",email = "", telef = "";
         if(prov !=null){
             id = prov.getIDProveedor();
@@ -309,7 +331,7 @@ public class ReportesBL {
         }
         else return 0;
         try {
-            ArrayList listaDatos = accesoDatos.listaComprasTotales(Integer.parseInt(id));
+            ArrayList listaDatos = accesoDatos.listaComprasTotales(Integer.parseInt(id), fIni,  fFin);
             Workbook wb = new XSSFWorkbook();
             Sheet sheet = wb.createSheet("Reporte de Compras");
             CellStyle style;
@@ -327,7 +349,7 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(nombre);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
         
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
@@ -335,7 +357,7 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(documento);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
@@ -343,7 +365,7 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(email);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
@@ -351,8 +373,24 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)2);
             cell.setCellValue(telef);
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell.setCellStyle(cellStyles.get("normal_cell_style"));
             String pedidoAnterior = "";
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Desde (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fIni);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Hasta (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fFin);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
             rowNum++;
             boolean primero = true;
             float totalPedido =0;
@@ -364,10 +402,10 @@ public class ReportesBL {
                     if(!primero){
                         rowNum++;
                         row = sheet.createRow(rowNum);
-                        cell = row.createCell((short)8);
-                        cell.setCellValue("Total:");
+                        cell = row.createCell((short)7);
+                        cell.setCellValue("Total (S/.):");
                         cell.setCellStyle(cellStyles.get("header_cell_style"));
-                        cell = row.createCell((short)9);
+                        cell = row.createCell((short)8);
                         cell.setCellValue(String.valueOf(totalPedido));
                         cell.setCellStyle(cellStyles.get("normal_cell_style"));
                         total += totalPedido;
@@ -382,68 +420,74 @@ public class ReportesBL {
                     cell = row.createCell((short)1);
                     cell.setCellValue("Compra "+(String)col.get(0));
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell = row.createCell((short)2);
+                    cell.setCellValue("Fecha (YYYY/MM/DD):");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell = row.createCell((short)3);
+                    cell.setCellValue((String)col.get(1));
+                    cell.setCellStyle(cellStyles.get("header_date_cell_style"));
                     pedidoAnterior = (String)col.get(0);
                     rowNum++;
                     row = sheet.createRow(rowNum);
                     cell = row.createCell((short)1);
-                    cell.setCellValue("Id Pedido");
-                    cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)2);
                     cell.setCellValue("Id Insumo");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)3);
+                    cell = row.createCell((short)2);
                     cell.setCellValue("Nombre");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)4);
+                    cell = row.createCell((short)3);
                     cell.setCellValue("Descripcion");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)5);
+                    cell = row.createCell((short)4);
                     cell.setCellValue("Color");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)6);
+                    cell = row.createCell((short)5);
                     cell.setCellValue("Precio Unitario");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)7);
+                    cell = row.createCell((short)6);
                     cell.setCellValue("Stock Minimo");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)8);
+                    cell = row.createCell((short)7);
                     cell.setCellValue("Cant Insumo");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
-                    cell = row.createCell((short)9);
+                    cell = row.createCell((short)8);
                     cell.setCellValue("Cuenta (S/.)");
                     cell.setCellStyle(cellStyles.get("header_cell_style"));
                 }
                 rowNum++;
                 row = sheet.createRow(rowNum);
-                for(int j=0; j<col.size();j++){
-                    cell = row.createCell((short) j+1);
+                for(int j=2; j<col.size();j++){
+                    
+                    cell = row.createCell((short) j-1);
                     cell.setCellValue((String)col.get(j));
                     cell.setCellStyle(cellStyles.get("normal_cell_style"));
                     if(j == col.size()-1){
                         totalPedido += Float.parseFloat((String)col.get(j));
                     }
                 }
+                if(i==listaDatos.size()-1){
+                    rowNum++;
+                    row = sheet.createRow(rowNum);
+                    cell = row.createCell((short)7);
+                    cell.setCellValue("Total (S/.):");
+                    cell.setCellStyle(cellStyles.get("header_cell_style"));
+                    cell = row.createCell((short)8);
+                    cell.setCellValue(String.valueOf(totalPedido));
+                    cell.setCellStyle(cellStyles.get("normal_cell_style"));
+                    total += totalPedido;
+                    totalPedido = 0;
+                }
             } 
-            rowNum++;
-            row = sheet.createRow(rowNum);
-            cell = row.createCell((short)8);
-            cell.setCellValue("Total:");
-            cell.setCellStyle(cellStyles.get("header_cell_style"));
-            cell = row.createCell((short)9);
-            cell.setCellValue(String.valueOf(totalPedido));
-            cell.setCellStyle(cellStyles.get("normal_cell_style"));
-            total += totalPedido;
-            totalPedido = 0;
             rowNum++;rowNum++;
             row = sheet.createRow(rowNum);
             cell = row.createCell(1);
-            cell.setCellValue("Cuenta Total por Proveedor:");
+            cell.setCellValue("Cuenta Total por Proveedor (S/.):");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell(2);
             cell.setCellValue(String.valueOf(total));
             cell.setCellStyle(cellStyles.get("normal_cell_style"));
             
-            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
+            for(int i = 0; i< 11; i++) sheet.autoSizeColumn(i);
             JFileChooser fileChooser = new JFileChooser();
             if (fileChooser.showSaveDialog(null)== JFileChooser.APPROVE_OPTION) {
                 File file = fileChooser.getSelectedFile();
@@ -470,9 +514,9 @@ public class ReportesBL {
         return 1;
     }
     
-    public int reporteClientes(){
+    public int reporteClientes(String fIni, String fFin){
         try {
-            ArrayList listaDatos = accesoDatos.listaMejoresClientes();
+            ArrayList listaDatos = accesoDatos.listaMejoresClientes(fIni,fFin);
             Workbook wb = new XSSFWorkbook();
             Sheet sheet = wb.createSheet("Reporte de Clientes");
             CellStyle style;
@@ -489,6 +533,22 @@ public class ReportesBL {
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             
             row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Desde:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fIni);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Hasta:");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fFin);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
             row = sheet.createRow(++rowNum);
             cell = row.createCell((short)1);
             cell.setCellValue("Id Cliente");
@@ -503,7 +563,7 @@ public class ReportesBL {
             cell.setCellValue("Telefono");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)5);
-            cell.setCellValue("Importe Total");
+            cell.setCellValue("Importe Total (S/.)");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             rowNum++;
             for(int i = 0; i<listaDatos.size(); i++){
@@ -545,9 +605,9 @@ public class ReportesBL {
         return 1;
     }
     
-    public int reporteProductosEInsumos(){
+    public int reporteProductosEInsumos(String fIni, String fFin){
         try {
-            ArrayList listaDatos = accesoDatos.listaProductos();
+            ArrayList listaDatos = accesoDatos.listaProductos( fIni,  fFin);
             Workbook wb = new XSSFWorkbook();
             Sheet sheet = wb.createSheet("Productos Más Vendidos");
             CellStyle style;
@@ -562,6 +622,22 @@ public class ReportesBL {
             cell = row.createCell((short)1);
             cell.setCellValue("Productos Más Vendidos");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Desde (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fIni);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Hasta (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fFin);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
             
             row = sheet.createRow(++rowNum);
             row = sheet.createRow(++rowNum);
@@ -581,7 +657,19 @@ public class ReportesBL {
             cell.setCellValue("Talla");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)6);
-            cell.setCellValue("Importe Total");
+            cell.setCellValue("Tipo de Producto");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)7);
+            cell.setCellValue("Cantida de Producto");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)8);
+            cell.setCellValue("Unidad de Medida");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)9);
+            cell.setCellValue("Costo de Producto");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)10);
+            cell.setCellValue("Importe Total (S/.)");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             rowNum++;
             for(int i = 0; i<listaDatos.size(); i++){
@@ -595,9 +683,9 @@ public class ReportesBL {
                 }
                 rowNum++;
             } 
-            for(int i = 0; i< 10; i++) sheet.autoSizeColumn(i);
+            for(int i = 0; i< 11; i++) sheet.autoSizeColumn(i);
             
-            listaDatos = accesoDatos.listaInsumos();
+            listaDatos = accesoDatos.listaInsumos( fIni,  fFin);
             
             rowNum = 0;
             sheet = wb.createSheet("Insumos Más Comprados");
@@ -607,6 +695,23 @@ public class ReportesBL {
             cell = row.createCell((short)1);
             cell.setCellValue("Insumos Más Comprados");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Desde (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fIni);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
+            row = sheet.createRow(++rowNum);
+            cell = row.createCell((short)1);
+            cell.setCellValue("Hasta (YYYY/MM/DD):");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)2);
+            cell.setCellValue(fFin);
+            cell.setCellStyle(cellStyles.get("header_date_cell_style"));
+            
             
             row = sheet.createRow(++rowNum);
             row = sheet.createRow(++rowNum);
@@ -620,10 +725,22 @@ public class ReportesBL {
             cell.setCellValue("Descripcion");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)4);
-            cell.setCellValue("Color");
+            cell.setCellValue("Tipo de Producto");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             cell = row.createCell((short)5);
-            cell.setCellValue("Importe Total");
+            cell.setCellValue("Color");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)6);
+            cell.setCellValue("Cantidad de Insumo");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)7);
+            cell.setCellValue("Unidad de Medida");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)8);
+            cell.setCellValue("Costo Unitario");
+            cell.setCellStyle(cellStyles.get("header_cell_style"));
+            cell = row.createCell((short)9);
+            cell.setCellValue("Importe Total (S/.)");
             cell.setCellStyle(cellStyles.get("header_cell_style"));
             rowNum++;
             for(int i = 0; i<listaDatos.size(); i++){

@@ -323,20 +323,35 @@ namespace AccesoDatos
             }
         }
 
-        public int avanzarPedido(string id)
+        public void avanzarPedido(Pedido p)
         {
             Conexion conexion = new Conexion();
             if (conexion.IsConnected())
             {
                 MySqlCommand comando = new MySqlCommand();
-                comando.CommandText = String.Format("UPDATE PEDIDO_PRODUCTO SET ESTADO = 'EN PRODUCCION' WHERE ID_PEDIDO_P = \"{0}\"", id);
+                comando.CommandText = String.Format("UPDATE PEDIDO_PRODUCTO SET ESTADO = 'EN PRODUCCION' WHERE ID_PEDIDO_P = \"{0}\"", p.IdPedido);
                 comando.Connection = conexion.Connection;
-                int rv = 0;
-                try { rv = comando.ExecuteNonQuery(); return rv; }
-                catch (Exception) { return -1; }
-                finally { conexion.Close(); }
+                comando.ExecuteNonQuery();
+
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "REGISTRAR_ORDEN_PRODUCCION";
+                comando.Parameters.Add("_ID_PEDIDO", MySqlDbType.Int32).Value = p.IdPedido;
+                comando.Parameters.Add("_ID_EMPLEADO", MySqlDbType.Int32).Value = p.IdUsuario;
+                comando.Parameters.Add("_ID_ORDEN_PRODUCCION", MySqlDbType.Int32).Direction = System.Data.ParameterDirection.Output;
+                comando.ExecuteNonQuery();
+                string idOrdenProduccion = comando.Parameters["_ID_ORDEN_PRODUCCION"].Value.ToString();
+
+                MySqlCommand comando2 = new MySqlCommand();                
+                BindingList<DetallePedido> detalles = listarDetallesPedido(p.IdPedido);
+                foreach (DetallePedido d in detalles)
+                {
+                    comando2.CommandText = String.Format("INSERT INTO DETALLE_ORDEN_PRODUCCION(`ID_ORDEN_PROD`,`ID_PRODUCTO`,`ACTIVO`) VALUES (\"{0}\",\"{1}\",1);",idOrdenProduccion,d.IdProducto);
+                    comando2.Connection = conexion.Connection;
+                    comando2.ExecuteNonQuery();
+                }
+
+                conexion.Close();
             }
-            return -1;
         }
     }
 }
