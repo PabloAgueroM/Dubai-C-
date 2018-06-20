@@ -79,6 +79,57 @@ namespace AccesoDatos
             
             return lista;
         }
+        public Insumo buscarInsumo(string id)
+        {
+            Insumo p = new Insumo();
+            Conexion conexion = new Conexion();
+            if (conexion.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandText = String.Format("SELECT * FROM PRODUCTO_GENERICO WHERE ID_PRODUCTO =  \"{0}\"", id);
+                comando.Connection = conexion.Connection;
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    p.Id = reader.GetInt32("ID_PRODUCTO").ToString();
+                    p.Nombre = reader.GetString("NOMBRE");
+                    p.Precio = reader.GetInt32("PRECIO");
+                    p.Descripcion = reader.GetString("DESCRIPCION");
+                    p.Color = reader.GetString("COLOR");
+                }
+                conexion.Close();
+            }
+            return p;
+        }
+
+        public BindingList<Insumo> listarInsumos(string idProveedor)
+        {
+
+            BindingList<Insumo> lista = new BindingList<Insumo>();
+
+            Conexion con = new Conexion();
+            if (con.IsConnected())
+            {
+                MySqlCommand comando = new MySqlCommand();
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.CommandText = "LISTAR_INSUMOS_X_PROVEEDOR";
+                comando.Connection = con.Connection;
+                comando.Parameters.Add("_ID_PROVEEDOR", MySqlDbType.Int32).Value = idProveedor;
+                MySqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    Insumo n = new Insumo();
+                    n.Id = reader.GetInt32("ID_INSUMO").ToString();
+                    n = buscarInsumo(n.Id);
+                    lista.Add(n);
+
+                }
+                con.Close();
+            }
+
+            return lista;
+        }
+
 
 
     }
