@@ -180,3 +180,16 @@ C:\temp\ta\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe.config
 C:\temp\ta\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
 C:\temp\ta\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
 C:\temp\ta\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\AccesoDatos.pdb
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\MySql.Data.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\MySql.Data.EntityFramework.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\MySQL.Data.EntityFrameworkCore.Design.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\MySQL.Data.EntityFrameworkCore.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\MySql.Web.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.pdb
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\bin\Debug\Clases.exe.config
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.csprojResolveAssemblyReference.cache
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.dll
+C:\Users\alulab14.INF\Desktop\lolo\Dubai-C-\Dubi-C#\AccesoDatos\obj\Debug\AccesoDatos.pdb

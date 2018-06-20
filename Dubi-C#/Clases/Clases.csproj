@@ -61,6 +61,7 @@
     <Compile Include="DetallePedido.cs" />
     <Compile Include="Juridica.cs" />
     <Compile Include="Natural.cs" />
+    <Compile Include="OrdenProduccion.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />

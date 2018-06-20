@@ -81,5 +81,13 @@ namespace Vista
                 e.Cancel = true;
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FromGestionarProduccion gestionProduccion = new FromGestionarProduccion();
+            gestionProduccion.Owner = this;
+            Hide();
+            gestionProduccion.Show();
+        }
     }
 }

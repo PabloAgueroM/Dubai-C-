@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrdenProduccionDA.cs" />
     <Compile Include="ClienteDA.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="LoginDA.cs" />
