@@ -64,7 +64,7 @@ public class LoginDA {
             pstmt.setString(2, pass);
             rset = pstmt.executeQuery();
             if(rset.next()){
-                retorno = 1;
+                retorno = rset.getInt(3);
                 inicioSesion(user);
             }      
             rset.close();

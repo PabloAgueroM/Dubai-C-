@@ -7,15 +7,10 @@ package Vistas;
 
 import AccesoDatos.LoginDA;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -29,6 +24,7 @@ public class LogIn extends javax.swing.JFrame {
      * Creates new form LogIn
      */
     private LoginDA acceso;
+
     public LogIn() throws Exception {
         initComponents();
         acceso = new LoginDA();
@@ -211,7 +207,7 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_CerrarActionPerformed
     ActionEvent e;
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-        e=evt;
+        e = evt;
         String usuario = txtUsuario.getText();
         String contra = new String(txtContra.getPassword());
         if (usuario.isEmpty()) {
@@ -221,6 +217,7 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese una contraseña");
         }
         if (!contra.isEmpty() && !usuario.isEmpty()) {
+            int tipo = acceso.validarUsuario(usuario, contra);
             if (usuario.equals("admin") && contra.equals("1234")) {
                 VentanaPrincipal vp;
                 try {
@@ -230,17 +227,35 @@ public class LogIn extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }else if(acceso.validarUsuario(usuario, contra) == 1){
-                VentanaPrincipal vp;
+            } else if (tipo > 0) {
                 try {
-                    vp = new VentanaPrincipal(usuario);
-                    vp.setVisible(true);
+                    switch (tipo) {
+                        case 1: //Gerente
+                            VentanaPrincipal vp_1;
+                            vp_1 = new VentanaPrincipal(usuario);
+                            vp_1.setVisible(true);
+                            break;
+                        case 2://Administrador Producto
+                            VentanaPrincipal_admPro vp_2;
+                            vp_2 = new VentanaPrincipal_admPro(usuario);
+                            vp_2.setVisible(true);
+                            break;
+                        case 3://Administrador Ventas
+                            VentanaPrincipal_admVentas vp_3;
+                            vp_3 = new VentanaPrincipal_admVentas(usuario);
+                            vp_3.setVisible(true);
+                            break;
+                        case 4: //Vendedor
+                            VentanaPrincipal_Vendedor vp_4;
+                            vp_4 = new VentanaPrincipal_Vendedor(usuario);
+                            vp_4.setVisible(true);
+                            break;
+                    }
                     this.dispose();
                 } catch (Exception ex) {
                     Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }             
-            else {
+            } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos, intente nuevamente");
             }
         }
@@ -255,8 +270,9 @@ public class LogIn extends javax.swing.JFrame {
     }//GEN-LAST:event_cerrar_barMouseClicked
 
     private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
-        if (evt.getKeyCode()==KeyEvent.VK_ENTER)
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             IngresarActionPerformed(e);
+        }
     }//GEN-LAST:event_txtContraKeyPressed
 
     /**
