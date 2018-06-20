@@ -21,6 +21,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,7 +37,8 @@ public class GestionInsumo extends javax.swing.JFrame {
     private ProductoBL LogicaNegocioProducto;
     private Proveedor proveedorSeleccionado;
     private Proveedor_X_Insumo_BL LogicaNegocioProveedorXInsumo;
-    
+    private Color colorSeleccionado;
+ 
     int flag = 0;
     
     public void limpiarTblProveedores(){
@@ -55,7 +57,6 @@ public class GestionInsumo extends javax.swing.JFrame {
         txtColor.setText(null);
         txtStockMinimo.setText(null);
         txtPrecioReferencial.setText(null);
-        txtIdProveedor.setText(null);
         txtNombreProveedor.setText(null);
         txtPrecio.setText(null); 
     }
@@ -91,7 +92,6 @@ public class GestionInsumo extends javax.swing.JFrame {
                 cboTipo.setEnabled(false);
                 cboUnidadMedida.setEnabled(false);
                 btnBuscarProveedor.setEnabled(false);
-                txtIdProveedor.setEnabled(false); txtIdProveedor.setBackground(Color.lightGray);
                 txtNombreProveedor.setEnabled(false); txtNombreProveedor.setBackground(Color.lightGray);
                 txtPrecio.setEnabled(false); txtPrecio.setBackground(Color.lightGray);
                 btnAñadirProveedor.setEnabled(false);
@@ -112,7 +112,6 @@ public class GestionInsumo extends javax.swing.JFrame {
                 cboTipo.setEnabled(true);
                 cboUnidadMedida.setEnabled(true);
                 btnBuscarProveedor.setEnabled(true);
-                txtIdProveedor.setEnabled(false); 
                 txtNombreProveedor.setEnabled(false); 
                 txtPrecio.setEnabled(true); txtPrecio.setBackground(Color.white);
                 btnAñadirProveedor.setEnabled(true);
@@ -224,10 +223,7 @@ public class GestionInsumo extends javax.swing.JFrame {
         btnBuscarProveedor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProveedoresXInsumo = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
-        txtIdProveedor = new javax.swing.JTextField();
-        txtNombreProveedor = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        txtNombreProveedor = new javax.swing.JLabel();
         btnAñadirProveedor = new javax.swing.JButton();
         btnModificarProveedor = new javax.swing.JButton();
         btnEliminarProveedor = new javax.swing.JButton();
@@ -304,8 +300,6 @@ public class GestionInsumo extends javax.swing.JFrame {
                     .addComponent(txtDescripcion)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtStockMinimo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,8 +314,10 @@ public class GestionInsumo extends javax.swing.JFrame {
                                 .addGap(21, 21, 21)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 13, Short.MAX_VALUE)))
+                                    .addComponent(cboTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNombreInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -367,7 +363,7 @@ public class GestionInsumo extends javax.swing.JFrame {
 
         jLabel10.setText("Precio:");
 
-        btnBuscarProveedor.setText("...");
+        btnBuscarProveedor.setText("Seleccionar");
         btnBuscarProveedor.setEnabled(false);
         btnBuscarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,11 +389,9 @@ public class GestionInsumo extends javax.swing.JFrame {
             tblProveedoresXInsumo.getColumnModel().getColumn(2).setPreferredWidth(30);
         }
 
-        jLabel8.setText("Nombre:");
+        txtNombreProveedor.setText("Nombre:");
 
-        jLabel9.setText("Id:");
-
-        btnAñadirProveedor.setText("Añadir");
+        btnAñadirProveedor.setText("Insertar Proveedor");
         btnAñadirProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAñadirProveedorActionPerformed(evt);
@@ -437,67 +431,52 @@ public class GestionInsumo extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 13, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(btnAñadirProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(btnModificarProveedor)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEliminarProveedor)
-                .addGap(58, 58, 58))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))
-                        .addGap(72, 72, 72)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtNombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(btnGuardar)))
+                .addGap(220, 220, 220)
+                .addComponent(btnGuardar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNombreProveedor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnModificarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEliminarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnBuscarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel10)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(80, 80, 80)
+                            .addComponent(btnAñadirProveedor))))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarProveedor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNombreProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10)
-                        .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminarProveedor)
-                    .addComponent(btnModificarProveedor)
+                    .addComponent(btnBuscarProveedor)
+                    .addComponent(jLabel10)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAñadirProveedor))
+                .addGap(12, 12, 12)
+                .addComponent(txtNombreProveedor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnEliminarProveedor)
+                        .addGap(5, 5, 5)
+                        .addComponent(btnModificarProveedor)))
+                .addGap(32, 32, 32)
                 .addComponent(btnGuardar)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jToolBar1.setRollover(true);
@@ -571,7 +550,7 @@ public class GestionInsumo extends javax.swing.JFrame {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -837,7 +816,6 @@ public class GestionInsumo extends javax.swing.JFrame {
             añadirTblProveedores();
             proveedorSeleccionado = null;
             txtNombreProveedor.setText(null);
-            txtIdProveedor.setText(null);
             txtPrecio.setText(null);
         }
         else if (proveedorSeleccionado == null){
@@ -850,7 +828,9 @@ public class GestionInsumo extends javax.swing.JFrame {
 
     private void btnModificarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarProveedorActionPerformed
         // TODO add your handling code here:
-        int index = tblProveedoresXInsumo.getSelectedRow();
+        int index = 0;
+        
+        index = tblProveedoresXInsumo.getSelectedRow();
         
         if((index >= 0) && (txtPrecio.getText().length()>0)){
             ProveedorxInsumo proveedor = proveedores.get(index);
@@ -868,7 +848,7 @@ public class GestionInsumo extends javax.swing.JFrame {
 
             modelo.insertRow(index,fila);
         }
-        else if(index < 0){
+        else if(index == 0){
             JOptionPane.showMessageDialog(null, "Fila no seleccionada.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         else if(txtPrecio.getText().isEmpty()){
@@ -905,8 +885,7 @@ public class GestionInsumo extends javax.swing.JFrame {
 
         proveedorSeleccionado = frmBP.getProveedorSeleccionado();
         if(proveedorSeleccionado != null){
-            txtIdProveedor.setText(proveedorSeleccionado.getIDProveedor());
-            txtNombreProveedor.setText(proveedorSeleccionado.getNombre());
+            txtNombreProveedor.setText("Nombre: "+proveedorSeleccionado.getNombre());
         }
     }//GEN-LAST:event_btnBuscarProveedorActionPerformed
 
@@ -967,8 +946,6 @@ public class GestionInsumo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -979,9 +956,8 @@ public class GestionInsumo extends javax.swing.JFrame {
     private javax.swing.JTextField txtColor;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdInsumo;
-    private javax.swing.JTextField txtIdProveedor;
     private javax.swing.JTextField txtNombreInsumo;
-    private javax.swing.JTextField txtNombreProveedor;
+    private javax.swing.JLabel txtNombreProveedor;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtPrecioReferencial;
     private javax.swing.JTextField txtStockMinimo;
