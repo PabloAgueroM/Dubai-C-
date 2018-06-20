@@ -51,6 +51,12 @@
     <Compile Include="FormBuscarClienteJuridico.Designer.cs">
       <DependentUpon>FormBuscarClienteJuridico.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBuscarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBuscarProveedor.Designer.cs">
+      <DependentUpon>FormBuscarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBuscarPersonaJuridica.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBuscarClienteJuridico.resx">
       <DependentUpon>FormBuscarClienteJuridico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBuscarProveedor.resx">
+      <DependentUpon>FormBuscarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormBuscarPersonaJuridica.resx">
       <DependentUpon>FormBuscarPersonaJuridica.cs</DependentUpon>

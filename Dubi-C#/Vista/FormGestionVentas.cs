@@ -54,7 +54,7 @@ namespace Vista
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            FormGestionCompras gestionarPedido = new FormGestionCompras();
+            FormGestionCompras gestionarPedido = new FormGestionCompras(idActual);
             gestionarPedido.ShowDialog();
         }
     }

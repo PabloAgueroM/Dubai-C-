@@ -59,6 +59,7 @@
     <Compile Include="ClienteDA.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="LoginDA.cs" />
+    <Compile Include="OrdenCompraDA.cs" />
     <Compile Include="PedidoDA.cs" />
     <Compile Include="ProductoDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

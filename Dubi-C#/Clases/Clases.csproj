@@ -58,9 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetalleOrdenCompra.cs" />
     <Compile Include="DetallePedido.cs" />
+    <Compile Include="Insumo.cs" />
     <Compile Include="Juridica.cs" />
     <Compile Include="Natural.cs" />
+    <Compile Include="OrdenCompra.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />

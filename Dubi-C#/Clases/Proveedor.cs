@@ -14,7 +14,9 @@ namespace Clases
         public string IdProveedor { get => idProveedor; set => idProveedor = value; }
         public Natural Representante { get => representante; set => representante = value; }
 
-        public Proveedor() { }
+        public Proveedor() {
+            representante = new Natural();
+        }
 
         public Proveedor(string idProveedor, Natural representante)
         {
