@@ -682,6 +682,7 @@ public class GestionInsumo extends javax.swing.JFrame {
             frmBI.setVisible(true);
             
             insumoSeleccionado = frmBI.getInsumoSeleccionado();
+            System.out.println(insumoSeleccionado.getNombre());
             if(insumoSeleccionado != null){
                 estado("buscar");
                 txtIdInsumo.setText(String.valueOf(insumoSeleccionado.getId()));
@@ -694,9 +695,13 @@ public class GestionInsumo extends javax.swing.JFrame {
                 cboUnidadMedida.setSelectedItem(insumoSeleccionado.getUnidad());
                 
                 proveedores = logicaNegocioInsumo.listarProveedoresXInsumo(insumoSeleccionado.getId());
-//                for(int q = 0; q<proveedores.size();q++){
-//                    System.out.println(proveedores.get(q).getProveedor().getNombre());
-//                }
+                System.out.println("Vistas.GestionInsumo.btnBuscarInsumoActionPerformed()");
+                System.out.println(proveedores.size());
+                
+                for(int q = 0; q < proveedores.size();q++){
+                   //System.out.println(proveedores.get(q).getProveedor().getNombre());
+                    System.out.println(q);
+                }
                 insumoSeleccionado.setProveedoresXInsumo(proveedores);
                 
                 actualizarDatos();
