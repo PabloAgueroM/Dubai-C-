@@ -63,7 +63,11 @@
     <Compile Include="Insumo.cs" />
     <Compile Include="Juridica.cs" />
     <Compile Include="Natural.cs" />
+<<<<<<< HEAD
     <Compile Include="OrdenCompra.cs" />
+=======
+    <Compile Include="OrdenProduccion.cs" />
+>>>>>>> 9be8aaad55d5a8dc7d54bb395145cfe4e9943283
     <Compile Include="Pedido.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />

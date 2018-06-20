@@ -29,7 +29,7 @@ public class ProveedorxInsumo {
     }
     
     public Proveedor getProveedor(){
-        return proveedor;
+        return this.proveedor;
     }
     
     public void setPrecio(double precio){
