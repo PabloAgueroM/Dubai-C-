@@ -7,6 +7,7 @@ import Modelo.Producto;
 import Modelo.TipoProductoG;
 import Modelo.UnidadDeMedida;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,9 +33,9 @@ public class GestionarProducto extends javax.swing.JFrame {
     private ProductoBL LogicaNegocio;
     private int accion = 1;
     double precio = 0;
-    private final int ESTADO_HABILITAR  = 1;
-    private final int ESTADO_DESHABILITAR  = 2;
-    private final int ESTADO_LIMPIAR  = 3;
+    private final int ESTADO_HABILITAR = 1;
+    private final int ESTADO_DESHABILITAR = 2;
+    private final int ESTADO_LIMPIAR = 3;
 
     //accion: 0=nuevo; 1=modificar; 2=eliminar.
     public void leerInsumosXproducto() {
@@ -45,6 +46,15 @@ public class GestionarProducto extends javax.swing.JFrame {
                     (String) TablaInsumosxProducto.getValueAt(i, 1),
                     (int) TablaInsumosxProducto.getValueAt(i, 2));
             producto.insertarInsumos(ip);
+        }
+    }
+
+    public void actualizarPrecio() {
+        DefaultTableModel modelo = (DefaultTableModel) TablaInsumosxProducto.getModel();
+        int n = TablaInsumosxProducto.getRowCount();
+        precio = 0;
+        for (int i = 0; i < n; i++) {
+            precio += (double) TablaInsumosxProducto.getValueAt(i, 2);
         }
     }
 
@@ -125,8 +135,8 @@ public class GestionarProducto extends javax.swing.JFrame {
         PrecioText.setAutoscrolls(false);
         PrecioText.setEnabled(false);
         PrecioText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                PrecioTextKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PrecioTextKeyReleased(evt);
             }
         });
 
@@ -138,13 +148,18 @@ public class GestionarProducto extends javax.swing.JFrame {
 
         StockText.setAutoscrolls(false);
         StockText.setEnabled(false);
+        StockText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                StockTextKeyReleased(evt);
+            }
+        });
 
         SeleccionarInsumos.setBorder(javax.swing.BorderFactory.createTitledBorder("Insumos"));
 
         CantidadInsumoText.setEnabled(false);
         CantidadInsumoText.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                CantidadInsumoTextKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CantidadInsumoTextKeyReleased(evt);
             }
         });
 
@@ -272,6 +287,11 @@ public class GestionarProducto extends javax.swing.JFrame {
 
         colorText.setAutoscrolls(false);
         colorText.setEnabled(false);
+        colorText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                colorTextKeyReleased(evt);
+            }
+        });
 
         lblTipo.setText("Tipo");
 
@@ -536,6 +556,8 @@ public class GestionarProducto extends javax.swing.JFrame {
         SelecInsumoBtn.setEnabled(true);
         producto = new Producto();
         accion = 0;
+        eliminarInsBtn.setEnabled(true);
+        modificarInsBtn.setEnabled(true);
     }//GEN-LAST:event_NuevoBtnMouseClicked
 
     private void InsertarInsumoBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InsertarInsumoBotonMouseClicked
@@ -545,8 +567,9 @@ public class GestionarProducto extends javax.swing.JFrame {
                     seleccionInsumo.getDescripcion(),
                     Float.parseFloat(CantidadInsumoText.getText()));
             modelo.addRow(new Object[]{seleccionInsumo.getId(), seleccionInsumo.getDescripcion(), ip.getCantidad()});
-            precio += seleccionInsumo.getPrecio() * ip.getCantidad();
-            lblPrecioSugerido.setText("Precio Mínimo: " + precio);
+            actualizarPrecio();
+            DecimalFormat df = new DecimalFormat("#.##");
+            lblPrecioSugerido.setText("Precio Mínimo: " + df.format(precio));
         }
         InsertarInsumoBoton.setEnabled(false);
     }//GEN-LAST:event_InsertarInsumoBotonMouseClicked
@@ -554,8 +577,9 @@ public class GestionarProducto extends javax.swing.JFrame {
     private void EliminarBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarBtnMouseClicked
         if (EliminarBtn.isEnabled()) {
             int op = JOptionPane.showConfirmDialog(this, "¿Está seguro que desea eliminar este producto?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-            if (op == JOptionPane.YES_OPTION)
+            if (op == JOptionPane.YES_OPTION) {
                 LogicaNegocio.eliminarProducto(producto);
+            }
         }
         Estado(ESTADO_LIMPIAR);
         Estado(ESTADO_DESHABILITAR);
@@ -609,6 +633,8 @@ public class GestionarProducto extends javax.swing.JFrame {
             default:
                 break;
         }
+        eliminarInsBtn.setEnabled(false);
+        modificarInsBtn.setEnabled(false);
         Estado(ESTADO_DESHABILITAR);
     }//GEN-LAST:event_guardarBtnActionPerformed
 
@@ -644,7 +670,9 @@ public class GestionarProducto extends javax.swing.JFrame {
             modeloP.addRow(filaP);
         }
         EliminarBtn.setEnabled(true);
-        accion=1;
+        eliminarInsBtn.setEnabled(true);
+        modificarInsBtn.setEnabled(true);
+        accion = 1;
     }//GEN-LAST:event_BuscarBtnActionPerformed
 
     private void SelecInsumoBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SelecInsumoBtnMouseClicked
@@ -672,28 +700,63 @@ public class GestionarProducto extends javax.swing.JFrame {
                 LogicaNegocio.modificarInsumoXProducto(producto.getId(), ip);
             }
             ActualizarTablaDeInsumos();
+            actualizarPrecio();
+            DecimalFormat df = new DecimalFormat("#.##");
+            lblPrecioSugerido.setText("Precio Mínimo: " + df.format(precio));
         }
     }//GEN-LAST:event_modificarInsBtnActionPerformed
 
     private void eliminarInsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarInsBtnActionPerformed
-        int index = TablaInsumosxProducto.getSelectedRow();
-        LogicaNegocio.eliminarInsumoXProducto(producto.getId(), (int) TablaInsumosxProducto.getValueAt(index, 0));
+        if (eliminarInsBtn.isEnabled()) {
+            int index = TablaInsumosxProducto.getSelectedRow();
+            LogicaNegocio.eliminarInsumoXProducto(producto.getId(), (int) TablaInsumosxProducto.getValueAt(index, 0));
+            ActualizarTablaDeInsumos();
+            actualizarPrecio();
+            DecimalFormat df = new DecimalFormat("#.##");
+            lblPrecioSugerido.setText("Precio Mínimo: " + df.format(precio));
+        }
     }//GEN-LAST:event_eliminarInsBtnActionPerformed
 
-    private void PrecioTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextKeyTyped
+    private void PrecioTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrecioTextKeyReleased
         String texto = PrecioText.getText();
-        Pattern DECIMAL_VALIDO = Pattern.compile("\\d+(\\.\\d+)?");//^(\\d+\\.)?\\d+$
+        Pattern DECIMAL_VALIDO = Pattern.compile("^\\d+(\\.\\d+)?$");
         Matcher matcher = DECIMAL_VALIDO.matcher(texto);
         if (!matcher.find()) {
             PrecioText.setForeground(java.awt.Color.RED);
         } else {
             PrecioText.setForeground(java.awt.Color.BLACK);
         }
-    }//GEN-LAST:event_PrecioTextKeyTyped
+    }//GEN-LAST:event_PrecioTextKeyReleased
 
-    private void CantidadInsumoTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadInsumoTextKeyPressed
+    private void colorTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_colorTextKeyReleased
+        String texto = colorText.getText();
+        Pattern COLOR_VALIDO = Pattern.compile("^[a-z,A-Z]+$");
+        Matcher matcher = COLOR_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            colorText.setForeground(java.awt.Color.RED);
+        } else {
+            colorText.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_colorTextKeyReleased
+
+    private void StockTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_StockTextKeyReleased
+        String texto = StockText.getText();
+        Pattern ENTERO_VALIDO = Pattern.compile("^\\d+$");
+        Pattern DECIMAL_VALIDO = Pattern.compile("^\\d+(\\.\\d+)?$");
+        Matcher matcher;
+        if(cmbUnidad.getSelectedItem().toString().compareTo("Unidad(es)")==0) 
+            matcher = ENTERO_VALIDO.matcher(texto);
+        else    matcher = DECIMAL_VALIDO.matcher(texto);
+        if (!matcher.find()) {
+            StockText.setForeground(java.awt.Color.RED);
+        } else {
+            StockText.setForeground(java.awt.Color.BLACK);
+        }
+    }//GEN-LAST:event_StockTextKeyReleased
+
+    private void CantidadInsumoTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantidadInsumoTextKeyReleased
         String texto = CantidadInsumoText.getText();
-        Pattern DECIMAL_VALIDO = Pattern.compile("[0-9]+(\\.[0-9]+)?");//^(\\d+\\.)?\\d+$
+        Pattern DECIMAL_VALIDO = Pattern.compile("^[0-9]+(\\.[0-9]+)?$");
         Matcher matcher = DECIMAL_VALIDO.matcher(texto);
         if (!matcher.find()) {
             CantidadInsumoText.setForeground(java.awt.Color.RED);
@@ -702,9 +765,11 @@ public class GestionarProducto extends javax.swing.JFrame {
             }
         } else {
             CantidadInsumoText.setForeground(java.awt.Color.BLACK);
-            InsertarInsumoBoton.setEnabled(true);
+            if (seleccionInsumo != null) {
+                InsertarInsumoBoton.setEnabled(true);
+            }
         }
-    }//GEN-LAST:event_CantidadInsumoTextKeyPressed
+    }//GEN-LAST:event_CantidadInsumoTextKeyReleased
 
     /**
      * @param args the command line arguments

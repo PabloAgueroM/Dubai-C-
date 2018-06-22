@@ -1,10 +1,25 @@
-Java:
+GERENTE
 
-Usuario: admin
-Contraseña: 1234
+Usuario: 		17
+Contraseña:		password
 
-C#:
 
-Usuario: 17
-Contraseña 1711
+ADMINISTRADOR DE VENTAS
 
+
+Usuario: 		22
+Contraseña:		mandarina
+
+
+ADMINISTRADOR DE PRODUCCION
+
+
+Usuario: 		24
+Contraseña:		ernesto123
+
+
+VENDEDOR
+
+
+Usuario: 		27
+Contraseña:		123qwerty

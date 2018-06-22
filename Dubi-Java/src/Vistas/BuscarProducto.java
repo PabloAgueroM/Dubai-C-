@@ -10,6 +10,9 @@ import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import java.util.regex.*;
+import javax.swing.RowFilter;
 
 /**
  *
@@ -20,6 +23,8 @@ public class BuscarProducto extends javax.swing.JDialog {
     private Producto seleccion;
     private ProductoBL logicaNegocio;
     private ArrayList<Producto> lista;
+    private int row=0;
+    private DefaultTableModel modelo;
 
     /**
      * Creates new form BuscarProduct
@@ -30,7 +35,7 @@ public class BuscarProducto extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         logicaNegocio = new ProductoBL();
         lista = logicaNegocio.listarProductos();
-        DefaultTableModel modelo = (DefaultTableModel) tablaProd.getModel();
+        modelo = (DefaultTableModel) tablaProd.getModel();
         Object[] fila = new Object[6];
         for (int i = 0; i < lista.size(); i++) {
             fila[0] = lista.get(i).getId();
@@ -59,6 +64,9 @@ public class BuscarProducto extends javax.swing.JDialog {
         TablaPanel = new javax.swing.JScrollPane();
         tablaProd = new javax.swing.JTable();
         SeleccionarBtn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        cmbFiltro = new javax.swing.JComboBox();
+        txtFiltro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Seleccionar Producto");
@@ -96,17 +104,33 @@ public class BuscarProducto extends javax.swing.JDialog {
             }
         });
 
+        jLabel1.setText("Buscar por:");
+
+        cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ID", "Descripción", "Talla", "Color", "Precio" }));
+
+        txtFiltro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFiltroKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TablaPanel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TablaPanel)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 436, Short.MAX_VALUE)
-                        .addComponent(SeleccionarBtn)))
+                        .addComponent(SeleccionarBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFiltro)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -114,8 +138,13 @@ public class BuscarProducto extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(SeleccionarBtn)
-                .addGap(32, 32, 32)
-                .addComponent(TablaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TablaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -132,6 +161,19 @@ public class BuscarProducto extends javax.swing.JDialog {
             dispose();
         }
     }//GEN-LAST:event_SeleccionarBtnActionPerformed
+
+    private void txtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyReleased
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(modelo);
+        tablaProd.setRowSorter(tr);
+        if (cmbFiltro.getSelectedItem().equals("ID"))    row=1;
+        if (cmbFiltro.getSelectedItem().equals("Descripción"))    row=2;
+        if (cmbFiltro.getSelectedItem().equals("Talla"))    row=3;
+        if (cmbFiltro.getSelectedItem().equals("Color"))    row=4;
+        if (cmbFiltro.getSelectedItem().equals("Precio"))    row=5;
+        
+        if (row!=0)
+            tr.setRowFilter(RowFilter.regexFilter(txtFiltro.getText(),row-1));
+    }//GEN-LAST:event_txtFiltroKeyReleased
 
     /**
      * @param args the command line arguments
@@ -179,6 +221,9 @@ public class BuscarProducto extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SeleccionarBtn;
     private javax.swing.JScrollPane TablaPanel;
+    private javax.swing.JComboBox cmbFiltro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTable tablaProd;
+    private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }

@@ -176,7 +176,7 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PrecioTextKeyTyped"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PrecioTextKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
@@ -199,6 +199,9 @@
         <Property name="autoscrolls" type="boolean" value="false"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="StockTextKeyReleased"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="SeleccionarInsumos">
       <Properties>
@@ -278,7 +281,7 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CantidadInsumoTextKeyPressed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="CantidadInsumoTextKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCantidadI">
@@ -393,6 +396,9 @@
         <Property name="autoscrolls" type="boolean" value="false"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="colorTextKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbTalla">
       <Properties>
